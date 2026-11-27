@@ -779,7 +779,7 @@ function startExam(s, n) {
   if (!n) items = shuffle(items).slice(0, 8); else items = shuffle(items);
   EX = {s, n, i: 0, got: 0, tot: 0, items};
   const c = n ? chap(s, n) : null;
-  const head = c ? bar(s, c, "exam", c.title + " — exam questions", `${d.name} · ${items.length} written questions · answer, then the AI marks it`, "")
+  const head = c ? bar(s, c, "exam", c.title + " — exam questions", `${d.name} · ${items.length} written questions · answer, then check it`, "")
     : `<div class="reader-bar"><span class="ch">📝</span><div class="ttl"><h2>${d.name} exam questions</h2><div class="meta">8 written questions from all chapters</div></div><div class="tools"><button class="btn" id="fullBtn" type="button">⤢ Full screen</button><a class="btn" href="#${s}">✕ Close</a></div></div>`;
   showReader(c ? uColor(s, c.u) : sColor(s), head + `<div class="quiz-wrap"><div class="quiz" id="quiz"></div></div>`);
   wireBar("", "");
@@ -791,24 +791,24 @@ function drawEx() {
   $("#quiz").innerHTML = `<div class="qtop"><span>Question ${EX.i + 1} of ${EX.items.length}</span><span class="dots">${EX.items.map((_, k) => `<i class="${k < EX.i ? "ok" : k === EX.i ? "now" : ""}"></i>`).join("")}</span><span class="num">${EX.got}/${EX.tot} marks</span></div>
     <div class="qcard"><div class="from">Chapter ${it.ch}</div><h3 class="ex-q"><span class="ex-tag">${EXN[it.t] || "Question"}</span><span class="ex-tag">${it.m} mark${it.m > 1 ? "s" : ""}</span><br>${esc(it.q)}</h3>
       <textarea class="ex-ans" id="exAns" placeholder="Write your answer here, as you would in the exam…"></textarea></div>
-    <div id="fb"></div><div class="qnav" id="exBtns"><button class="btn primary" id="exAI" type="button">🤖 AI mark my answer</button></div><div class="ex-left" id="exLeft"></div>`;
+    <div id="fb"></div><div class="qnav" id="exBtns"><button class="btn primary" id="exAI" type="button">Check my answer</button></div><div class="ex-left" id="exLeft"></div>`;
   const key = () => "aiMarks-" + new Date(Date.now() + 4 * 3600000).toISOString().slice(0, 10);
   const left = () => Math.max(0, 10 - (+localStorage.getItem(key()) || 0));
-  const showLeft = n => { $("#exLeft").textContent = `AI marks left today: ${n}/10`; };
+  const showLeft = n => { $("#exLeft").textContent = `Checks left today: ${n}/10`; };
   showLeft(left());
   const reveal = (pts, note) => {
     $("#exBtns") && $("#exBtns").remove(); $("#exAns").readOnly = true;
     const marked = Array.isArray(pts);
-    $("#fb").innerHTML = `${note || ""}<div class="ex-ms"><h4>Mark scheme${marked ? "" : " (not marked)"}</h4>${it.ms.map((p, k) => `<label><input type="checkbox" disabled ${marked && pts.includes(k) ? "checked" : ""}><span>${esc(p)}</span></label>`).join("")}${marked ? `<div class="ex-sc">AI marks: ${Math.min(it.m, pts.length)}/${it.m}</div>` : ""}</div>
+    $("#fb").innerHTML = `${note || ""}<div class="ex-ms"><h4>Mark scheme${marked ? "" : " (not marked)"}</h4>${it.ms.map((p, k) => `<label><input type="checkbox" disabled ${marked && pts.includes(k) ? "checked" : ""}><span>${esc(p)}</span></label>`).join("")}${marked ? `<div class="ex-sc">Marks: ${Math.min(it.m, pts.length)}/${it.m}</div>` : ""}</div>
       <div class="qnav" style="margin-top:14px"><button class="btn primary" id="exNext" type="button">${EX.i === EX.items.length - 1 ? "See my total" : "Next question →"}</button></div>`;
     $("#exNext").onclick = () => { if (marked) { EX.got += Math.min(it.m, pts.length); EX.tot += it.m; } EX.i++; if (EX.i >= EX.items.length) finishEx(); else drawEx(); };
     $("#exNext").scrollIntoView({behavior: "smooth", block: "nearest"});
   };
   $("#exAI").onclick = async () => {
     const ans = $("#exAns").value.trim();
-    if (ans.length < 3) { $("#fb").innerHTML = `<div class="feedback" style="--fc:var(--bad)"><strong>Write your answer first</strong>The AI marks what you type.</div>`; return; }
-    if (left() <= 0) { $("#fb").innerHTML = `<div class="feedback" style="--fc:var(--bad)"><strong>No AI marks left today</strong>You get 10 a day. They reset tomorrow.</div><div class="qnav"><button class="btn" id="exSkip" type="button">Skip and see the mark scheme</button></div>`; $("#exSkip").onclick = () => reveal(null); return; }
-    const btn = $("#exAI"); btn.disabled = true; btn.textContent = "🤖 Marking…";
+    if (ans.length < 3) { $("#fb").innerHTML = `<div class="feedback" style="--fc:var(--bad)"><strong>Write your answer first</strong>Your answer is checked as you type it.</div>`; return; }
+    if (left() <= 0) { $("#fb").innerHTML = `<div class="feedback" style="--fc:var(--bad)"><strong>No checks left today</strong>You get 10 a day. They reset tomorrow.</div><div class="qnav"><button class="btn" id="exSkip" type="button">Skip and see the mark scheme</button></div>`; $("#exSkip").onclick = () => reveal(null); return; }
+    const btn = $("#exAI"); btn.disabled = true; btn.textContent = "Checking…";
     try {
       const token = window.authToken ? await window.authToken() : null;
       const r = await fetch("/api/mark", {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify({token, question: it.q, marks: it.m, scheme: it.ms, answer: ans})});
@@ -816,10 +816,10 @@ function drawEx() {
       if (r.status === 429) localStorage.setItem(key(), "10");
       if (!r.ok) throw new Error(j.error || "failed");
       localStorage.setItem(key(), String(10 - j.remaining));
-      reveal(j.points, `<div class="feedback" style="--fc:var(--c, var(--accent));margin-bottom:12px"><strong>🤖 AI examiner: ${j.marks}/${it.m}</strong>${esc(j.feedback)}<br><small>AI marking can be wrong. Marks are final and can't be changed.</small></div>`);
+      reveal(j.points, `<div class="feedback" style="--fc:var(--c, var(--accent));margin-bottom:12px"><strong>Marks: ${j.marks}/${it.m}</strong>${esc(j.feedback)}<br><small>Marks are final and can't be changed.</small></div>`);
     } catch (e) {
-      btn.disabled = false; btn.textContent = "🤖 AI mark my answer"; showLeft(left());
-      $("#fb").innerHTML = `<div class="feedback" style="--fc:var(--bad)"><strong>AI marking isn't available right now</strong>${esc(e.message || "")}</div><div class="qnav"><button class="btn" id="exSkip" type="button">Skip and see the mark scheme</button></div>`;
+      btn.disabled = false; btn.textContent = "Check my answer"; showLeft(left());
+      $("#fb").innerHTML = `<div class="feedback" style="--fc:var(--bad)"><strong>Checking isn't available right now</strong>${esc(e.message || "")}</div><div class="qnav"><button class="btn" id="exSkip" type="button">Skip and see the mark scheme</button></div>`;
       $("#exSkip").onclick = () => reveal(null);
     }
   };
