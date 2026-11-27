@@ -43,7 +43,7 @@ Student answer:
 Reply with only JSON: {"points":[indices of mark scheme points the student earned],"feedback":"2-3 short sentences: what was good and the most important missing point"}`;
     let text = "";
     if (process.env.GEMINI_API_KEY) {
-      const models = [process.env.GEMINI_MODEL, "gemini-3.1-flash-lite", "gemini-2.5-flash-lite", "gemini-2.5-flash"].filter(Boolean);
+      const models = [process.env.GEMINI_MODEL, "gemini-2.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash"].filter(Boolean);
       let ok = false;
       for (const mdl of models) {
         let r;
@@ -51,7 +51,7 @@ Reply with only JSON: {"points":[indices of mark scheme points the student earne
           r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${mdl}:generateContent`, {
             method: "POST", signal: AbortSignal.timeout(9000),
             headers: {"x-goog-api-key": process.env.GEMINI_API_KEY, "content-type": "application/json"},
-            body: JSON.stringify({contents: [{parts: [{text: prompt}]}], generationConfig: {responseMimeType: "application/json", maxOutputTokens: 500, temperature: 0.2}})
+            body: JSON.stringify({contents: [{parts: [{text: prompt}]}], generationConfig: {responseMimeType: "application/json", maxOutputTokens: 300, temperature: 0.2}})
           });
         } catch (e) { continue; }          // timed out: try the next model
         if (!r.ok) continue;               // busy (429), unknown model (404/400) or error: try the next model
