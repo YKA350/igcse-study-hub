@@ -834,8 +834,12 @@ const checksDay = () => Math.floor((Date.now() + 4 * 3600000) / 86400000);
 const checksKey = () => "aiMarks-" + ((window.authUser && window.authUser.email) || "guest") + "-" + checksDay();
 async function syncChecks() {
   try {
-    if (!window.authToken) return;
-    const t = await window.authToken(); if (!t) return;
+    let t = null;
+    for (let k = 0; k < 20 && !t; k++) {   // sign-in may still be loading when the page opens
+      if (window.authToken && window.authUser) t = await window.authToken().catch(() => null);
+      if (!t) await new Promise(r => setTimeout(r, 300));
+    }
+    if (!t) return;
     const uid = JSON.parse(atob(t.split(".")[1].replace(/-/g, "+").replace(/_/g, "/"))).user_id;
     const r = await fetch(`https://firestore.googleapis.com/v1/projects/studygcse-29350/databases/(default)/documents/checks/${uid}`, {headers: {Authorization: "Bearer " + t}, signal: AbortSignal.timeout(6000)});
     let n = 0;
