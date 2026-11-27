@@ -188,3 +188,10 @@ section.divider .lead { max-width: 1300px; }
   padding: 16px 20px; font: 600 16px/1.5 var(--font); box-shadow: 0 12px 40px rgba(0,0,0,.3); }
 .spec-tag{position:absolute;left:70px;right:70px;bottom:14px;font:700 20px var(--font);color:var(--ink-2,#5b5880);opacity:.85;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .spec-tag b{color:var(--c-d,#0b6f8a);font-weight:900;margin-right:8px}
+
+/* roomier text when a slide has few points */
+.stack.mid { gap: 28px; } .stack.big { gap: 34px; }
+.stack.mid .def p { font-size: 42px; } .stack.mid .def .term { font-size: 30px; } .stack.mid .tip { font-size: 36px; }
+.stack.big .def p { font-size: 50px; } .stack.big .def .term { font-size: 34px; } .stack.big .tip { font-size: 42px; }
+.stack.mid .def { padding: 40px 48px 40px 52px; } .stack.big .def { padding: 52px 56px 52px 60px; }
+.stack.sm { gap: 16px; } .stack.sm .def p { font-size: 31px; } .stack.sm .def { padding: 24px 36px 24px 40px; } .stack.sm .tip { font-size: 28px; padding-top: 20px; padding-bottom: 20px; }
