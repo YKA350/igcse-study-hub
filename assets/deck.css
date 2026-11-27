@@ -199,3 +199,5 @@ section.divider .lead { max-width: 1300px; }
 .stack.sm .def .term{font-size:22px} .wide-left .stack.sm .def p{font-size:25px} .wide-left .stack.sm .def{padding:18px 26px 18px 30px} .wide-left .stack.sm .card p{font-size:24px}
 
 section.dg .card p{font-size:28px} section.dg .card{padding:28px 32px} section.dg .fig{padding:18px}
+
+.body > .fz { display: flex; flex-direction: column; gap: 28px; flex: none; min-height: 0; transform-origin: top left; align-self: flex-start; }

@@ -8,9 +8,24 @@
   let i = 0;
   try { const h = parseInt(location.hash.slice(1)); if (h > 0 && h <= S.length) i = h - 1; } catch (e) {}
   function fit() { const vp = document.getElementById('vp'); const s = Math.min(vp.clientWidth / 1920, vp.clientHeight / 1080); st.style.transform = 'scale(' + s + ')'; }
+  /* make each slide's content fill the space: grow short content, shrink content that overflows */
+  function autofit(sec) {
+    if (sec.dataset.fit) return; sec.dataset.fit = 1;
+    if (sec.classList.contains('cover') || sec.classList.contains('divider')) return;
+    const body = sec.querySelector(':scope > .body'); if (!body || !body.children.length || body.querySelector('svg,img,canvas,video')) return;
+    const fz = document.createElement('div'); fz.className = 'fz';
+    while (body.firstChild) fz.appendChild(body.firstChild);
+    body.appendChild(fz);
+    const W = body.clientWidth, H = body.clientHeight;
+    const set = z => { fz.style.width = (W / z) + 'px'; fz.style.transform = 'scale(' + z + ')'; };
+    const fits = z => { set(z); return fz.offsetHeight * z <= H - 2; };
+    if (fits(1)) { if (fz.offsetHeight > H * 0.82) { set(1); return; } let lo = 1, hi = 1.5; if (fits(hi)) lo = hi; else for (let k = 0; k < 7; k++) { const m = (lo + hi) / 2; if (fits(m)) lo = m; else hi = m; } set(lo); }
+    else { let lo = 0.7, hi = 1; for (let k = 0; k < 7; k++) { const m = (lo + hi) / 2; if (fits(m)) lo = m; else hi = m; } set(lo); }
+  }
   function show(n) {
     i = Math.max(0, Math.min(S.length - 1, n));
     S.forEach((s, k) => s.classList.toggle('on', k === i));
+    try { autofit(S[i]); } catch (e) {}
     document.getElementById('count').textContent = (i + 1) + ' / ' + S.length;
     document.getElementById('prog').style.width = ((i + 1) / S.length * 100) + '%';
     const a = S[i].querySelector('aside'); document.getElementById('notes').textContent = a ? a.textContent : 'No notes for this slide.';
