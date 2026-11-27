@@ -297,7 +297,7 @@ function tabs() {
 function acctNav() {
   const nv = (id, label) => `<a class="tab nav" href="#${id}" ${page === id ? 'aria-current="page"' : ""} style="--c:var(--accent)">${label}</a>`;
   const u = window.authUser, nm = u ? (u.displayName || u.email || "").split(/[ @]/)[0] : "";
-  return `<span class="navsp"></span>` + nv("quizzes", "⚡ Quizzes") + nv("support", "💬 Support") +
+  return `<span class="navsp"></span>` + nv("support", "💬 Support") +
     (u ? `<span class="navdiv" aria-hidden="true"></span><button class="tab nav acc" id="mysubj" type="button">🎯 My subjects</button><span class="navdiv" aria-hidden="true"></span><button class="tab nav out" id="acct" type="button" title="${esc(u.email || "")}">⎋ Log out</button>` : "");
 }
 document.addEventListener("click", e => { const c = e.target.closest("#copyem"); if (c) { const done = () => { c.textContent = "✔ Copied"; setTimeout(() => c.textContent = "📋 Copy address", 1800); }; if (navigator.clipboard) navigator.clipboard.writeText(c.dataset.em).then(done, done); else done(); } const b = e.target.closest("#acct"); if (b && window.authSignOut) window.authSignOut(); });
