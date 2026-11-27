@@ -197,3 +197,5 @@ section.divider .lead { max-width: 1300px; }
 .stack.sm { gap: 16px; } .stack.sm .def p { font-size: 31px; } .stack.sm .def { padding: 24px 36px 24px 40px; } .stack.sm .tip { font-size: 28px; padding-top: 20px; padding-bottom: 20px; }
 
 .stack.sm .def .term{font-size:22px} .wide-left .stack.sm .def p{font-size:25px} .wide-left .stack.sm .def{padding:18px 26px 18px 30px} .wide-left .stack.sm .card p{font-size:24px}
+
+section.dg .card p{font-size:28px} section.dg .card{padding:28px 32px} section.dg .fig{padding:18px}
