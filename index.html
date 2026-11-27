@@ -797,10 +797,10 @@ function drawEx() {
     <div class="qcard"><div class="from">Chapter ${it.ch}</div><h3 class="ex-q"><span class="ex-tag">${EXN[it.t] || "Question"}</span><span class="ex-tag">${it.m} mark${it.m > 1 ? "s" : ""}</span><br>${esc(it.q)}</h3>
       <textarea class="ex-ans" id="exAns" placeholder="Write your answer here, as you would in the exam…"></textarea></div>
     <div id="fb"></div><div class="qnav" id="exBtns"><button class="btn primary" id="exAI" type="button">Check my answer</button></div><div class="ex-left" id="exLeft"></div>`;
-  const key = () => "aiMarks-" + new Date(Date.now() + 4 * 3600000).toISOString().slice(0, 10);
-  const left = () => Math.max(0, 10 - (+localStorage.getItem(key()) || 0));
-  const showLeft = n => { $("#exLeft").textContent = `Checks left today: ${n}/10`; };
+  const key = checksKey, left = () => Math.max(0, 10 - (+localStorage.getItem(key()) || 0));
+  const showLeft = n => { const el = $("#exLeft"); if (el) el.textContent = `Checks left today: ${n}/10`; };
   showLeft(left());
+  syncChecks().then(() => showLeft(left()));
   const reveal = (pts, note) => {
     $("#exBtns") && $("#exBtns").remove(); $("#exAns").readOnly = true;
     const marked = Array.isArray(pts);
@@ -828,6 +828,21 @@ function drawEx() {
       $("#exSkip").onclick = () => reveal(null);
     }
   };
+}
+// Checks used today are counted per account in Firestore; this keeps a local copy per account.
+const checksDay = () => Math.floor((Date.now() + 4 * 3600000) / 86400000);
+const checksKey = () => "aiMarks-" + ((window.authUser && window.authUser.email) || "guest") + "-" + checksDay();
+async function syncChecks() {
+  try {
+    if (!window.authToken) return;
+    const t = await window.authToken(); if (!t) return;
+    const uid = JSON.parse(atob(t.split(".")[1].replace(/-/g, "+").replace(/_/g, "/"))).user_id;
+    const r = await fetch(`https://firestore.googleapis.com/v1/projects/studygcse-29350/databases/(default)/documents/checks/${uid}`, {headers: {Authorization: "Bearer " + t}, signal: AbortSignal.timeout(6000)});
+    let n = 0;
+    if (r.ok) { const f = (await r.json()).fields || {}; if (f.day && +f.day.integerValue === checksDay()) n = +(f.n && f.n.integerValue || 0); }
+    else if (r.status !== 404) return;
+    localStorage.setItem(checksKey(), String(n));
+  } catch (e) {}
 }
 function finishEx() {
   const pct = EX.tot ? Math.round(EX.got / EX.tot * 100) : 0;
