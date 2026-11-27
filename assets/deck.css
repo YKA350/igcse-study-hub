@@ -20,6 +20,9 @@ html[data-subj="biology"]   { --c: #12A06E; --c-d: #0B7A53; --c-l: #D9F4E9; --c-
 html[data-subj="chemistry"] { --c: #0E8FB0; --c-d: #0A6C86; --c-l: #D7F0F7; --c-ll: #EFF9FC; --bg: #F0F8FB; }
 html[data-subj="maths"]   { --c: #E8590C; --c-d: #C2410C; --c-l: #FFE8D9; --c-ll: #FFF4EC; --bg: #FFF6EF; }
 html[data-subj="physics"]   { --c: #3B5BDB; --c-d: #2A43AE; --c-l: #E0E6FF; --c-ll: #F2F4FF; --bg: #F2F4FF; }
+html[data-subj="geography"] { --c: #2B8A3E; --c-d: #1F6B2E; --c-l: #DDF3E1; --c-ll: #F1FAF3; --bg: #F1FAF3; }
+html[data-subj="humanbio"] { --c: #C2255C; --c-d: #9C1B49; --c-l: #FCE1EB; --c-ll: #FEF3F7; --bg: #FEF3F7; }
+html[data-subj="cs"] { --c: #7048E8; --c-d: #5530C4; --c-l: #E8E0FD; --c-ll: #F5F2FF; --bg: #F5F2FF; }
 
 * { box-sizing: border-box; }
 html, body { margin: 0; height: 100%; background: #14122A; overflow: hidden; font-family: var(--font); color: var(--ink); }

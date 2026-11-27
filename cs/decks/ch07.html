@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" data-subj="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Computer Science Ch 7: Strings</title>
+<link rel="stylesheet" href="../../assets/deck.css">
+</head>
+<body>
+<div id="vp"><div id="stage">
+
+<section class="cover"><span class="kicker"><b>7</b> Programming</span><h1>Strings</h1><p class="lead">Computer Science · Pearson Edexcel International GCSE (4CP0)</p><div class="chips"><span>What a string is</span><span>String indexing and length</span><span>String traversal</span><span>Other ways to manipulate strings</span><span>Concatenation and comparing</span></div><div class="bignum">7</div></section>
+<section class="divider"><div class="num">1</div><h2>What a string is</h2><p class="lead">Strings</p></section>
+<section><span class="kicker">What a string is</span><h2>What a string is (1/2)</h2><div class="body"><div class="stack"><div class="def"><span class="term">String</span><p>A sequence of characters: letters, numbers, symbols, punctuation or spaces. All are treated as text.</p></div><div class="def"><p>Strings are enclosed in quotation marks so the computer can tell them from variable names and instructions.</p></div><div class="def"><p>Single or double quotes are fine if used consistently. In &quot;It&#x27;s her book&quot; the apostrophe is part of the string.</p></div></div></div></section>
+<section><span class="kicker">What a string is</span><h2>What a string is (2/2)</h2><div class="body"><div class="stack"><div class="def"><span class="term">Examples</span><p>&#x27;johnsmith@mail.com&#x27;, &#x27;10/04/15&#x27;, &#x27;123&#x27;.</p></div><div class="def"><p>Strings are used to communicate with users, e.g. asking for input and showing output.</p></div></div></div></section>
+<section class="divider"><div class="num">2</div><h2>String indexing and length</h2><p class="lead">Strings</p></section>
+<section><span class="kicker">String indexing and length</span><h2>Index numbers (1/2)</h2><div class="body"><div class="stack"><div class="tip">Exam tip Computers start counting at 0.</div><div class="def"><p>Each character has an index and the first character is at index 0.</p></div><div class="def"><p>In &#x27;Computer Science&#x27; the letter m has index 2 even though it is the third character.</p></div></div></div></section>
+<section><span class="kicker">String indexing and length</span><h2>Index numbers (2/2)</h2><div class="body"><div class="stack"><div class="def"><p>The string has 16 characters, so indexes run from 0 to 15.</p></div></div></div></section>
+<section><span class="kicker">String indexing and length</span><h2>Length</h2><div class="body"><div class="stack"><div class="def"><p>This displays 16.</p></div><div class="def"><span class="term">Python</span><p>len(string). Java: string.length(). C#: string.Length.</p></div><div class="def"><span class="term">Practice</span><p>check a password has at least six characters and output &quot;The password you have entered is not long enough&quot; or &quot;Length of password OK&quot;.</p></div></div></div></section>
+<section class="divider"><div class="num">3</div><h2>String traversal</h2><p class="lead">Strings</p></section>
+<section><span class="kicker">String traversal</span><h2>String traversal (1/2)</h2><div class="body"><div class="stack"><div class="def"><span class="term">String traversal</span><p>Using a loop to cycle through each character in a string.</p></div><div class="def"><p>The loop prints each letter on its own line.</p></div><div class="def"><p>It must stop at LENGTH − 1, here index 5, because indexes start at 0.</p></div></div></div></section>
+<section><span class="kicker">String traversal</span><h2>String traversal (2/2)</h2><div class="body"><div class="stack"><div class="def"><p>In Python range does not include the end number, so use range(0, len(animalName)) without subtracting 1.</p></div><div class="def"><span class="term">Practice</span><p>check whether a car make entered is in a given string of makes, ignoring case.</p></div></div></div></section>
+<section class="divider"><div class="num">4</div><h2>Other ways to manipulate strings</h2><p class="lead">Strings</p></section>
+<section><span class="kicker">Other ways to manipulate strings</span><h2>Other ways to manipulate strings (1/2)</h2><div class="body"><div class="stack"><div class="def"><span class="term">Character at an index</span><p>Python example: string[11]; Result: &#x27;c&#x27;</p></div><div class="def"><span class="term">Lower case</span><p>Python example: string.lower(); Result: &#x27;computer science&#x27;</p></div><div class="def"><span class="term">Upper case</span><p>Python example: string.upper(); Result: &#x27;COMPUTER SCIENCE&#x27;</p></div></div></div></section>
+<section><span class="kicker">Other ways to manipulate strings</span><h2>Other ways to manipulate strings (2/2)</h2><div class="body"><div class="stack"><div class="def"><span class="term">Extract characters</span><p>Python example: string[3:6]; Result: &#x27;put&#x27; (index 3 to 5, index 6 not included)</p></div><div class="def"><span class="term">Check for a phrase</span><p>Python example: &#x27;put&#x27; in string; Result: True, but &#x27;PUT&#x27; in string is False</p></div><div class="tip">Exam tip Changing strings to the same case is useful when you compare two strings and the case does not matter. Java uses charAt, substring(3,6), contains and toLowerCase. C# uses Substring(3,4), Contains and ToLower.</div></div></div></section>
+<section class="divider"><div class="num">5</div><h2>Concatenation and comparing</h2><p class="lead">Strings</p></section>
+<section><span class="kicker">Concatenation and comparing</span><h2>Concatenation and comparing (1/2)</h2><div class="body"><div class="stack"><div class="def"><span class="term">Concatenation</span><p>Joining two or more items of information together to make a new string.</p></div><div class="def"><p>Edexcel pseudocode uses &amp; to join. Python and C# use +.</p></div><div class="def"><p>Literal text is in quotes but the variable name is not.</p></div></div></div></section>
+<section><span class="kicker">Concatenation and comparing</span><h2>Concatenation and comparing (2/2)</h2><div class="body"><div class="stack"><div class="def"><p>In Python you cannot join a string to a number. Convert the number with str(length) first. Java and C# can join most data types.</p></div><div class="def"><p>Compare strings with == in Python and C#. Java needs the equals method, e.g. food.equals(&quot;pie&quot;).</p></div></div></div></section>
+
+</div></div>
+<script src="../../assets/deck.js"></script>
+</body>
+</html>

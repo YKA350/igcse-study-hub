@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" data-subj="cs">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Computer Science Ch 15: Encryption</title>
+<link rel="stylesheet" href="../../assets/deck.css">
+</head>
+<body>
+<div id="vp"><div id="stage">
+
+<section class="cover"><span class="kicker"><b>15</b> Data</span><h1>Encryption</h1><p class="lead">Computer Science · Pearson Edexcel International GCSE (4CP0)</p><div class="chips"><span>Why and how</span><span>Pigpen cipher</span><span>Caesar cipher</span><span>Vigenère cipher</span><span>Rail fence cipher</span></div><div class="bignum">15</div></section>
+<section class="divider"><div class="num">1</div><h2>Why and how</h2><p class="lead">Encryption</p></section>
+<section><span class="kicker">Why and how</span><h2>Why and how (1/2)</h2><div class="body"><div class="stack"><div class="def"><p>Encryption makes sensitive data secure.</p></div><div class="def"><p>Keys encrypt data into cipher text and decrypt it back into plain text.</p></div><div class="def"><p>Symmetric encryption uses the same key for both. The key must be shared safely.</p></div></div></div></section>
+<section><span class="kicker">Why and how</span><h2>Why and how (2/2)</h2><div class="body"><div class="stack"><div class="def"><p>Asymmetric encryption uses two different keys, a public key to encrypt and a private key to decrypt.</p></div></div></div></section>
+<section class="divider"><div class="num">2</div><h2>Pigpen cipher</h2><p class="lead">Encryption</p></section>
+<section><span class="kicker">Pigpen cipher</span><h2>Pigpen cipher</h2><div class="body"><div class="stack"><div class="def"><p>Each letter is replaced by a symbol from grids of lines and dots.</p></div><div class="def"><p>It is simple to break because the same letter always gives the same symbol.</p></div></div></div></section>
+<section class="divider"><div class="num">3</div><h2>Caesar cipher</h2><p class="lead">Encryption</p></section>
+<section><span class="kicker">Caesar cipher</span><h2>Caesar cipher (1/2)</h2><div class="body"><div class="stack"><div class="def"><span class="term">Caesar cipher</span><p>Each letter is shifted a set number of places along the alphabet. The number of places is the key.</p></div><div class="def"><p>To decrypt, shift back by the same key.</p></div><div class="def"><p>There are only 25 possible shifts so it is easy to crack.</p></div></div></div></section>
+<section><span class="kicker">Caesar cipher</span><h2>Caesar cipher (2/2)</h2><div class="body"><div class="stack"><div class="def"><p>An algorithm loops through each character, adds the key to its code and wraps round after Z.</p></div></div></div></section>
+<section class="divider"><div class="num">4</div><h2>Vigenère cipher</h2><p class="lead">Encryption</p></section>
+<section><span class="kicker">Vigenère cipher</span><h2>Vigenère cipher (1/2)</h2><div class="body"><div class="stack"><div class="def"><p>Uses a keyword repeated along the message and a grid of 26 shifted alphabets.</p></div><div class="def"><p>The keyword letter decides the shift for each plain-text letter.</p></div><div class="def"><p>The same plain letter can give different cipher letters, so it is harder to break than Caesar.</p></div></div></div></section>
+<section><span class="kicker">Vigenère cipher</span><h2>Vigenère cipher (2/2)</h2><div class="body"><div class="stack"><div class="def"><p>Decrypt using the same keyword and the grid.</p></div></div></div></section>
+<section class="divider"><div class="num">5</div><h2>Rail fence cipher</h2><p class="lead">Encryption</p></section>
+<section><span class="kicker">Rail fence cipher</span><h2>Rail fence cipher</h2><div class="body"><div class="stack"><div class="def"><p>Write the message in a zigzag across a number of rails given by the key.</p></div><div class="def"><p>Read each rail in turn to get the cipher text.</p></div><div class="def"><p>This is a transposition cipher, so letters are moved, not replaced.</p></div></div></div></section>
+
+</div></div>
+<script src="../../assets/deck.js"></script>
+</body>
+</html>
