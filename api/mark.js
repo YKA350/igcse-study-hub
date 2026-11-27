@@ -46,25 +46,27 @@ Reply with only JSON: {"points":[indices of mark scheme points the student earne
       const models = [process.env.GEMINI_MODEL, "gemini-3.1-flash-lite", "gemini-2.5-flash-lite", "gemini-2.5-flash"].filter(Boolean);
       let ok = false;
       for (const mdl of models) {
-        const r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${mdl}:generateContent`, {
-          method: "POST",
-          headers: {"x-goog-api-key": process.env.GEMINI_API_KEY, "content-type": "application/json"},
-          body: JSON.stringify({contents: [{parts: [{text: prompt}]}], generationConfig: {responseMimeType: "application/json", maxOutputTokens: 500, temperature: 0.2}})
-        });
-        if (r.status === 404 || r.status === 400) continue;
-        if (!r.ok) return res.status(502).json({error: r.status === 429 ? "Checking is busy right now. Try again in a minute or use the mark scheme." : "The marking service is unavailable. Use the mark scheme instead."});
+        let r;
+        try {
+          r = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/${mdl}:generateContent`, {
+            method: "POST", signal: AbortSignal.timeout(9000),
+            headers: {"x-goog-api-key": process.env.GEMINI_API_KEY, "content-type": "application/json"},
+            body: JSON.stringify({contents: [{parts: [{text: prompt}]}], generationConfig: {responseMimeType: "application/json", maxOutputTokens: 500, temperature: 0.2}})
+          });
+        } catch (e) { continue; }          // timed out: try the next model
+        if (!r.ok) continue;               // busy (429), unknown model (404/400) or error: try the next model
         const j = await r.json();
         text = (j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts && j.candidates[0].content.parts[0].text) || "";
-        ok = true; break;
+        if (text) { ok = true; break; }
       }
-      if (!ok) return res.status(502).json({error: "The marking service is unavailable. Use the mark scheme instead."});
+      if (!ok) return res.status(502).json({error: "Checking is busy right now. Wait a minute and try again, or skip this question."});
     } else {
       const r = await fetch("https://api.anthropic.com/v1/messages", {
         method: "POST",
         headers: {"x-api-key": process.env.ANTHROPIC_API_KEY, "anthropic-version": "2023-06-01", "content-type": "application/json"},
         body: JSON.stringify({model: MODEL, max_tokens: 400, messages: [{role: "user", content: prompt}]})
       });
-      if (!r.ok) return res.status(502).json({error: "The marking service is unavailable. Use the mark scheme instead."});
+      if (!r.ok) return res.status(502).json({error: "Checking is busy right now. Wait a minute and try again, or skip this question."});
       const j = await r.json();
       text = (j.content && j.content[0] && j.content[0].text) || "";
     }
