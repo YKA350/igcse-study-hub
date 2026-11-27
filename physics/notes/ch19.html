@@ -1,0 +1,426 @@
+<!doctype html><html lang="en" data-subj="physics"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root {
+  --ink: #1E1B3A; --ink2: #4A4668; --muted: #7A7598; --line: #E6E2F5;
+  --bg: #F4F2FF; --card: #FFFFFF; --soft: #F1EFFB;
+  --pink: #FF8FB1; --pink-l: #FFE3EC; --yellow: #FFC94D; --yellow-l: #FFF3D1;
+  --mint: #3CCB9A; --mint-l: #DDF7EE; --sky: #4DA3FF; --sky-l: #DDEEFF;
+  --lilac: #8B7BFF; --lilac-l: #ECE8FF; --peach: #FF9F6B; --peach-l: #FFE8DA;
+  --red: #F0525A; --red-l: #FFE1E3; --green: #1FAF6B; --green-l: #DCF5E8;
+  --c: #6D5DD3; --c-d: #4B3DB8; --c-l: #ECE8FF; --c-ll: #F6F4FF;
+  --r-xl: 48px; --r-lg: 36px; --r-md: 26px; --r-sm: 18px;
+  --sh: 0 4px 10px rgba(40,30,110,.05), 0 18px 44px rgba(40,30,110,.09);
+  --font: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+html[data-subj="biology"]   { --c: #12A06E; --c-d: #0B7A53; --c-l: #D9F4E9; --c-ll: #F0FBF6; --bg: #F1FAF6; }
+html[data-subj="chemistry"] { --c: #0E8FB0; --c-d: #0A6C86; --c-l: #D7F0F7; --c-ll: #EFF9FC; --bg: #F0F8FB; }
+html[data-subj="physics"]   { --c: #3B5BDB; --c-d: #2A43AE; --c-l: #E0E6FF; --c-ll: #F2F4FF; --bg: #F2F4FF; }
+svg { font-family: var(--font); }
+svg .ln { fill: none; stroke: var(--ink); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+svg .ln-c { fill: none; stroke: var(--c); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+svg .thin { fill: none; stroke: var(--ink2); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+svg .dash { fill: none; stroke: var(--muted); stroke-width: 4; stroke-dasharray: 12 12; stroke-linecap: round; }
+svg .f-c { fill: var(--c-l); } svg .f-cc { fill: var(--c); } svg .f-card { fill: #fff; }
+svg .f-pink { fill: var(--pink-l); } svg .f-yellow { fill: var(--yellow-l); } svg .f-mint { fill: var(--mint-l); }
+svg .f-sky { fill: var(--sky-l); } svg .f-lilac { fill: var(--lilac-l); } svg .f-peach { fill: var(--peach-l); } svg .f-red { fill: var(--red-l); }
+svg .s-pink { stroke: var(--pink); } svg .s-yellow { stroke: var(--yellow); } svg .s-mint { stroke: var(--mint); } svg .s-sky { stroke: var(--sky); }
+svg .s-lilac { stroke: var(--lilac); } svg .s-peach { stroke: var(--peach); } svg .s-red { stroke: var(--red); }
+svg .lbl { font: 800 30px var(--font); fill: var(--ink); }
+svg .lbl-s { font: 700 24px var(--font); fill: var(--ink2); }
+svg .lbl-c { font: 900 30px var(--font); fill: var(--c-d); }
+svg .pill { fill: #fff; stroke: var(--line); stroke-width: 3; }
+@page{size:A4;margin:11mm 9mm 13mm 9mm}
+*{box-sizing:border-box}
+html{font-size:var(--fs,8.6px)}
+body{margin:0;font-family:var(--font);color:var(--ink);background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero{display:flex;align-items:center;gap:3.5mm;background:var(--c);color:#fff;border-radius:4mm;padding:3.2mm 5mm;margin-bottom:3mm}
+.hero .n{flex:none;width:11mm;height:11mm;border-radius:50%;background:#fff;color:var(--c-d);font:900 6.2mm/11mm var(--font);text-align:center}
+.hero h1{margin:0;font:900 6.4mm/1.1 var(--font)}.hero p{margin:.5mm 0 0;font:700 3mm var(--font);opacity:.9}
+.cols{column-count:2;column-gap:4mm}
+.blk{break-inside:avoid;margin:0 0 2mm}
+.sec{break-inside:avoid;break-after:avoid;display:flex;align-items:center;gap:2mm;background:var(--c-l);border-radius:2.5mm;padding:1.2mm 2.5mm;margin:2.5mm 0 1.6mm;font:900 3.7mm/1.15 var(--font);color:var(--c-d)}
+.sec b{flex:none;width:5.2mm;height:5.2mm;border-radius:50%;background:var(--c);color:#fff;font:900 3.2mm/5.2mm var(--font);text-align:center}
+.sub{break-after:avoid;margin:1.4mm 0 .8mm;font:900 3.1mm/1.2 var(--font);color:var(--ink);border-left:1mm solid var(--c);padding-left:1.6mm}
+.sub em{font-style:normal;color:var(--c-d)}
+p,li{margin:0;font:600 1.15rem/1.32 var(--font);color:var(--ink2)}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.mist{break-inside:avoid;border-radius:2mm;margin:0 0 1.5mm;padding:1.3mm 2.2mm}
+.def{background:var(--c-ll);border-left:1mm solid var(--c)}.def .term{display:block;font:900 2.3mm var(--font);text-transform:uppercase;letter-spacing:.2mm;color:var(--c-d)}
+.def p{color:var(--ink);font-weight:700}
+.card{background:var(--bg2,#eef)}.card h3{margin:0 0 .3mm;font:900 1.2rem/1.2 var(--font);color:var(--ink)}
+.card.mint{background:var(--mint-l)}.card.sky{background:var(--sky-l)}.card.pink{background:var(--pink-l)}.card.yellow{background:var(--yellow-l)}.card.peach{background:var(--peach-l)}
+.tip{background:var(--yellow-l);border-left:1mm solid var(--yellow)}.tip b{display:inline;font-weight:900;color:var(--ink);margin-right:1mm;text-transform:uppercase;font-size:2.2mm}
+.warn{background:var(--red-l);border-left:1mm solid var(--red)}
+table.t{width:100%;border-collapse:separate;border-spacing:0;margin:0 0 1.8mm;break-inside:avoid;border-radius:2mm;overflow:hidden;font-size:1.08rem}
+table.t th{background:var(--c);color:#fff;font:900 1.08rem var(--font);text-align:left;padding:.9mm 1.8mm}
+table.t td{font:600 1.08rem/1.28 var(--font);padding:.8mm 1.8mm;border-top:.25mm solid var(--line);vertical-align:top;color:var(--ink2)}
+table.t td:first-child{font-weight:900;color:var(--ink)}
+table.t tr:nth-child(even) td{background:var(--c-ll)}
+.worked{background:#fff;border:.3mm solid var(--c-l)}.worked .q{font:800 1.18rem/1.3 var(--font);color:var(--ink);background:var(--c-ll);border-radius:1.6mm;padding:1mm 1.8mm;margin-bottom:.8mm}
+.worked .step{display:flex;gap:1.6mm;font:700 1.1rem/1.3 var(--font);color:var(--ink2)}.worked .step i{font-style:normal;flex:none;min-width:11mm;font:900 2.2mm var(--font);text-transform:uppercase;color:var(--c)}
+.worked .ans{display:inline-block;margin-top:.8mm;font:900 1.2rem var(--font);color:#fff;background:var(--c);padding:.7mm 2.4mm;border-radius:5mm}
+.nums{margin:0 0 1.6mm;padding:0;list-style:none;counter-reset:n;break-inside:avoid}
+.nums>*{counter-increment:n;position:relative;padding-left:5mm;margin-bottom:.7mm;font:600 1.15rem/1.3 var(--font);color:var(--ink2)}
+.nums>*::before{content:counter(n);position:absolute;left:0;top:.1mm;width:3.6mm;height:3.6mm;border-radius:50%;background:var(--c);color:#fff;font:900 2.3mm/3.6mm var(--font);text-align:center}
+.cols-2,.cols-3,.stack,.wide-left,.body{display:block}
+.fig{break-inside:avoid;margin:0 0 1.6mm;background:#fff;border:.3mm solid var(--line);border-radius:2mm;padding:1mm;text-align:center}
+.fig svg{width:100%;height:auto;max-height:46mm;display:block}
+.fig svg text{font-family:var(--font)}
+.nutshell{background:var(--c);color:#fff}.nutshell h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:#fff}.nutshell li{color:#fff;font-weight:700;margin-left:3.6mm}
+.test{background:var(--lilac-l)}.test h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:var(--ink)}.test .qq{font:700 1.12rem/1.3 var(--font);color:var(--ink);margin-bottom:.6mm}.test .a{color:var(--c-d);font-weight:900;margin-left:1.2mm}
+.say{background:var(--mint-l)}.mist{background:var(--red-l)}.say,.mist{break-inside:avoid;border-radius:2mm;padding:1.3mm 2.2mm;margin:0 0 1.5mm}.say h3,.mist h3{margin:0 0 .4mm;font:900 1.2rem var(--font)}
+.chips,.bignum,.checks{display:none}
+
+@page{margin:0}
+html{font-size:15.5px;background:var(--bg)}
+body{max-width:900px;margin:0 auto;padding:18px 16px 60px;background:var(--bg)}
+.cols{column-count:1}
+.hero{padding:5mm 6mm;border-radius:6mm}.hero .n{width:15mm;height:15mm;font-size:9mm;line-height:15mm}.hero h1{font-size:9mm}.hero p{font-size:3.6mm}
+.sec{font-size:5.4mm;padding:2mm 4mm;border-radius:4mm;margin:6mm 0 3mm;position:sticky;top:0;z-index:2}.sec b{width:7.5mm;height:7.5mm;font-size:4.6mm;line-height:7.5mm}
+.sub{font-size:4.6mm;margin:3mm 0 1.6mm}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.say,.mist{padding:2.6mm 4mm;border-radius:3.4mm;margin-bottom:2.6mm}
+.def .term{font-size:3mm}.card h3{font-size:1.3rem}.tip b{font-size:3mm}
+.worked .step i{font-size:3mm;min-width:16mm}.nutshell h4,.test h4{font-size:5mm}
+.nums>*{padding-left:8mm}.nums>*::before{width:5.6mm;height:5.6mm;font-size:3.4mm;line-height:5.6mm}
+table.t{font-size:1.15rem}table.t th,table.t td{font-size:1.15rem;padding:1.6mm 3mm}
+.fig svg{max-height:60mm}
+.test .qq{font-size:1.2rem;margin-bottom:1.4mm}.say h3,.mist h3{font-size:1.3rem}
+p,li{font-size:1.2rem}
+
+.hero p{color:#fff}
+.eq{break-inside:avoid;background:#fff;border:.3mm solid var(--c-l);border-radius:3.4mm;padding:2.6mm 4mm;margin:0 0 2.6mm;text-align:center}
+.eq .words{font:800 1.2rem/1.3 var(--font);color:var(--ink2)}
+.eq .sym{display:inline-block;margin:1.4mm 0;font:900 2rem/1.15 var(--font);color:var(--c-d);background:var(--c-ll);padding:1.6mm 5mm;border-radius:3mm}
+.eq .units{font:700 1rem var(--font);color:var(--muted)}.eq .units span{background:var(--soft);border-radius:5mm;padding:.4mm 2.4mm;margin:0 1mm;display:inline-block}
+.remember{break-inside:avoid;background:var(--mint-l);border-left:1.2mm solid var(--mint);border-radius:3.4mm;padding:2.6mm 4mm;margin-bottom:2.6mm;font:700 1.2rem/1.35 var(--font);color:var(--ink)}
+.warn b,.tip b{margin-right:1.6mm}
+.remember b:first-child{display:block;font-size:3mm;text-transform:uppercase;letter-spacing:.3mm;margin-bottom:.8mm}
+.flow{display:flex;flex-wrap:wrap;gap:2mm;margin:0 0 2.6mm;break-inside:avoid}
+.flow>div{flex:1 1 40mm;background:#fff;border:.3mm solid var(--c-l);border-radius:3mm;padding:2mm 3mm;text-align:center;font:800 1.15rem/1.3 var(--font);color:var(--ink)}
+.flow>div small{display:block;font:600 1rem var(--font);color:var(--muted)}.flow>span{align-self:center;font:900 1.6rem var(--font);color:var(--c)}
+.cols-4{display:block}.wide-right{display:block}
+[style*="font-size:52px"],[style*="font:900 72px"]{font-size:2.2rem !important}
+.card [style]{line-height:1.1}.card .sym{font-size:1.6rem}
+.tag{display:inline-block;font:900 2.6mm var(--font);text-transform:uppercase;background:var(--c);color:#fff;padding:.5mm 2.2mm;border-radius:5mm;margin-bottom:1mm}
+</style><style>.snav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:6px;background:var(--bg);padding:8px 0 10px;margin:0 0 6px}
+.snav button{font:800 14px var(--font);border:2px solid var(--c-l);background:#fff;color:var(--ink);border-radius:20px;padding:6px 12px;cursor:pointer}
+.snav button.on{background:var(--c);border-color:var(--c);color:#fff}
+.part{display:none}.part.on{display:block}.part .sec{position:static!important}
+.pn{display:flex;justify-content:space-between;gap:10px;margin:18px 0 0}.pn button{font:900 15px var(--font);border:0;background:var(--c);color:#fff;border-radius:22px;padding:10px 20px;cursor:pointer}.pn button[disabled]{opacity:.25}</style><style id="stepfix">.worked{counter-reset:st;border:2px solid var(--c-l)!important;padding:12px 16px!important}
+.worked .q{font-size:1.25rem!important;border-left:5px solid var(--c);margin-bottom:10px!important}
+.worked .q::before{content:"Worked example  ";font:900 .8rem var(--font);text-transform:uppercase;letter-spacing:.5px;color:var(--c-d);display:block}
+.worked .step{counter-increment:st;display:grid!important;grid-template-columns:78px 1fr;gap:10px;align-items:baseline;padding:7px 0;border-top:1px dashed var(--c-l);font-size:1.2rem!important}
+.worked .step i{min-width:0!important;font-size:.85rem!important;color:var(--c-d)!important}
+.worked .step i::before{content:"Step " counter(st) "";display:block;font-weight:900;color:var(--c)}
+.worked .ans{display:block!important;margin-top:10px;padding:8px 14px!important;border-radius:10px!important;font-size:1.25rem!important}
+.worked .ans::before{content:"Answer:  "}</style></head><body>
+<div class="hero"><div class="n">19</div><div><h1>Solids, Liquids and Gases</h1><p>Physics · Unit 5 · Solids, liquids and gases · Last-minute notes · Book pages 181–192</p></div></div>
+<div class="snav"><button type="button">Summary</button><button type="button">19.1 Particles in solids, liquids and gases</button><button type="button">19.2 Specific heat capacity</button><button type="button">19.3 Temperature during a change of state</button><button type="button">19.4 Gas pressure and Boyle’s law</button><button type="button">19.5 Absolute zero and the Kelvin scale</button><button type="button">Test yourself</button></div><div class="cols"><div class="part"><div class="nutshell"><h4>Chapter in a nutshell</h4><ul style="margin:0;padding:0"><li>Solid: close, regular, vibrate. Liquid: close, jumbled, move past. Gas: far apart, fast and random.</li><li>Heating raises particle KE (temperature) — or changes the state at constant temperature.</li><li>s.h.c. = energy to heat 1 kg by 1 °C (J/kg °C)</li><li>ΔQ = m × c × ΔT · practical: ΔQ = V × I × t, insulate</li><li>Gas pressure = molecules colliding with the walls</li><li>Boyle: p₁V₁ = p₂V₂ at constant temperature</li><li>Absolute zero = −273 °C = 0 K · K = °C + 273</li><li>Pressure law: p₁/T₁ = p₂/T₂ at constant volume, T in K</li></ul></div><div class="pn"><button type="button" data-to="-1" disabled>◀ Back</button><button type="button" data-to="1">Next ▶</button></div></div><div class="part"><div class="sec"><b>1</b><span>Particles in <em>solids, liquids and gases</em></span></div><div class="blk"><div class="sub">Everything is made of <em>moving particles</em></div>
+    <p>How the particles are <strong>arranged</strong> and how they <strong>move</strong> decides the state. Water can be ice, water or steam.</p>
+    <div class="fig" style="flex:1"><svg viewBox="0 0 1600 570" aria-label="Changes of state between solid, liquid and gas"><text x="800" y="40" class="lbl-c" text-anchor="middle" >HEATING · energy in →</text><rect x="60" y="165" width="380" height="230" rx="34" class="f-c"/><text x="250" y="215" class="lbl-c" text-anchor="middle" >SOLID</text><circle cx="164.0" cy="257.0" r="19" class="f-cc"/><circle cx="205.0" cy="257.0" r="19" class="f-cc"/><circle cx="246.0" cy="257.0" r="19" class="f-cc"/><circle cx="287.0" cy="257.0" r="19" class="f-cc"/><circle cx="328.0" cy="257.0" r="19" class="f-cc"/><circle cx="164.0" cy="298.0" r="19" class="f-cc"/><circle cx="205.0" cy="298.0" r="19" class="f-cc"/><circle cx="246.0" cy="298.0" r="19" class="f-cc"/><circle cx="287.0" cy="298.0" r="19" class="f-cc"/><circle cx="328.0" cy="298.0" r="19" class="f-cc"/><circle cx="164.0" cy="339.0" r="19" class="f-cc"/><circle cx="205.0" cy="339.0" r="19" class="f-cc"/><circle cx="246.0" cy="339.0" r="19" class="f-cc"/><circle cx="287.0" cy="339.0" r="19" class="f-cc"/><circle cx="328.0" cy="339.0" r="19" class="f-cc"/><rect x="610" y="165" width="380" height="230" rx="34" class="f-c"/><text x="800" y="215" class="lbl-c" text-anchor="middle" >LIQUID</text><circle cx="710.2" cy="265.8" r="19" class="f-cc"/><circle cx="753.8" cy="267.4" r="19" class="f-cc"/><circle cx="795.3" cy="267.2" r="19" class="f-cc"/><circle cx="830.5" cy="263.7" r="19" class="f-cc"/><circle cx="730.3" cy="303.8" r="19" class="f-cc"/><circle cx="771.9" cy="299.7" r="19" class="f-cc"/><circle cx="809.8" cy="300.7" r="19" class="f-cc"/><circle cx="852.5" cy="303.2" r="19" class="f-cc"/><circle cx="889.5" cy="300.5" r="19" class="f-cc"/><circle cx="706.9" cy="344.4" r="19" class="f-cc"/><circle cx="753.5" cy="338.7" r="19" class="f-cc"/><circle cx="795.8" cy="338.5" r="19" class="f-cc"/><circle cx="836.1" cy="338.4" r="19" class="f-cc"/><circle cx="872.3" cy="344.1" r="19" class="f-cc"/><rect x="1160" y="165" width="380" height="230" rx="34" class="f-c"/><text x="1350" y="215" class="lbl-c" text-anchor="middle" >GAS</text><circle cx="1230.0" cy="270.0" r="19" class="f-cc"/><circle cx="1350.0" cy="250.0" r="19" class="f-cc"/><circle cx="1470.0" cy="285.0" r="19" class="f-cc"/><circle cx="1280.0" cy="355.0" r="19" class="f-cc"/><circle cx="1420.0" cy="360.0" r="19" class="f-cc"/><path d="M455 245 L595 245" class="ln-c" /><path d="M580 254 L595 245 L580 236" class="ln-c" /><path d="M1005 245 L1145 245" class="ln-c" /><path d="M1130 254 L1145 245 L1130 236" class="ln-c" /><path d="M595 320 L455 320" class="ln s-sky" /><path d="M470 311 L455 320 L470 329" class="ln s-sky" /><path d="M1145 320 L1005 320" class="ln s-sky" /><path d="M1020 311 L1005 320 L1020 329" class="ln s-sky" /><rect x="456" y="95" width="138" height="50" rx="25" class="pill"/><text x="525" y="129" class="lbl-s" text-anchor="middle">melting</text><rect x="912" y="95" width="327" height="50" rx="25" class="pill"/><text x="1075" y="129" class="lbl-s" text-anchor="middle">evaporating / boiling</text><rect x="449" y="420" width="152" height="50" rx="25" class="pill"/><text x="525" y="454" class="lbl-s" text-anchor="middle">freezing</text><rect x="986" y="420" width="179" height="50" rx="25" class="pill"/><text x="1075" y="454" class="lbl-s" text-anchor="middle">condensing</text><text x="800" y="535" class="lbl-c" text-anchor="middle" style="fill:#2A7CD6">← COOLING · energy out</text></svg></div>
+  </div><div class="blk"><div class="sub">Spacing, arrangement, <em>motion</em></div>
+    <div class="cols-3">
+      <div class="stack">
+        <div class="fig" style="padding:18px"><svg viewBox="0 0 460 290" aria-label="Solid particle picture"><rect x="20" y="20" width="420" height="250" rx="30" class="f-card" style="stroke:var(--line);stroke-width:4"/><circle cx="111.0" cy="81.0" r="19" class="f-cc"/><circle cx="152.0" cy="81.0" r="19" class="f-cc"/><circle cx="193.0" cy="81.0" r="19" class="f-cc"/><circle cx="234.0" cy="81.0" r="19" class="f-cc"/><circle cx="275.0" cy="81.0" r="19" class="f-cc"/><circle cx="316.0" cy="81.0" r="19" class="f-cc"/><circle cx="357.0" cy="81.0" r="19" class="f-cc"/><circle cx="111.0" cy="122.0" r="19" class="f-cc"/><circle cx="152.0" cy="122.0" r="19" class="f-cc"/><circle cx="193.0" cy="122.0" r="19" class="f-cc"/><circle cx="234.0" cy="122.0" r="19" class="f-cc"/><circle cx="275.0" cy="122.0" r="19" class="f-cc"/><circle cx="316.0" cy="122.0" r="19" class="f-cc"/><circle cx="357.0" cy="122.0" r="19" class="f-cc"/><circle cx="111.0" cy="163.0" r="19" class="f-cc"/><circle cx="152.0" cy="163.0" r="19" class="f-cc"/><circle cx="193.0" cy="163.0" r="19" class="f-cc"/><circle cx="234.0" cy="163.0" r="19" class="f-cc"/><circle cx="275.0" cy="163.0" r="19" class="f-cc"/><circle cx="316.0" cy="163.0" r="19" class="f-cc"/><circle cx="357.0" cy="163.0" r="19" class="f-cc"/><circle cx="111.0" cy="204.0" r="19" class="f-cc"/><circle cx="152.0" cy="204.0" r="19" class="f-cc"/><circle cx="193.0" cy="204.0" r="19" class="f-cc"/><circle cx="234.0" cy="204.0" r="19" class="f-cc"/><circle cx="275.0" cy="204.0" r="19" class="f-cc"/><circle cx="316.0" cy="204.0" r="19" class="f-cc"/><circle cx="357.0" cy="204.0" r="19" class="f-cc"/></svg></div>
+        <div class="card mint" style="padding:28px 32px;flex:1"><h3>Solid</h3><ul class="dots small"><li>Touching, in neat rows</li><li>Strong forces hold them</li><li>Vibrate on the spot</li></ul></div>
+      </div>
+      <div class="stack">
+        <div class="fig" style="padding:18px"><svg viewBox="0 0 460 290" aria-label="Liquid particle picture"><rect x="20" y="20" width="420" height="250" rx="30" class="f-card" style="stroke:var(--line);stroke-width:4"/><circle cx="88.5" cy="104.5" r="19" class="f-cc"/><circle cx="135.0" cy="103.7" r="19" class="f-cc"/><circle cx="173.1" cy="104.7" r="19" class="f-cc"/><circle cx="212.0" cy="104.1" r="19" class="f-cc"/><circle cx="258.2" cy="106.2" r="19" class="f-cc"/><circle cx="102.2" cy="141.1" r="19" class="f-cc"/><circle cx="144.2" cy="145.0" r="19" class="f-cc"/><circle cx="191.9" cy="139.2" r="19" class="f-cc"/><circle cx="236.7" cy="146.2" r="19" class="f-cc"/><circle cx="275.6" cy="143.5" r="19" class="f-cc"/><circle cx="312.8" cy="139.0" r="19" class="f-cc"/><circle cx="89.3" cy="177.9" r="19" class="f-cc"/><circle cx="128.1" cy="179.3" r="19" class="f-cc"/><circle cx="168.5" cy="181.0" r="19" class="f-cc"/><circle cx="214.4" cy="183.9" r="19" class="f-cc"/><circle cx="257.2" cy="182.3" r="19" class="f-cc"/><circle cx="299.0" cy="182.5" r="19" class="f-cc"/><circle cx="340.6" cy="179.6" r="19" class="f-cc"/><circle cx="110.8" cy="223.7" r="19" class="f-cc"/><circle cx="151.3" cy="221.5" r="19" class="f-cc"/><circle cx="188.3" cy="217.9" r="19" class="f-cc"/><circle cx="230.1" cy="216.7" r="19" class="f-cc"/><circle cx="276.6" cy="219.2" r="19" class="f-cc"/><circle cx="319.4" cy="219.1" r="19" class="f-cc"/><circle cx="362.5" cy="222.6" r="19" class="f-cc"/></svg></div>
+        <div class="card sky" style="padding:28px 32px;flex:1"><h3>Liquid</h3><ul class="dots small"><li>Touching, but jumbled</li><li>Strong forces, not fixed</li><li>Move past each other</li></ul></div>
+      </div>
+      <div class="stack">
+        <div class="fig" style="padding:18px"><svg viewBox="0 0 460 290" aria-label="Gas particle picture"><rect x="20" y="20" width="420" height="250" rx="30" class="f-card" style="stroke:var(--line);stroke-width:4"/><circle cx="90.0" cy="80.0" r="19" class="f-cc"/><path d="M113 92 L144 107" class="thin" /><path d="M132 108 L144 107 L137 97" class="thin" /><circle cx="250.0" cy="70.0" r="19" class="f-cc"/><path d="M230 86 L203 107" class="thin" /><path d="M207 96 L203 107 L215 106" class="thin" /><circle cx="380.0" cy="110.0" r="19" class="f-cc"/><path d="M367 132 L349 161" class="thin" /><path d="M349 149 L349 161 L360 156" class="thin" /><circle cx="150.0" cy="190.0" r="19" class="f-cc"/><path d="M174 180 L206 168" class="thin" /><path d="M199 177 L206 168 L194 166" class="thin" /><circle cx="310.0" cy="215.0" r="19" class="f-cc"/><path d="M327 196 L350 170" class="thin" /><path d="M348 182 L350 170 L338 174" class="thin" /><circle cx="400.0" cy="230.0" r="19" class="f-cc"/><path d="M375 223 L343 213" class="thin" /><path d="M354 210 L343 213 L351 222" class="thin" /><circle cx="60.0" cy="240.0" r="19" class="f-cc"/><path d="M73 218 L91 189" class="thin" /><path d="M91 201 L91 189 L80 194" class="thin" /></svg></div>
+        <div class="card peach" style="padding:28px 32px;flex:1"><h3>Gas</h3><ul class="dots small"><li>Far apart, no pattern</li><li>Very weak forces</li><li>Fast, random motion</li></ul></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Five properties, <em>three states</em></div>
+    <table class="t">
+      <tr><th>Property</th><th>Solids</th><th>Liquids</th><th>Gases</th></tr>
+      <tr><td>Definite shape</td><td>✔ yes</td><td>✘ no</td><td>✘ no</td></tr>
+      <tr><td>Easily compressed (squashed)</td><td>✘ no</td><td>✘ no</td><td>✔ yes</td></tr>
+      <tr><td>Relative density</td><td>high</td><td>high</td><td>low</td></tr>
+      <tr><td>Can flow (a fluid)</td><td>✘ no</td><td>✔ yes</td><td>✔ yes</td></tr>
+      <tr><td>Expands to fill all the space</td><td>✘ no</td><td>✘ no</td><td>✔ yes</td></tr>
+    </table>
+    <div class="tip"><b>Exam tip</b>For each state say the <strong>spacing</strong> (close / far), the <strong>arrangement</strong> (regular / random) and the <strong>motion</strong> (vibrate / move past each other / fast and random).</div>
+  </div><div class="blk"><div class="sub">The particles <em>explain everything</em></div>
+    <div class="cols-3">
+      <div class="card mint"><h3>Solids</h3><ul class="dots"><li>Rigid shape — strong forces lock particles in place.</li><li>Often very dense — closely packed.</li><li>Can’t be squashed — already as close as possible.</li></ul></div>
+      <div class="card sky"><h3>Liquids</h3><ul class="dots"><li>Flow and take the shape of the bottom of the container.</li><li>Particles attract (stick together).</li><li>Much denser than gases, very hard to squash.</li></ul></div>
+      <div class="card peach"><h3>Gases</h3><ul class="dots"><li>Large spaces → very low density.</li><li>Spread out to fill any container.</li><li>Easy to squash. Particles hitting the walls cause <strong>gas pressure</strong>.</li></ul></div>
+    </div>
+  </div><div class="blk"><div class="sub">Energy in → the <em>temperature rises</em>…</div>
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 900 490" aria-label="Particles vibrate more when heated"><rect x="20" y="70" width="330" height="330" rx="30" class="f-sky"/><circle cx="73" cy="148" r="28" class="dash" style="stroke-width:3"/><circle cx="73.0" cy="148.0" r="22" class="f-cc"/><circle cx="132" cy="148" r="28" class="dash" style="stroke-width:3"/><circle cx="132.0" cy="148.0" r="22" class="f-cc"/><circle cx="191" cy="148" r="28" class="dash" style="stroke-width:3"/><circle cx="191.0" cy="148.0" r="22" class="f-cc"/><circle cx="250" cy="148" r="28" class="dash" style="stroke-width:3"/><circle cx="250.0" cy="148.0" r="22" class="f-cc"/><circle cx="73" cy="207" r="28" class="dash" style="stroke-width:3"/><circle cx="73.0" cy="207.0" r="22" class="f-cc"/><circle cx="132" cy="207" r="28" class="dash" style="stroke-width:3"/><circle cx="132.0" cy="207.0" r="22" class="f-cc"/><circle cx="191" cy="207" r="28" class="dash" style="stroke-width:3"/><circle cx="191.0" cy="207.0" r="22" class="f-cc"/><circle cx="250" cy="207" r="28" class="dash" style="stroke-width:3"/><circle cx="250.0" cy="207.0" r="22" class="f-cc"/><circle cx="73" cy="266" r="28" class="dash" style="stroke-width:3"/><circle cx="73.0" cy="266.0" r="22" class="f-cc"/><circle cx="132" cy="266" r="28" class="dash" style="stroke-width:3"/><circle cx="132.0" cy="266.0" r="22" class="f-cc"/><circle cx="191" cy="266" r="28" class="dash" style="stroke-width:3"/><circle cx="191.0" cy="266.0" r="22" class="f-cc"/><circle cx="250" cy="266" r="28" class="dash" style="stroke-width:3"/><circle cx="250.0" cy="266.0" r="22" class="f-cc"/><rect x="550" y="70" width="330" height="330" rx="30" class="f-peach"/><circle cx="600" cy="143" r="38" class="dash" style="stroke-width:3"/><circle cx="600.0" cy="143.0" r="22" class="f-cc"/><circle cx="679" cy="143" r="38" class="dash" style="stroke-width:3"/><circle cx="679.0" cy="143.0" r="22" class="f-cc"/><circle cx="758" cy="143" r="38" class="dash" style="stroke-width:3"/><circle cx="758.0" cy="143.0" r="22" class="f-cc"/><circle cx="600" cy="222" r="38" class="dash" style="stroke-width:3"/><circle cx="600.0" cy="222.0" r="22" class="f-cc"/><circle cx="679" cy="222" r="38" class="dash" style="stroke-width:3"/><circle cx="679.0" cy="222.0" r="22" class="f-cc"/><circle cx="758" cy="222" r="38" class="dash" style="stroke-width:3"/><circle cx="758.0" cy="222.0" r="22" class="f-cc"/><circle cx="600" cy="301" r="38" class="dash" style="stroke-width:3"/><circle cx="600.0" cy="301.0" r="22" class="f-cc"/><circle cx="679" cy="301" r="38" class="dash" style="stroke-width:3"/><circle cx="679.0" cy="301.0" r="22" class="f-cc"/><circle cx="758" cy="301" r="38" class="dash" style="stroke-width:3"/><circle cx="758.0" cy="301.0" r="22" class="f-cc"/><path d="M375 235 L525 235" class="ln s-red" /><path d="M506 246 L525 235 L506 224" class="ln s-red" /><rect x="395" y="145" width="110" height="50" rx="25" class="pill"/><text x="450" y="179" class="lbl-s" text-anchor="middle">heat</text><text x="185" y="45" class="lbl-c" text-anchor="middle" >cool</text><text x="715" y="45" class="lbl-c" text-anchor="middle" >hot</text><rect x="60" y="425" width="250" height="50" rx="25" class="pill"/><text x="185" y="459" class="lbl-s" text-anchor="middle">small vibrations</text><rect x="600" y="425" width="230" height="50" rx="25" class="pill"/><text x="715" y="459" class="lbl-s" text-anchor="middle">bigger, faster</text></svg></div>
+      <div class="stack" style="justify-content:center">
+        <div class="card tint"><p>Heating increases the <strong>energy stored</strong> in the system.</p></div>
+        <div class="card mint"><p>Particles move and vibrate faster → more <strong>kinetic energy</strong>.</p></div>
+        <div class="card yellow"><p>We measure this as a rise in <strong>temperature</strong>.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">…or the <em>state changes</em></div>
+    <div class="wide-right">
+      <div class="stack" style="justify-content:center">
+        <div class="card mint"><h3>Melting</h3><p>Particles break free from their fixed positions and move around.</p></div>
+        <div class="card sky"><h3>Evaporating / boiling</h3><p>Particles escape from the liquid → a widely spaced gas.</p></div>
+        <div class="remember"><b>Remember</b>The energy separates the particles, so the temperature <strong>stays constant</strong> until the change is complete.</div>
+      </div>
+      <div class="fig"><svg viewBox="0 0 800 590" aria-label="Particles escaping from a liquid to form a gas"><path d="M150 150 L150 470 Q150 500 180 500 L620 500 Q650 500 650 470 L650 150" class="ln"/><path d="M156 300 L644 300 L644 470 Q644 494 620 494 L180 494 Q156 494 156 470 Z" class="f-sky"/><circle cx="193.2" cy="329.2" r="20" class="f-cc"/><circle cx="240.5" cy="328.6" r="20" class="f-cc"/><circle cx="283.4" cy="330.9" r="20" class="f-cc"/><circle cx="322.6" cy="332.1" r="20" class="f-cc"/><circle cx="366.4" cy="331.5" r="20" class="f-cc"/><circle cx="410.7" cy="328.7" r="20" class="f-cc"/><circle cx="458.2" cy="334.6" r="20" class="f-cc"/><circle cx="499.2" cy="329.8" r="20" class="f-cc"/><circle cx="214.3" cy="376.1" r="20" class="f-cc"/><circle cx="257.8" cy="371.7" r="20" class="f-cc"/><circle cx="305.8" cy="368.9" r="20" class="f-cc"/><circle cx="348.6" cy="370.8" r="20" class="f-cc"/><circle cx="385.4" cy="369.4" r="20" class="f-cc"/><circle cx="431.1" cy="375.0" r="20" class="f-cc"/><circle cx="473.8" cy="373.1" r="20" class="f-cc"/><circle cx="522.4" cy="371.5" r="20" class="f-cc"/><circle cx="195.5" cy="409.5" r="20" class="f-cc"/><circle cx="234.6" cy="410.6" r="20" class="f-cc"/><circle cx="284.8" cy="412.4" r="20" class="f-cc"/><circle cx="325.1" cy="413.6" r="20" class="f-cc"/><circle cx="370.5" cy="411.4" r="20" class="f-cc"/><circle cx="417.9" cy="414.6" r="20" class="f-cc"/><circle cx="456.4" cy="413.6" r="20" class="f-cc"/><circle cx="503.3" cy="416.0" r="20" class="f-cc"/><circle cx="549.3" cy="411.3" r="20" class="f-cc"/><circle cx="217.8" cy="450.4" r="20" class="f-cc"/><circle cx="256.2" cy="455.5" r="20" class="f-cc"/><circle cx="297.5" cy="453.4" r="20" class="f-cc"/><circle cx="340.4" cy="454.8" r="20" class="f-cc"/><circle cx="391.6" cy="454.0" r="20" class="f-cc"/><circle cx="436.8" cy="451.9" r="20" class="f-cc"/><circle cx="479.0" cy="454.2" r="20" class="f-cc"/><circle cx="521.8" cy="453.1" r="20" class="f-cc"/><circle cx="568.4" cy="457.0" r="20" class="f-cc"/><circle cx="250.0" cy="200.0" r="20" class="f-cc"/><path d="M250 172 L250 110" class="thin" /><path d="M257 122 L250 110 L243 122" class="thin" /><circle cx="420.0" cy="160.0" r="20" class="f-cc"/><path d="M440 140 L480 95" class="thin" /><path d="M478 109 L480 95 L467 99" class="thin" /><circle cx="560.0" cy="230.0" r="20" class="f-cc"/><path d="M578 210 L618 160" class="thin" /><path d="M616 174 L618 160 L605 165" class="thin" /><rect x="165" y="15" width="470" height="50" rx="25" class="pill"/><text x="400" y="49" class="lbl-s" text-anchor="middle">particles escape → widely spaced gas</text><rect x="195" y="530" width="410" height="50" rx="25" class="pill"/><text x="400" y="564" class="lbl-s" text-anchor="middle">liquid: particles close together</text></svg></div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="0">◀ Back</button><button type="button" data-to="2">Next ▶</button></div></div><div class="part"><div class="sec"><b>2</b><span>Specific <em>heat capacity</em></span></div><div class="blk"><div class="sub">Some things are <em>harder to heat up</em></div>
+    <div class="wide-left">
+      <div class="stack" style="justify-content:center">
+        <div class="def"><span class="term">Key term · specific heat capacity, c</span><p>The energy needed to raise the temperature of 1 kg of a substance by 1 °C.</p></div>
+        <p>Different substances need <strong>different amounts of energy</strong> for the same temperature rise.</p>
+        <div class="eq" style="flex-direction:row;justify-content:center;gap:28px"><div class="words">Unit</div><div class="sym">J/kg °C</div><div class="words">joules per kilogram<br>degree Celsius</div></div>
+      </div>
+      <div class="card tint" style="justify-content:center;align-items:center;text-align:center">
+        <div style="font:900 190px/1 var(--font);color:var(--c)">4200</div>
+        <h3>J/kg °C</h3>
+        <p>the specific heat capacity of <strong>water</strong> — high, so water takes a lot of energy to heat up</p>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Change in <em>thermal energy</em></div>
+    <div class="cols-2">
+      <div class="stack">
+        <div class="eq"><div class="words">change in thermal energy = mass × specific heat capacity × change in temperature</div><div class="sym">ΔQ = m × c × ΔT</div><div class="words" style="font-size:30px">rearranged: c = ΔQ ÷ (m × ΔT)</div></div>
+        <div class="remember"><b>Symbols</b>Δ (delta) = “change in”. The book writes Δθ (theta) for the change in °C — same thing as ΔT.</div>
+      </div>
+      <div class="stack">
+        <table class="t">
+          <tr><th>Symbol</th><th>Means</th><th>Unit</th></tr>
+          <tr><td>ΔQ</td><td>change in thermal energy</td><td>J</td></tr>
+          <tr><td>m</td><td>mass</td><td>kg</td></tr>
+          <tr><td>c</td><td>specific heat capacity</td><td>J/kg °C</td></tr>
+          <tr><td>ΔT</td><td>change in temperature</td><td>°C</td></tr>
+        </table>
+        <div class="tip"><b>Cooling</b>ΔT is negative, so ΔQ is negative — energy must be removed.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Heating water in a <em>kettle</em></div>
+    <div class="wide-left">
+      <div class="worked">
+        <div class="q">300 g of water is heated from 15 °C to boiling (100 °C). c = 4200 J/kg °C. How much energy is needed?</div>
+        <div class="step"><i>Write down</i>m = 300 g = 0.3 kg, ΔT = 100 − 15 = 85 °C</div>
+        <div class="step"><i>Equation</i>ΔQ = m × c × ΔT</div>
+        <div class="step"><i>Substitute</i>ΔQ = 0.3 × 4200 × 85</div>
+        <div class="ans">ΔQ = 107 100 J</div>
+      </div>
+      <div class="stack">
+        <div class="warn"><b>Common mistake</b>Forgetting to change g → kg. Use the <strong>change</strong> in temperature, not the final one.</div>
+        <div class="card yellow" style="flex:1"><h3>In real life…</h3><p>More energy is needed: some heats the kettle, some is lost to the surroundings, and some water evaporates.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Measuring <em>specific heat capacity</em></div>
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 900 680" aria-label="Heater and thermometer in an insulated metal block, with ammeter and voltmeter"><rect x="400" y="270" width="360" height="330" rx="26" class="f-peach"/><rect x="430" y="300" width="300" height="270" rx="16" class="f-lilac" style="stroke:var(--ink);stroke-width:5"/><rect x="476" y="235" width="44" height="250" rx="18" class="f-red" style="stroke:var(--ink);stroke-width:5"/><rect x="652" y="105" width="26" height="370" rx="13" class="f-card" style="stroke:var(--ink);stroke-width:5"/><circle cx="665" cy="478" r="22" class="f-red" style="stroke:var(--ink);stroke-width:5"/><rect x="660" y="300" width="10" height="170" rx="5" style="fill:var(--red)"/><path d="M120 405 L120 90 L232 90" class="ln"/><path d="M288 90 L490 90 L490 235" class="ln"/><path d="M506 235 L506 200 L180 200 L180 520 L120 520 L120 425" class="ln"/><path d="M400 90 L400 115" class="ln"/><path d="M400 175 L400 200" class="ln"/><circle cx="260" cy="90" r="28" class="f-card" style="stroke:var(--ink);stroke-width:5"/><text x="260" y="101" class="lbl" text-anchor="middle" >A</text><circle cx="400" cy="145" r="30" class="f-card" style="stroke:var(--ink);stroke-width:5"/><text x="400" y="156" class="lbl" text-anchor="middle" >V</text><line x1="92" y1="405" x2="148" y2="405" class="ln"/><line x1="106" y1="425" x2="134" y2="425" class="ln" style="stroke-width:10"/><rect x="-5" y="565" width="250" height="50" rx="25" class="pill"/><text x="120" y="599" class="lbl-s" text-anchor="middle">low-voltage supply</text><rect x="690" y="45" width="190" height="50" rx="25" class="pill"/><text x="785" y="79" class="lbl-s" text-anchor="middle">thermometer</text><path d="M690 85 L670 100" class="thin"/><rect x="490" y="510" width="180" height="50" rx="25" class="pill"/><text x="580" y="544" class="lbl-s" text-anchor="middle">metal block</text><rect x="500" y="615" width="160" height="50" rx="25" class="pill"/><text x="580" y="649" class="lbl-s" text-anchor="middle">insulation</text><rect x="230" y="320" width="120" height="50" rx="25" class="pill"/><text x="290" y="354" class="lbl-s" text-anchor="middle">heater</text><path d="M350 345 L474 345" class="thin"/></svg></div>
+      <ol class="nums small" style="justify-content:center">
+        <li>Find the mass <strong>m</strong> of the block with a balance.</li>
+        <li>Record the start temperature.</li>
+        <li>Switch on. Record voltage <strong>V</strong>, current <strong>I</strong> and time <strong>t</strong>.</li>
+        <li>Note the highest temperature; find <strong>ΔT</strong>.</li>
+        <li>Energy <strong>ΔQ = V × I × t</strong>, then <strong>c = ΔQ ÷ (m × ΔT)</strong>.</li>
+        <li><strong>Water:</strong> weighed water in an insulated beaker with a lid and an immersion heater.</li>
+      </ol>
+    </div>
+  </div><div class="blk"><div class="sub">Finding c for <em>aluminium</em></div>
+    <div class="wide-left">
+      <div class="worked">
+        <div class="q">A 0.5 kg aluminium block warms from 20 °C to 50 °C when 16 500 J is supplied. Find c.</div>
+        <div class="step"><i>Write down</i>m = 0.5 kg, ΔT = 50 − 20 = 30 °C</div>
+        <div class="step"><i>Equation</i>c = ΔQ ÷ (m × ΔT)</div>
+        <div class="step"><i>Substitute</i>c = 16 500 ÷ (0.5 × 30)</div>
+        <div class="ans">c = 1100 J/kg °C</div>
+      </div>
+      <div class="stack">
+        <div class="fig" style="flex:1"><svg viewBox="0 0 630 490" aria-label="Bar chart: measured 1100 against accepted 900"><line x1="70" y1="420" x2="560" y2="420" class="ln"/><rect x="120" y="90" width="160" height="330" rx="16" class="f-pink" style="stroke:var(--pink);stroke-width:5"/><rect x="350" y="150" width="160" height="270" rx="16" class="f-mint" style="stroke:var(--mint);stroke-width:5"/><text x="200" y="75" class="lbl" text-anchor="middle" >1100</text><text x="430" y="135" class="lbl" text-anchor="middle" >900</text><text x="200" y="465" class="lbl-s" text-anchor="middle" >measured</text><text x="430" y="465" class="lbl-s" text-anchor="middle" >accepted</text><text x="315" y="40" class="lbl-c" text-anchor="middle" >aluminium, J/kg °C</text></svg></div>
+        <div class="warn"><b>Too big!</b>Heat is lost, and some heats the heater and thermometer.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Finding c for <em>water</em></div>
+    <div class="wide-left">
+      <div class="worked">
+        <div class="q">A 2.4 kW kettle heats 1 kg of water from 20 °C to 100 °C in 2½ minutes. Find c.</div>
+        <div class="step"><i>Energy</i>ΔQ = P × t = 2400 W × 150 s = 360 000 J</div>
+        <div class="step"><i>Write down</i>m = 1 kg, ΔT = 100 − 20 = 80 °C</div>
+        <div class="step"><i>Substitute</i>c = 360 000 ÷ (1 × 80)</div>
+        <div class="ans">c = 4500 J/kg °C</div>
+      </div>
+      <div class="stack">
+        <div class="fig" style="flex:1"><svg viewBox="0 0 630 490" aria-label="Bar chart: measured 4500 against accepted 4200"><line x1="70" y1="420" x2="560" y2="420" class="ln"/><rect x="120" y="90" width="160" height="330" rx="16" class="f-pink" style="stroke:var(--pink);stroke-width:5"/><rect x="350" y="112" width="160" height="308" rx="16" class="f-mint" style="stroke:var(--mint);stroke-width:5"/><text x="200" y="75" class="lbl" text-anchor="middle" >4500</text><text x="430" y="97" class="lbl" text-anchor="middle" >4200</text><text x="200" y="465" class="lbl-s" text-anchor="middle" >measured</text><text x="430" y="465" class="lbl-s" text-anchor="middle" >accepted</text><text x="315" y="40" class="lbl-c" text-anchor="middle" >water, J/kg °C</text></svg></div>
+        <div class="tip"><b>Why higher?</b>Energy is lost to the surroundings and heats the kettle.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Why the answer comes out <em>too big</em></div>
+    <div class="wide-right">
+      <div class="fig"><svg viewBox="0 0 760 580" aria-label="Heat escaping from an uninsulated block"><rect x="230" y="170" width="300" height="250" rx="18" class="f-lilac" style="stroke:var(--ink);stroke-width:5"/><rect x="290" y="110" width="40" height="220" rx="16" class="f-red" style="stroke:var(--ink);stroke-width:5"/><rect x="440" y="60" width="24" height="280" rx="12" class="f-card" style="stroke:var(--ink);stroke-width:5"/><circle cx="452" cy="340" r="20" class="f-red" style="stroke:var(--ink);stroke-width:5"/><path d="M220 260 L215 253 L211 250 L206 253 L202 260 L197 267 L192 270 L188 267 L183 260 L179 253 L174 250 L170 253 L165 260 L160 267 L156 270 L151 267 L147 260 L142 253 L138 250 L133 253 L128 260 L124 267 L119 270 L115 267 L110 260" class="ln s-red"/><path d="M112 260 L94 260" class="ln s-red" /><path d="M109 251 L94 260 L109 269" class="ln s-red" /><path d="M540 260 L545 267 L549 270 L554 267 L558 260 L563 253 L568 250 L572 253 L577 260 L581 267 L586 270 L590 267 L595 260 L600 253 L604 250 L609 253 L613 260 L618 267 L622 270 L627 267 L632 260 L636 253 L641 250 L645 253 L650 260" class="ln s-red"/><path d="M648 260 L666 260" class="ln s-red" /><path d="M651 269 L666 260 L651 251" class="ln s-red" /><path d="M380 430 L373 435 L370 439 L373 444 L380 448 L387 453 L390 458 L387 462 L380 467 L373 471 L370 476 L373 480 L380 485 L387 490 L390 494 L387 499 L380 503 L373 508 L370 512 L373 517 L380 522 L387 526 L390 531 L387 535 L380 540" class="ln s-red"/><path d="M380 538 L380 556" class="ln s-red" /><path d="M371 541 L380 556 L389 541" class="ln s-red" /><path d="M540 380 L545 387 L549 390 L554 387 L558 380 L563 373 L568 370 L572 373 L577 380 L581 387 L586 390 L590 387 L595 380 L600 373 L604 370 L609 373 L613 380 L618 387 L622 390 L627 387 L632 380 L636 373 L641 370 L645 373 L650 380" class="ln s-red"/><path d="M648 380 L666 380" class="ln s-red" /><path d="M651 389 L666 380 L651 371" class="ln s-red" /><rect x="180" y="510" width="400" height="50" rx="25" class="pill"/><text x="380" y="544" class="lbl-s" text-anchor="middle">heat lost to the surroundings</text><rect x="325" y="370" width="110" height="50" rx="25" class="pill"/><text x="380" y="404" class="lbl-s" text-anchor="middle">block</text></svg></div>
+      <div class="stack">
+        <div class="card tint"><h3>Errors &amp; fixes</h3><ul class="dots small"><li>Heat lost → ΔT too small → c too big. Fix: <strong>insulation</strong> (and a lid).</li><li>Energy also heats the heater and thermometer.</li><li>A drop of <strong>oil</strong> in the thermometer hole improves thermal contact.</li></ul></div>
+        <div class="warn"><b>Safety</b>Heater and block get hot enough to burn. Use a low-voltage supply. In water, don’t submerge the top of the immersion heater.</div>
+      </div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="1">◀ Back</button><button type="button" data-to="3">Next ▶</button></div></div><div class="part"><div class="sec"><b>3</b><span>Temperature during a <em>change of state</em></span></div><div class="blk"><div class="sub">The <em>flat part</em> of the graph</div>
+    <div class="cols-2">
+      <div class="fig"><h4>A · Heating water</h4><svg viewBox="0 0 740 530" aria-label="Temperature-time graph for water: rises to 100 then flat"><line x1="110" y1="440" x2="700" y2="440" class="ln"/><line x1="110" y1="440" x2="110" y2="40" class="ln"/><path d="M686 428 L704 440 L686 452" class="ln"/><path d="M98 54 L110 36 L122 54" class="ln"/><text x="405" y="518" class="lbl" text-anchor="middle" >time</text><text x="64" y="240" class="lbl" text-anchor="middle" transform="rotate(-90 64 240)">temperature / °C</text><path d="M110 400 L340 150 L650 150" class="ln-c"/><line x1="104" y1="150" x2="116" y2="150" class="ln"/><text x="96" y="160" class="lbl-s" text-anchor="end" >100</text><rect x="360" y="80" width="270" height="50" rx="25" class="pill"/><text x="495" y="114" class="lbl-s" text-anchor="middle">boiling: constant T</text><rect x="260" y="275" width="120" height="50" rx="25" class="pill"/><text x="320" y="309" class="lbl-s" text-anchor="middle">rising</text></svg><p class="cap" style="font-size:26px">Rises to 100 °C, then stays constant until all the water has turned to steam.</p></div>
+      <div class="fig"><h4>B · Heating naphthalene</h4><svg viewBox="0 0 740 530" aria-label="Temperature-time graph for naphthalene with flat at 80"><line x1="110" y1="440" x2="700" y2="440" class="ln"/><line x1="110" y1="440" x2="110" y2="40" class="ln"/><path d="M686 428 L704 440 L686 452" class="ln"/><path d="M98 54 L110 36 L122 54" class="ln"/><text x="405" y="518" class="lbl" text-anchor="middle" >time</text><text x="64" y="240" class="lbl" text-anchor="middle" transform="rotate(-90 64 240)">temperature / °C</text><path d="M110 400 L280 230 L480 230 L650 90" class="ln-c"/><line x1="104" y1="230" x2="116" y2="230" class="ln"/><text x="96" y="240" class="lbl-s" text-anchor="end" >80</text><rect x="315" y="165" width="130" height="50" rx="25" class="pill"/><text x="380" y="199" class="lbl-s" text-anchor="middle">melting</text><rect x="200" y="305" width="100" height="50" rx="25" class="pill"/><text x="250" y="339" class="lbl-s" text-anchor="middle">solid</text><rect x="565" y="150" width="110" height="50" rx="25" class="pill"/><text x="620" y="184" class="lbl-s" text-anchor="middle">liquid</text></svg><p class="cap" style="font-size:26px">The solid warms to 80 °C, stays flat while melting, then the liquid warms up.</p></div>
+    </div>
+  </div><div class="blk"><div class="sub">Melting <em>naphthalene</em></div>
+    <div class="wide-right">
+      <div class="fig"><svg viewBox="0 0 780 700" aria-label="Boiling tube of naphthalene with thermometer in a water bath"><path d="M150 230 L150 520 Q150 550 180 550 L520 550 Q550 550 550 520 L550 230" class="ln"/><path d="M156 300 L544 300 L544 520 Q544 544 520 544 L180 544 Q156 544 156 520 Z" class="f-sky"/><path d="M300 130 L300 470 Q300 510 340 510 Q380 510 380 470 L380 130" class="ln" style="fill:#fff"/><path d="M306 400 L374 400 L374 470 Q374 504 340 504 Q306 504 306 470 Z" class="f-yellow"/><rect x="330" y="40" width="20" height="420" rx="10" class="f-card" style="stroke:var(--ink);stroke-width:4"/><circle cx="340" cy="462" r="16" class="f-red" style="stroke:var(--ink);stroke-width:4"/><path d="M300 600 Q280 640 320 680 Q300 640 340 610 Q350 650 380 680 Q410 640 380 600" class="ln s-peach" style="fill:var(--peach-l)"/><path d="M350 590 L350 568" class="ln s-red" /><path d="M357 580 L350 568 L343 580" class="ln s-red" /><rect x="565" y="55" width="190" height="50" rx="25" class="pill"/><text x="660" y="89" class="lbl-s" text-anchor="middle">thermometer</text><path d="M565 80 L352 80" class="thin"/><rect x="565" y="415" width="190" height="50" rx="25" class="pill"/><text x="660" y="449" class="lbl-s" text-anchor="middle">naphthalene</text><path d="M565 440 L376 440" class="thin"/><rect x="575" y="275" width="170" height="50" rx="25" class="pill"/><text x="660" y="309" class="lbl-s" text-anchor="middle">water bath</text><path d="M575 300 L548 300" class="thin"/><rect x="565" y="175" width="190" height="50" rx="25" class="pill"/><text x="660" y="209" class="lbl-s" text-anchor="middle">boiling tube</text><path d="M565 200 L382 200" class="thin"/><rect x="455" y="625" width="90" height="50" rx="25" class="pill"/><text x="500" y="659" class="lbl-s" text-anchor="middle">heat</text></svg></div>
+      <div class="stack" style="justify-content:center">
+        <ol class="nums">
+          <li>Put solid naphthalene and a thermometer in a boiling tube, in a beaker of water (a <strong>water bath</strong>).</li>
+          <li>Heat steadily. Record the temperature every <strong>30 s</strong>.</li>
+          <li>Plot a temperature–time graph. The <strong>flat section</strong> = the melting point.</li>
+        </ol>
+        <div class="tip"><b>Why naphthalene?</b>Its melting point is low (80 °C), so a water bath is hot enough.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Energy goes into <em>separating particles</em></div>
+    <div class="wide-right">
+      <div class="stack" style="justify-content:center">
+        <div class="card tint"><p>The energy is used to <strong>overcome the forces</strong> between the molecules — not to increase their kinetic energy.</p></div>
+        <div class="card mint"><p>So the temperature <strong>doesn’t change</strong> until the change of state is complete.</p></div>
+        <div class="remember"><b>Cooling curve</b>The same in reverse: it drops, stays flat while freezing or condensing, then drops again.</div>
+      </div>
+      <div class="fig"><h4>Cooling curve</h4><svg viewBox="0 0 760 530" aria-label="Cooling curve with a flat section while freezing"><line x1="110" y1="440" x2="720" y2="440" class="ln"/><line x1="110" y1="440" x2="110" y2="40" class="ln"/><path d="M706 428 L724 440 L706 452" class="ln"/><path d="M98 54 L110 36 L122 54" class="ln"/><text x="415" y="518" class="lbl" text-anchor="middle" >time</text><text x="64" y="240" class="lbl" text-anchor="middle" transform="rotate(-90 64 240)">temperature / °C</text><path d="M110 70 L300 230 L520 230 L680 400" class="ln s-sky" style="stroke-width:7"/><rect x="270" y="165" width="280" height="50" rx="25" class="pill"/><text x="410" y="199" class="lbl-s" text-anchor="middle">freezing: constant T</text><rect x="210" y="85" width="180" height="50" rx="25" class="pill"/><text x="300" y="119" class="lbl-s" text-anchor="middle">liquid cools</text><rect x="475" y="345" width="170" height="50" rx="25" class="pill"/><text x="560" y="379" class="lbl-s" text-anchor="middle">solid cools</text></svg></div>
+    </div>
+  </div><div class="blk"><div class="sub">Naphthalene: <em>stay safe</em></div>
+    <div class="wide-right">
+      <div class="fig"><svg viewBox="0 0 740 570" aria-label="Naphthalene tube heated directly in a flame (crossed out) and in a water bath (ticked)"><path d="M140 60 L140 320 Q140 350 170 350 Q200 350 200 320 L200 60" class="ln" style="fill:#fff"/><path d="M146 270 L194 270 L194 320 Q194 344 170 344 Q146 344 146 320 Z" class="f-yellow"/><path d="M130 370 Q110 410 150 440 Q130 410 170 380 Q180 420 210 440 Q240 410 210 370" class="ln s-peach" style="fill:var(--peach-l)"/><path d="M450 150 L450 360 Q450 385 475 385 L645 385 Q670 385 670 360 L670 150" class="ln"/><path d="M456 200 L664 200 L664 358 Q664 379 644 379 L476 379 Q456 379 456 358 Z" class="f-sky"/><path d="M530 60 L530 320 Q530 350 560 350 Q590 350 590 320 L590 60" class="ln" style="fill:#fff"/><path d="M536 270 L584 270 L584 320 Q584 344 560 344 Q536 344 536 320 Z" class="f-yellow"/><path d="M520 410 Q500 450 540 480 Q520 450 560 420 Q570 460 600 480 Q630 450 600 410" class="ln s-peach" style="fill:var(--peach-l)"/><path d="M70 40 L270 240 M270 40 L70 240" class="ln s-red" style="stroke-width:10;opacity:.85"/><path d="M480 90 L540 140 L650 30" class="ln s-mint" style="stroke-width:12"/><rect x="75" y="505" width="190" height="50" rx="25" class="pill"/><text x="170" y="539" class="lbl-s" text-anchor="middle">direct flame</text><rect x="475" y="505" width="170" height="50" rx="25" class="pill"/><text x="560" y="539" class="lbl-s" text-anchor="middle">water bath</text></svg></div>
+      <div class="stack" style="justify-content:center">
+        <div class="card yellow"><h3>Why a water bath?</h3><p>It melts at <strong>80 °C</strong>, so a water bath is hot enough. It is <strong>flammable</strong>, so heat it indirectly.</p></div>
+        <div class="card pink"><h3>Safety</h3><ul class="dots small"><li>Avoid skin contact and breathing the vapour.</li><li>Stop heating once it has melted.</li><li>Don’t pull the thermometer out of the solid.</li></ul></div>
+      </div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="2">◀ Back</button><button type="button" data-to="4">Next ▶</button></div></div><div class="part"><div class="sec"><b>4</b><span>Gas pressure and <em>Boyle’s law</em></span></div><div class="blk"><div class="sub">Why a gas <em>pushes</em> on its container</div>
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 920 600" aria-label="Gas molecules moving randomly and hitting the container walls"><rect x="80" y="60" width="640" height="490" rx="20" class="f-c" style="stroke:var(--ink);stroke-width:7"/><circle cx="200.0" cy="150.0" r="20" class="f-cc"/><path d="M222 163 L262 187" class="thin" /><path d="M250 187 L262 187 L256 176" class="thin" /><circle cx="360.0" cy="110.0" r="20" class="f-cc"/><path d="M344 130 L315 166" class="thin" /><path d="M317 154 L315 166 L326 162" class="thin" /><circle cx="520.0" cy="190.0" r="20" class="f-cc"/><path d="M543 178 L584 158" class="thin" /><path d="M578 168 L584 158 L572 157" class="thin" /><circle cx="260.0" cy="300.0" r="20" class="f-cc"/><path d="M235 293 L191 279" class="thin" /><path d="M203 276 L191 279 L199 288" class="thin" /><circle cx="440.0" cy="330.0" r="20" class="f-cc"/><path d="M456 351 L483 388" class="thin" /><path d="M472 383 L483 388 L482 376" class="thin" /><circle cx="600.0" cy="400.0" r="20" class="f-cc"/><path d="M625 407 L669 421" class="thin" /><path d="M657 424 L669 421 L661 412" class="thin" /><circle cx="180.0" cy="430.0" r="20" class="f-cc"/><path d="M158 443 L118 467" class="thin" /><path d="M124 456 L118 467 L130 467" class="thin" /><circle cx="380.0" cy="470.0" r="20" class="f-cc"/><path d="M395 449 L421 411" class="thin" /><path d="M421 423 L421 411 L410 416" class="thin" /><circle cx="690.0" cy="260.0" r="20" class="f-cc"/><path d="M650 230 L672 250" class="thin"/><path d="M728 260 L830 260" class="ln s-red" /><path d="M811 271 L830 260 L811 249" class="ln s-red" /><rect x="700" y="305" width="200" height="50" rx="25" class="pill"/><text x="800" y="339" class="lbl-s" text-anchor="middle">force on wall</text></svg></div>
+      <div class="stack" style="justify-content:center">
+        <div class="def"><span class="term">Key term · pressure</span><p>The force acting per unit area.</p></div>
+        <ul class="dots"><li>Molecules move <strong>randomly</strong>.</li><li>Each collision with a wall exerts a tiny <strong>force</strong>.</li><li>Huge numbers of collisions → a steady force per area = <strong>pressure</strong>.</li></ul>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Air is <em>squashy</em>!</div>
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 780 640" aria-label="Syringe with trapped air before and after pushing the plunger"><path d="M80 120 L600 120 M80 260 L600 260 M600 120 L600 170 L660 170 L660 210 L600 210 L600 260" class="ln"/><rect x="160" y="126" width="22" height="128" rx="6" class="f-cc"/><path d="M160 190 L20 190" class="ln" style="stroke-width:12"/><rect x="182" y="126" width="414" height="128" class="f-sky"/><circle cx="240.0" cy="150.0" r="14" class="f-cc"/><circle cx="320.0" cy="210.0" r="14" class="f-cc"/><circle cx="400.0" cy="140.0" r="14" class="f-cc"/><circle cx="470.0" cy="225.0" r="14" class="f-cc"/><circle cx="550.0" cy="160.0" r="14" class="f-cc"/><circle cx="290.0" cy="215.0" r="14" class="f-cc"/><circle cx="540.0" cy="240.0" r="14" class="f-cc"/><rect x="676" y="154" width="60" height="72" rx="30" class="f-peach" style="stroke:var(--ink);stroke-width:4"/><rect x="215" y="55" width="330" height="50" rx="25" class="pill"/><text x="380" y="89" class="lbl-s" text-anchor="middle">air trapped by a thumb</text><path d="M80 425 L600 425 M80 565 L600 565 M600 425 L600 475 L660 475 L660 515 L600 515 L600 565" class="ln"/><rect x="380" y="431" width="22" height="128" rx="6" class="f-cc"/><path d="M380 495 L240 495" class="ln" style="stroke-width:12"/><rect x="402" y="431" width="194" height="128" class="f-sky"/><circle cx="420.0" cy="470.0" r="14" class="f-cc"/><circle cx="470.0" cy="520.0" r="14" class="f-cc"/><circle cx="520.0" cy="455.0" r="14" class="f-cc"/><circle cx="565.0" cy="505.0" r="14" class="f-cc"/><circle cx="450.0" cy="525.0" r="14" class="f-cc"/><circle cx="510.0" cy="535.0" r="14" class="f-cc"/><circle cx="570.0" cy="450.0" r="14" class="f-cc"/><rect x="676" y="459" width="60" height="72" rx="30" class="f-peach" style="stroke:var(--ink);stroke-width:4"/><rect x="215" y="360" width="330" height="50" rx="25" class="pill"/><text x="380" y="394" class="lbl-s" text-anchor="middle">push → air is squashed</text><path d="M110 600 L250 600" class="ln s-red" /><path d="M235 609 L250 600 L235 591" class="ln s-red" /><rect x="280" y="575" width="100" height="50" rx="25" class="pill"/><text x="330" y="609" class="lbl-s" text-anchor="middle">push</text></svg></div>
+      <div class="stack" style="justify-content:center">
+        <div class="card tint"><p>Put your thumb over a syringe and <strong>push</strong> the plunger → the air compresses.</p></div>
+        <div class="card mint"><p>Let go → it <strong>springs back</strong>.</p></div>
+        <div class="card yellow"><p>Gases compress because the molecules are <strong>far apart</strong>.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Squash a gas → its <em>pressure goes up</em></div>
+    <div class="cols-2">
+      <div class="fig"><h4>A · p against V</h4><svg viewBox="0 0 740 530" aria-label="Pressure against volume curve"><line x1="120" y1="440" x2="700" y2="440" class="ln"/><line x1="120" y1="440" x2="120" y2="40" class="ln"/><path d="M686 428 L704 440 L686 452" class="ln"/><path d="M108 54 L120 36 L132 54" class="ln"/><text x="410" y="518" class="lbl" text-anchor="middle" >volume</text><text x="74" y="240" class="lbl" text-anchor="middle" transform="rotate(-90 74 240)">pressure</text><path d="M180 110 L190 127 L200 143 L210 157 L220 170 L230 182 L240 192 L250 202 L260 212 L270 220 L280 228 L290 235 L300 242 L310 248 L320 254 L330 260 L340 265 L350 270 L360 275 L370 279 L380 284 L390 288 L400 292 L410 295 L420 299 L430 302 L440 305 L450 308 L460 311 L470 314 L480 316 L490 319 L500 321 L510 324 L520 326 L530 328 L540 330 L550 332 L560 334 L570 336 L580 338 L590 339 L600 341 L610 343 L620 344 L630 346 L640 347 L650 349 L660 350 L670 351 L680 353" class="ln-c"/><path d="M120 192 L240 192 L240 440" class="dash"/><path d="M120 316 L480 316 L480 440" class="dash"/><text x="108" y="202" class="lbl-s" text-anchor="end" >2p</text><text x="108" y="326" class="lbl-s" text-anchor="end" >p</text><text x="240" y="474" class="lbl-s" text-anchor="middle" >V</text><text x="480" y="474" class="lbl-s" text-anchor="middle" >2V</text></svg><p class="cap" style="font-size:26px">A curve: double the pressure → the volume halves.</p></div>
+      <div class="fig"><h4>B · p against 1/V</h4><svg viewBox="0 0 740 530" aria-label="Pressure against one over volume, straight line"><line x1="120" y1="440" x2="700" y2="440" class="ln"/><line x1="120" y1="440" x2="120" y2="40" class="ln"/><path d="M686 428 L704 440 L686 452" class="ln"/><path d="M108 54 L120 36 L132 54" class="ln"/><text x="410" y="518" class="lbl" text-anchor="middle" >1 / volume</text><text x="74" y="240" class="lbl" text-anchor="middle" transform="rotate(-90 74 240)">pressure</text><path d="M120 440 L640 90" class="ln-c"/><text x="108" y="470" class="lbl-s" text-anchor="end" >0</text><rect x="330" y="275" width="380" height="50" rx="25" class="pill"/><text x="520" y="309" class="lbl-s" text-anchor="middle">straight line through origin</text></svg><p class="cap" style="font-size:26px">A straight line through the origin: p ∝ 1/V.</p></div>
+    </div>
+  </div><div class="blk"><div class="sub">Pressure × volume <em>stays the same</em></div>
+    <div class="wide-right">
+      <div class="stack" style="justify-content:center">
+        <div class="eq"><div class="sym">p₁V₁ = p₂V₂</div><div class="words">for a <strong>fixed mass</strong> of gas at <strong>constant temperature</strong></div><div class="units"><span>p in kPa or Pa</span><span>V in m³ or cm³</span></div></div>
+        <div class="card mint" style="padding:28px 34px"><p class="small">Same temperature → same average speed. Smaller volume → walls hit <strong>more often</strong> → bigger average force → <strong>higher pressure</strong>.</p></div>
+      </div>
+      <div class="fig"><svg viewBox="0 0 740 470" aria-label="Same particles in a big and a small volume"><rect x="30" y="90" width="340" height="300" rx="16" class="f-c" style="stroke:var(--ink);stroke-width:6"/><circle cx="70.0" cy="150.0" r="16" class="f-cc"/><circle cx="170.0" cy="130.0" r="16" class="f-cc"/><circle cx="280.0" cy="170.0" r="16" class="f-cc"/><circle cx="120.0" cy="260.0" r="16" class="f-cc"/><circle cx="230.0" cy="300.0" r="16" class="f-cc"/><circle cx="330.0" cy="250.0" r="16" class="f-cc"/><circle cx="90.0" cy="350.0" r="16" class="f-cc"/><circle cx="300.0" cy="350.0" r="16" class="f-cc"/><path d="M356 186 L384 214 M356 214 L384 186" class="ln s-red" style="stroke-width:5"/><path d="M16 296 L44 324 M16 324 L44 296" class="ln s-red" style="stroke-width:5"/><rect x="490" y="90" width="220" height="300" rx="16" class="f-c" style="stroke:var(--ink);stroke-width:6"/><circle cx="520.0" cy="140.0" r="16" class="f-cc"/><circle cx="600.0" cy="170.0" r="16" class="f-cc"/><circle cx="680.0" cy="135.0" r="16" class="f-cc"/><circle cx="550.0" cy="240.0" r="16" class="f-cc"/><circle cx="650.0" cy="260.0" r="16" class="f-cc"/><circle cx="520.0" cy="340.0" r="16" class="f-cc"/><circle cx="610.0" cy="330.0" r="16" class="f-cc"/><circle cx="690.0" cy="350.0" r="16" class="f-cc"/><path d="M696 136 L724 164 M696 164 L724 136" class="ln s-red" style="stroke-width:5"/><path d="M696 216 L724 244 M696 244 L724 216" class="ln s-red" style="stroke-width:5"/><path d="M476 186 L504 214 M476 214 L504 186" class="ln s-red" style="stroke-width:5"/><path d="M476 286 L504 314 M476 314 L504 286" class="ln s-red" style="stroke-width:5"/><path d="M586 76 L614 104 M586 104 L614 76" class="ln s-red" style="stroke-width:5"/><path d="M696 316 L724 344 M696 344 L724 316" class="ln s-red" style="stroke-width:5"/><rect x="110" y="15" width="180" height="50" rx="25" class="pill"/><text x="200" y="49" class="lbl-s" text-anchor="middle">big volume</text><rect x="500" y="15" width="200" height="50" rx="25" class="pill"/><text x="600" y="49" class="lbl-s" text-anchor="middle">small volume</text><rect x="120" y="415" width="160" height="50" rx="25" class="pill"/><text x="200" y="449" class="lbl-s" text-anchor="middle">fewer hits</text><rect x="520" y="415" width="160" height="50" rx="25" class="pill"/><text x="600" y="449" class="lbl-s" text-anchor="middle">more hits</text></svg></div>
+    </div>
+  </div><div class="blk"><div class="sub">Squashing <em>2 m³</em> of air</div>
+    <div class="wide-left">
+      <div class="worked">
+        <div class="q">2 m³ of air at 100 kPa is squashed to 0.2 m³ at constant temperature. What is the new pressure?</div>
+        <div class="step"><i>Write down</i>p₁ = 100 kPa, V₁ = 2 m³, V₂ = 0.2 m³</div>
+        <div class="step"><i>Equation</i>p₁V₁ = p₂V₂ → p₂ = p₁V₁ ÷ V₂</div>
+        <div class="step"><i>Substitute</i>p₂ = 100 × 2 ÷ 0.2</div>
+        <div class="ans">p₂ = 1000 kPa</div>
+      </div>
+      <div class="stack" style="justify-content:center">
+        <div class="tip"><b>Units</b>Any units are fine (kPa, cm³) as long as you use the same ones on both sides.</div>
+        <div class="remember"><b>Sense check</b>Volume ÷ 10 → pressure × 10.</div>
+      </div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="3">◀ Back</button><button type="button" data-to="5">Next ▶</button></div></div><div class="part"><div class="sec"><b>5</b><span>Absolute zero and the <em>Kelvin scale</em></span></div><div class="blk"><div class="sub">Cool a gas → its <em>pressure falls</em></div>
+    <div class="cols-2">
+      <div class="fig"><h4>Fixed volume of gas, varying temperature</h4><svg viewBox="0 0 680 580" aria-label="Flask of trapped air in a water bath with gauge and thermometer"><path d="M60 190 L60 470 Q60 500 90 500 L470 500 Q500 500 500 470 L500 190" class="ln"/><path d="M66 230 L494 230 L494 470 Q494 494 470 494 L90 494 Q66 494 66 470 Z" class="f-sky"/><circle cx="230" cy="380" r="85" class="f-card" style="stroke:var(--ink);stroke-width:6"/><path d="M218 298 L218 110 L540 110 M242 298 L242 134 L540 134" class="ln" style="stroke-width:5"/><circle cx="600" cy="122" r="56" class="f-card" style="stroke:var(--ink);stroke-width:6"/><path d="M600 122 L630 92" class="ln s-red"/><rect x="400" y="80" width="22" height="370" rx="11" class="f-card" style="stroke:var(--ink);stroke-width:4"/><circle cx="411" cy="450" r="16" class="f-red" style="stroke:var(--ink);stroke-width:4"/><rect x="110" y="460" width="320" height="22" rx="11" class="f-red"/><rect x="145" y="360" width="170" height="50" rx="25" class="pill"/><text x="230" y="394" class="lbl-s" text-anchor="middle">trapped air</text><rect x="490" y="190" width="220" height="50" rx="25" class="pill"/><text x="600" y="224" class="lbl-s" text-anchor="middle">pressure gauge</text><rect x="435" y="275" width="190" height="50" rx="25" class="pill"/><text x="530" y="309" class="lbl-s" text-anchor="middle">thermometer</text><path d="M435 300 L425 300" class="thin"/><rect x="140" y="525" width="280" height="50" rx="25" class="pill"/><text x="280" y="559" class="lbl-s" text-anchor="middle">water bath + heater</text></svg></div>
+      <div class="fig"><h4>Extend the line back</h4><svg viewBox="0 0 680 500" aria-label="Pressure against temperature extrapolated to minus 273 degrees"><line x1="40" y1="420" x2="640" y2="420" class="ln"/><path d="M626 408 L644 420 L626 432" class="ln"/><line x1="460" y1="440" x2="460" y2="60" class="ln"/><path d="M448 74 L460 56 L472 74" class="ln"/><path d="M70 420 L330 238" class="dash" style="stroke-width:6"/><path d="M330 238 L620 35" class="ln-c"/><circle cx="70.0" cy="420.0" r="12" class="f-cc"/><text x="70" y="470" class="lbl-s" text-anchor="middle" >−273 °C</text><text x="460" y="470" class="lbl-s" text-anchor="middle" >0 °C</text><text x="620" y="470" class="lbl" text-anchor="middle" >θ</text><text x="490" y="75" class="lbl" text-anchor="start" >p</text><rect x="115" y="225" width="170" height="50" rx="25" class="pill"/><text x="200" y="259" class="lbl-s" text-anchor="middle">extrapolate</text><rect x="485" y="175" width="150" height="50" rx="25" class="pill"/><text x="560" y="209" class="lbl-s" text-anchor="middle">measured</text></svg><p class="cap" style="font-size:26px">The line reaches zero pressure at about −273 °C.</p></div>
+    </div>
+  </div><div class="blk"><div class="sub">The <em>coldest possible</em> temperature</div>
+    <div class="wide-left">
+      <div class="stack" style="justify-content:center">
+        <div class="card tint"><p>Pressure falls as the gas cools — but it <strong>can’t go below zero</strong>.</p></div>
+        <div class="card mint"><p>So there is a <strong>lowest possible temperature</strong>: absolute zero.</p></div>
+        <div class="card yellow"><p>At absolute zero, particles have <strong>no kinetic energy</strong> → they exert <strong>no pressure</strong>.</p></div>
+      </div>
+      <div class="card tint" style="justify-content:center;align-items:center;text-align:center">
+        <div style="font:900 180px/1 var(--font);color:var(--c)">−273</div>
+        <h3>°C = absolute zero = 0 K</h3>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Kelvin starts at <em>absolute zero</em></div>
+    <div class="wide-right">
+      <div class="fig"><svg viewBox="0 0 880 590" aria-label="Celsius and Kelvin scales side by side"><line x1="250" y1="60" x2="250" y2="400" class="ln"/><line x1="250" y1="440" x2="250" y2="560" class="ln"/><line x1="560" y1="60" x2="560" y2="400" class="ln"/><line x1="560" y1="440" x2="560" y2="560" class="ln"/><path d="M234 392 L266 408 M234 432 L266 448" class="ln" style="stroke-width:4"/><path d="M544 392 L576 408 M544 432 L576 448" class="ln" style="stroke-width:4"/><text x="250" y="40" class="lbl-c" text-anchor="middle" >°C</text><text x="560" y="40" class="lbl-c" text-anchor="middle" >K</text><line x1="232" y1="530" x2="268" y2="530" class="ln"/><line x1="542" y1="530" x2="578" y2="530" class="ln"/><line x1="276" y1="530" x2="534" y2="530" class="dash"/><text x="215" y="540" class="lbl" text-anchor="end" >−273</text><text x="595" y="540" class="lbl" text-anchor="start" >0</text><text x="680" y="539" class="lbl-s" text-anchor="start" >absolute zero</text><line x1="232" y1="300" x2="268" y2="300" class="ln"/><line x1="542" y1="300" x2="578" y2="300" class="ln"/><line x1="276" y1="300" x2="534" y2="300" class="dash"/><text x="215" y="310" class="lbl" text-anchor="end" >0</text><text x="595" y="310" class="lbl" text-anchor="start" >273</text><text x="680" y="309" class="lbl-s" text-anchor="start" >water freezes</text><line x1="232" y1="264" x2="268" y2="264" class="ln"/><line x1="542" y1="264" x2="578" y2="264" class="ln"/><line x1="276" y1="264" x2="534" y2="264" class="dash"/><text x="215" y="274" class="lbl" text-anchor="end" >20</text><text x="595" y="274" class="lbl" text-anchor="start" >293</text><text x="680" y="273" class="lbl-s" text-anchor="start" >room</text><line x1="232" y1="120" x2="268" y2="120" class="ln"/><line x1="542" y1="120" x2="578" y2="120" class="ln"/><line x1="276" y1="120" x2="534" y2="120" class="dash"/><text x="215" y="130" class="lbl" text-anchor="end" >100</text><text x="595" y="130" class="lbl" text-anchor="start" >373</text><text x="680" y="129" class="lbl-s" text-anchor="start" >water boils</text></svg></div>
+      <div class="stack">
+        <div class="eq" style="padding:24px 36px"><div class="sym">K = °C + 273</div><div class="words">°C = K − 273 · a 1 K step = a 1 °C step</div></div>
+        <div class="worked" style="padding:28px 36px;gap:12px">
+          <div class="step"><i>0 °C</i>0 + 273 = 273 K (water freezes)</div>
+          <div class="step"><i>20 °C</i>20 + 273 = 293 K (room)</div>
+          <div class="step"><i>400 K</i>400 − 273 = 127 °C</div>
+        </div>
+        <div class="tip"><b>Symbols</b>θ for °C, T for kelvin.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Hotter gas → <em>faster molecules</em></div>
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 920 500" aria-label="Gas molecules with short arrows when cold and long arrows when hot"><rect x="20" y="50" width="400" height="360" rx="22" class="f-sky" style="stroke:var(--ink);stroke-width:6"/><circle cx="100.0" cy="120.0" r="18" class="f-cc"/><path d="M121 131 L141 141" class="thin" /><path d="M129 142 L141 141 L135 130" class="thin" /><circle cx="230.0" cy="100.0" r="18" class="f-cc"/><path d="M210 114 L192 126" class="thin" /><path d="M197 115 L192 126 L204 126" class="thin" /><circle cx="340.0" cy="160.0" r="18" class="f-cc"/><path d="M329 181 L319 201" class="thin" /><path d="M318 189 L319 201 L330 195" class="thin" /><circle cx="140.0" cy="260.0" r="18" class="f-cc"/><path d="M163 253 L184 247" class="thin" /><path d="M176 256 L184 247 L172 244" class="thin" /><circle cx="280.0" cy="290.0" r="18" class="f-cc"/><path d="M295 271 L308 254" class="thin" /><path d="M307 266 L308 254 L297 258" class="thin" /><circle cx="360.0" cy="340.0" r="18" class="f-cc"/><path d="M338 331 L317 323" class="thin" /><path d="M329 321 L317 323 L324 333" class="thin" /><circle cx="90.0" cy="370.0" r="18" class="f-cc"/><path d="M105 351 L119 334" class="thin" /><path d="M117 346 L119 334 L107 338" class="thin" /><rect x="500" y="50" width="400" height="360" rx="22" class="f-peach" style="stroke:var(--ink);stroke-width:6"/><circle cx="580.0" cy="120.0" r="18" class="f-cc"/><path d="M601 131 L657 158" class="thin" /><path d="M645 159 L657 158 L651 148" class="thin" /><circle cx="710.0" cy="100.0" r="18" class="f-cc"/><path d="M690 114 L640 149" class="thin" /><path d="M644 138 L640 149 L652 149" class="thin" /><circle cx="820.0" cy="160.0" r="18" class="f-cc"/><path d="M809 181 L782 237" class="thin" /><path d="M781 225 L782 237 L792 231" class="thin" /><circle cx="620.0" cy="260.0" r="18" class="f-cc"/><path d="M643 253 L702 235" class="thin" /><path d="M694 244 L702 235 L691 232" class="thin" /><circle cx="760.0" cy="290.0" r="18" class="f-cc"/><path d="M775 271 L813 222" class="thin" /><path d="M811 234 L813 222 L802 226" class="thin" /><circle cx="840.0" cy="340.0" r="18" class="f-cc"/><path d="M818 331 L760 308" class="thin" /><path d="M772 306 L760 308 L767 318" class="thin" /><circle cx="570.0" cy="370.0" r="18" class="f-cc"/><path d="M585 351 L624 303" class="thin" /><path d="M622 315 L624 303 L612 307" class="thin" /><rect x="120" y="435" width="200" height="50" rx="25" class="pill"/><text x="220" y="469" class="lbl-s" text-anchor="middle">cold: slower</text><rect x="605" y="435" width="190" height="50" rx="25" class="pill"/><text x="700" y="469" class="lbl-s" text-anchor="middle">hot: faster</text></svg></div>
+      <div class="stack" style="justify-content:center">
+        <div class="card tint"><p>Heating a gas gives its molecules more <strong>kinetic energy</strong>, so their <strong>average speed</strong> increases.</p></div>
+        <div class="def"><span class="term">Key fact</span><p>The Kelvin temperature of a gas is proportional to the average kinetic energy of its molecules.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Heat a gas → its <em>pressure goes up</em></div>
+    <div class="wide-right">
+      <div class="stack" style="justify-content:center">
+        <div class="eq"><div class="sym">p₁ ÷ T₁ = p₂ ÷ T₂</div><div class="words">for a <strong>fixed mass</strong> of gas at <strong>constant volume</strong></div><div class="units"><span>p in kPa or Pa</span><span>T in kelvin, K</span></div></div>
+        <div class="warn"><b>T must be in kelvin</b>Add 273 to every °C value first.</div>
+      </div>
+      <div class="fig"><svg viewBox="0 0 740 530" aria-label="Pressure against Kelvin temperature, a straight line through the origin"><line x1="110" y1="440" x2="700" y2="440" class="ln"/><line x1="110" y1="440" x2="110" y2="40" class="ln"/><path d="M686 428 L704 440 L686 452" class="ln"/><path d="M98 54 L110 36 L122 54" class="ln"/><text x="405" y="518" class="lbl" text-anchor="middle" >temperature T / K</text><text x="64" y="240" class="lbl" text-anchor="middle" transform="rotate(-90 64 240)">pressure p</text><path d="M110 440 L640 70" class="ln-c"/><path d="M110 300 L310 300 L310 440 M110 160 L510 160 L510 440" class="dash"/><text x="98" y="310" class="lbl-s" text-anchor="end" >p</text><text x="98" y="170" class="lbl-s" text-anchor="end" >2p</text><text x="310" y="474" class="lbl-s" text-anchor="middle" >200</text><text x="510" y="474" class="lbl-s" text-anchor="middle" >400</text><text x="98" y="470" class="lbl-s" text-anchor="end" >0</text></svg><p class="cap" style="font-size:26px">p ∝ T: 200 K → 400 K doubles the pressure.</p></div>
+    </div>
+  </div><div class="blk"><div class="sub">What the <em>molecules</em> are doing</div>
+    <div class="cols-2">
+      <div class="card sky"><h3>Constant volume: heat it</h3><ul class="dots"><li>Molecules move with a higher average speed.</li><li>They hit the walls <strong>harder</strong> and <strong>more often</strong>.</li><li>So the pressure <strong>increases</strong>. Cooling → slower → lower pressure.</li></ul></div>
+      <div class="card mint"><h3>Constant temperature: squash it</h3><ul class="dots"><li>Average speed stays the same.</li><li>Same molecules in less space hit the walls <strong>more often</strong>.</li><li>So the pressure <strong>increases</strong> as the volume decreases.</li></ul></div>
+    </div>
+    <table class="t">
+      <tr><th>Fixed amount of gas</th><th>What happens</th></tr>
+      <tr><td>p and V, constant T</td><td>Volume down → pressure up (p₁V₁ = p₂V₂)</td></tr>
+      <tr><td>p and T, constant V</td><td>Kelvin temperature up → pressure up (p₁/T₁ = p₂/T₂)</td></tr>
+    </table>
+  </div><div class="blk"><div class="sub">Heating a <em>sealed tin</em></div>
+    <div class="wide-left">
+      <div class="worked">
+        <div class="q">A sealed tin holds air at 100 kPa and 20 °C. It is heated to 50 °C. What is the new pressure?</div>
+        <div class="step"><i>Kelvin first</i>T₁ = 20 + 273 = 293 K, T₂ = 50 + 273 = 323 K</div>
+        <div class="step"><i>Equation</i>p₁/T₁ = p₂/T₂ → p₂ = p₁ × T₂ ÷ T₁</div>
+        <div class="step"><i>Substitute</i>p₂ = 100 × 323 ÷ 293</div>
+        <div class="ans">p₂ ≈ 110 kPa</div>
+      </div>
+      <div class="stack" style="justify-content:center">
+        <div class="warn"><b>Common mistake</b>Using °C: 100 × 50 ÷ 20 = 250 kPa — very wrong!</div>
+        <div class="remember"><b>Sense check</b>A small rise in kelvin → a small rise in pressure.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Gas laws in <em>real life</em></div>
+    <div class="cols-2">
+      <div class="card tint"><h3>Cork pops</h3><p>Rigid container + cork, heated: particles move faster → pressure rises → the cork pops out.</p></div>
+      <div class="card mint"><h3>Piston</h3><p>Heat the gas: its pressure pushes the piston out → the gas expands.</p></div>
+      <div class="card sky"><h3>Beaker pushed into water</h3><p>Water pressure rises with depth → the trapped air is compressed.</p></div>
+      <div class="card yellow"><h3>Close to 0 K</h3><p>It gets harder and harder. Gases have been cooled to within thousandths of a degree — even helium and hydrogen liquefy. The gas laws stop working once a gas becomes a liquid.</p></div>
+    </div>
+  </div><div class="blk"><div class="sub">Five ways to <em>lose marks</em></div>
+    <div class="cols-2" style="grid-auto-rows:1fr;align-content:stretch">
+        <div class="warn"><b>Using °C in p₁/T₁ = p₂/T₂</b>Always convert to kelvin: + 273.</div>
+        <div class="warn"><b>Forgetting g → kg</b>300 g = 0.3 kg before using ΔQ = m × c × ΔT.</div>
+        <div class="warn"><b>Final temperature for ΔT</b>ΔT is the change: final − start.</div>
+        <div class="warn"><b>Forgetting the condition</b>Boyle: constant temperature. Pressure law: constant volume.</div>
+        <div class="warn"><b>“It gets hotter while melting”</b>No — the temperature stays constant during a change of state.</div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="4">◀ Back</button><button type="button" data-to="6">Next ▶</button></div></div><div class="part"><div class="test"><h4>Test yourself</h4><div class="qq">1. Describe the particles in a liquid.<span class="a">Close together, irregular (jumbled) arrangement, move randomly past each other.</span></div><div class="qq">2. Why does the temperature stay constant while ice melts?<span class="a">The energy overcomes the forces between particles instead of increasing their kinetic energy.</span></div><div class="qq">3. How much energy heats 2 kg of water by 10 °C? (c = 4200 J/kg °C)<span class="a">ΔQ = 2 × 4200 × 10 = 84 000 J</span></div><div class="qq">4. Convert 250 K and 305 K to °C.<span class="a">250 − 273 = −23 °C; 305 − 273 = 32 °C</span></div><div class="qq">5. 500 m³ of gas at 100 kPa is compressed to 125 kPa (constant T). New volume?<span class="a">V₂ = 500 × 100 ÷ 125 = 400 m³</span></div><div class="qq">6. A jar at 100 kPa and 20 °C is cooled to −5 °C. New pressure?<span class="a">100 × 268 ÷ 293 ≈ 91 kPa (the lid is harder to open)</span></div></div><div class="pn"><button type="button" data-to="5">◀ Back</button><button type="button" data-to="7" disabled>Next ▶</button></div></div></div><script>(function(){var P=[].slice.call(document.querySelectorAll('.part')),B=[].slice.call(document.querySelectorAll('.snav button'));
+function go(i){P.forEach(function(p,k){p.classList.toggle('on',k==i)});B.forEach(function(b,k){b.classList.toggle('on',k==i)});window.scrollTo(0,0);try{history.replaceState(null,'','#s'+i)}catch(e){}}
+B.forEach(function(b,k){b.onclick=function(){go(k)}});
+document.querySelectorAll('.pn button').forEach(function(b){b.onclick=function(){go(+b.dataset.to)}});
+var h=+(location.hash.replace('#s','')||0);go(h>=0&&h<P.length?h:0)})();</script></body></html>

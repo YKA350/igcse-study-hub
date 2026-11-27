@@ -1,0 +1,798 @@
+<!doctype html><html lang="en" data-subj="physics"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root {
+  --ink: #1E1B3A; --ink2: #4A4668; --muted: #7A7598; --line: #E6E2F5;
+  --bg: #F4F2FF; --card: #FFFFFF; --soft: #F1EFFB;
+  --pink: #FF8FB1; --pink-l: #FFE3EC; --yellow: #FFC94D; --yellow-l: #FFF3D1;
+  --mint: #3CCB9A; --mint-l: #DDF7EE; --sky: #4DA3FF; --sky-l: #DDEEFF;
+  --lilac: #8B7BFF; --lilac-l: #ECE8FF; --peach: #FF9F6B; --peach-l: #FFE8DA;
+  --red: #F0525A; --red-l: #FFE1E3; --green: #1FAF6B; --green-l: #DCF5E8;
+  --c: #6D5DD3; --c-d: #4B3DB8; --c-l: #ECE8FF; --c-ll: #F6F4FF;
+  --r-xl: 48px; --r-lg: 36px; --r-md: 26px; --r-sm: 18px;
+  --sh: 0 4px 10px rgba(40,30,110,.05), 0 18px 44px rgba(40,30,110,.09);
+  --font: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+html[data-subj="biology"]   { --c: #12A06E; --c-d: #0B7A53; --c-l: #D9F4E9; --c-ll: #F0FBF6; --bg: #F1FAF6; }
+html[data-subj="chemistry"] { --c: #0E8FB0; --c-d: #0A6C86; --c-l: #D7F0F7; --c-ll: #EFF9FC; --bg: #F0F8FB; }
+html[data-subj="physics"]   { --c: #3B5BDB; --c-d: #2A43AE; --c-l: #E0E6FF; --c-ll: #F2F4FF; --bg: #F2F4FF; }
+svg { font-family: var(--font); }
+svg .ln { fill: none; stroke: var(--ink); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+svg .ln-c { fill: none; stroke: var(--c); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+svg .thin { fill: none; stroke: var(--ink2); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+svg .dash { fill: none; stroke: var(--muted); stroke-width: 4; stroke-dasharray: 12 12; stroke-linecap: round; }
+svg .f-c { fill: var(--c-l); } svg .f-cc { fill: var(--c); } svg .f-card { fill: #fff; }
+svg .f-pink { fill: var(--pink-l); } svg .f-yellow { fill: var(--yellow-l); } svg .f-mint { fill: var(--mint-l); }
+svg .f-sky { fill: var(--sky-l); } svg .f-lilac { fill: var(--lilac-l); } svg .f-peach { fill: var(--peach-l); } svg .f-red { fill: var(--red-l); }
+svg .s-pink { stroke: var(--pink); } svg .s-yellow { stroke: var(--yellow); } svg .s-mint { stroke: var(--mint); } svg .s-sky { stroke: var(--sky); }
+svg .s-lilac { stroke: var(--lilac); } svg .s-peach { stroke: var(--peach); } svg .s-red { stroke: var(--red); }
+svg .lbl { font: 800 30px var(--font); fill: var(--ink); }
+svg .lbl-s { font: 700 24px var(--font); fill: var(--ink2); }
+svg .lbl-c { font: 900 30px var(--font); fill: var(--c-d); }
+svg .pill { fill: #fff; stroke: var(--line); stroke-width: 3; }
+@page{size:A4;margin:11mm 9mm 13mm 9mm}
+*{box-sizing:border-box}
+html{font-size:var(--fs,8.6px)}
+body{margin:0;font-family:var(--font);color:var(--ink);background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero{display:flex;align-items:center;gap:3.5mm;background:var(--c);color:#fff;border-radius:4mm;padding:3.2mm 5mm;margin-bottom:3mm}
+.hero .n{flex:none;width:11mm;height:11mm;border-radius:50%;background:#fff;color:var(--c-d);font:900 6.2mm/11mm var(--font);text-align:center}
+.hero h1{margin:0;font:900 6.4mm/1.1 var(--font)}.hero p{margin:.5mm 0 0;font:700 3mm var(--font);opacity:.9}
+.cols{column-count:2;column-gap:4mm}
+.blk{break-inside:avoid;margin:0 0 2mm}
+.sec{break-inside:avoid;break-after:avoid;display:flex;align-items:center;gap:2mm;background:var(--c-l);border-radius:2.5mm;padding:1.2mm 2.5mm;margin:2.5mm 0 1.6mm;font:900 3.7mm/1.15 var(--font);color:var(--c-d)}
+.sec b{flex:none;width:5.2mm;height:5.2mm;border-radius:50%;background:var(--c);color:#fff;font:900 3.2mm/5.2mm var(--font);text-align:center}
+.sub{break-after:avoid;margin:1.4mm 0 .8mm;font:900 3.1mm/1.2 var(--font);color:var(--ink);border-left:1mm solid var(--c);padding-left:1.6mm}
+.sub em{font-style:normal;color:var(--c-d)}
+p,li{margin:0;font:600 1.15rem/1.32 var(--font);color:var(--ink2)}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.mist{break-inside:avoid;border-radius:2mm;margin:0 0 1.5mm;padding:1.3mm 2.2mm}
+.def{background:var(--c-ll);border-left:1mm solid var(--c)}.def .term{display:block;font:900 2.3mm var(--font);text-transform:uppercase;letter-spacing:.2mm;color:var(--c-d)}
+.def p{color:var(--ink);font-weight:700}
+.card{background:var(--bg2,#eef)}.card h3{margin:0 0 .3mm;font:900 1.2rem/1.2 var(--font);color:var(--ink)}
+.card.mint{background:var(--mint-l)}.card.sky{background:var(--sky-l)}.card.pink{background:var(--pink-l)}.card.yellow{background:var(--yellow-l)}.card.peach{background:var(--peach-l)}
+.tip{background:var(--yellow-l);border-left:1mm solid var(--yellow)}.tip b{display:inline;font-weight:900;color:var(--ink);margin-right:1mm;text-transform:uppercase;font-size:2.2mm}
+.warn{background:var(--red-l);border-left:1mm solid var(--red)}
+table.t{width:100%;border-collapse:separate;border-spacing:0;margin:0 0 1.8mm;break-inside:avoid;border-radius:2mm;overflow:hidden;font-size:1.08rem}
+table.t th{background:var(--c);color:#fff;font:900 1.08rem var(--font);text-align:left;padding:.9mm 1.8mm}
+table.t td{font:600 1.08rem/1.28 var(--font);padding:.8mm 1.8mm;border-top:.25mm solid var(--line);vertical-align:top;color:var(--ink2)}
+table.t td:first-child{font-weight:900;color:var(--ink)}
+table.t tr:nth-child(even) td{background:var(--c-ll)}
+.worked{background:#fff;border:.3mm solid var(--c-l)}.worked .q{font:800 1.18rem/1.3 var(--font);color:var(--ink);background:var(--c-ll);border-radius:1.6mm;padding:1mm 1.8mm;margin-bottom:.8mm}
+.worked .step{display:flex;gap:1.6mm;font:700 1.1rem/1.3 var(--font);color:var(--ink2)}.worked .step i{font-style:normal;flex:none;min-width:11mm;font:900 2.2mm var(--font);text-transform:uppercase;color:var(--c)}
+.worked .ans{display:inline-block;margin-top:.8mm;font:900 1.2rem var(--font);color:#fff;background:var(--c);padding:.7mm 2.4mm;border-radius:5mm}
+.nums{margin:0 0 1.6mm;padding:0;list-style:none;counter-reset:n;break-inside:avoid}
+.nums>*{counter-increment:n;position:relative;padding-left:5mm;margin-bottom:.7mm;font:600 1.15rem/1.3 var(--font);color:var(--ink2)}
+.nums>*::before{content:counter(n);position:absolute;left:0;top:.1mm;width:3.6mm;height:3.6mm;border-radius:50%;background:var(--c);color:#fff;font:900 2.3mm/3.6mm var(--font);text-align:center}
+.cols-2,.cols-3,.stack,.wide-left,.body{display:block}
+.fig{break-inside:avoid;margin:0 0 1.6mm;background:#fff;border:.3mm solid var(--line);border-radius:2mm;padding:1mm;text-align:center}
+.fig svg{width:100%;height:auto;max-height:46mm;display:block}
+.fig svg text{font-family:var(--font)}
+.nutshell{background:var(--c);color:#fff}.nutshell h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:#fff}.nutshell li{color:#fff;font-weight:700;margin-left:3.6mm}
+.test{background:var(--lilac-l)}.test h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:var(--ink)}.test .qq{font:700 1.12rem/1.3 var(--font);color:var(--ink);margin-bottom:.6mm}.test .a{color:var(--c-d);font-weight:900;margin-left:1.2mm}
+.say{background:var(--mint-l)}.mist{background:var(--red-l)}.say,.mist{break-inside:avoid;border-radius:2mm;padding:1.3mm 2.2mm;margin:0 0 1.5mm}.say h3,.mist h3{margin:0 0 .4mm;font:900 1.2rem var(--font)}
+.chips,.bignum,.checks{display:none}
+
+@page{margin:0}
+html{font-size:15.5px;background:var(--bg)}
+body{max-width:900px;margin:0 auto;padding:18px 16px 60px;background:var(--bg)}
+.cols{column-count:1}
+.hero{padding:5mm 6mm;border-radius:6mm}.hero .n{width:15mm;height:15mm;font-size:9mm;line-height:15mm}.hero h1{font-size:9mm}.hero p{font-size:3.6mm}
+.sec{font-size:5.4mm;padding:2mm 4mm;border-radius:4mm;margin:6mm 0 3mm;position:sticky;top:0;z-index:2}.sec b{width:7.5mm;height:7.5mm;font-size:4.6mm;line-height:7.5mm}
+.sub{font-size:4.6mm;margin:3mm 0 1.6mm}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.say,.mist{padding:2.6mm 4mm;border-radius:3.4mm;margin-bottom:2.6mm}
+.def .term{font-size:3mm}.card h3{font-size:1.3rem}.tip b{font-size:3mm}
+.worked .step i{font-size:3mm;min-width:16mm}.nutshell h4,.test h4{font-size:5mm}
+.nums>*{padding-left:8mm}.nums>*::before{width:5.6mm;height:5.6mm;font-size:3.4mm;line-height:5.6mm}
+table.t{font-size:1.15rem}table.t th,table.t td{font-size:1.15rem;padding:1.6mm 3mm}
+.fig svg{max-height:60mm}
+.test .qq{font-size:1.2rem;margin-bottom:1.4mm}.say h3,.mist h3{font-size:1.3rem}
+p,li{font-size:1.2rem}
+
+.hero p{color:#fff}
+.eq{break-inside:avoid;background:#fff;border:.3mm solid var(--c-l);border-radius:3.4mm;padding:2.6mm 4mm;margin:0 0 2.6mm;text-align:center}
+.eq .words{font:800 1.2rem/1.3 var(--font);color:var(--ink2)}
+.eq .sym{display:inline-block;margin:1.4mm 0;font:900 2rem/1.15 var(--font);color:var(--c-d);background:var(--c-ll);padding:1.6mm 5mm;border-radius:3mm}
+.eq .units{font:700 1rem var(--font);color:var(--muted)}.eq .units span{background:var(--soft);border-radius:5mm;padding:.4mm 2.4mm;margin:0 1mm;display:inline-block}
+.remember{break-inside:avoid;background:var(--mint-l);border-left:1.2mm solid var(--mint);border-radius:3.4mm;padding:2.6mm 4mm;margin-bottom:2.6mm;font:700 1.2rem/1.35 var(--font);color:var(--ink)}
+.warn b,.tip b{margin-right:1.6mm}
+.remember b:first-child{display:block;font-size:3mm;text-transform:uppercase;letter-spacing:.3mm;margin-bottom:.8mm}
+.flow{display:flex;flex-wrap:wrap;gap:2mm;margin:0 0 2.6mm;break-inside:avoid}
+.flow>div{flex:1 1 40mm;background:#fff;border:.3mm solid var(--c-l);border-radius:3mm;padding:2mm 3mm;text-align:center;font:800 1.15rem/1.3 var(--font);color:var(--ink)}
+.flow>div small{display:block;font:600 1rem var(--font);color:var(--muted)}.flow>span{align-self:center;font:900 1.6rem var(--font);color:var(--c)}
+.cols-4{display:block}.wide-right{display:block}
+[style*="font-size:52px"],[style*="font:900 72px"]{font-size:2.2rem !important}
+.card [style]{line-height:1.1}.card .sym{font-size:1.6rem}
+.tag{display:inline-block;font:900 2.6mm var(--font);text-transform:uppercase;background:var(--c);color:#fff;padding:.5mm 2.2mm;border-radius:5mm;margin-bottom:1mm}
+</style><style>.snav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:6px;background:var(--bg);padding:8px 0 10px;margin:0 0 6px}
+.snav button{font:800 14px var(--font);border:2px solid var(--c-l);background:#fff;color:var(--ink);border-radius:20px;padding:6px 12px;cursor:pointer}
+.snav button.on{background:var(--c);border-color:var(--c);color:#fff}
+.part{display:none}.part.on{display:block}.part .sec{position:static!important}
+.pn{display:flex;justify-content:space-between;gap:10px;margin:18px 0 0}.pn button{font:900 15px var(--font);border:0;background:var(--c);color:#fff;border-radius:22px;padding:10px 20px;cursor:pointer}.pn button[disabled]{opacity:.25}</style><style id="stepfix">.worked{counter-reset:st;border:2px solid var(--c-l)!important;padding:12px 16px!important}
+.worked .q{font-size:1.25rem!important;border-left:5px solid var(--c);margin-bottom:10px!important}
+.worked .q::before{content:"Worked example  ";font:900 .8rem var(--font);text-transform:uppercase;letter-spacing:.5px;color:var(--c-d);display:block}
+.worked .step{counter-increment:st;display:grid!important;grid-template-columns:78px 1fr;gap:10px;align-items:baseline;padding:7px 0;border-top:1px dashed var(--c-l);font-size:1.2rem!important}
+.worked .step i{min-width:0!important;font-size:.85rem!important;color:var(--c-d)!important}
+.worked .step i::before{content:"Step " counter(st) "";display:block;font-weight:900;color:var(--c)}
+.worked .ans{display:block!important;margin-top:10px;padding:8px 14px!important;border-radius:10px!important;font-size:1.25rem!important}
+.worked .ans::before{content:"Answer:  "}</style></head><body>
+<div class="hero"><div class="n">6</div><div><h1>Mains Electricity</h1><p>Physics · Unit 2 · Electricity · Last-minute notes · Book pages 59–66</p></div></div>
+<div class="snav"><button type="button">Summary</button><button type="button">6.1 Mains supply, wires and plugs</button><button type="button">6.2 Safety devices</button><button type="button">6.3 Heating effect and power</button><button type="button">6.4 Energy, a.c. and d.c.</button><button type="button">Test yourself</button></div><div class="cols"><div class="part"><div class="nutshell"><h4>Chapter in a nutshell</h4><ul style="margin:0;padding:0"><li>Live (brown), neutral (blue), earth (green/yellow)</li><li>Fuse in the live wire – melts if the current is too big</li><li>Circuit breaker: switch opens – just reset it</li><li>Earth wire + fuse protect metal-cased appliances</li><li>Double insulation → no earth wire needed</li><li>Switches always go in the live wire</li><li>Current in a resistor → energy transferred, it gets hotter</li><li>P = I × V → choose the next fuse size up</li><li>E = I × V × t = P × t (t in seconds)</li><li>Mains = a.c.; cells and batteries = d.c.</li></ul></div><div class="pn"><button type="button" data-to="-1" disabled>◀ Back</button><button type="button" data-to="1">Next ▶</button></div></div><div class="part"><div class="sec"><b>1</b><span>Mains supply, <em>wires and plugs</em></span></div><div class="blk"><div class="sub">Know your <em>units</em></div>
+    <div class="wide-left">
+      <table class="t">
+        <tr><th>Quantity</th><th>Unit</th><th>Symbol</th></tr>
+        <tr><td>current</td><td>ampere (amp)</td><td>A</td></tr>
+        <tr><td>charge</td><td>coulomb</td><td>C</td></tr>
+        <tr><td>energy</td><td>joule</td><td>J</td></tr>
+        <tr><td>power</td><td>watt</td><td>W</td></tr>
+        <tr><td>resistance</td><td>ohm</td><td>Ω</td></tr>
+        <tr><td>time</td><td>second</td><td>s</td></tr>
+        <tr><td>voltage</td><td>volt</td><td>V</td></tr>
+      </table>
+      <div class="stack">
+        <div class="card sky"><h3>Kilowatts</h3><p style="font-size:44px;font-weight:900;color:var(--c-d)">1 kW = 1000 W</p><p>Big appliances, like kettles and cookers, are rated in kilowatts.</p></div>
+        <div class="tip"><b>Exam tip</b>Change kW into W (× 1000) before you put numbers into an equation.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">From <em>power station</em> to plug</div>
+    <div class="fig" style="flex:1">
+      <svg viewBox="0 0 1640 520" aria-label="Path of mains electricity from power station to sockets">
+        <!-- ground -->
+        <line x1="20" y1="380" x2="1620" y2="380" class="dash"/>
+        <!-- power station -->
+        <rect x="40" y="40" width="240" height="200" rx="28" class="f-c"/>
+        <path d="M80 210 L80 120 L130 120 L130 70 L160 70 L160 120 L200 120 L200 60 L230 60 L230 210 Z" class="ln f-card"/>
+        <line x1="70" y1="210" x2="250" y2="210" class="ln"/>
+        <text x="160" y="290" class="lbl" text-anchor="middle">power station</text>
+        <!-- underground cable -->
+        <path d="M230 180 L300 180 L300 420 L350 420 L350 180 L370 180" class="ln" style="stroke:#8B5A2B;stroke-width:10"/>
+        <rect x="200" y="440" width="250" height="52" rx="26" class="pill"/><text x="325" y="475" class="lbl-s" text-anchor="middle">underground cable</text>
+        <!-- meter -->
+        <rect x="370" y="40" width="240" height="200" rx="28" class="f-yellow"/>
+        <rect x="410" y="70" width="160" height="140" rx="20" class="ln f-card"/>
+        <rect x="430" y="95" width="120" height="44" rx="10" class="f-c"/>
+        <text x="490" y="127" class="lbl-c" text-anchor="middle" style="font-size:26px">0482</text>
+        <text x="490" y="185" class="lbl-s" text-anchor="middle">kWh</text>
+        <text x="490" y="290" class="lbl" text-anchor="middle">electricity meter</text>
+        <rect x="370" y="310" width="240" height="52" rx="26" class="pill"/><text x="490" y="345" class="lbl-s" text-anchor="middle">measures energy</text>
+        <line x1="610" y1="140" x2="700" y2="140" class="ln" style="stroke:#8B5A2B;stroke-width:10"/>
+        <!-- consumer unit -->
+        <rect x="700" y="40" width="240" height="200" rx="28" class="f-mint"/>
+        <rect x="730" y="80" width="180" height="120" rx="16" class="ln f-card"/>
+        <rect x="748" y="110" width="26" height="60" rx="6" class="f-cc"/><rect x="788" y="110" width="26" height="60" rx="6" class="f-cc"/>
+        <rect x="828" y="110" width="26" height="60" rx="6" class="f-cc"/><rect x="868" y="110" width="26" height="60" rx="6" class="f-cc"/>
+        <text x="820" y="290" class="lbl" text-anchor="middle">consumer unit</text>
+        <rect x="690" y="310" width="260" height="52" rx="26" class="pill"/><text x="820" y="345" class="lbl-s" text-anchor="middle">fuses / circuit breakers</text>
+        <line x1="940" y1="140" x2="1030" y2="140" class="ln" style="stroke:#8B5A2B;stroke-width:10"/>
+        <!-- ring main -->
+        <rect x="1030" y="40" width="240" height="200" rx="28" class="f-pink"/>
+        <rect x="1070" y="75" width="160" height="130" rx="40" class="ln-c"/>
+        <circle cx="1070" cy="140" r="14" class="f-cc"/><circle cx="1230" cy="140" r="14" class="f-cc"/><circle cx="1150" cy="75" r="14" class="f-cc"/><circle cx="1150" cy="205" r="14" class="f-cc"/>
+        <text x="1150" y="290" class="lbl" text-anchor="middle">ring main</text>
+        <rect x="1035" y="310" width="230" height="52" rx="26" class="pill"/><text x="1150" y="345" class="lbl-s" text-anchor="middle">in walls &amp; floors</text>
+        <line x1="1270" y1="140" x2="1360" y2="140" class="ln" style="stroke:#8B5A2B;stroke-width:10"/>
+        <!-- socket -->
+        <rect x="1360" y="40" width="240" height="200" rx="28" class="f-sky"/>
+        <rect x="1405" y="70" width="150" height="140" rx="22" class="ln f-card"/>
+        <rect x="1471" y="92" width="18" height="40" rx="4" class="f-cc"/>
+        <rect x="1432" y="150" width="40" height="18" rx="4" class="f-cc"/><rect x="1488" y="150" width="40" height="18" rx="4" class="f-cc"/>
+        <text x="1480" y="290" class="lbl" text-anchor="middle">sockets</text>
+        <rect x="1360" y="310" width="240" height="52" rx="26" class="pill"/><text x="1480" y="345" class="lbl-s" text-anchor="middle">plugs connect here</text>
+        <text x="1600" y="420" class="lbl-s" text-anchor="end">ground level</text>
+      </svg>
+    </div>
+    <p>Mains electricity enters a home through an <strong>underground cable</strong>, passes through an <strong>electricity meter</strong> and into a <strong>consumer unit (fuse box)</strong>, which has fuses or circuit breakers for each circuit.</p>
+  </div><div class="blk"><div class="sub">The <em>ring main</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 600" aria-label="Plan of a room with a ring main linking four sockets">
+          <rect x="60" y="40" width="780" height="520" rx="30" class="f-c"/>
+          <rect x="60" y="40" width="780" height="520" rx="30" class="ln"/>
+          <path d="M200 120 L740 120 Q760 120 760 140 L760 460 Q760 480 740 480 L160 480 Q140 480 140 460 L140 180" class="ln" style="stroke:#8B5A2B;stroke-width:9"/>
+          <!-- consumer unit -->
+          <rect x="100" y="100" width="100" height="80" rx="14" class="ln f-mint"/>
+          <rect x="70" y="200" width="200" height="50" rx="25" class="pill"/><text x="170" y="234" class="lbl-s" text-anchor="middle">consumer unit</text>
+          <!-- sockets -->
+          <g>
+            <rect x="420" y="95" width="60" height="50" rx="10" class="ln f-card"/>
+            <rect x="735" y="270" width="50" height="60" rx="10" class="ln f-card"/>
+            <rect x="420" y="455" width="60" height="50" rx="10" class="ln f-card"/>
+            <rect x="115" y="350" width="50" height="60" rx="10" class="ln f-card"/>
+          </g>
+          <rect x="370" y="170" width="160" height="50" rx="25" class="pill"/><text x="450" y="204" class="lbl-s" text-anchor="middle">socket</text>
+          <rect x="300" y="280" width="300" height="56" rx="28" class="pill"/><text x="450" y="317" class="lbl" text-anchor="middle">one ring of wire</text>
+          <text x="450" y="420" class="lbl-s" text-anchor="middle">room</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <p>Most wires from the consumer unit go to <strong>ring main circuits</strong> hidden in the walls and floors.</p>
+        <div class="card mint"><h3>Why a ring?</h3><p>Several sockets in different parts of a room connect to the mains using the <strong>minimum amount of wire</strong>.</p></div>
+        <div class="remember"><b>Remember</b>Plugs and sockets look different in different countries, but the wiring ideas are the same.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Live, neutral and <em>earth</em></div>
+    <div class="wide-right">
+      <div class="fig">
+        <svg viewBox="0 0 640 600" aria-label="A mains cable with its three coloured wires">
+          <rect x="30" y="250" width="260" height="110" rx="40" class="ln f-c"/>
+          <path d="M290 270 C 380 270, 400 120, 520 120" class="ln" style="stroke:#8B5A2B;stroke-width:22"/>
+          <path d="M290 305 C 400 305, 420 305, 520 305" class="ln" style="stroke:#1FAF6B;stroke-width:22"/>
+          <path d="M290 305 C 400 305, 420 305, 520 305" style="fill:none;stroke:#FFC94D;stroke-width:22;stroke-dasharray:18 18"/>
+          <path d="M290 340 C 380 340, 400 490, 520 490" class="ln" style="stroke:#3B6FD8;stroke-width:22"/>
+          <rect x="460" y="60" width="160" height="50" rx="25" class="pill"/><text x="540" y="94" class="lbl-s" text-anchor="middle">live</text>
+          <rect x="460" y="232" width="160" height="50" rx="25" class="pill"/><text x="540" y="266" class="lbl-s" text-anchor="middle">earth</text>
+          <rect x="460" y="520" width="160" height="50" rx="25" class="pill"/><text x="540" y="554" class="lbl-s" text-anchor="middle">neutral</text>
+          <rect x="60" y="380" width="200" height="50" rx="25" class="pill"/><text x="160" y="414" class="lbl-s" text-anchor="middle">outer cable</text>
+        </svg>
+      </div>
+      <table class="t">
+        <tr><th>Wire</th><th>UK colour</th><th>Job</th></tr>
+        <tr><td>Live</td><td style="color:#8B5A2B;font-weight:900">brown</td><td>Carries the electrical energy from the power station to the appliance. <strong>Dangerous</strong> – at high voltage.</td></tr>
+        <tr><td>Neutral</td><td style="color:#3B6FD8;font-weight:900">blue</td><td>Completes the circuit.</td></tr>
+        <tr><td>Earth</td><td style="color:#1FAF6B;font-weight:900">green/ yellow</td><td>Normally carries <strong>no current</strong>. Protects you if there is a fault – gives the current a path that does not go through the user.</td></tr>
+      </table>
+    </div>
+  </div><div class="blk"><div class="sub">Inside a UK <em>3-pin plug</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 1000 680" aria-label="Inside a UK three-pin plug">
+          <rect x="250" y="30" width="500" height="580" rx="70" class="ln f-c"/>
+          <!-- pins -->
+          <rect x="470" y="80" width="60" height="150" rx="8" class="ln" style="fill:#E6C27A"/>
+          <rect x="300" y="300" width="60" height="140" rx="8" class="ln" style="fill:#E6C27A"/>
+          <rect x="640" y="300" width="60" height="140" rx="8" class="ln" style="fill:#E6C27A"/>
+          <!-- fuse -->
+          <rect x="645" y="110" width="50" height="120" rx="14" class="ln f-card"/>
+          <rect x="645" y="110" width="50" height="22" rx="8" class="f-cc"/><rect x="645" y="208" width="50" height="22" rx="8" class="f-cc"/>
+          <line x1="670" y1="230" x2="670" y2="300" class="ln"/>
+          <!-- wires -->
+          <path d="M520 560 C 560 530, 585 480, 585 400 L585 100 Q585 80 605 80 L670 80 L670 110" class="ln" style="stroke:#8B5A2B;stroke-width:14"/>
+          <path d="M500 560 L500 230" class="ln" style="stroke:#1FAF6B;stroke-width:14"/>
+          <path d="M500 560 L500 230" style="fill:none;stroke:#FFC94D;stroke-width:14;stroke-dasharray:14 14"/>
+          <path d="M480 560 C 400 545, 335 520, 330 440" class="ln" style="stroke:#3B6FD8;stroke-width:14"/>
+          <!-- cable + grip -->
+          <rect x="440" y="560" width="120" height="110" rx="20" class="ln f-card"/>
+          <rect x="420" y="545" width="160" height="40" rx="12" class="ln" style="fill:#7A7598"/>
+          <!-- labels -->
+          <line x1="210" y1="150" x2="470" y2="150" class="thin"/>
+          <rect x="10" y="125" width="200" height="50" rx="25" class="pill"/><text x="110" y="159" class="lbl-s" text-anchor="middle">earth pin</text>
+          <line x1="210" y1="370" x2="300" y2="370" class="thin"/>
+          <rect x="10" y="345" width="200" height="50" rx="25" class="pill"/><text x="110" y="379" class="lbl-s" text-anchor="middle">neutral pin</text>
+          <line x1="210" y1="565" x2="420" y2="565" class="thin"/>
+          <rect x="10" y="540" width="200" height="50" rx="25" class="pill"/><text x="110" y="574" class="lbl-s" text-anchor="middle">cable grip</text>
+          <line x1="790" y1="170" x2="695" y2="170" class="thin"/>
+          <rect x="790" y="145" width="200" height="50" rx="25" class="pill"/><text x="890" y="179" class="lbl-s" text-anchor="middle">fuse</text>
+          <line x1="790" y1="370" x2="700" y2="370" class="thin"/>
+          <rect x="790" y="345" width="200" height="50" rx="25" class="pill"/><text x="890" y="379" class="lbl-s" text-anchor="middle">live pin</text>
+          <line x1="790" y1="520" x2="740" y2="520" class="thin"/>
+          <rect x="790" y="495" width="200" height="50" rx="25" class="pill"/><text x="890" y="529" class="lbl-s" text-anchor="middle">plastic casing</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <ul class="dots">
+          <li><strong>Casing:</strong> plastic – a good insulator, so you can’t touch anything live.</li>
+          <li><strong>Pins:</strong> brass – an excellent conductor.</li>
+          <li>The <strong>fuse</strong> is connected in the <span class="hl">live wire</span>.</li>
+          <li>The <strong>cable grip</strong> holds the cable firmly so the wires can’t be pulled out.</li>
+        </ul>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Mains voltage <em>can kill</em></div>
+    <div class="wide-right">
+      <div class="fig">
+        <svg viewBox="0 0 640 600" aria-label="Bar chart: mains voltage is far bigger than a cell's voltage">
+          <line x1="90" y1="520" x2="600" y2="520" class="ln"/><line x1="90" y1="520" x2="90" y2="40" class="ln"/>
+          <text x="40" y="290" class="lbl" text-anchor="middle" transform="rotate(-90 40 290)">voltage (V)</text>
+          <rect x="160" y="110" width="160" height="410" rx="18" style="fill:var(--red-l);stroke:var(--red);stroke-width:6"/>
+          <rect x="400" y="495" width="160" height="25" rx="8" class="f-c" style="stroke:var(--c);stroke-width:5"/>
+          <rect x="140" y="45" width="200" height="54" rx="27" class="pill"/><text x="240" y="82" class="lbl" text-anchor="middle">220–240 V</text>
+          <rect x="390" y="420" width="180" height="54" rx="27" class="pill"/><text x="480" y="456" class="lbl-s" text-anchor="middle">a few volts</text>
+          <text x="240" y="565" class="lbl" text-anchor="middle">mains</text>
+          <text x="480" y="565" class="lbl" text-anchor="middle">cell</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="warn"><b>Danger</b>Mains voltage is <strong>220–240 V</strong> in the UK, China, India and many other countries.</div>
+        <p>That is <strong>much higher</strong> than cells and batteries.</p>
+        <p>Direct contact can give a <strong>severe, possibly fatal, electric shock</strong>.</p>
+        <div class="remember"><b>In simple words</b>Never touch mains wires. Plugs, casings and safety devices are there to protect you.</div>
+      </div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="0">◀ Back</button><button type="button" data-to="2">Next ▶</button></div></div><div class="part"><div class="sec"><b>2</b><span>Safety <em>devices</em></span></div><div class="blk"><div class="sub">How a <em>fuse</em> protects you</div>
+    <div class="cols-2">
+      <div class="fig">
+        <svg viewBox="0 0 800 620" aria-label="A cartridge fuse and the circuit symbol for a fuse">
+          <rect x="150" y="60" width="500" height="150" rx="40" class="ln f-card"/>
+          <rect x="150" y="60" width="90" height="150" rx="30" class="ln f-c"/>
+          <rect x="560" y="60" width="90" height="150" rx="30" class="ln f-c"/>
+          <path d="M240 135 C 300 105, 340 165, 400 135 S 500 105, 560 135" class="ln s-red" style="stroke-width:5"/>
+          <line x1="400" y1="210" x2="400" y2="260" class="thin"/>
+          <rect x="230" y="260" width="340" height="52" rx="26" class="pill"/><text x="400" y="295" class="lbl-s" text-anchor="middle">thin wire, low melting point</text>
+          <text x="400" y="40" class="lbl" text-anchor="middle">cartridge fuse</text>
+          <!-- symbol -->
+          <line x1="120" y1="470" x2="300" y2="470" class="ln"/><line x1="500" y1="470" x2="680" y2="470" class="ln"/>
+          <rect x="300" y="430" width="200" height="80" rx="6" class="ln f-card"/>
+          <line x1="300" y1="470" x2="500" y2="470" class="ln"/>
+          <text x="400" y="580" class="lbl" text-anchor="middle">circuit symbol for a fuse</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <ol class="nums">
+          <li>The current is <strong>too large</strong>.</li>
+          <li>The thin wire gets <strong>very hot</strong>.</li>
+          <li>It <strong>melts</strong> – the fuse “blows”.</li>
+          <li>The circuit is broken, so there is <strong>no current</strong>.</li>
+          <li>This prevents shocks and reduces the risk of <strong>fire</strong>.</li>
+        </ol>
+        <div class="remember"><b>After a fault</b>Fix the fault, then fit a new fuse of the <strong>same rating</strong>.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Circuit breakers <em>(trip switches)</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 600" aria-label="A circuit breaker closed during normal use and open after too large a current">
+          <!-- normal -->
+          <rect x="20" y="20" width="410" height="440" rx="30" class="f-mint"/>
+          <text x="225" y="80" class="lbl" text-anchor="middle">normal</text>
+          <line x1="60" y1="250" x2="150" y2="250" class="ln"/><circle cx="160" cy="250" r="12" class="ln f-card"/>
+          <line x1="172" y1="250" x2="278" y2="250" class="ln"/><circle cx="290" cy="250" r="12" class="ln f-card"/>
+          <line x1="302" y1="250" x2="390" y2="250" class="ln"/>
+          <path d="M80 300 L370 300" class="ln-c"/><path d="M350 285 L372 300 L350 315" class="ln-c"/>
+          <rect x="95" y="340" width="260" height="50" rx="25" class="pill"/><text x="225" y="374" class="lbl-s" text-anchor="middle">switch closed</text>
+          <text x="225" y="430" class="lbl-s" text-anchor="middle">current flows</text>
+          <!-- tripped -->
+          <rect x="470" y="20" width="410" height="440" rx="30" class="f-red"/>
+          <text x="675" y="80" class="lbl" text-anchor="middle">current too large</text>
+          <line x1="510" y1="250" x2="600" y2="250" class="ln"/><circle cx="610" cy="250" r="12" class="ln f-card"/>
+          <line x1="620" y1="243" x2="715" y2="165" class="ln"/><circle cx="740" cy="250" r="12" class="ln f-card"/>
+          <line x1="752" y1="250" x2="840" y2="250" class="ln"/>
+          <rect x="545" y="340" width="260" height="50" rx="25" class="pill"/><text x="675" y="374" class="lbl-s" text-anchor="middle">switch opens</text>
+          <text x="675" y="430" class="lbl-s" text-anchor="middle">no current</text>
+          <!-- reset button -->
+          <rect x="300" y="500" width="300" height="70" rx="35" class="f-cc"/>
+          <text x="450" y="546" class="lbl" text-anchor="middle" style="fill:#fff">RESET button</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <p>If too large a current flows, a switch <strong>opens automatically</strong>, breaking the circuit.</p>
+        <p>Once the fault is fixed, simply press the <strong>reset button</strong>.</p>
+        <div class="remember"><b>Where?</b>Circuit breakers are found in modern consumer units.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Fuse or <em>circuit breaker</em>?</div>
+    <table class="t">
+      <tr><th></th><th>Fuse</th><th>Circuit breaker</th></tr>
+      <tr><td>How it works</td><td>Thin wire melts and breaks the circuit</td><td>Switch opens automatically</td></tr>
+      <tr><td>After a fault</td><td>Replace it with a new fuse</td><td>Just press reset – nothing to replace</td></tr>
+      <tr><td>Speed</td><td>Slower</td><td><strong>Acts faster</strong></td></tr>
+      <tr><td>Where</td><td>Plugs, older fuse boxes</td><td>Modern consumer units</td></tr>
+    </table>
+    <div class="tip"><b>Exam tip</b>Advantages of a circuit breaker over a fuse: nothing needs replacing (just reset), and it acts faster.</div>
+  </div><div class="blk"><div class="sub">Pick the <em>next size up</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 960 560" aria-label="Number line of current showing normal currents and the fuse to choose">
+          <line x1="60" y1="300" x2="920" y2="300" class="ln"/>
+          <path d="M905 288 L922 300 L905 312" class="ln"/>
+          <g class="thin">
+            <line x1="60" y1="290" x2="60" y2="310"/><line x1="120" y1="290" x2="120" y2="310"/><line x1="180" y1="290" x2="180" y2="310"/><line x1="240" y1="290" x2="240" y2="310"/>
+            <line x1="300" y1="290" x2="300" y2="310"/><line x1="360" y1="290" x2="360" y2="310"/><line x1="420" y1="290" x2="420" y2="310"/><line x1="480" y1="290" x2="480" y2="310"/>
+            <line x1="540" y1="290" x2="540" y2="310"/><line x1="600" y1="290" x2="600" y2="310"/><line x1="660" y1="290" x2="660" y2="310"/><line x1="720" y1="290" x2="720" y2="310"/>
+            <line x1="780" y1="290" x2="780" y2="310"/><line x1="840" y1="290" x2="840" y2="310"/>
+          </g>
+          <text x="60" y="345" class="lbl-s" text-anchor="middle">0</text><text x="360" y="345" class="lbl-s" text-anchor="middle">5</text>
+          <text x="660" y="345" class="lbl-s" text-anchor="middle">10</text>
+          <text x="880" y="345" class="lbl-s" text-anchor="middle">A</text>
+          <!-- fuses -->
+          <rect x="195" y="60" width="90" height="56" rx="28" class="f-cc"/><text x="240" y="98" class="lbl" text-anchor="middle" style="fill:#fff">3 A</text>
+          <rect x="315" y="60" width="90" height="56" rx="28" class="f-cc"/><text x="360" y="98" class="lbl" text-anchor="middle" style="fill:#fff">5 A</text>
+          <rect x="785" y="60" width="110" height="56" rx="28" class="f-cc"/><text x="840" y="98" class="lbl" text-anchor="middle" style="fill:#fff">13 A</text>
+          <line x1="240" y1="116" x2="240" y2="290" class="dash"/><line x1="360" y1="116" x2="360" y2="290" class="dash"/><line x1="840" y1="116" x2="840" y2="290" class="dash"/>
+          <!-- normal currents -->
+          <circle cx="180" cy="300" r="14" style="fill:var(--peach)"/><circle cx="300" cy="300" r="14" style="fill:var(--peach)"/><circle cx="660" cy="300" r="14" style="fill:var(--peach)"/>
+          <path d="M180 320 Q 210 400 240 320" class="ln s-peach" style="stroke-width:5"/>
+          <path d="M300 320 Q 330 400 360 320" class="ln s-peach" style="stroke-width:5"/>
+          <path d="M660 320 Q 750 420 840 320" class="ln s-peach" style="stroke-width:5"/>
+          <rect x="60" y="430" width="250" height="52" rx="26" class="pill"/><text x="185" y="465" class="lbl-s" text-anchor="middle">● normal current</text>
+          <rect x="330" y="430" width="300" height="52" rx="26" class="pill"/><text x="480" y="465" class="lbl-s" text-anchor="middle">→ next fuse up</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <p>Common UK fuses: <strong>3 A, 5 A, 13 A</strong>.</p>
+        <p>The correct fuse lets the normal current through but <strong>blows if the current is a little larger</strong>.</p>
+        <table class="t">
+          <tr><th>Normal current</th><th>Fuse</th></tr>
+          <tr><td>2 A</td><td>3 A</td></tr>
+          <tr><td>4 A</td><td>5 A</td></tr>
+          <tr><td>10 A</td><td>13 A</td></tr>
+        </table>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Which fuse for a <em>1 kW hairdryer</em>?</div>
+    <div class="wide-left">
+      <div class="worked">
+        <div class="q">A hairdryer is rated 230 V, 1 kW. Which fuse should it have: 3 A, 5 A or 13 A?</div>
+        <div class="step"><i>Write down</i>P = 1 kW = 1000 W, V = 230 V</div>
+        <div class="step"><i>Equation</i>P = I × V, so I = P ÷ V</div>
+        <div class="step"><i>Substitute</i>I = 1000 ÷ 230 = 4.35 A</div>
+        <div class="ans">Next size up → 5 A fuse</div>
+      </div>
+      <div class="stack">
+        <div class="card pink"><h3>3 A ✗</h3><p>Would blow in normal use.</p></div>
+        <div class="card mint"><h3>5 A ✓</h3><p>Just above 4.35 A.</p></div>
+        <div class="card pink"><h3>13 A ✗</h3><p>Would not protect the hairdryer.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Why metal appliances need an <em>earth wire</em></div>
+    <div class="cols-2">
+      <div class="stack" style="flex:1">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 800 450" aria-label="Without an earth wire a person touching a live metal case gets a shock">
+            <rect x="200" y="70" width="360" height="250" rx="26" class="ln" style="fill:#DCE0EA"/>
+            <rect x="275" y="12" width="210" height="48" rx="24" class="pill"/><text x="380" y="45" class="lbl-s" text-anchor="middle">metal casing</text>
+            <path d="M10 160 L70 160" class="ln" style="stroke:#8B5A2B;stroke-width:9"/>
+            <rect x="70" y="145" width="70" height="30" rx="6" class="ln f-card"/>
+            <path d="M140 160 L200 160 C 300 160, 350 240, 420 318" class="ln" style="stroke:#8B5A2B;stroke-width:9"/>
+            <circle cx="420" cy="318" r="16" style="fill:var(--yellow)"/>
+            <text x="30" y="140" class="lbl" text-anchor="middle">L</text>
+            <rect x="215" y="340" width="230" height="48" rx="24" class="pill"/><text x="330" y="373" class="lbl-s" text-anchor="middle">loose live wire</text>
+            <!-- person -->
+            <circle cx="680" cy="150" r="28" class="ln f-card"/>
+            <line x1="680" y1="178" x2="680" y2="320" class="ln"/>
+            <line x1="680" y1="215" x2="562" y2="200" class="ln"/>
+            <line x1="680" y1="320" x2="645" y2="420" class="ln"/><line x1="680" y1="320" x2="715" y2="420" class="ln"/>
+            <path d="M600 230 L655 240 L655 400" class="ln s-red" style="stroke-width:5;stroke-dasharray:12 10"/>
+            <line x1="580" y1="425" x2="790" y2="425" class="ln"/>
+            <rect x="660" y="30" width="130" height="48" rx="24" style="fill:var(--red)"/><text x="725" y="63" class="lbl-s" text-anchor="middle" style="fill:#fff">shock!</text>
+          </svg>
+        </div>
+        <div class="warn" style="font-size:28px"><b>No earth – danger</b>Live wire touches the casing → the person becomes the path to earth → severe shock.</div>
+      </div>
+      <div class="stack" style="flex:1">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 800 450" aria-label="With an earth wire a large current flows to earth and the fuse blows">
+            <rect x="200" y="70" width="360" height="250" rx="26" class="ln" style="fill:#DCE0EA"/>
+            <rect x="275" y="12" width="210" height="48" rx="24" class="pill"/><text x="380" y="45" class="lbl-s" text-anchor="middle">metal casing</text>
+            <path d="M10 160 L70 160" class="ln" style="stroke:#8B5A2B;stroke-width:9"/>
+            <rect x="70" y="145" width="70" height="30" rx="6" class="ln f-card"/>
+            <path d="M75 160 L98 160 M112 160 L135 160" class="ln s-red" style="stroke-width:5"/>
+            <path d="M140 160 L200 160 C 300 160, 350 240, 420 318" class="ln" style="stroke:#8B5A2B;stroke-width:9"/>
+            <circle cx="420" cy="318" r="16" style="fill:var(--yellow)"/>
+            <text x="30" y="140" class="lbl" text-anchor="middle">L</text>
+            <rect x="30" y="200" width="160" height="48" rx="24" style="fill:var(--red)"/><text x="110" y="233" class="lbl-s" text-anchor="middle" style="fill:#fff">fuse blows</text>
+            <!-- earth wire -->
+            <path d="M620 200 L560 200 M620 200 L620 380" class="ln" style="stroke:#1FAF6B;stroke-width:10"/>
+            <path d="M620 200 L560 200 M620 200 L620 380" style="fill:none;stroke:#FFC94D;stroke-width:10;stroke-dasharray:12 12"/>
+            <line x1="580" y1="380" x2="660" y2="380" class="ln"/><line x1="593" y1="400" x2="647" y2="400" class="ln"/><line x1="607" y1="420" x2="633" y2="420" class="ln"/>
+            <path d="M660 220 L660 350" class="ln-c"/><path d="M648 332 L660 352 L672 332" class="ln-c"/>
+            <rect x="640" y="110" width="150" height="48" rx="24" class="pill"/><text x="715" y="143" class="lbl-s" text-anchor="middle">earth wire</text>
+            <rect x="680" y="260" width="110" height="48" rx="24" class="pill"/><text x="735" y="293" class="lbl-s" text-anchor="middle">big I</text>
+          </svg>
+        </div>
+        <div class="remember" style="font-size:28px"><b>With earth – safe</b>A large current flows through the low-resistance earth wire → fuse blows → circuit off.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">No earth wire <em>needed</em></div>
+    <div class="cols-2">
+      <div class="fig">
+        <svg viewBox="0 0 800 600" aria-label="The double insulation symbol and a two-wire flex">
+          <rect x="70" y="60" width="260" height="260" rx="10" class="ln" style="stroke-width:10"/>
+          <rect x="135" y="125" width="130" height="130" rx="6" class="ln" style="stroke-width:10"/>
+          <rect x="60" y="350" width="280" height="52" rx="26" class="pill"/><text x="200" y="385" class="lbl-s" text-anchor="middle">double insulation symbol</text>
+          <!-- two-wire flex -->
+          <rect x="430" y="120" width="120" height="200" rx="40" class="ln f-c"/>
+          <path d="M470 320 C 470 400, 440 440, 440 520" class="ln" style="stroke:#8B5A2B;stroke-width:16"/>
+          <path d="M510 320 C 510 400, 540 440, 540 520" class="ln" style="stroke:#3B6FD8;stroke-width:16"/>
+          <rect x="590" y="400" width="190" height="50" rx="25" class="pill"/><text x="685" y="434" class="lbl-s" text-anchor="middle">live + neutral</text>
+          <rect x="400" y="545" width="320" height="50" rx="25" class="pill"/><text x="560" y="579" class="lbl-s" text-anchor="middle">two-wire flex, no earth</text>
+          <rect x="580" y="190" width="190" height="50" rx="25" class="pill"/><text x="675" y="224" class="lbl-s" text-anchor="middle">plastic flex</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="def"><span class="term">Key idea · double insulation</span><p>The casing is made of an insulator (plastic) and all electrical parts are insulated so they can’t be touched.</p></div>
+        <p>Examples: plastic kettles, hairdryers.</p>
+        <div class="remember"><b>In simple words</b>If the outside can’t conduct, it can’t become live – so no earth wire is needed.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Switches go in the <em>live wire</em></div>
+    <div class="cols-2">
+      <div class="stack" style="flex:1">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 800 440" aria-label="Circuit with the switch in the live wire">
+            <circle cx="110" cy="220" r="50" class="ln f-card"/><path d="M85 220 Q 97 195 110 220 T 135 220" class="ln" style="stroke-width:5"/>
+            <path d="M110 170 L110 80 L330 80" class="ln" style="stroke:#8B5A2B"/>
+            <circle cx="340" cy="80" r="10" class="ln f-card"/><line x1="348" y1="74" x2="420" y2="30" class="ln"/><circle cx="440" cy="80" r="10" class="ln f-card"/>
+            <path d="M450 80 L700 80 L700 160" class="ln"/>
+            <rect x="670" y="160" width="60" height="120" rx="8" class="ln f-mint"/>
+            <path d="M700 280 L700 360 L110 360 L110 270" class="ln" style="stroke:#3B6FD8"/>
+            <rect x="150" y="20" width="110" height="46" rx="23" class="pill"/><text x="205" y="52" class="lbl-s" text-anchor="middle">live</text>
+            <rect x="330" y="380" width="140" height="46" rx="23" class="pill"/><text x="400" y="412" class="lbl-s" text-anchor="middle">neutral</text>
+            <rect x="480" y="196" width="170" height="46" rx="23" class="pill"/><text x="565" y="228" class="lbl-s" text-anchor="middle">appliance</text>
+            <rect x="490" y="10" width="140" height="46" rx="23" class="pill"/><text x="560" y="42" class="lbl-s" text-anchor="middle">switch</text>
+          </svg>
+        </div>
+        <div class="remember" style="font-size:28px"><b>Switch in live – safe</b>Opening it cuts the appliance off from the live supply.</div>
+      </div>
+      <div class="stack" style="flex:1">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 800 440" aria-label="Circuit with the switch in the neutral wire: appliance stays live">
+            <circle cx="110" cy="220" r="50" class="ln f-card"/><path d="M85 220 Q 97 195 110 220 T 135 220" class="ln" style="stroke-width:5"/>
+            <path d="M110 170 L110 80 L700 80 L700 160" class="ln s-red"/>
+            <rect x="670" y="160" width="60" height="120" rx="8" class="ln f-red" style="stroke:var(--red)"/>
+            <path d="M700 280 L700 360 L460 360" class="ln" style="stroke:#3B6FD8"/>
+            <circle cx="450" cy="360" r="10" class="ln f-card"/><line x1="358" y1="354" x2="430" y2="310" class="ln"/><circle cx="350" cy="360" r="10" class="ln f-card"/>
+            <path d="M340 360 L110 360 L110 270" class="ln" style="stroke:#3B6FD8"/>
+            <rect x="150" y="20" width="110" height="46" rx="23" class="pill"/><text x="205" y="52" class="lbl-s" text-anchor="middle">live</text>
+            <rect x="160" y="380" width="140" height="46" rx="23" class="pill"/><text x="230" y="412" class="lbl-s" text-anchor="middle">neutral</text>
+            <rect x="470" y="196" width="180" height="46" rx="23" style="fill:var(--red)"/><text x="560" y="228" class="lbl-s" text-anchor="middle" style="fill:#fff">still live!</text>
+            <rect x="480" y="380" width="140" height="46" rx="23" class="pill"/><text x="550" y="412" class="lbl-s" text-anchor="middle">switch</text>
+          </svg>
+        </div>
+        <div class="warn" style="font-size:28px"><b>Switch in neutral – danger</b>When “off”, it is still joined to the live supply – a fault could give a shock.</div>
+      </div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="1">◀ Back</button><button type="button" data-to="3">Next ▶</button></div></div><div class="part"><div class="sec"><b>3</b><span>Heating effect and <em>power</em></span></div><div class="blk"><div class="sub">Why a current <em>heats</em> a wire</div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 560" aria-label="Charges moving through a wire collide with atoms">
+          <rect x="30" y="90" width="840" height="340" rx="60" class="f-peach"/>
+          <rect x="30" y="90" width="840" height="340" rx="60" class="ln"/>
+          <g style="fill:#C9C5DD;stroke:var(--ink);stroke-width:4">
+            <circle cx="130" cy="170" r="34"/><circle cx="290" cy="170" r="34"/><circle cx="450" cy="170" r="34"/><circle cx="610" cy="170" r="34"/><circle cx="770" cy="170" r="34"/>
+            <circle cx="210" cy="260" r="34"/><circle cx="370" cy="260" r="34"/><circle cx="530" cy="260" r="34"/><circle cx="690" cy="260" r="34"/>
+            <circle cx="130" cy="350" r="34"/><circle cx="290" cy="350" r="34"/><circle cx="450" cy="350" r="34"/><circle cx="610" cy="350" r="34"/><circle cx="770" cy="350" r="34"/>
+          </g>
+          <g style="fill:var(--yellow);stroke:var(--ink);stroke-width:3">
+            <circle cx="200" cy="200" r="13"/><circle cx="360" cy="310" r="13"/><circle cx="520" cy="215" r="13"/><circle cx="680" cy="310" r="13"/><circle cx="840" cy="215" r="13"/><circle cx="90" cy="305" r="13"/>
+          </g>
+          <path d="M565 210 l14 -14 M567 222 l20 0 M565 234 l14 14" class="thin" style="stroke:var(--red);stroke-width:5"/>
+          <path d="M150 40 L750 40" class="ln-c"/><path d="M730 26 L752 40 L730 54" class="ln-c"/>
+          <text x="450" y="28" class="lbl-c" text-anchor="middle" style="font-size:26px">flow of charge (current)</text>
+          <rect x="40" y="460" width="230" height="52" rx="26" class="pill"/><text x="155" y="495" class="lbl-s" text-anchor="middle">● moving charge</text>
+          <rect x="300" y="460" width="160" height="52" rx="26" class="pill"/><text x="380" y="495" class="lbl-s" text-anchor="middle">◯ atom</text>
+          <rect x="490" y="460" width="370" height="52" rx="26" class="pill"/><text x="675" y="495" class="lbl-s" text-anchor="middle">collisions → wire gets hotter</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="def"><span class="term">Key idea · heating effect</span><p>When a current passes through a resistor, electrical energy is transferred to the resistor and its temperature rises.</p></div>
+        <p><strong>Why?</strong> The charges collide with the atoms of the wire.</p>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Low resistance vs <em>high resistance</em></div>
+    <div class="cols-3">
+      <div class="card sky">
+        <svg viewBox="0 0 400 140" style="width:100%;height:140px" aria-label="Thick copper house wire">
+          <line x1="40" y1="70" x2="360" y2="70" class="ln" style="stroke:#C8763A;stroke-width:34"/>
+        </svg>
+        <h3>House wiring</h3><p>Low resistance – current passes easily, so the wires <strong>stay cool</strong>.</p>
+      </div>
+      <div class="card peach">
+        <svg viewBox="0 0 400 140" style="width:100%;height:140px" aria-label="Coiled heating element">
+          <path d="M30 70 L80 70 C 95 20, 115 20, 120 70 C 125 120, 145 120, 160 70 C 175 20, 195 20, 200 70 C 205 120, 225 120, 240 70 C 255 20, 275 20, 280 70 C 285 120, 305 120, 320 70 L370 70" class="ln s-red" style="stroke-width:8"/>
+        </svg>
+        <h3>Heating element</h3><p>High resistance – it gets <strong>hot on purpose</strong>.</p>
+      </div>
+      <div class="card yellow">
+        <svg viewBox="0 0 400 140" style="width:100%;height:140px" aria-label="Glowing filament lamp">
+          <circle cx="200" cy="62" r="52" class="ln f-card"/>
+          <path d="M180 112 L180 132 L220 132 L220 112" class="ln"/>
+          <path d="M182 100 L182 70 Q 191 45 200 70 T 218 70 L218 100" class="ln" style="stroke:var(--peach);stroke-width:5"/>
+          <path d="M110 62 L130 62 M270 62 L290 62 M140 10 L152 24 M260 10 L248 24" class="ln s-yellow" style="stroke-width:6"/>
+        </svg>
+        <h3>Filament lamp</h3><p>The thin wire gets so hot it <strong>glows</strong>: electrical energy → heat + light.</p>
+      </div>
+    </div>
+    <div class="tip"><b>Extension</b>Old filament bulbs often waste more than 90% of their energy as heat. They are being replaced by halogen bulbs and LEDs, which waste much less.</div>
+  </div><div class="blk"><div class="sub">The heating effect <em>at home</em></div>
+    <div class="cols-4" style="flex:none">
+      <div class="card peach"><h3>Kettles</h3></div>
+      <div class="card peach"><h3>Toasters</h3></div>
+      <div class="card peach"><h3>Electric cookers</h3></div>
+      <div class="card peach"><h3>Electric fires</h3></div>
+      <div class="card yellow"><h3>Hairdryers</h3></div>
+      <div class="card yellow"><h3>Dishwashers</h3></div>
+      <div class="card yellow"><h3>Washing machines</h3></div>
+      <div class="card yellow"><h3>Irons</h3></div>
+    </div>
+    <div class="flow">
+      <div>Current flows<small>through the element</small></div><span>→</span>
+      <div>High resistance<small>charges collide with atoms</small></div><span>→</span>
+      <div>Element gets hot<small>heats water, air, food or clothes</small></div>
+    </div>
+    <div class="remember"><b>In simple words</b>Each of these has a high-resistance heating element that turns electrical energy into heat.</div>
+  </div><div class="blk"><div class="sub">What is <em>power</em>?</div>
+    <div class="cols-2">
+      <div class="fig">
+        <svg viewBox="0 0 800 560" aria-label="A 50 W bulb and a brighter 70 W bulb">
+          <circle cx="220" cy="220" r="90" class="ln f-yellow"/>
+          <path d="M190 310 L190 350 L250 350 L250 310" class="ln"/>
+          <circle cx="580" cy="220" r="90" class="ln" style="fill:var(--yellow)"/>
+          <path d="M550 310 L550 350 L610 350 L610 310" class="ln"/>
+          <g class="ln s-yellow" style="stroke-width:8">
+            <line x1="580" y1="40" x2="580" y2="90"/><line x1="440" y1="220" x2="470" y2="220"/><line x1="690" y1="220" x2="720" y2="220"/>
+            <line x1="470" y1="110" x2="495" y2="135"/><line x1="690" y1="110" x2="665" y2="135"/>
+            <line x1="220" y1="85" x2="220" y2="105"/><line x1="105" y1="220" x2="120" y2="220"/><line x1="320" y1="220" x2="335" y2="220"/>
+          </g>
+          <text x="220" y="235" class="lbl" text-anchor="middle">50 W</text>
+          <text x="580" y="235" class="lbl" text-anchor="middle">70 W</text>
+          <rect x="90" y="400" width="260" height="52" rx="26" class="pill"/><text x="220" y="435" class="lbl-s" text-anchor="middle">50 J every second</text>
+          <rect x="450" y="400" width="260" height="52" rx="26" class="pill"/><text x="580" y="435" class="lbl-s" text-anchor="middle">70 J every second</text>
+          <text x="580" y="510" class="lbl-c" text-anchor="middle">brighter</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="def"><span class="term">Key term · power</span><p>The rate of energy transfer: how many joules per second.</p></div>
+        <ul class="dots"><li>Unit: <strong>watt (W)</strong>. 1 W = 1 J/s.</li><li><strong>1 kW = 1000 W</strong></li><li>On the same mains voltage, a 100 W bulb glows more brightly than a 60 W bulb – it transfers more energy per second.</li></ul>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">The <em>power</em> equation</div>
+    <div class="cols-2">
+      <div class="stack">
+        <div class="eq"><div class="words">power = current × voltage</div><div class="sym">P = I × V</div>
+          <div class="units"><span>P in W</span><span>I in A</span><span>V in V</span></div></div>
+        <div class="card tint"><h3>Rearrange</h3><p style="font-size:40px;font-weight:900;color:var(--c-d)">I = P ÷ V &nbsp;&nbsp; V = P ÷ I</p></div>
+      </div>
+      <div class="stack">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 600 420" aria-label="Equation triangle with P on top and I times V below">
+            <path d="M300 30 L560 390 L40 390 Z" class="ln f-c"/>
+            <line x1="148" y1="240" x2="452" y2="240" class="ln"/><line x1="300" y1="240" x2="300" y2="390" class="ln"/>
+            <text x="300" y="200" class="lbl-c" text-anchor="middle" style="font-size:64px">P</text>
+            <text x="220" y="345" class="lbl-c" text-anchor="middle" style="font-size:64px">I</text>
+            <text x="380" y="345" class="lbl-c" text-anchor="middle" style="font-size:64px">V</text>
+          </svg>
+        </div>
+        <div class="warn"><b>Exam warning</b>Write the equation, not just the triangle.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Power of a <em>television</em></div>
+    <div class="wide-left">
+      <div class="worked">
+        <div class="q">A 230 V television takes a current of 3 A. What is its power?</div>
+        <div class="step"><i>Write down</i>V = 230 V, I = 3 A</div>
+        <div class="step"><i>Equation</i>P = I × V</div>
+        <div class="step"><i>Substitute</i>P = 3 × 230</div>
+        <div class="ans">P = 690 W</div>
+      </div>
+      <div class="stack">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 600 420" aria-label="Television connected to 230 V with a current of 3 A">
+            <rect x="120" y="40" width="360" height="230" rx="24" class="ln f-sky"/>
+            <rect x="150" y="70" width="300" height="170" rx="12" class="f-card"/>
+            <path d="M260 270 L240 320 M340 270 L360 320 M210 320 L390 320" class="ln"/>
+            <rect x="20" y="350" width="250" height="52" rx="26" class="pill"/><text x="145" y="385" class="lbl" text-anchor="middle">V = 230 V</text>
+            <rect x="330" y="350" width="250" height="52" rx="26" class="pill"/><text x="455" y="385" class="lbl" text-anchor="middle">I = 3 A</text>
+          </svg>
+        </div>
+        <div class="remember"><b>Meaning</b>The TV transfers 690 J of energy every second.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Reading a <em>rating plate</em></div>
+    <div class="cols-2">
+      <div class="fig">
+        <svg viewBox="0 0 800 560" aria-label="Rating plate reading 230 V, 1.5 kW">
+          <rect x="80" y="60" width="640" height="380" rx="30" class="ln" style="fill:#DCE0EA"/>
+          <circle cx="125" cy="105" r="12" class="ln f-card"/><circle cx="675" cy="105" r="12" class="ln f-card"/>
+          <circle cx="125" cy="395" r="12" class="ln f-card"/><circle cx="675" cy="395" r="12" class="ln f-card"/>
+          <text x="400" y="150" class="lbl" text-anchor="middle">ELECTRIC HEATER</text>
+          <text x="400" y="270" class="lbl-c" text-anchor="middle" style="font-size:84px">230 V ~</text>
+          <text x="400" y="380" class="lbl-c" text-anchor="middle" style="font-size:84px">1.5 kW</text>
+          <rect x="140" y="470" width="240" height="52" rx="26" class="pill"/><text x="260" y="505" class="lbl-s" text-anchor="middle">supply voltage</text>
+          <rect x="420" y="470" width="240" height="52" rx="26" class="pill"/><text x="540" y="505" class="lbl-s" text-anchor="middle">power rating</text>
+        </svg>
+      </div>
+      <div class="worked">
+        <div class="q">“230 V, 1.5 kW” means it works on 230 V and transfers 1500 J per second.</div>
+        <div class="step"><i>Equation</i>I = P ÷ V</div>
+        <div class="step"><i>Substitute</i>I = 1500 ÷ 230</div>
+        <div class="step"><i>Answer</i>I = 6.5 A</div>
+        <div class="ans">Choose a 13 A fuse</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Typical <em>power ratings</em></div>
+    <div class="wide-left">
+      <table class="t">
+        <tr><th>Appliance</th><th>Power (approximate)</th></tr>
+        <tr><td>LED bulb</td><td>5–10 W</td></tr>
+        <tr><td>TV</td><td>≈ 100–700 W</td></tr>
+        <tr><td>Hairdryer</td><td>≈ 1–2 kW</td></tr>
+        <tr><td>Electric fire / heater</td><td>1–3 kW</td></tr>
+        <tr><td>Kettle</td><td>2–3 kW</td></tr>
+        <tr><td>Electric cooker</td><td>up to ≈ 10 kW</td></tr>
+      </table>
+      <div class="stack">
+        <div class="card mint"><h3>Pattern</h3><p>Appliances that <strong>heat</strong> things have the biggest power ratings.</p></div>
+        <div class="tip"><b>Exam tip</b>Bigger power on the same voltage means a bigger current – so a bigger fuse.</div>
+      </div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="2">◀ Back</button><button type="button" data-to="4">Next ▶</button></div></div><div class="part"><div class="sec"><b>4</b><span>Energy, <em>a.c. and d.c.</em></span></div><div class="blk"><div class="sub">Energy = <em>power × time</em></div>
+    <p>Power is the energy transferred each second, so total energy = power × time (in seconds).</p>
+    <div class="cols-2" style="flex:none">
+      <div class="eq"><div class="words">energy = power × time</div><div class="sym">E = P × t</div>
+        <div class="units"><span>E in J</span><span>P in W</span><span>t in s</span></div></div>
+      <div class="eq"><div class="words">energy = current × voltage × time</div><div class="sym">E = I × V × t</div>
+        <div class="units"><span>E in J</span><span>I in A</span><span>V in V</span><span>t in s</span></div></div>
+    </div>
+    <div class="flow">
+      <div>P = I × V</div><span>+</span><div>E = P × t</div><span>→</span><div>E = I × V × t</div>
+    </div>
+  </div><div class="blk"><div class="sub">Energy used by a <em>60 W bulb</em></div>
+    <div class="cols-2">
+      <div class="worked">
+        <div class="q">a) A 60 W bulb is on for 20 s.</div>
+        <div class="step"><i>Write down</i>P = 60 W, t = 20 s</div>
+        <div class="step"><i>Equation</i>E = P × t</div>
+        <div class="step"><i>Substitute</i>E = 60 × 20</div>
+        <div class="ans">E = 1200 J (1.2 kJ)</div>
+      </div>
+      <div class="worked">
+        <div class="q">b) The same bulb is on for 5 min.</div>
+        <div class="step"><i>Convert</i>t = 5 × 60 = 300 s</div>
+        <div class="step"><i>Equation</i>E = P × t</div>
+        <div class="step"><i>Substitute</i>E = 60 × 300</div>
+        <div class="ans">E = 18 000 J (18 kJ)</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Using <em>E = I × V × t</em></div>
+    <div class="wide-left">
+      <div class="worked">
+        <div class="q">A kettle on 230 V takes a current of 10 A for 2 minutes. How much energy does it transfer?</div>
+        <div class="step"><i>Convert</i>t = 2 × 60 = 120 s</div>
+        <div class="step"><i>Equation</i>E = I × V × t</div>
+        <div class="step"><i>Substitute</i>E = 10 × 230 × 120</div>
+        <div class="ans">E = 276 000 J (276 kJ)</div>
+      </div>
+      <div class="stack">
+        <div class="card yellow"><h3>Watch the time units!</h3><p><strong>1 min = 60 s</strong><br><strong>1 h = 60 × 60 = 3600 s</strong></p></div>
+        <div class="card tint"><h3>Example</h3><p>100 W for 5 h:<br>E = 100 × 5 × 3600<br>= 1 800 000 J (1.8 MJ)</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Alternating vs <em>direct current</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 600" aria-label="Voltage-time graph: a.c. is a wave, d.c. is a flat line">
+          <line x1="110" y1="300" x2="880" y2="300" class="ln"/><path d="M866 288 L882 300 L866 312" class="ln"/>
+          <line x1="110" y1="540" x2="110" y2="50" class="ln"/><path d="M98 64 L110 46 L122 64" class="ln"/>
+          <text x="80" y="110" class="lbl" text-anchor="middle">+</text><text x="80" y="510" class="lbl" text-anchor="middle">−</text>
+          <text x="40" y="300" class="lbl" text-anchor="middle" transform="rotate(-90 40 300)">voltage (V)</text>
+          <line x1="485" y1="300" x2="485" y2="545" class="dash"/><line x1="860" y1="300" x2="860" y2="545" class="dash"/>
+          <text x="485" y="578" class="lbl-s" text-anchor="middle">0.02</text><text x="860" y="578" class="lbl-s" text-anchor="middle">0.04</text>
+          <text x="680" y="578" class="lbl-s" text-anchor="middle">time (s)</text>
+          <polyline points="110.0,300.0 113.8,287.4 117.5,274.9 121.2,262.5 125.0,250.3 128.8,238.2 132.5,226.4 136.2,214.8 140.0,203.6 143.8,192.8 147.5,182.4 151.2,172.5 155.0,163.1 158.8,154.2 162.5,145.9 166.2,138.2 170.0,131.1 173.8,124.7 177.5,119.0 181.2,114.0 185.0,109.8 188.8,106.3 192.5,103.5 196.2,101.6 200.0,100.4 203.8,100.0 207.5,100.4 211.2,101.6 215.0,103.5 218.8,106.3 222.5,109.8 226.2,114.0 230.0,119.0 233.8,124.7 237.5,131.1 241.2,138.2 245.0,145.9 248.8,154.2 252.5,163.1 256.2,172.5 260.0,182.4 263.8,192.8 267.5,203.6 271.2,214.8 275.0,226.4 278.8,238.2 282.5,250.3 286.2,262.5 290.0,274.9 293.8,287.4 297.5,300.0 301.2,312.6 305.0,325.1 308.8,337.5 312.5,349.7 316.2,361.8 320.0,373.6 323.8,385.2 327.5,396.4 331.2,407.2 335.0,417.6 338.8,427.5 342.5,436.9 346.2,445.8 350.0,454.1 353.8,461.8 357.5,468.9 361.2,475.3 365.0,481.0 368.8,486.0 372.5,490.2 376.2,493.7 380.0,496.5 383.8,498.4 387.5,499.6 391.2,500.0 395.0,499.6 398.8,498.4 402.5,496.5 406.2,493.7 410.0,490.2 413.8,486.0 417.5,481.0 421.2,475.3 425.0,468.9 428.8,461.8 432.5,454.1 436.2,445.8 440.0,436.9 443.8,427.5 447.5,417.6 451.2,407.2 455.0,396.4 458.8,385.2 462.5,373.6 466.3,361.8 470.0,349.7 473.8,337.5 477.5,325.1 481.2,312.6 485.0,300.0 488.8,287.4 492.5,274.9 496.2,262.5 500.0,250.3 503.8,238.2 507.5,226.4 511.2,214.8 515.0,203.6 518.8,192.8 522.5,182.4 526.2,172.5 530.0,163.1 533.8,154.2 537.5,145.9 541.2,138.2 545.0,131.1 548.8,124.7 552.5,119.0 556.2,114.0 560.0,109.8 563.8,106.3 567.5,103.5 571.2,101.6 575.0,100.4 578.8,100.0 582.5,100.4 586.2,101.6 590.0,103.5 593.8,106.3 597.5,109.8 601.2,114.0 605.0,119.0 608.8,124.7 612.5,131.1 616.2,138.2 620.0,145.9 623.8,154.2 627.5,163.1 631.2,172.5 635.0,182.4 638.8,192.8 642.5,203.6 646.2,214.8 650.0,226.4 653.8,238.2 657.5,250.3 661.2,262.5 665.0,274.9 668.8,287.4 672.5,300.0 676.2,312.6 680.0,325.1 683.8,337.5 687.5,349.7 691.2,361.8 695.0,373.6 698.8,385.2 702.5,396.4 706.2,407.2 710.0,417.6 713.8,427.5 717.5,436.9 721.2,445.8 725.0,454.1 728.8,461.8 732.5,468.9 736.2,475.3 740.0,481.0 743.7,486.0 747.5,490.2 751.2,493.7 755.0,496.5 758.8,498.4 762.5,499.6 766.3,500.0 770.0,499.6 773.8,498.4 777.5,496.5 781.2,493.7 785.0,490.2 788.8,486.0 792.5,481.0 796.2,475.3 800.0,468.9 803.8,461.8 807.5,454.1 811.2,445.8 815.0,436.9 818.8,427.5 822.5,417.6 826.2,407.2 830.0,396.4 833.7,385.2 837.5,373.6 841.2,361.8 845.0,349.7 848.7,337.5 852.5,325.1 856.2,312.6 860.0,300.0" class="ln-c"/>
+          <line x1="110" y1="170" x2="860" y2="170" class="ln s-peach" style="stroke-width:7"/>
+          <rect x="680" y="105" width="180" height="52" rx="26" class="pill"/><text x="770" y="140" class="lbl-s" text-anchor="middle">d.c. supply</text>
+          <rect x="280" y="40" width="180" height="52" rx="26" class="pill"/><text x="370" y="75" class="lbl-s" text-anchor="middle">a.c. supply</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card tint"><h3>a.c. – mains</h3><p>The current increases, decreases, then <strong>reverses direction</strong>, over and over – a wave shape.</p></div>
+        <div class="card peach"><h3>d.c. – cells &amp; batteries</h3><p>Current is always in the <strong>same direction</strong> with the same value – a flat line.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Which supply gives <em>which current</em>?</div>
+    <table class="t">
+      <tr><th></th><th>Alternating current (a.c.)</th><th>Direct current (d.c.)</th></tr>
+      <tr><td>Supplied by</td><td>The mains</td><td>A cell or battery</td></tr>
+      <tr><td>Direction</td><td>Keeps reversing</td><td>Always the same</td></tr>
+      <tr><td>Graph</td><td>A wave</td><td>A straight horizontal line</td></tr>
+    </table>
+    <div class="remember"><b>Why is mains a.c.?</b>Because of the way electricity is generated in power stations (see Chapter 17).</div>
+  </div><div class="blk"><div class="sub">Don’t lose <em>easy marks</em></div>
+    <div class="cols-2" style="flex:none">
+      <div class="warn"><b>Time in minutes</b>Always change time to seconds before using E = P × t.</div>
+      <div class="warn"><b>kW not changed</b>1 kW = 1000 W. Change kW to W before you calculate.</div>
+      <div class="warn"><b>Wrong fuse</b>Choose the next size up from the normal current – not the biggest.</div>
+      <div class="warn"><b>Switch in neutral</b>Switches and fuses always go in the live wire.</div>
+    </div>
+    <div class="tip"><b>Exam tip</b>Write the equation first, then substitute, then give the answer with its unit.</div>
+  </div><div class="blk"><div class="sub">Everything on <em>one card</em></div>
+    <div class="cols-3" style="flex:none">
+      <div class="eq"><div class="words">power = current × voltage</div><div class="sym">P = I × V</div><div class="units"><span>W = A × V</span></div></div>
+      <div class="eq"><div class="words">energy = power × time</div><div class="sym">E = P × t</div><div class="units"><span>J = W × s</span></div></div>
+      <div class="eq"><div class="words">energy = current × voltage × time</div><div class="sym" style="font-size:54px">E = I × V × t</div><div class="units"><span>J = A × V × s</span></div></div>
+    </div>
+    <div class="cols-3" style="flex:none">
+      <div class="card tint"><p>3 A × 230 V = <strong>690 W</strong></p></div>
+      <div class="card tint"><p>60 W × 20 s = <strong>1200 J</strong></p></div>
+      <div class="card tint"><p>10 A × 230 V × 120 s = <strong>276 000 J</strong></p></div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="3">◀ Back</button><button type="button" data-to="5">Next ▶</button></div></div><div class="part"><div class="test"><h4>Test yourself</h4><div class="qq">1. What colour is the live wire, and what is its job?<span class="a">Brown. It carries the electrical energy from the power station to the appliance.</span></div><div class="qq">2. Why does a double-insulated hairdryer not need an earth wire?<span class="a">Its casing is an insulator and all live parts are insulated, so the outside can’t become live.</span></div><div class="qq">3. A live wire touches an earthed metal case. What happens?<span class="a">A large current flows through the earth wire, the fuse blows and the circuit is switched off.</span></div><div class="qq">4. A 2.3 kW kettle runs on 230 V. Which fuse: 3 A, 5 A or 13 A?<span class="a">I = 2300 ÷ 230 = 10 A → 13 A fuse</span></div><div class="qq">5. How much energy does a 40 W lamp transfer in 2 minutes?<span class="a">E = 40 × 120 = 4800 J</span></div><div class="qq">6. A current of 2 A flows at 12 V for 30 s. How much energy is transferred?<span class="a">E = 2 × 12 × 30 = 720 J</span></div></div><div class="pn"><button type="button" data-to="4">◀ Back</button><button type="button" data-to="6" disabled>Next ▶</button></div></div></div><script>(function(){var P=[].slice.call(document.querySelectorAll('.part')),B=[].slice.call(document.querySelectorAll('.snav button'));
+function go(i){P.forEach(function(p,k){p.classList.toggle('on',k==i)});B.forEach(function(b,k){b.classList.toggle('on',k==i)});window.scrollTo(0,0);try{history.replaceState(null,'','#s'+i)}catch(e){}}
+B.forEach(function(b,k){b.onclick=function(){go(k)}});
+document.querySelectorAll('.pn button').forEach(function(b){b.onclick=function(){go(+b.dataset.to)}});
+var h=+(location.hash.replace('#s','')||0);go(h>=0&&h<P.length?h:0)})();</script></body></html>

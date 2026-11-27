@@ -1,0 +1,633 @@
+<!doctype html><html lang="en" data-subj="chemistry"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root {
+  --ink: #1E1B3A; --ink2: #4A4668; --muted: #7A7598; --line: #E6E2F5;
+  --bg: #F4F2FF; --card: #FFFFFF; --soft: #F1EFFB;
+  --pink: #FF8FB1; --pink-l: #FFE3EC; --yellow: #FFC94D; --yellow-l: #FFF3D1;
+  --mint: #3CCB9A; --mint-l: #DDF7EE; --sky: #4DA3FF; --sky-l: #DDEEFF;
+  --lilac: #8B7BFF; --lilac-l: #ECE8FF; --peach: #FF9F6B; --peach-l: #FFE8DA;
+  --red: #F0525A; --red-l: #FFE1E3; --green: #1FAF6B; --green-l: #DCF5E8;
+  --c: #6D5DD3; --c-d: #4B3DB8; --c-l: #ECE8FF; --c-ll: #F6F4FF;
+  --r-xl: 48px; --r-lg: 36px; --r-md: 26px; --r-sm: 18px;
+  --sh: 0 4px 10px rgba(40,30,110,.05), 0 18px 44px rgba(40,30,110,.09);
+  --font: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+html[data-subj="biology"]   { --c: #12A06E; --c-d: #0B7A53; --c-l: #D9F4E9; --c-ll: #F0FBF6; --bg: #F1FAF6; }
+html[data-subj="chemistry"] { --c: #0E8FB0; --c-d: #0A6C86; --c-l: #D7F0F7; --c-ll: #EFF9FC; --bg: #F0F8FB; }
+html[data-subj="physics"]   { --c: #3B5BDB; --c-d: #2A43AE; --c-l: #E0E6FF; --c-ll: #F2F4FF; --bg: #F2F4FF; }
+svg { font-family: var(--font); }
+svg .ln { fill: none; stroke: var(--ink); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+svg .ln-c { fill: none; stroke: var(--c); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+svg .thin { fill: none; stroke: var(--ink2); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+svg .dash { fill: none; stroke: var(--muted); stroke-width: 4; stroke-dasharray: 12 12; stroke-linecap: round; }
+svg .f-c { fill: var(--c-l); } svg .f-cc { fill: var(--c); } svg .f-card { fill: #fff; }
+svg .f-pink { fill: var(--pink-l); } svg .f-yellow { fill: var(--yellow-l); } svg .f-mint { fill: var(--mint-l); }
+svg .f-sky { fill: var(--sky-l); } svg .f-lilac { fill: var(--lilac-l); } svg .f-peach { fill: var(--peach-l); } svg .f-red { fill: var(--red-l); }
+svg .s-pink { stroke: var(--pink); } svg .s-yellow { stroke: var(--yellow); } svg .s-mint { stroke: var(--mint); } svg .s-sky { stroke: var(--sky); }
+svg .s-lilac { stroke: var(--lilac); } svg .s-peach { stroke: var(--peach); } svg .s-red { stroke: var(--red); }
+svg .lbl { font: 800 30px var(--font); fill: var(--ink); }
+svg .lbl-s { font: 700 24px var(--font); fill: var(--ink2); }
+svg .lbl-c { font: 900 30px var(--font); fill: var(--c-d); }
+svg .pill { fill: #fff; stroke: var(--line); stroke-width: 3; }
+@page{size:A4;margin:11mm 9mm 13mm 9mm}
+*{box-sizing:border-box}
+html{font-size:var(--fs,8.6px)}
+body{margin:0;font-family:var(--font);color:var(--ink);background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero{display:flex;align-items:center;gap:3.5mm;background:var(--c);color:#fff;border-radius:4mm;padding:3.2mm 5mm;margin-bottom:3mm}
+.hero .n{flex:none;width:11mm;height:11mm;border-radius:50%;background:#fff;color:var(--c-d);font:900 6.2mm/11mm var(--font);text-align:center}
+.hero h1{margin:0;font:900 6.4mm/1.1 var(--font)}.hero p{margin:.5mm 0 0;font:700 3mm var(--font);opacity:.9}
+.cols{column-count:2;column-gap:4mm}
+.blk{break-inside:avoid;margin:0 0 2mm}
+.sec{break-inside:avoid;break-after:avoid;display:flex;align-items:center;gap:2mm;background:var(--c-l);border-radius:2.5mm;padding:1.2mm 2.5mm;margin:2.5mm 0 1.6mm;font:900 3.7mm/1.15 var(--font);color:var(--c-d)}
+.sec b{flex:none;width:5.2mm;height:5.2mm;border-radius:50%;background:var(--c);color:#fff;font:900 3.2mm/5.2mm var(--font);text-align:center}
+.sub{break-after:avoid;margin:1.4mm 0 .8mm;font:900 3.1mm/1.2 var(--font);color:var(--ink);border-left:1mm solid var(--c);padding-left:1.6mm}
+.sub em{font-style:normal;color:var(--c-d)}
+p,li{margin:0;font:600 1.15rem/1.32 var(--font);color:var(--ink2)}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.mist{break-inside:avoid;border-radius:2mm;margin:0 0 1.5mm;padding:1.3mm 2.2mm}
+.def{background:var(--c-ll);border-left:1mm solid var(--c)}.def .term{display:block;font:900 2.3mm var(--font);text-transform:uppercase;letter-spacing:.2mm;color:var(--c-d)}
+.def p{color:var(--ink);font-weight:700}
+.card{background:var(--bg2,#eef)}.card h3{margin:0 0 .3mm;font:900 1.2rem/1.2 var(--font);color:var(--ink)}
+.card.mint{background:var(--mint-l)}.card.sky{background:var(--sky-l)}.card.pink{background:var(--pink-l)}.card.yellow{background:var(--yellow-l)}.card.peach{background:var(--peach-l)}
+.tip{background:var(--yellow-l);border-left:1mm solid var(--yellow)}.tip b{display:inline;font-weight:900;color:var(--ink);margin-right:1mm;text-transform:uppercase;font-size:2.2mm}
+.warn{background:var(--red-l);border-left:1mm solid var(--red)}
+table.t{width:100%;border-collapse:separate;border-spacing:0;margin:0 0 1.8mm;break-inside:avoid;border-radius:2mm;overflow:hidden;font-size:1.08rem}
+table.t th{background:var(--c);color:#fff;font:900 1.08rem var(--font);text-align:left;padding:.9mm 1.8mm}
+table.t td{font:600 1.08rem/1.28 var(--font);padding:.8mm 1.8mm;border-top:.25mm solid var(--line);vertical-align:top;color:var(--ink2)}
+table.t td:first-child{font-weight:900;color:var(--ink)}
+table.t tr:nth-child(even) td{background:var(--c-ll)}
+.worked{background:#fff;border:.3mm solid var(--c-l)}.worked .q{font:800 1.18rem/1.3 var(--font);color:var(--ink);background:var(--c-ll);border-radius:1.6mm;padding:1mm 1.8mm;margin-bottom:.8mm}
+.worked .step{display:flex;gap:1.6mm;font:700 1.1rem/1.3 var(--font);color:var(--ink2)}.worked .step i{font-style:normal;flex:none;min-width:11mm;font:900 2.2mm var(--font);text-transform:uppercase;color:var(--c)}
+.worked .ans{display:inline-block;margin-top:.8mm;font:900 1.2rem var(--font);color:#fff;background:var(--c);padding:.7mm 2.4mm;border-radius:5mm}
+.nums{margin:0 0 1.6mm;padding:0;list-style:none;counter-reset:n;break-inside:avoid}
+.nums>*{counter-increment:n;position:relative;padding-left:5mm;margin-bottom:.7mm;font:600 1.15rem/1.3 var(--font);color:var(--ink2)}
+.nums>*::before{content:counter(n);position:absolute;left:0;top:.1mm;width:3.6mm;height:3.6mm;border-radius:50%;background:var(--c);color:#fff;font:900 2.3mm/3.6mm var(--font);text-align:center}
+.cols-2,.cols-3,.stack,.wide-left,.body{display:block}
+.fig{break-inside:avoid;margin:0 0 1.6mm;background:#fff;border:.3mm solid var(--line);border-radius:2mm;padding:1mm;text-align:center}
+.fig svg{width:100%;height:auto;max-height:46mm;display:block}
+.fig svg text{font-family:var(--font)}
+.nutshell{background:var(--c);color:#fff}.nutshell h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:#fff}.nutshell li{color:#fff;font-weight:700;margin-left:3.6mm}
+.test{background:var(--lilac-l)}.test h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:var(--ink)}.test .qq{font:700 1.12rem/1.3 var(--font);color:var(--ink);margin-bottom:.6mm}.test .a{color:var(--c-d);font-weight:900;margin-left:1.2mm}
+.say{background:var(--mint-l)}.mist{background:var(--red-l)}.say,.mist{break-inside:avoid;border-radius:2mm;padding:1.3mm 2.2mm;margin:0 0 1.5mm}.say h3,.mist h3{margin:0 0 .4mm;font:900 1.2rem var(--font)}
+.chips,.bignum,.checks{display:none}
+
+@page{margin:0}
+html{font-size:15.5px;background:var(--bg)}
+body{max-width:900px;margin:0 auto;padding:18px 16px 60px;background:var(--bg)}
+.cols{column-count:1}
+.hero{padding:5mm 6mm;border-radius:6mm}.hero .n{width:15mm;height:15mm;font-size:9mm;line-height:15mm}.hero h1{font-size:9mm}.hero p{font-size:3.6mm}
+.sec{font-size:5.4mm;padding:2mm 4mm;border-radius:4mm;margin:6mm 0 3mm;position:sticky;top:0;z-index:2}.sec b{width:7.5mm;height:7.5mm;font-size:4.6mm;line-height:7.5mm}
+.sub{font-size:4.6mm;margin:3mm 0 1.6mm}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.say,.mist{padding:2.6mm 4mm;border-radius:3.4mm;margin-bottom:2.6mm}
+.def .term{font-size:3mm}.card h3{font-size:1.3rem}.tip b{font-size:3mm}
+.worked .step i{font-size:3mm;min-width:16mm}.nutshell h4,.test h4{font-size:5mm}
+.nums>*{padding-left:8mm}.nums>*::before{width:5.6mm;height:5.6mm;font-size:3.4mm;line-height:5.6mm}
+table.t{font-size:1.15rem}table.t th,table.t td{font-size:1.15rem;padding:1.6mm 3mm}
+.fig svg{max-height:60mm}
+.test .qq{font-size:1.2rem;margin-bottom:1.4mm}.say h3,.mist h3{font-size:1.3rem}
+p,li{font-size:1.2rem}
+
+.hero p{color:#fff}
+.eq{break-inside:avoid;background:#fff;border:.3mm solid var(--c-l);border-radius:3.4mm;padding:2.6mm 4mm;margin:0 0 2.6mm;text-align:center}
+.eq .words{font:800 1.2rem/1.3 var(--font);color:var(--ink2)}
+.eq .sym{display:inline-block;margin:1.4mm 0;font:900 2rem/1.15 var(--font);color:var(--c-d);background:var(--c-ll);padding:1.6mm 5mm;border-radius:3mm}
+.eq .units{font:700 1rem var(--font);color:var(--muted)}.eq .units span{background:var(--soft);border-radius:5mm;padding:.4mm 2.4mm;margin:0 1mm;display:inline-block}
+.remember{break-inside:avoid;background:var(--mint-l);border-left:1.2mm solid var(--mint);border-radius:3.4mm;padding:2.6mm 4mm;margin-bottom:2.6mm;font:700 1.2rem/1.35 var(--font);color:var(--ink)}
+.warn b,.tip b{margin-right:1.6mm}
+.remember b:first-child{display:block;font-size:3mm;text-transform:uppercase;letter-spacing:.3mm;margin-bottom:.8mm}
+.flow{display:flex;flex-wrap:wrap;gap:2mm;margin:0 0 2.6mm;break-inside:avoid}
+.flow>div{flex:1 1 40mm;background:#fff;border:.3mm solid var(--c-l);border-radius:3mm;padding:2mm 3mm;text-align:center;font:800 1.15rem/1.3 var(--font);color:var(--ink)}
+.flow>div small{display:block;font:600 1rem var(--font);color:var(--muted)}.flow>span{align-self:center;font:900 1.6rem var(--font);color:var(--c)}
+.cols-4{display:block}.wide-right{display:block}
+[style*="font-size:52px"],[style*="font:900 72px"]{font-size:2.2rem !important}
+.card [style]{line-height:1.1}.card .sym{font-size:1.6rem}
+.tag{display:inline-block;font:900 2.6mm var(--font);text-transform:uppercase;background:var(--c);color:#fff;padding:.5mm 2.2mm;border-radius:5mm;margin-bottom:1mm}
+</style><style>.snav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:6px;background:var(--bg);padding:8px 0 10px;margin:0 0 6px}
+.snav button{font:800 14px var(--font);border:2px solid var(--c-l);background:#fff;color:var(--ink);border-radius:20px;padding:6px 12px;cursor:pointer}
+.snav button.on{background:var(--c);border-color:var(--c);color:#fff}
+.part{display:none}.part.on{display:block}.part .sec{position:static!important}
+.pn{display:flex;justify-content:space-between;gap:10px;margin:18px 0 0}.pn button{font:900 15px var(--font);border:0;background:var(--c);color:#fff;border-radius:22px;padding:10px 20px;cursor:pointer}.pn button[disabled]{opacity:.25}</style><style id="stepfix">.worked{counter-reset:st;border:2px solid var(--c-l)!important;padding:12px 16px!important}
+.worked .q{font-size:1.25rem!important;border-left:5px solid var(--c);margin-bottom:10px!important}
+.worked .q::before{content:"Worked example  ";font:900 .8rem var(--font);text-transform:uppercase;letter-spacing:.5px;color:var(--c-d);display:block}
+.worked .step{counter-increment:st;display:grid!important;grid-template-columns:78px 1fr;gap:10px;align-items:baseline;padding:7px 0;border-top:1px dashed var(--c-l);font-size:1.2rem!important}
+.worked .step i{min-width:0!important;font-size:.85rem!important;color:var(--c-d)!important}
+.worked .step i::before{content:"Step " counter(st) "";display:block;font-weight:900;color:var(--c)}
+.worked .ans{display:block!important;margin-top:10px;padding:8px 14px!important;border-radius:10px!important;font-size:1.25rem!important}
+.worked .ans::before{content:"Answer:  "}</style></head><body>
+<div class="hero"><div class="n">2</div><div><h1>Elements, compounds and mixtures</h1><p>Chemistry · Unit 1 · Principles of chemistry · Last-minute notes · Book pages 14–23</p></div></div>
+<div class="snav"><button type="button">Summary</button><button type="button">2.1 Elements, compounds and mixtures</button><button type="button">2.2 Mixtures and compounds are different</button><button type="button">2.3 Pure or impure?</button><button type="button">2.4 Filtration and crystallisation</button><button type="button">2.5 Distillation</button><button type="button">2.6 Paper chromatography</button><button type="button">2.7 Using chromatography in analysis</button><button type="button">Test yourself</button></div><div class="cols"><div class="part"><div class="nutshell"><h4>Chapter in a nutshell</h4><ul style="margin:0;padding:0"><li>Element: can’t be split chemically; one kind of atom</li><li>Compound: elements chemically combined, fixed proportions</li><li>Mixture: no reaction, any proportions</li><li>Pure: fixed m.p. and b.p. · Mixture: over a range</li><li>Filtration: insoluble solid from a liquid</li><li>Crystallisation: solute from a solution</li><li>Simple distillation: solvent from a solution</li><li>Fractional distillation: miscible liquids, different b.p.</li><li>Chromatography: same colour + same distance = same dye</li><li>Rf = spot distance ÷ solvent distance (0–1, no units)</li></ul></div><div class="pn"><button type="button" data-to="-1" disabled>◀ Back</button><button type="button" data-to="1">Next ▶</button></div></div><div class="part"><div class="sec"><b>1</b><span>Elements, compounds and <em>mixtures</em></span></div><div class="blk"><div class="sub">Element, compound or <em>mixture?</em></div>
+    <div class="cols-3">
+      <div class="stack">
+        <div class="fig" style="flex:none;height:270px">
+          <svg viewBox="0 0 460 230" aria-label="Particles of an element: all atoms the same">
+            <rect x="10" y="10" width="440" height="210" rx="30" class="f-c"/>
+            <circle cx="80" cy="70" r="28" class="f-cc"/><circle cx="170" cy="62" r="28" class="f-cc"/><circle cx="265" cy="80" r="28" class="f-cc"/><circle cx="370" cy="66" r="28" class="f-cc"/>
+            <circle cx="110" cy="160" r="28" class="f-cc"/><circle cx="210" cy="150" r="28" class="f-cc"/><circle cx="305" cy="168" r="28" class="f-cc"/><circle cx="390" cy="155" r="28" class="f-cc"/>
+          </svg>
+        </div>
+        <div class="card tint"><h3>Element</h3><p>A substance that can’t be split into anything simpler by chemical means. All its atoms have the <strong>same atomic number</strong>.</p></div>
+      </div>
+      <div class="stack">
+        <div class="fig" style="flex:none;height:270px">
+          <svg viewBox="0 0 460 230" aria-label="Particles of a compound: identical molecules made of two elements">
+            <rect x="10" y="10" width="440" height="210" rx="30" class="f-mint"/>
+            <g id="mol">
+              <circle cx="72" cy="88" r="17" style="fill:var(--pink)"/><circle cx="128" cy="88" r="17" style="fill:var(--pink)"/><circle cx="100" cy="70" r="27" class="f-cc"/>
+            </g>
+            <use href="#mol" x="140" y="-8"/><use href="#mol" x="260" y="10"/><use href="#mol" x="40" y="88"/><use href="#mol" x="200" y="90"/>
+          </svg>
+        </div>
+        <div class="card mint"><h3>Compound</h3><p>Two or more elements <strong>chemically combined</strong>, always in <strong>fixed proportions</strong>, e.g. HF, MgF₂, CO₂, CH₄.</p></div>
+      </div>
+      <div class="stack">
+        <div class="fig" style="flex:none;height:270px">
+          <svg viewBox="0 0 460 230" aria-label="Particles of a mixture: different substances mixed, not joined">
+            <rect x="10" y="10" width="440" height="210" rx="30" class="f-yellow"/>
+            <circle cx="70" cy="70" r="26" class="f-cc"/><circle cx="300" cy="170" r="26" class="f-cc"/><circle cx="400" cy="160" r="26" class="f-cc"/>
+            <circle cx="170" cy="68" r="21" style="fill:var(--yellow)"/><circle cx="208" cy="68" r="21" style="fill:var(--yellow)"/>
+            <circle cx="345" cy="64" r="21" style="fill:var(--yellow)"/><circle cx="383" cy="64" r="21" style="fill:var(--yellow)"/>
+            <circle cx="72" cy="168" r="21" style="fill:var(--yellow)"/><circle cx="110" cy="168" r="21" style="fill:var(--yellow)"/>
+            <circle cx="182" cy="168" r="15" style="fill:var(--pink)"/><circle cx="232" cy="168" r="15" style="fill:var(--pink)"/><circle cx="207" cy="152" r="24" class="f-cc"/>
+          </svg>
+        </div>
+        <div class="card yellow"><h3>Mixture</h3><p>Substances mixed together with <strong>no chemical reaction</strong>. The parts can be in <strong>any proportion</strong>.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Elements and mixtures <em>all around us</em></div>
+    <div class="wide-right">
+      <div class="fig">
+        <svg viewBox="0 0 620 560" aria-label="18-carat gold is 75% gold and 25% other metal, usually copper">
+          <circle cx="310" cy="250" r="160" style="fill:none;stroke:var(--peach);stroke-width:110"/>
+          <circle cx="310" cy="250" r="160" transform="rotate(-90 310 250)" style="fill:none;stroke:var(--yellow);stroke-width:110;stroke-dasharray:753.98 1005.3"/>
+          <text x="310" y="245" class="lbl-c" text-anchor="middle" style="font-size:44px">18-carat</text>
+          <text x="310" y="285" class="lbl" text-anchor="middle">gold</text>
+          <rect x="20" y="470" width="270" height="56" rx="28" class="pill"/><text x="155" y="507" class="lbl-s" text-anchor="middle">75% gold</text>
+          <rect x="310" y="470" width="300" height="56" rx="28" class="pill"/><text x="460" y="507" class="lbl-s" text-anchor="middle">25% usually copper</text>
+          <circle cx="45" cy="498" r="12" style="fill:var(--yellow)"/><circle cx="335" cy="498" r="12" style="fill:var(--peach)"/>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card tint"><h3>118 elements</h3><p>Most occur naturally (hydrogen, helium, sulfur). Some, such as einsteinium, are made artificially.</p></div>
+        <div class="card yellow"><h3>Air is a mixture</h3><p>Mixtures can contain elements and/or compounds: air is nitrogen, oxygen, carbon dioxide and more.</p></div>
+        <div class="card mint"><h3>Water</h3><p>Pure water is a <strong>compound</strong>. The water we drink is a <strong>mixture</strong> with other dissolved substances.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">How to <em>classify</em> a substance</div>
+    <div class="fig">
+      <svg viewBox="0 0 1700 620" aria-label="Decision chart to classify a substance as an element, compound or mixture">
+        <rect x="40" y="30" width="600" height="170" rx="36" class="f-c"/>
+        <text x="340" y="102" class="lbl" text-anchor="middle">Are the substances just mixed,</text>
+        <text x="340" y="144" class="lbl" text-anchor="middle">with no chemical reaction?</text>
+        <rect x="800" y="30" width="560" height="170" rx="36" class="f-c"/>
+        <text x="1080" y="102" class="lbl" text-anchor="middle">Can it be split into simpler</text>
+        <text x="1080" y="144" class="lbl" text-anchor="middle">substances by chemical means?</text>
+        <path d="M640 115 L780 115" class="ln-c"/><path d="M764 101 L782 115 L764 129" class="ln-c"/>
+        <text x="710" y="95" class="lbl-c" text-anchor="middle">no</text>
+        <path d="M340 200 L340 320" class="ln-c"/><path d="M326 304 L340 322 L354 304" class="ln-c"/>
+        <text x="370" y="270" class="lbl-c">yes</text>
+        <path d="M1080 200 L1080 320" class="ln-c"/><path d="M1066 304 L1080 322 L1094 304" class="ln-c"/>
+        <text x="1110" y="270" class="lbl-c">yes</text>
+        <path d="M1360 115 L1560 115 L1560 320" class="ln-c"/><path d="M1546 304 L1560 322 L1574 304" class="ln-c"/>
+        <text x="1460" y="95" class="lbl-c" text-anchor="middle">no</text>
+        <rect x="40" y="335" width="600" height="260" rx="36" class="f-yellow"/>
+        <text x="340" y="395" class="lbl-c" text-anchor="middle" style="font-size:40px">MIXTURE</text>
+        <text x="340" y="448" class="lbl" text-anchor="middle">any proportions</text>
+        <text x="340" y="500" class="lbl-s" text-anchor="middle">e.g. air, 18-carat gold,</text>
+        <text x="340" y="538" class="lbl-s" text-anchor="middle">drinking water</text>
+        <rect x="800" y="335" width="560" height="260" rx="36" class="f-mint"/>
+        <text x="1080" y="395" class="lbl-c" text-anchor="middle" style="font-size:40px">COMPOUND</text>
+        <text x="1080" y="448" class="lbl" text-anchor="middle">elements chemically joined</text>
+        <text x="1080" y="490" class="lbl" text-anchor="middle">in fixed proportions</text>
+        <text x="1080" y="540" class="lbl-s" text-anchor="middle">e.g. water, CO₂, CH₄, MgF₂</text>
+        <rect x="1420" y="335" width="270" height="260" rx="36" class="f-sky"/>
+        <text x="1555" y="395" class="lbl-c" text-anchor="middle" style="font-size:40px">ELEMENT</text>
+        <text x="1555" y="448" class="lbl" text-anchor="middle">one kind</text>
+        <text x="1555" y="490" class="lbl" text-anchor="middle">of atom</text>
+        <text x="1555" y="540" class="lbl-s" text-anchor="middle">e.g. iron, sulfur</text>
+      </svg>
+    </div>
+  </div><div class="pn"><button type="button" data-to="0">◀ Back</button><button type="button" data-to="2">Next ▶</button></div></div><div class="part"><div class="sec"><b>2</b><span>Mixtures and compounds are <em>different</em></span></div><div class="blk"><div class="sub">Mixture or <em>compound?</em></div>
+    <table class="t">
+      <tr><th style="width:22%"></th><th>Mixture</th><th>Compound</th></tr>
+      <tr><td>Proportions</td><td>Any proportion (e.g. iron and sulfur)</td><td>Always fixed (every H₂O has 2 H and 1 O)</td></tr>
+      <tr><td>Properties</td><td>Each substance keeps its own properties</td><td>Quite different from its elements</td></tr>
+      <tr><td>Separation</td><td>By physical means (magnet, cooling, dissolving)</td><td>Only by chemical reactions (e.g. electrolysis of water)</td></tr>
+    </table>
+    <div class="cols-2" style="flex:none">
+      <div class="remember"><b>Remember</b>No reaction happens when you make a mixture, so it is easy to separate again.</div>
+      <div class="tip"><b>Exam tip</b>“Fixed proportions” is the key phrase for a compound.</div>
+    </div>
+  </div><div class="blk"><div class="sub">Iron and <em>sulfur</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 600" aria-label="A magnet pulls iron out of an iron and sulfur mixture">
+          <path d="M240 280 L240 150 A120 120 0 0 1 480 150 L480 280" style="fill:none;stroke:var(--red);stroke-width:56"/>
+          <rect x="212" y="270" width="56" height="44" rx="6" style="fill:#B9B6C9"/><rect x="452" y="270" width="56" height="44" rx="6" style="fill:#B9B6C9"/>
+          <g style="fill:#6E6A80">
+            <circle cx="222" cy="326" r="7"/><circle cx="240" cy="332" r="7"/><circle cx="258" cy="325" r="7"/><circle cx="232" cy="346" r="7"/><circle cx="250" cy="348" r="7"/>
+            <circle cx="462" cy="326" r="7"/><circle cx="480" cy="332" r="7"/><circle cx="498" cy="325" r="7"/><circle cx="472" cy="346" r="7"/><circle cx="490" cy="348" r="7"/>
+          </g>
+          <ellipse cx="360" cy="500" rx="270" ry="56" class="f-c"/><ellipse cx="360" cy="500" rx="270" ry="56" class="ln"/>
+          <g style="fill:var(--yellow)">
+            <circle cx="200" cy="492" r="11"/><circle cx="250" cy="508" r="11"/><circle cx="300" cy="486" r="11"/><circle cx="345" cy="512" r="11"/><circle cx="390" cy="490" r="11"/>
+            <circle cx="440" cy="510" r="11"/><circle cx="485" cy="488" r="11"/><circle cx="530" cy="505" r="11"/><circle cx="275" cy="526" r="11"/><circle cx="420" cy="530" r="11"/>
+          </g>
+          <g style="fill:#6E6A80"><circle cx="230" cy="480" r="6"/><circle cx="370" cy="530" r="6"/><circle cx="505" cy="520" r="6"/></g>
+          <rect x="590" y="110" width="200" height="56" rx="28" class="pill"/><text x="690" y="147" class="lbl-s" text-anchor="middle">magnet</text>
+          <path d="M590 138 L520 160" class="thin"/>
+          <rect x="590" y="300" width="270" height="56" rx="28" class="pill"/><text x="725" y="337" class="lbl-s" text-anchor="middle">iron (grey) sticks</text>
+          <path d="M590 328 L512 335" class="thin"/>
+          <rect x="640" y="420" width="250" height="56" rx="28" class="pill"/><text x="765" y="457" class="lbl-s" text-anchor="middle">sulfur (yellow)</text>
+          <path d="M640 455 L560 480" class="thin"/>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card yellow"><h3>The mixture</h3><p>Iron is grey, sulfur is yellow. Iron reacts with dilute acid to give hydrogen; sulfur does not. A <strong>magnet</strong> separates them.</p></div>
+        <div class="card mint"><h3>The compound FeS</h3><p>In iron sulfide the proportion of iron to sulfur is <strong>always the same</strong>. It reacts quite differently with acids.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Hydrogen, oxygen and <em>water</em></div>
+    <div class="wide-right">
+      <div class="fig">
+        <svg viewBox="0 0 620 620" aria-label="Cooling a hydrogen and oxygen mixture: oxygen condenses at minus 183 degrees, hydrogen at minus 253 degrees">
+          <rect x="120" y="40" width="70" height="500" rx="35" class="f-card" style="stroke:var(--line);stroke-width:4"/>
+          <rect x="138" y="190" width="34" height="350" rx="17" class="f-sky"/>
+          <circle cx="155" cy="560" r="44" style="fill:var(--sky)"/>
+          <path d="M60 90 L60 470" class="ln-c"/><path d="M46 454 L60 472 L74 454" class="ln-c"/>
+          <text x="40" y="280" class="lbl-c" text-anchor="middle" transform="rotate(-90 40 280)">cooling</text>
+          <path d="M190 190 L250 190" class="ln"/><path d="M190 470 L250 470" class="ln"/>
+          <rect x="260" y="130" width="340" height="110" rx="30" class="pill"/>
+          <text x="430" y="178" class="lbl" text-anchor="middle">−183 °C</text><text x="430" y="218" class="lbl-s" text-anchor="middle">oxygen condenses</text>
+          <rect x="260" y="410" width="340" height="110" rx="30" class="pill"/>
+          <text x="430" y="458" class="lbl" text-anchor="middle">−253 °C</text><text x="430" y="498" class="lbl-s" text-anchor="middle">hydrogen condenses</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card yellow"><h3>Mixture of the gases</h3><p>A colourless gas that <strong>explodes</strong> with a flame. Separate it by <strong>cooling</strong>.</p></div>
+        <div class="card mint"><h3>The compound water</h3><p>A colourless liquid that <strong>puts out</strong> a flame. Splitting it needs a chemical change: <strong>electrolysis</strong>.</p></div>
+      </div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="1">◀ Back</button><button type="button" data-to="3">Next ▶</button></div></div><div class="part"><div class="sec"><b>3</b><span>Pure or <em>impure?</em></span></div><div class="blk"><div class="sub">Pure = <em>fixed</em> temperature</div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 600" aria-label="Heating graph: a pure solid melts at one fixed temperature, a mixture melts over a range">
+          <line x1="110" y1="520" x2="860" y2="520" class="ln"/><line x1="110" y1="520" x2="110" y2="40" class="ln"/>
+          <path d="M848 508 L866 520 L848 532" class="ln"/><path d="M98 52 L110 34 L122 52" class="ln"/>
+          <text x="480" y="580" class="lbl" text-anchor="middle">time heated</text>
+          <text x="50" y="290" class="lbl" text-anchor="middle" transform="rotate(-90 50 290)">temperature</text>
+          <path d="M110 470 L310 240 L560 240 L800 80" class="ln-c"/>
+          <path d="M110 490 L290 360 L560 300 L800 150" class="ln s-pink" style="stroke-width:7"/>
+          <rect x="300" y="160" width="270" height="56" rx="28" class="pill"/><text x="435" y="197" class="lbl-s" text-anchor="middle">pure: flat, fixed</text>
+          <rect x="390" y="370" width="340" height="56" rx="28" class="pill"/><text x="560" y="407" class="lbl-s" text-anchor="middle">mixture: over a range</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="def"><span class="term">Pure substance</span><p>Elements and pure compounds melt and boil at <strong>fixed</strong> temperatures.</p></div>
+        <ul class="dots"><li>Water melts at <strong>0 °C</strong>, boils at <strong>100 °C</strong>.</li><li>Mixtures usually melt or boil over a <span class="hl">range</span> of temperatures.</li></ul>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Impurities change the <em>numbers</em></div>
+    <div class="cols-2">
+      <div class="stack">
+        <div class="card pink"><h3>Lower melting point</h3><p>10 g of salt in 1 litre of water melts at about <strong>−0.6 °C</strong> (not 0 °C).</p></div>
+        <div class="card sky"><h3>Higher boiling point</h3><p>The same salt water boils at about <strong>100.2 °C</strong> (not 100 °C).</p></div>
+      </div>
+      <div class="stack">
+        <div class="remember"><b>Remember</b>Impurities <strong>lower</strong> the melting point and <strong>raise</strong> the boiling point.</div>
+        <div class="tip"><b>Exam tip</b>A mixture is not a pure substance. A small amount of an unwanted substance in a sample is called an <strong>impurity</strong>.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Is the aspirin <em>pure?</em></div>
+    <div class="fig" style="flex:none">
+      <svg viewBox="0 0 1700 400" aria-label="Number line: pure aspirin melts sharply at 138 degrees, the sample melts from 128 to 134 degrees">
+        <line x1="100" y1="290" x2="1600" y2="290" class="ln"/>
+        <g class="ln"><path d="M100 278 L100 302"/><path d="M350 278 L350 302"/><path d="M600 278 L600 302"/><path d="M850 278 L850 302"/><path d="M1100 278 L1100 302"/><path d="M1350 278 L1350 302"/><path d="M1600 278 L1600 302"/></g>
+        <g class="lbl-s" text-anchor="middle"><text x="100" y="336">120</text><text x="350" y="336">125</text><text x="600" y="336">130</text><text x="850" y="336">135</text><text x="1100" y="336">140</text><text x="1350" y="336">145</text><text x="1600" y="336">150</text></g>
+        <text x="850" y="385" class="lbl" text-anchor="middle">temperature / °C</text>
+        <rect x="500" y="215" width="300" height="50" rx="25" style="fill:var(--pink-l);stroke:var(--pink);stroke-width:5"/>
+        <rect x="480" y="140" width="340" height="56" rx="28" class="pill"/><text x="650" y="177" class="lbl-s" text-anchor="middle">your sample: 128–134 °C</text>
+        <path d="M1000 120 L1000 282" class="ln-c"/><circle cx="1000" cy="290" r="13" class="f-cc"/>
+        <rect x="770" y="50" width="460" height="56" rx="28" class="pill"/><text x="1000" y="87" class="lbl-s" text-anchor="middle">pure aspirin: sharp m.p. 138 °C</text>
+      </svg>
+    </div>
+    <div class="cols-2" style="flex:none">
+      <div class="card tint"><p>Pure aspirin melts at <strong>138 °C</strong>. The sample melts at 128–134 °C.</p></div>
+      <div class="warn"><b>Verdict</b>Quite impure: it melts over a wide range, below the pure melting point.</div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="2">◀ Back</button><button type="button" data-to="4">Next ▶</button></div></div><div class="part"><div class="sec"><b>4</b><span>Filtration and <em>crystallisation</em></span></div><div class="blk"><div class="sub">Separating a <em>solid</em> from a liquid</div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 640" aria-label="Filtration: sand stays in the filter paper, water passes into the flask">
+          <path d="M310 400 L310 460 L200 610 L500 610 L390 460 L390 400" class="ln"/>
+          <path d="M240 555 L460 555 L500 610 L200 610 Z" class="f-sky"/>
+          <path d="M310 460 L200 610 L500 610 L390 460" class="ln"/>
+          <path d="M200 100 L350 290 L500 100 Z" style="fill:var(--yellow-l);stroke:var(--yellow);stroke-width:5;stroke-linejoin:round"/>
+          <path d="M180 90 L330 300 L330 430 M520 90 L370 300 L370 430" class="ln"/>
+          <g style="fill:var(--peach)"><circle cx="350" cy="270" r="9"/><circle cx="332" cy="252" r="9"/><circle cx="368" cy="252" r="9"/><circle cx="350" cy="236" r="9"/><circle cx="318" cy="232" r="9"/><circle cx="382" cy="232" r="9"/></g>
+          <circle cx="350" cy="470" r="8" class="f-sky" style="stroke:var(--sky);stroke-width:3"/>
+          <rect x="220" y="14" width="260" height="56" rx="28" class="pill"/><text x="350" y="51" class="lbl-s" text-anchor="middle">sand + water in</text>
+          <rect x="590" y="100" width="220" height="56" rx="28" class="pill"/><text x="700" y="137" class="lbl-s" text-anchor="middle">filter paper</text>
+          <path d="M590 128 L478 126" class="thin"/>
+          <rect x="590" y="230" width="260" height="56" rx="28" class="pill"/><text x="720" y="267" class="lbl-s" text-anchor="middle">residue = sand</text>
+          <path d="M590 258 L395 250" class="thin"/>
+          <rect x="590" y="360" width="220" height="56" rx="28" class="pill"/><text x="700" y="397" class="lbl-s" text-anchor="middle">filter funnel</text>
+          <path d="M590 388 L372 380" class="thin"/>
+          <rect x="590" y="530" width="280" height="56" rx="28" class="pill"/><text x="730" y="567" class="lbl-s" text-anchor="middle">filtrate = water</text>
+          <path d="M590 558 L470 580" class="thin"/>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="def"><span class="term">Filtration</span><p>Separates an insoluble solid from a liquid, e.g. sand from water.</p></div>
+        <div class="card tint"><p><strong>Residue</strong> = the solid left in the filter paper.<br><strong>Filtrate</strong> = the liquid that comes through.</p></div>
+        <div class="tip"><b>Also</b>It separates two solids if only one dissolves in water.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Getting a <em>solute</em> out of a solution</div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 620" aria-label="Crystallisation: an evaporating basin of salt solution heated gently on a tripod and gauze">
+          <path d="M395 165 q-15 -20 0 -40 q15 -20 0 -40" class="thin"/><path d="M450 160 q-15 -20 0 -40 q15 -20 0 -40" class="thin"/><path d="M505 165 q-15 -20 0 -40 q15 -20 0 -40" class="thin"/>
+          <path d="M250 190 L650 190 Q620 300 450 310 Q280 300 250 190 Z" class="f-card"/>
+          <path d="M266 212 L634 212 Q605 290 450 298 Q295 290 266 212 Z" class="f-sky"/>
+          <path d="M250 190 L650 190 Q620 300 450 310 Q280 300 250 190 Z" class="ln"/>
+          <line x1="220" y1="322" x2="680" y2="322" class="ln"/>
+          <path d="M270 322 L225 570 M630 322 L675 570" class="ln"/>
+          <path d="M450 438 Q422 400 450 345 Q478 400 450 438 Z" style="fill:var(--sky)"/>
+          <rect x="425" y="440" width="50" height="115" rx="8" class="f-c"/><rect x="425" y="440" width="50" height="115" rx="8" class="ln"/>
+          <rect x="375" y="555" width="150" height="26" rx="10" class="f-cc"/>
+          <rect x="560" y="40" width="300" height="56" rx="28" class="pill"/><text x="710" y="77" class="lbl-s" text-anchor="middle">water evaporates</text>
+          <path d="M560 68 L520 90" class="thin"/>
+          <rect x="655" y="180" width="240" height="56" rx="28" class="pill"/><text x="775" y="217" class="lbl-s" text-anchor="middle">evaporating basin</text>
+          <rect x="10" y="150" width="200" height="56" rx="28" class="pill"/><text x="110" y="187" class="lbl-s" text-anchor="middle">salt solution</text>
+          <path d="M150 206 L300 240" class="thin"/>
+          <rect x="700" y="300" width="190" height="56" rx="28" class="pill"/><text x="795" y="337" class="lbl-s" text-anchor="middle">gauze</text>
+          <rect x="700" y="420" width="190" height="56" rx="28" class="pill"/><text x="795" y="457" class="lbl-s" text-anchor="middle">tripod</text>
+          <path d="M700 448 L660 480" class="thin"/>
+          <rect x="10" y="400" width="200" height="56" rx="28" class="pill"/><text x="110" y="437" class="lbl-s" text-anchor="middle">heat gently</text>
+          <path d="M210 428 L428 400" class="thin"/>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="def"><span class="term">Crystallisation</span><p>Separates a solute from a solution, e.g. salt from salt solution.</p></div>
+        <ul class="dots"><li>Heat gently; stop when crystals <strong>start</strong> to form.</li><li>Leave to cool → crystals form.</li><li>Filter, wash and dry them.</li></ul>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Crystallising <em>sodium chloride</em></div>
+    <div class="wide-left">
+      <ol class="nums">
+        <li>Heat the solution in an evaporating basin to <strong>boil off some of the water</strong>.</li>
+        <li>Test with a <strong>glass rod</strong>: if crystals form quickly on it, the solution is almost <strong>saturated</strong>.</li>
+        <li>Turn off the Bunsen burner. Crystals form as the solution cools and more water evaporates.</li>
+        <li>Remove the crystals by <strong>filtration</strong>.</li>
+      </ol>
+      <div class="stack">
+        <div class="card yellow"><h3>Glass rod test</h3><p>Dip in the rod and lift it out. Crystals on the rod quickly = time to stop heating.</p></div>
+        <div class="remember"><b>Remember</b>Crystallisation keeps the solid. The water is lost to the air.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Pure salt from <em>rock salt</em></div>
+    <p class="lead">Rock salt is salt mixed with earthy, insoluble impurities.</p>
+    <div class="flow" style="flex:1">
+      <div>1. Crush<small>break up the rock salt</small></div><span>→</span>
+      <div>2. Dissolve<small>mix with hot water: salt dissolves, impurities don’t</small></div><span>→</span>
+      <div>3. Filter<small>impurities stay on the paper; filtrate is salt solution</small></div><span>→</span>
+      <div>4. Crystallise<small>get the salt out of the solution</small></div>
+    </div>
+    <div class="tip"><b>Exam tip</b>This is how you separate two solids when only one of them dissolves in water.</div>
+  </div><div class="pn"><button type="button" data-to="3">◀ Back</button><button type="button" data-to="5">Next ▶</button></div></div><div class="part"><div class="sec"><b>5</b><span><em>Distillation</em></span></div><div class="blk"><div class="sub">Pure water from <em>salt solution</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 920 650" aria-label="Simple distillation apparatus: flask, thermometer, Liebig condenser and beaker">
+          <path d="M316 190 L652 345 L682 409 L346 254 Z" class="f-sky"/>
+          <path d="M316 190 L652 345 L682 409 L346 254 Z" class="ln"/>
+          <path d="M235 178 L790 435" class="ln"/>
+          <path d="M343 203 L343 140" class="ln s-sky"/><path d="M331 152 L343 136 L355 152" class="ln s-sky"/>
+          <path d="M654 396 L654 470" class="ln s-sky"/><path d="M642 412 L654 396 L666 412" class="ln s-sky"/>
+          <path d="M122 420 A100 100 0 0 0 318 420 Z" class="f-sky"/>
+          <path d="M205 150 L205 301 A100 100 0 1 0 235 301 L235 150" class="ln"/>
+          <rect x="198" y="132" width="44" height="26" rx="6" style="fill:var(--ink2)"/>
+          <path d="M220 36 L220 182" style="stroke:var(--ink2);stroke-width:8;stroke-linecap:round"/><circle cx="220" cy="186" r="10" style="fill:var(--red)"/>
+          <path d="M220 590 Q194 555 220 515 Q246 555 220 590 Z" style="fill:var(--peach)"/>
+          <path d="M730 450 L730 590 L880 590 L880 450" class="ln"/>
+          <rect x="733" y="535" width="144" height="52" class="f-sky"/>
+          <rect x="250" y="20" width="200" height="56" rx="28" class="pill"/><text x="350" y="57" class="lbl-s" text-anchor="middle">thermometer</text>
+          <rect x="365" y="98" width="160" height="56" rx="28" class="pill"/><text x="445" y="135" class="lbl-s" text-anchor="middle">water out</text>
+          <rect x="560" y="200" width="190" height="56" rx="28" class="pill"/><text x="655" y="237" class="lbl-s" text-anchor="middle">condenser</text>
+          <rect x="470" y="480" width="170" height="56" rx="28" class="pill"/><text x="555" y="517" class="lbl-s" text-anchor="middle">water in</text>
+          <rect x="330" y="400" width="130" height="56" rx="28" class="pill"/><text x="395" y="437" class="lbl-s" text-anchor="middle">solution</text>
+          <path d="M330 428 L292 436" class="thin"/>
+          <rect x="40" y="525" width="110" height="56" rx="28" class="pill"/><text x="95" y="562" class="lbl-s" text-anchor="middle">heat</text>
+          <rect x="720" y="594" width="190" height="52" rx="26" class="pill"/><text x="815" y="629" class="lbl-s" text-anchor="middle">pure water</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="def"><span class="term">Simple distillation</span><p>Separates the parts of a solution. Unlike crystallisation, it also <strong>collects the water</strong>.</p></div>
+        <ul class="dots"><li>Water boils; the condenser turns it back into a liquid.</li><li>The salt stays in the flask.</li></ul>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Details that <em>matter</em></div>
+    <div class="cols-3">
+      <div class="card sky"><h3>Water in at the bottom</h3><p>Cooling water enters the <strong>lower end</strong> of the condenser. It fills the jacket better and stays full if the flow stops.</p></div>
+      <div class="card yellow"><h3>Keep heating?</h3><p>The solution gets so concentrated that the <strong>salt crystallises out</strong> in the flask.</p></div>
+      <div class="card mint"><h3>Two products</h3><p>Pure <strong>water</strong> (the solvent) is collected. The <strong>salt</strong> (the solute) stays behind.</p></div>
+    </div>
+    <div class="flow" style="flex:none">
+      <div>Solution heated</div><span>→</span><div>Water boils<small>steam</small></div><span>→</span><div>Condenser cools it<small>back to liquid</small></div><span>→</span><div>Pure water collected</div>
+    </div>
+  </div><div class="blk"><div class="sub">Ethanol from <em>water</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 940 670" aria-label="Fractional distillation apparatus with fractionating column, thermometer at 78 degrees, condenser and collecting beaker">
+          <path d="M303 133 L645 322 L676 378 L334 189 Z" class="f-sky"/>
+          <path d="M303 133 L645 322 L676 378 L334 189 Z" class="ln"/>
+          <path d="M218 106 L788 421" class="ln"/>
+          <path d="M360 148 L360 98" class="ln s-sky"/><path d="M348 110 L360 94 L372 110" class="ln s-sky"/>
+          <path d="M618 363 L618 445" class="ln s-sky"/><path d="M606 379 L618 363 L630 379" class="ln s-sky"/>
+          <path d="M112 490 A90 90 0 0 0 288 490 Z" class="f-sky"/>
+          <path d="M182 110 L182 382 A90 90 0 1 0 218 382 L218 110" class="ln"/>
+          <g class="thin"><circle cx="192" cy="150" r="7"/><circle cx="208" cy="172" r="7"/><circle cx="192" cy="194" r="7"/><circle cx="208" cy="216" r="7"/><circle cx="192" cy="238" r="7"/><circle cx="208" cy="260" r="7"/><circle cx="192" cy="282" r="7"/><circle cx="208" cy="304" r="7"/><circle cx="192" cy="326" r="7"/><circle cx="208" cy="348" r="7"/></g>
+          <rect x="178" y="88" width="44" height="24" rx="6" style="fill:var(--ink2)"/>
+          <path d="M200 20 L200 110" style="stroke:var(--ink2);stroke-width:8;stroke-linecap:round"/><circle cx="200" cy="114" r="9" style="fill:var(--red)"/>
+          <path d="M200 650 Q176 618 200 582 Q224 618 200 650 Z" style="fill:var(--peach)"/>
+          <path d="M730 450 L730 590 L880 590 L880 450" class="ln"/>
+          <rect x="733" y="540" width="144" height="47" class="f-sky"/>
+          <rect x="230" y="14" width="290" height="56" rx="28" class="pill"/><text x="375" y="51" class="lbl-s" text-anchor="middle">thermometer: 78 °C</text>
+          <rect x="378" y="96" width="160" height="52" rx="26" class="pill"/><text x="458" y="131" class="lbl-s" text-anchor="middle">water out</text>
+          <rect x="560" y="170" width="190" height="56" rx="28" class="pill"/><text x="655" y="207" class="lbl-s" text-anchor="middle">condenser</text>
+          <rect x="235" y="300" width="280" height="56" rx="28" class="pill"/><text x="375" y="337" class="lbl-s" text-anchor="middle">fractionating column</text>
+          <path d="M235 328 L218 328" class="thin"/>
+          <rect x="455" y="410" width="150" height="56" rx="28" class="pill"/><text x="530" y="447" class="lbl-s" text-anchor="middle">water in</text>
+          <rect x="300" y="490" width="290" height="56" rx="28" class="pill"/><text x="445" y="527" class="lbl-s" text-anchor="middle">water/ethanol mixture</text>
+          <path d="M300 518 L270 518" class="thin"/>
+          <rect x="60" y="590" width="100" height="52" rx="26" class="pill"/><text x="110" y="625" class="lbl-s" text-anchor="middle">heat</text>
+          <rect x="680" y="600" width="250" height="56" rx="28" class="pill"/><text x="805" y="637" class="lbl-s" text-anchor="middle">almost pure ethanol</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="def"><span class="term">Fractional distillation</span><p>Separates liquids that are <strong>miscible</strong> (mix in any proportion) but have <strong>different boiling points</strong>.</p></div>
+        <table class="t"><tr><th>Liquid</th><th>Boiling point</th></tr><tr><td>Ethanol</td><td>78 °C</td></tr><tr><td>Water</td><td>100 °C</td></tr></table>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">How the column <em>works</em></div>
+    <div class="flow" style="flex:none">
+      <div>Heat carefully<small>mixture boils</small></div><span>→</span>
+      <div>Water condenses in the column<small>trickles back into the flask</small></div><span>→</span>
+      <div>Ethanol stays a vapour<small>reaches the top at 78 °C</small></div><span>→</span>
+      <div>Condenser<small>ethanol collected</small></div>
+    </div>
+    <div class="cols-2">
+      <div class="card tint"><h3>Careful heating</h3><p>Keeps the column at a temperature where <strong>all the water condenses</strong> and trickles back. Only ethanol gets to the top and into the condenser.</p></div>
+      <div class="card peach"><h3>Not 100% pure</h3><p>The ethanol collected is about <strong>96% pure</strong>. The last 4% of water can’t be removed by distillation.</p></div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="4">◀ Back</button><button type="button" data-to="6">Next ▶</button></div></div><div class="part"><div class="sec"><b>6</b><span>Paper <em>chromatography</em></span></div><div class="blk"><div class="sub">The <em>set-up</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 680" aria-label="Paper chromatography in a beaker with a lid, solvent below the pencil start line">
+          <path d="M150 110 L150 600 L560 600 L560 110" class="ln"/>
+          <rect x="153" y="520" width="404" height="77" class="f-sky"/>
+          <rect x="250" y="122" width="210" height="448" class="f-card" style="stroke:var(--ink2);stroke-width:3.5"/>
+          <rect x="252" y="522" width="206" height="46" class="f-sky" style="opacity:.7"/>
+          <line x1="250" y1="170" x2="460" y2="170" class="dash"/>
+          <line x1="250" y1="495" x2="460" y2="495" style="stroke:var(--ink2);stroke-width:4"/>
+          <circle cx="305" cy="215" r="15" style="fill:var(--mint)"/><circle cx="305" cy="340" r="15" style="fill:var(--peach)"/><circle cx="305" cy="440" r="15" style="fill:var(--sky)"/>
+          <circle cx="405" cy="340" r="15" style="fill:var(--peach)"/>
+          <ellipse cx="355" cy="98" rx="245" ry="20" class="f-c"/><ellipse cx="355" cy="98" rx="245" ry="20" class="ln"/>
+          <rect x="640" y="70" width="190" height="56" rx="28" class="pill"/><text x="735" y="107" class="lbl-s" text-anchor="middle">lid</text>
+          <path d="M640 98 L602 98" class="thin"/>
+          <rect x="640" y="142" width="230" height="56" rx="28" class="pill"/><text x="755" y="179" class="lbl-s" text-anchor="middle">solvent front</text>
+          <path d="M640 170 L462 170" class="thin"/>
+          <rect x="640" y="440" width="250" height="56" rx="28" class="pill"/><text x="765" y="477" class="lbl-s" text-anchor="middle">pencil start line</text>
+          <path d="M640 470 L462 495" class="thin"/>
+          <rect x="640" y="530" width="190" height="56" rx="28" class="pill"/><text x="735" y="567" class="lbl-s" text-anchor="middle">solvent</text>
+          <path d="M640 558 L560 558" class="thin"/>
+          <text x="305" y="650" class="lbl" text-anchor="middle">mixture</text><text x="420" y="650" class="lbl" text-anchor="middle">known</text>
+          <path d="M305 620 L305 610 M420 620 L420 610" class="thin"/>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="eq"><div class="words">Rf = distance moved by spot ÷ distance moved by solvent</div><div class="sym">Rf = d<sub>spot</sub> ÷ d<sub>solvent</sub></div><div class="units"><span>no units</span><span>between 0 and 1</span></div></div>
+        <div class="remember"><b>Remember</b>The solvent must be <strong>below</strong> the pencil start line.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Running a <em>chromatogram</em></div>
+    <div class="cols-2">
+      <ol class="nums">
+        <li>Draw a <strong>pencil</strong> line about 1 cm from the bottom. Not pen: its colours may move up with the solvent.</li>
+        <li>Put a spot of the mixture on the line (teat pipette or capillary tube). Let it dry.</li>
+        <li>Stand the paper in a little solvent, with the solvent <strong>below the pencil line</strong>.</li>
+      </ol>
+      <ol class="nums" style="counter-reset:n 3">
+        <li>Put a <strong>lid</strong> (watch glass) on. The air becomes saturated with solvent, so it doesn’t evaporate from the paper.</li>
+        <li>When the solvent is about 1 cm from the top, remove the paper. Mark the <strong>solvent front</strong> in pencil.</li>
+        <li>Leave the paper to dry.</li>
+      </ol>
+    </div>
+  </div><div class="blk"><div class="sub">Why the dyes <em>separate</em></div>
+    <div class="wide-right">
+      <div class="fig">
+        <svg viewBox="0 0 720 640" aria-label="Chromatogram: spot A moved furthest, spot C hardly moved">
+          <rect x="220" y="30" width="200" height="580" rx="10" class="f-card" style="stroke:var(--ink2);stroke-width:3.5"/>
+          <line x1="220" y1="90" x2="420" y2="90" class="dash"/>
+          <line x1="220" y1="545" x2="420" y2="545" style="stroke:var(--ink2);stroke-width:4"/>
+          <circle cx="320" cy="115" r="18" style="fill:var(--sky)"/><circle cx="320" cy="330" r="18" style="fill:var(--pink)"/><circle cx="320" cy="512" r="18" style="fill:var(--yellow)"/>
+          <rect x="10" y="62" width="200" height="56" rx="28" class="pill"/><text x="110" y="99" class="lbl-s" text-anchor="middle">solvent front</text>
+          <rect x="30" y="518" width="180" height="56" rx="28" class="pill"/><text x="120" y="555" class="lbl-s" text-anchor="middle">start line</text>
+          <rect x="440" y="88" width="270" height="56" rx="28" class="pill"/><text x="575" y="125" class="lbl-s" text-anchor="middle">A: moved furthest</text>
+          <rect x="440" y="302" width="200" height="56" rx="28" class="pill"/><text x="540" y="339" class="lbl-s" text-anchor="middle">B</text>
+          <rect x="440" y="456" width="270" height="56" rx="28" class="pill"/><text x="575" y="493" class="lbl-s" text-anchor="middle">C: hardly moved</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card tint"><p>Dyes differ in their <strong>affinity for the paper</strong> (how well they ‘stick’) and their <strong>solubility in the solvent</strong>.</p></div>
+        <div class="card sky"><p><strong>A</strong>: very soluble, little affinity for the paper. <strong>C</strong> hardly moved.</p></div>
+        <div class="def"><span class="term">Chromatogram</span><p>The pattern of spots you get.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Good to <em>know</em></div>
+    <div class="cols-2">
+      <div class="card tint"><h3>Choosing a solvent</h3><p>It can be water or a <strong>non-aqueous</strong> solvent. Find a suitable one by experimenting.</p></div>
+      <div class="card yellow"><h3>Bad solvent?</h3><p>A dye that stays on the line is not soluble at all. One that moves with the front is too soluble. Try a different solvent.</p></div>
+      <div class="card mint"><h3>Colourless mixtures</h3><p>Mixtures such as sugars can also be separated, but the spots must be made visible.</p></div>
+      <div class="warn"><b>Safety</b>Avoid skin contact with the solvents and dyes.</div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="5">◀ Back</button><button type="button" data-to="7">Next ▶</button></div></div><div class="part"><div class="sec"><b>7</b><span>Using chromatography in <em>analysis</em></span></div><div class="blk"><div class="sub">Measuring for an <em>Rf value</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 640" aria-label="Measuring the spot distance 2.9 cm and solvent distance 3.6 cm from the start line">
+          <rect x="330" y="30" width="220" height="580" rx="10" class="f-card" style="stroke:var(--ink2);stroke-width:3.5"/>
+          <line x1="330" y1="100" x2="550" y2="100" class="dash"/>
+          <line x1="330" y1="540" x2="550" y2="540" style="stroke:var(--ink2);stroke-width:4"/>
+          <text x="440" y="78" class="lbl-s" text-anchor="middle">solvent front</text>
+          <text x="440" y="584" class="lbl-s" text-anchor="middle">start line</text>
+          <circle cx="440" cy="186" r="20" style="fill:var(--mint)"/>
+          <line x1="285" y1="186" x2="420" y2="186" class="dash"/>
+          <path d="M285 540 L285 192" class="ln s-peach" style="stroke-width:7"/><path d="M271 206 L285 188 L299 206" class="ln s-peach" style="stroke-width:7"/>
+          <path d="M600 540 L600 106" class="ln s-sky" style="stroke-width:7"/><path d="M586 120 L600 102 L614 120" class="ln s-sky" style="stroke-width:7"/>
+          <rect x="120" y="340" width="140" height="56" rx="28" class="pill"/><text x="190" y="377" class="lbl" text-anchor="middle">2.9 cm</text>
+          <rect x="625" y="300" width="140" height="56" rx="28" class="pill"/><text x="695" y="337" class="lbl" text-anchor="middle">3.6 cm</text>
+          <rect x="20" y="150" width="240" height="56" rx="28" class="pill"/><text x="140" y="187" class="lbl-s" text-anchor="middle">centre of spot</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="eq"><div class="words">Rf = distance moved by a spot ÷ distance moved by the solvent front</div><div class="sym">Rf = 2.9 ÷ 3.6 = 0.81</div></div>
+        <ul class="dots"><li>Measure both from the <strong>pencil line</strong>.</li><li>Measure to the <strong>centre</strong> of the spot.</li><li>Rf stands for <strong>retardation factor</strong>.</li></ul>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Calculating an <em>Rf value</em></div>
+    <div class="wide-left">
+      <div class="worked">
+        <div class="q">An orange spot moved 2.0 cm. The solvent front moved 3.6 cm. Calculate the Rf value.</div>
+        <div class="step"><i>Equation</i>Rf = distance moved by spot ÷ distance moved by solvent</div>
+        <div class="step"><i>Substitute</i>Rf = 2.0 ÷ 3.6</div>
+        <div class="ans">Rf = 0.56 (no units)</div>
+      </div>
+      <div class="stack">
+        <div class="warn"><b>Common mistake</b>An Rf bigger than 1 means you divided the wrong way round.</div>
+        <div class="tip"><b>Exam tip</b>Rf is always between 0 and 1 and has no units.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Which dyes are in <em>mixture m?</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 640" aria-label="Chromatogram of mixture m and known dyes d1 to d4">
+          <rect x="70" y="40" width="620" height="560" rx="12" class="f-card" style="stroke:var(--ink2);stroke-width:3.5"/>
+          <line x1="70" y1="108" x2="690" y2="108" class="dash"/>
+          <line x1="70" y1="540" x2="690" y2="540" style="stroke:var(--ink2);stroke-width:4"/>
+          <g style="stroke:var(--line);stroke-width:4"><line x1="130" y1="192" x2="670" y2="192"/><line x1="130" y1="300" x2="670" y2="300"/><line x1="130" y1="432" x2="670" y2="432"/></g>
+          <circle cx="160" cy="192" r="19" style="fill:var(--mint)"/><circle cx="160" cy="300" r="19" style="fill:var(--peach)"/><circle cx="160" cy="432" r="19" style="fill:var(--sky)"/>
+          <circle cx="280" cy="300" r="19" style="fill:var(--peach)"/>
+          <circle cx="400" cy="384" r="19" style="fill:var(--peach)"/>
+          <circle cx="520" cy="192" r="19" style="fill:var(--mint)"/>
+          <circle cx="640" cy="432" r="19" style="fill:var(--sky)"/>
+          <g class="lbl" text-anchor="middle"><text x="160" y="580">m</text><text x="280" y="580">d1</text><text x="400" y="580">d2</text><text x="520" y="580">d3</text><text x="640" y="580">d4</text></g>
+          <rect x="700" y="80" width="190" height="56" rx="28" class="pill"/><text x="795" y="117" class="lbl-s" text-anchor="middle">front 3.6 cm</text>
+          <rect x="700" y="512" width="190" height="56" rx="28" class="pill"/><text x="795" y="549" class="lbl-s" text-anchor="middle">start line</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card mint"><p>m contains <strong>d1, d3 and d4</strong>: same colour <strong>and</strong> same distance.</p></div>
+        <div class="card peach"><p><strong>d2</strong> is the same colour as a spot in m but moved a different distance: a <strong>different compound</strong>.</p></div>
+        <div class="card yellow"><p>3 spots = <strong>at least</strong> 3 dyes. Two could move the same distance; check with a different solvent.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">The book’s <em>Rf values</em></div>
+    <table class="t">
+      <tr><th>Spot</th><th>Calculation</th><th>Rf</th><th>Matches</th></tr>
+      <tr><td>Blue in m</td><td>0.9 ÷ 3.6</td><td>0.25</td><td>d4</td></tr>
+      <tr><td>Orange in m</td><td>2.0 ÷ 3.6</td><td>0.56</td><td>d1</td></tr>
+      <tr><td>Green in m</td><td>2.9 ÷ 3.6</td><td>0.81</td><td>d3</td></tr>
+      <tr><td>d2</td><td>—</td><td>0.36</td><td>not in m</td></tr>
+    </table>
+    <div class="warn"><b>Careful</b>Rf depends on the <strong>solvent</strong> and the <strong>type of paper</strong>. Only compare Rf values from the same paper type and the same solvent.</div>
+  </div><div class="blk"><div class="sub">Which <em>method?</em></div>
+    <table class="t">
+      <tr><th>To separate…</th><th>Use</th><th>Example</th></tr>
+      <tr><td>An insoluble solid from a liquid</td><td>Filtration</td><td>Sand from water</td></tr>
+      <tr><td>A solute from a solution</td><td>Crystallisation</td><td>Salt from salt solution</td></tr>
+      <tr><td>The solvent from a solution</td><td>Simple distillation</td><td>Pure water from salt solution</td></tr>
+      <tr><td>Miscible liquids, different b.p.</td><td>Fractional distillation</td><td>Ethanol from water</td></tr>
+      <tr><td>Dyes or food colourings</td><td>Paper chromatography</td><td>Dyes in an ink</td></tr>
+      <tr><td>Two solids, one soluble</td><td>Dissolve, filter, crystallise</td><td>Salt from rock salt</td></tr>
+    </table>
+  </div><div class="pn"><button type="button" data-to="6">◀ Back</button><button type="button" data-to="8">Next ▶</button></div></div><div class="part"><div class="test"><h4>Test yourself</h4><div class="qq">1. Air contains nitrogen, oxygen and carbon dioxide. Element, compound or mixture?<span class="a">Mixture: no reaction, and the parts can be in any proportion.</span></div><div class="qq">2. Why is iron sulfide (FeS) a compound, not a mixture?<span class="a">Iron and sulfur are chemically combined in a fixed proportion.</span></div><div class="qq">3. A sample melts from 128 °C to 134 °C. Pure or impure?<span class="a">Impure: it melts over a range, below the pure m.p. of 138 °C.</span></div><div class="qq">4. How would you get pure water from salt solution?<span class="a">Simple distillation.</span></div><div class="qq">5. Why draw the start line in pencil, not pen?<span class="a">Pen ink may move up the paper with the solvent.</span></div><div class="qq">6. A spot moved 1.8 cm; the solvent moved 4.5 cm. Find Rf.<span class="a">1.8 ÷ 4.5 = 0.40</span></div><div class="qq">7. Why can fractional distillation separate ethanol and water?<span class="a">They have different boiling points: ethanol 78 °C, water 100 °C.</span></div><div class="qq">8. Name the solid left in the filter paper.<span class="a">The residue.</span></div></div><div class="pn"><button type="button" data-to="7">◀ Back</button><button type="button" data-to="9" disabled>Next ▶</button></div></div></div><script>(function(){var P=[].slice.call(document.querySelectorAll('.part')),B=[].slice.call(document.querySelectorAll('.snav button'));
+function go(i){P.forEach(function(p,k){p.classList.toggle('on',k==i)});B.forEach(function(b,k){b.classList.toggle('on',k==i)});window.scrollTo(0,0);try{history.replaceState(null,'','#s'+i)}catch(e){}}
+B.forEach(function(b,k){b.onclick=function(){go(k)}});
+document.querySelectorAll('.pn button').forEach(function(b){b.onclick=function(){go(+b.dataset.to)}});
+var h=+(location.hash.replace('#s','')||0);go(h>=0&&h<P.length?h:0)})();</script></body></html>

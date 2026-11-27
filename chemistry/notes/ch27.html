@@ -1,0 +1,143 @@
+<!doctype html><html lang="en" data-subj="chemistry"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root {
+  --ink: #1E1B3A; --ink2: #4A4668; --muted: #7A7598; --line: #E6E2F5;
+  --bg: #F4F2FF; --card: #FFFFFF; --soft: #F1EFFB;
+  --pink: #FF8FB1; --pink-l: #FFE3EC; --yellow: #FFC94D; --yellow-l: #FFF3D1;
+  --mint: #3CCB9A; --mint-l: #DDF7EE; --sky: #4DA3FF; --sky-l: #DDEEFF;
+  --lilac: #8B7BFF; --lilac-l: #ECE8FF; --peach: #FF9F6B; --peach-l: #FFE8DA;
+  --red: #F0525A; --red-l: #FFE1E3; --green: #1FAF6B; --green-l: #DCF5E8;
+  --c: #6D5DD3; --c-d: #4B3DB8; --c-l: #ECE8FF; --c-ll: #F6F4FF;
+  --r-xl: 48px; --r-lg: 36px; --r-md: 26px; --r-sm: 18px;
+  --sh: 0 4px 10px rgba(40,30,110,.05), 0 18px 44px rgba(40,30,110,.09);
+  --font: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+html[data-subj="biology"]   { --c: #12A06E; --c-d: #0B7A53; --c-l: #D9F4E9; --c-ll: #F0FBF6; --bg: #F1FAF6; }
+html[data-subj="chemistry"] { --c: #0E8FB0; --c-d: #0A6C86; --c-l: #D7F0F7; --c-ll: #EFF9FC; --bg: #F0F8FB; }
+html[data-subj="physics"]   { --c: #3B5BDB; --c-d: #2A43AE; --c-l: #E0E6FF; --c-ll: #F2F4FF; --bg: #F2F4FF; }
+svg { font-family: var(--font); }
+svg .ln { fill: none; stroke: var(--ink); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+svg .ln-c { fill: none; stroke: var(--c); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+svg .thin { fill: none; stroke: var(--ink2); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+svg .dash { fill: none; stroke: var(--muted); stroke-width: 4; stroke-dasharray: 12 12; stroke-linecap: round; }
+svg .f-c { fill: var(--c-l); } svg .f-cc { fill: var(--c); } svg .f-card { fill: #fff; }
+svg .f-pink { fill: var(--pink-l); } svg .f-yellow { fill: var(--yellow-l); } svg .f-mint { fill: var(--mint-l); }
+svg .f-sky { fill: var(--sky-l); } svg .f-lilac { fill: var(--lilac-l); } svg .f-peach { fill: var(--peach-l); } svg .f-red { fill: var(--red-l); }
+svg .s-pink { stroke: var(--pink); } svg .s-yellow { stroke: var(--yellow); } svg .s-mint { stroke: var(--mint); } svg .s-sky { stroke: var(--sky); }
+svg .s-lilac { stroke: var(--lilac); } svg .s-peach { stroke: var(--peach); } svg .s-red { stroke: var(--red); }
+svg .lbl { font: 800 30px var(--font); fill: var(--ink); }
+svg .lbl-s { font: 700 24px var(--font); fill: var(--ink2); }
+svg .lbl-c { font: 900 30px var(--font); fill: var(--c-d); }
+svg .pill { fill: #fff; stroke: var(--line); stroke-width: 3; }
+@page{size:A4;margin:11mm 9mm 13mm 9mm}
+*{box-sizing:border-box}
+html{font-size:var(--fs,8.6px)}
+body{margin:0;font-family:var(--font);color:var(--ink);background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero{display:flex;align-items:center;gap:3.5mm;background:var(--c);color:#fff;border-radius:4mm;padding:3.2mm 5mm;margin-bottom:3mm}
+.hero .n{flex:none;width:11mm;height:11mm;border-radius:50%;background:#fff;color:var(--c-d);font:900 6.2mm/11mm var(--font);text-align:center}
+.hero h1{margin:0;font:900 6.4mm/1.1 var(--font)}.hero p{margin:.5mm 0 0;font:700 3mm var(--font);opacity:.9}
+.cols{column-count:2;column-gap:4mm}
+.blk{break-inside:avoid;margin:0 0 2mm}
+.sec{break-inside:avoid;break-after:avoid;display:flex;align-items:center;gap:2mm;background:var(--c-l);border-radius:2.5mm;padding:1.2mm 2.5mm;margin:2.5mm 0 1.6mm;font:900 3.7mm/1.15 var(--font);color:var(--c-d)}
+.sec b{flex:none;width:5.2mm;height:5.2mm;border-radius:50%;background:var(--c);color:#fff;font:900 3.2mm/5.2mm var(--font);text-align:center}
+.sub{break-after:avoid;margin:1.4mm 0 .8mm;font:900 3.1mm/1.2 var(--font);color:var(--ink);border-left:1mm solid var(--c);padding-left:1.6mm}
+.sub em{font-style:normal;color:var(--c-d)}
+p,li{margin:0;font:600 1.15rem/1.32 var(--font);color:var(--ink2)}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.mist{break-inside:avoid;border-radius:2mm;margin:0 0 1.5mm;padding:1.3mm 2.2mm}
+.def{background:var(--c-ll);border-left:1mm solid var(--c)}.def .term{display:block;font:900 2.3mm var(--font);text-transform:uppercase;letter-spacing:.2mm;color:var(--c-d)}
+.def p{color:var(--ink);font-weight:700}
+.card{background:var(--bg2,#eef)}.card h3{margin:0 0 .3mm;font:900 1.2rem/1.2 var(--font);color:var(--ink)}
+.card.mint{background:var(--mint-l)}.card.sky{background:var(--sky-l)}.card.pink{background:var(--pink-l)}.card.yellow{background:var(--yellow-l)}.card.peach{background:var(--peach-l)}
+.tip{background:var(--yellow-l);border-left:1mm solid var(--yellow)}.tip b{display:inline;font-weight:900;color:var(--ink);margin-right:1mm;text-transform:uppercase;font-size:2.2mm}
+.warn{background:var(--red-l);border-left:1mm solid var(--red)}
+table.t{width:100%;border-collapse:separate;border-spacing:0;margin:0 0 1.8mm;break-inside:avoid;border-radius:2mm;overflow:hidden;font-size:1.08rem}
+table.t th{background:var(--c);color:#fff;font:900 1.08rem var(--font);text-align:left;padding:.9mm 1.8mm}
+table.t td{font:600 1.08rem/1.28 var(--font);padding:.8mm 1.8mm;border-top:.25mm solid var(--line);vertical-align:top;color:var(--ink2)}
+table.t td:first-child{font-weight:900;color:var(--ink)}
+table.t tr:nth-child(even) td{background:var(--c-ll)}
+.worked{background:#fff;border:.3mm solid var(--c-l)}.worked .q{font:800 1.18rem/1.3 var(--font);color:var(--ink);background:var(--c-ll);border-radius:1.6mm;padding:1mm 1.8mm;margin-bottom:.8mm}
+.worked .step{display:flex;gap:1.6mm;font:700 1.1rem/1.3 var(--font);color:var(--ink2)}.worked .step i{font-style:normal;flex:none;min-width:11mm;font:900 2.2mm var(--font);text-transform:uppercase;color:var(--c)}
+.worked .ans{display:inline-block;margin-top:.8mm;font:900 1.2rem var(--font);color:#fff;background:var(--c);padding:.7mm 2.4mm;border-radius:5mm}
+.nums{margin:0 0 1.6mm;padding:0;list-style:none;counter-reset:n;break-inside:avoid}
+.nums>*{counter-increment:n;position:relative;padding-left:5mm;margin-bottom:.7mm;font:600 1.15rem/1.3 var(--font);color:var(--ink2)}
+.nums>*::before{content:counter(n);position:absolute;left:0;top:.1mm;width:3.6mm;height:3.6mm;border-radius:50%;background:var(--c);color:#fff;font:900 2.3mm/3.6mm var(--font);text-align:center}
+.cols-2,.cols-3,.stack,.wide-left,.body{display:block}
+.fig{break-inside:avoid;margin:0 0 1.6mm;background:#fff;border:.3mm solid var(--line);border-radius:2mm;padding:1mm;text-align:center}
+.fig svg{width:100%;height:auto;max-height:46mm;display:block}
+.fig svg text{font-family:var(--font)}
+.nutshell{background:var(--c);color:#fff}.nutshell h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:#fff}.nutshell li{color:#fff;font-weight:700;margin-left:3.6mm}
+.test{background:var(--lilac-l)}.test h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:var(--ink)}.test .qq{font:700 1.12rem/1.3 var(--font);color:var(--ink);margin-bottom:.6mm}.test .a{color:var(--c-d);font-weight:900;margin-left:1.2mm}
+.say{background:var(--mint-l)}.mist{background:var(--red-l)}.say,.mist{break-inside:avoid;border-radius:2mm;padding:1.3mm 2.2mm;margin:0 0 1.5mm}.say h3,.mist h3{margin:0 0 .4mm;font:900 1.2rem var(--font)}
+.chips,.bignum,.checks{display:none}
+
+@page{margin:0}
+html{font-size:15.5px;background:var(--bg)}
+body{max-width:900px;margin:0 auto;padding:18px 16px 60px;background:var(--bg)}
+.cols{column-count:1}
+.hero{padding:5mm 6mm;border-radius:6mm}.hero .n{width:15mm;height:15mm;font-size:9mm;line-height:15mm}.hero h1{font-size:9mm}.hero p{font-size:3.6mm}
+.sec{font-size:5.4mm;padding:2mm 4mm;border-radius:4mm;margin:6mm 0 3mm;position:sticky;top:0;z-index:2}.sec b{width:7.5mm;height:7.5mm;font-size:4.6mm;line-height:7.5mm}
+.sub{font-size:4.6mm;margin:3mm 0 1.6mm}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.say,.mist{padding:2.6mm 4mm;border-radius:3.4mm;margin-bottom:2.6mm}
+.def .term{font-size:3mm}.card h3{font-size:1.3rem}.tip b{font-size:3mm}
+.worked .step i{font-size:3mm;min-width:16mm}.nutshell h4,.test h4{font-size:5mm}
+.nums>*{padding-left:8mm}.nums>*::before{width:5.6mm;height:5.6mm;font-size:3.4mm;line-height:5.6mm}
+table.t{font-size:1.15rem}table.t th,table.t td{font-size:1.15rem;padding:1.6mm 3mm}
+.fig svg{max-height:60mm}
+.test .qq{font-size:1.2rem;margin-bottom:1.4mm}.say h3,.mist h3{font-size:1.3rem}
+p,li{font-size:1.2rem}
+
+.hero p{color:#fff}
+.eq{break-inside:avoid;background:#fff;border:.3mm solid var(--c-l);border-radius:3.4mm;padding:2.6mm 4mm;margin:0 0 2.6mm;text-align:center}
+.eq .words{font:800 1.2rem/1.3 var(--font);color:var(--ink2)}
+.eq .sym{display:inline-block;margin:1.4mm 0;font:900 2rem/1.15 var(--font);color:var(--c-d);background:var(--c-ll);padding:1.6mm 5mm;border-radius:3mm}
+.eq .units{font:700 1rem var(--font);color:var(--muted)}.eq .units span{background:var(--soft);border-radius:5mm;padding:.4mm 2.4mm;margin:0 1mm;display:inline-block}
+.remember{break-inside:avoid;background:var(--mint-l);border-left:1.2mm solid var(--mint);border-radius:3.4mm;padding:2.6mm 4mm;margin-bottom:2.6mm;font:700 1.2rem/1.35 var(--font);color:var(--ink)}
+.warn b,.tip b{margin-right:1.6mm}
+.remember b:first-child{display:block;font-size:3mm;text-transform:uppercase;letter-spacing:.3mm;margin-bottom:.8mm}
+.flow{display:flex;flex-wrap:wrap;gap:2mm;margin:0 0 2.6mm;break-inside:avoid}
+.flow>div{flex:1 1 40mm;background:#fff;border:.3mm solid var(--c-l);border-radius:3mm;padding:2mm 3mm;text-align:center;font:800 1.15rem/1.3 var(--font);color:var(--ink)}
+.flow>div small{display:block;font:600 1rem var(--font);color:var(--muted)}.flow>span{align-self:center;font:900 1.6rem var(--font);color:var(--c)}
+.cols-4{display:block}.wide-right{display:block}
+[style*="font-size:52px"],[style*="font:900 72px"]{font-size:2.2rem !important}
+.card [style]{line-height:1.1}.card .sym{font-size:1.6rem}
+.tag{display:inline-block;font:900 2.6mm var(--font);text-transform:uppercase;background:var(--c);color:#fff;padding:.5mm 2.2mm;border-radius:5mm;margin-bottom:1mm}
+</style><style>.snav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:6px;background:var(--bg);padding:8px 0 10px;margin:0 0 6px}
+.snav button{font:800 14px var(--font);border:2px solid var(--c-l);background:#fff;color:var(--ink);border-radius:20px;padding:6px 12px;cursor:pointer}
+.snav button.on{background:var(--c);border-color:var(--c);color:#fff}
+.part{display:none}.part.on{display:block}.part .sec{position:static!important}
+.pn{display:flex;justify-content:space-between;gap:10px;margin:18px 0 0}.pn button{font:900 15px var(--font);border:0;background:var(--c);color:#fff;border-radius:22px;padding:10px 20px;cursor:pointer}.pn button[disabled]{opacity:.25}</style><style id="stepfix">.worked{counter-reset:st;border:2px solid var(--c-l)!important;padding:12px 16px!important}
+.worked .q{font-size:1.25rem!important;border-left:5px solid var(--c);margin-bottom:10px!important}
+.worked .q::before{content:"Worked example  ";font:900 .8rem var(--font);text-transform:uppercase;letter-spacing:.5px;color:var(--c-d);display:block}
+.worked .step{counter-increment:st;display:grid!important;grid-template-columns:78px 1fr;gap:10px;align-items:baseline;padding:7px 0;border-top:1px dashed var(--c-l);font-size:1.2rem!important}
+.worked .step i{min-width:0!important;font-size:.85rem!important;color:var(--c-d)!important}
+.worked .step i::before{content:"Step " counter(st) "";display:block;font-weight:900;color:var(--c)}
+.worked .ans{display:block!important;margin-top:10px;padding:8px 14px!important;border-radius:10px!important;font-size:1.25rem!important}
+.worked .ans::before{content:"Answer:  "}</style></head><body>
+<div class="hero"><div class="n">27</div><div><h1>Carboxylic acids</h1><p>Chemistry · Unit 4 · Organic chemistry · Last-minute notes · Book pages 293–296</p></div></div>
+<div class="snav"><button type="button">Summary</button><button type="button">27.1 The carboxylic acid family</button><button type="button">27.2 Acid properties</button><button type="button">27.3 Strong and weak acids compared</button><button type="button">27.4 Worked example</button><button type="button">Test yourself</button></div><div class="cols"><div class="part"><div class="nutshell"><h4>Chapter in a nutshell</h4><ul style="margin:0;padding:0"><li>–COOH; names end -oic acid</li><li>Methanoic to butanoic acid</li><li>Vinegar: ethanoic acid solution</li><li>Weak acids, pH 3–5</li><li>Metal → salt + H₂</li><li>Carbonate → salt + CO₂ + H₂O</li></ul></div><div class="pn"><button type="button" data-to="-1" disabled>◀ Back</button><button type="button" data-to="1">Next ▶</button></div></div><div class="part"><div class="sec"><b>1</b><span>The carboxylic acid <em>family</em></span></div><div class="blk"><div class="sub">What are <em>carboxylic acids</em>?</div>
+<div class="stack"><div class="def"><span class="term">Carboxylic acids</span><p>compounds containing the functional group –COOH</p></div><div class="cols-2"><div class="card yellow"><h3>Made from</h3><p>Oxidising alcohols: ethanol → ethanoic acid.</p></div><div class="card sky"><h3>Names</h3><p>End in -oic acid.</p></div></div></div>
+  </div><div class="blk"><div class="sub">Methanoic and <em>ethanoic acid</em></div>
+    <div style="display:flex;gap:24px;flex:1"><div class="fig" style="flex:1"><svg viewBox="0 0 640 230" aria-label="methanoic acid HCOOH"><rect x="0" y="0" width="640" height="230" rx="28" class="f-card"/><text x="320.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">C</text><line x1="315.0" y1="93" x2="315.0" y2="72" stroke="#2B2750" stroke-width="4"/><line x1="325.0" y1="93" x2="325.0" y2="72" stroke="#2B2750" stroke-width="4"/><text x="320.0" y="63" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#E8506A">O</text><line x1="303.0" y1="110" x2="247.0" y2="110" stroke="#2B2750" stroke-width="4"/><text x="230.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><line x1="337.0" y1="110" x2="393.0" y2="110" stroke="#2B2750" stroke-width="4"/><text x="410.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#E8506A">O</text><line x1="426.0" y1="110" x2="483.0" y2="110" stroke="#2B2750" stroke-width="4"/><text x="500.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><text x="320.0" y="222" class="lbl-s" text-anchor="middle" style="font-size:22px;font-weight:800">methanoic acid HCOOH</text></svg></div><div class="fig" style="flex:1"><svg viewBox="0 0 640 230" aria-label="ethanoic acid CH₃COOH"><rect x="0" y="0" width="640" height="230" rx="28" class="f-card"/><text x="275.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">C</text><line x1="292.0" y1="110" x2="348.0" y2="110" stroke="#2B2750" stroke-width="4"/><line x1="275.0" y1="93" x2="275.0" y2="72" stroke="#2B2750" stroke-width="4"/><text x="275.0" y="63" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><line x1="275.0" y1="127" x2="275.0" y2="148" stroke="#2B2750" stroke-width="4"/><text x="275.0" y="175" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><text x="365.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">C</text><line x1="360.0" y1="93" x2="360.0" y2="72" stroke="#2B2750" stroke-width="4"/><line x1="370.0" y1="93" x2="370.0" y2="72" stroke="#2B2750" stroke-width="4"/><text x="365.0" y="63" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#E8506A">O</text><line x1="258.0" y1="110" x2="202.0" y2="110" stroke="#2B2750" stroke-width="4"/><text x="185.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><line x1="382.0" y1="110" x2="438.0" y2="110" stroke="#2B2750" stroke-width="4"/><text x="455.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#E8506A">O</text><line x1="471.0" y1="110" x2="528.0" y2="110" stroke="#2B2750" stroke-width="4"/><text x="545.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><text x="320.0" y="222" class="lbl-s" text-anchor="middle" style="font-size:22px;font-weight:800">ethanoic acid CH₃COOH</text></svg></div></div>    <div class="tip"><b>Exam tip</b>Draw every bond in –COOH: a C=O and a separate O–H.</div>
+  </div><div class="blk"><div class="sub">Propanoic and <em>butanoic acid</em></div>
+    <div style="display:flex;gap:24px;flex:1"><div class="fig" style="flex:1"><svg viewBox="0 0 700 230" aria-label="propanoic acid CH₃CH₂COOH"><rect x="0" y="0" width="700" height="230" rx="28" class="f-card"/><text x="260.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">C</text><line x1="277.0" y1="110" x2="333.0" y2="110" stroke="#2B2750" stroke-width="4"/><line x1="260.0" y1="93" x2="260.0" y2="72" stroke="#2B2750" stroke-width="4"/><text x="260.0" y="63" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><line x1="260.0" y1="127" x2="260.0" y2="148" stroke="#2B2750" stroke-width="4"/><text x="260.0" y="175" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><text x="350.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">C</text><line x1="367.0" y1="110" x2="423.0" y2="110" stroke="#2B2750" stroke-width="4"/><line x1="350.0" y1="93" x2="350.0" y2="72" stroke="#2B2750" stroke-width="4"/><text x="350.0" y="63" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><line x1="350.0" y1="127" x2="350.0" y2="148" stroke="#2B2750" stroke-width="4"/><text x="350.0" y="175" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><text x="440.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">C</text><line x1="435.0" y1="93" x2="435.0" y2="72" stroke="#2B2750" stroke-width="4"/><line x1="445.0" y1="93" x2="445.0" y2="72" stroke="#2B2750" stroke-width="4"/><text x="440.0" y="63" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#E8506A">O</text><line x1="243.0" y1="110" x2="187.0" y2="110" stroke="#2B2750" stroke-width="4"/><text x="170.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><line x1="457.0" y1="110" x2="513.0" y2="110" stroke="#2B2750" stroke-width="4"/><text x="530.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#E8506A">O</text><line x1="546.0" y1="110" x2="603.0" y2="110" stroke="#2B2750" stroke-width="4"/><text x="620.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><text x="350.0" y="222" class="lbl-s" text-anchor="middle" style="font-size:22px;font-weight:800">propanoic acid CH₃CH₂COOH</text></svg></div><div class="fig" style="flex:1"><svg viewBox="0 0 800 230" aria-label="butanoic acid CH₃CH₂CH₂COOH"><rect x="0" y="0" width="800" height="230" rx="28" class="f-card"/><text x="265.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">C</text><line x1="282.0" y1="110" x2="338.0" y2="110" stroke="#2B2750" stroke-width="4"/><line x1="265.0" y1="93" x2="265.0" y2="72" stroke="#2B2750" stroke-width="4"/><text x="265.0" y="63" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><line x1="265.0" y1="127" x2="265.0" y2="148" stroke="#2B2750" stroke-width="4"/><text x="265.0" y="175" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><text x="355.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">C</text><line x1="372.0" y1="110" x2="428.0" y2="110" stroke="#2B2750" stroke-width="4"/><line x1="355.0" y1="93" x2="355.0" y2="72" stroke="#2B2750" stroke-width="4"/><text x="355.0" y="63" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><line x1="355.0" y1="127" x2="355.0" y2="148" stroke="#2B2750" stroke-width="4"/><text x="355.0" y="175" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><text x="445.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">C</text><line x1="462.0" y1="110" x2="518.0" y2="110" stroke="#2B2750" stroke-width="4"/><line x1="445.0" y1="93" x2="445.0" y2="72" stroke="#2B2750" stroke-width="4"/><text x="445.0" y="63" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><line x1="445.0" y1="127" x2="445.0" y2="148" stroke="#2B2750" stroke-width="4"/><text x="445.0" y="175" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><text x="535.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">C</text><line x1="530.0" y1="93" x2="530.0" y2="72" stroke="#2B2750" stroke-width="4"/><line x1="540.0" y1="93" x2="540.0" y2="72" stroke="#2B2750" stroke-width="4"/><text x="535.0" y="63" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#E8506A">O</text><line x1="248.0" y1="110" x2="192.0" y2="110" stroke="#2B2750" stroke-width="4"/><text x="175.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><line x1="552.0" y1="110" x2="608.0" y2="110" stroke="#2B2750" stroke-width="4"/><text x="625.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#E8506A">O</text><line x1="641.0" y1="110" x2="698.0" y2="110" stroke="#2B2750" stroke-width="4"/><text x="715.0" y="119" class="lbl" text-anchor="middle" style="font-size:28px;font-weight:900;fill:#2B2750">H</text><text x="400.0" y="222" class="lbl-s" text-anchor="middle" style="font-size:22px;font-weight:800">butanoic acid CH₃CH₂CH₂COOH</text></svg></div></div>    <div class="tip"><b>Exam tip</b>Count the carbon in –COOH: propanoic acid has 3 carbons.</div>
+  </div><div class="blk"><div class="sub">The first four <em>acids</em></div>
+<table class="t"><tr><th>Name</th><th>Molecular</th><th>Structural</th></tr><tr><td>methanoic acid</td><td>CH₂O₂</td><td>HCOOH</td></tr><tr><td>ethanoic acid</td><td>C₂H₄O₂</td><td>CH₃COOH</td></tr><tr><td>propanoic acid</td><td>C₃H₆O₂</td><td>CH₃CH₂COOH</td></tr><tr><td>butanoic acid</td><td>C₄H₈O₂</td><td>CH₃CH₂CH₂COOH</td></tr></table>
+  </div><div class="blk"><div class="sub">Key <em>facts</em></div>
+<div class="cols-3"><div class="card yellow"><h3>Vinegar</h3><p>An aqueous solution containing ethanoic acid (acetic acid).</p></div><div class="card sky"><h3>Position</h3><p>–COOH is always on the end carbon: no number needed.</p></div><div class="card pink"><h3>Names</h3><p>End in -oic acid.</p></div></div>
+  </div><div class="pn"><button type="button" data-to="0">◀ Back</button><button type="button" data-to="2">Next ▶</button></div></div><div class="part"><div class="sec"><b>2</b><span>Acid <em>properties</em></span></div><div class="blk"><div class="sub"><em>Weak</em> acids</div>
+<div class="cols-3"><div class="card yellow"><h3>pH 3–5</h3><p>Depends on concentration.</p></div><div class="card pink"><h3>Litmus</h3><p>Turns blue litmus red.</p></div><div class="card sky"><h3>Slower</h3><p>React more slowly than HCl of same concentration.</p></div></div>
+  </div><div class="blk"><div class="sub">Reaction with <em>metals</em></div>
+<div class="stack"><div class="def"><span class="term">Acid + metal</span><p>salt + hydrogen</p></div><div class="cols-2"><div class="card mint"><h3>Magnesium</h3><p>Mg + 2CH₃COOH → (CH₃COO)₂Mg + H₂. Fizzing; colourless solution of magnesium ethanoate.</p></div><div class="card yellow"><h3>Zinc</h3><p>Fizzes more slowly than with hydrochloric acid. Sodium is dangerous; metals below hydrogen do not react.</p></div></div></div>
+  </div><div class="blk"><div class="sub">Formulae of <em>ethanoates</em></div>
+<div class="stack"><div class="card sky"><h3>Ionic</h3><p>Magnesium ethanoate: Mg²⁺ and ethanoate ions, CH₃COO⁻.</p></div><div class="card pink"><h3>Balancing</h3><p>Two CH₃COO⁻ balance one Mg²⁺: (CH₃COO)₂Mg. Zinc: (CH₃COO)₂Zn.</p></div><div class="tip"><b>Exam tip</b>The metal replaces the H of –COOH: CH₃COOH → CH₃COONa.</div></div>
+  </div><div class="blk"><div class="sub">Reaction with <em>carbonates</em></div>
+<div class="stack"><div class="def"><span class="term">Acid + carbonate</span><p>salt + carbon dioxide + water</p></div><div class="cols-2"><div class="card sky"><h3>Sodium carbonate</h3><p>Na₂CO₃ + 2CH₃COOH → 2CH₃COONa + CO₂ + H₂O</p></div><div class="card yellow"><h3>Calcium carbonate</h3><p>2CH₃COOH + CaCO₃ → (CH₃COO)₂Ca + CO₂ + H₂O</p></div></div></div>
+  </div><div class="pn"><button type="button" data-to="1">◀ Back</button><button type="button" data-to="3">Next ▶</button></div></div><div class="part"><div class="sec"><b>3</b><span>Strong and weak acids <em>compared</em></span></div><div class="blk"><div class="sub">Ethanoic acid vs <em>hydrochloric acid</em></div>
+<table class="t"><tr><th></th><th>Ethanoic acid</th><th>Hydrochloric acid</th></tr><tr><td>Strength</td><td>weak: partly ionised</td><td>strong: fully ionised</td></tr><tr><td>pH</td><td>about 3–5</td><td>lower, same concentration</td></tr><tr><td>With Mg</td><td>fizzes slowly</td><td>fizzes rapidly</td></tr><tr><td>With carbonates</td><td>fizzes slowly</td><td>fizzes rapidly</td></tr><tr><td>Salts</td><td>ethanoates</td><td>chlorides</td></tr></table>
+  </div><div class="pn"><button type="button" data-to="2">◀ Back</button><button type="button" data-to="4">Next ▶</button></div></div><div class="part"><div class="sec"><b>4</b><span>Worked <em>example</em></span></div><div class="blk"><div class="sub">Name the salt and <em>write the equation</em></div>
+<div class="wide-left"><div class="worked"><div class="q">Propanoic acid + calcium carbonate</div><div class="step"><i>Type</i>acid + carbonate</div><div class="step"><i>Products</i>salt + water + CO₂</div><div class="step"><i>Salt</i>calcium propanoate</div><div class="ans">2CH₃CH₂COOH + CaCO₃ → (CH₃CH₂COO)₂Ca + H₂O + CO₂</div></div><div class="stack"><div class="tip"><b>Exam tip</b>Salts of -oic acids end in -oate.</div></div></div>
+  </div><div class="blk"><div class="sub">Acid <em>reactions</em> at a glance</div>
+<table class="t"><tr><th>Reactant</th><th>Products</th><th>Observation</th></tr><tr><td>Metal (Mg, Zn)</td><td>ethanoate + hydrogen</td><td>fizzing, colourless solution</td></tr><tr><td>Carbonate</td><td>ethanoate + CO₂ + water</td><td>fizzing, colourless solution</td></tr><tr><td>Litmus</td><td>—</td><td>blue turns red</td></tr></table>
+  </div><div class="pn"><button type="button" data-to="3">◀ Back</button><button type="button" data-to="5">Next ▶</button></div></div><div class="part"><div class="say"><h3>✓ Say this</h3><p>–COOH: C=O and separate O–H. CH₃COOH is ethanoic acid. Salts are ethanoates. Weak means partly ionised.</p></div><div class="mist"><h3>✗ Avoid this</h3><p>Weak means dilute; ethanoic acid called methanoic; chlorides from ethanoic acid.</p></div><div class="test"><h4>Test yourself</h4><div class="qq">1. Functional group?<span class="a">–COOH</span></div><div class="qq">2. Acid in vinegar?<span class="a">Ethanoic acid</span></div><div class="qq">3. Acid + carbonate gives?<span class="a">Salt + CO₂ + water</span></div></div><div class="pn"><button type="button" data-to="4">◀ Back</button><button type="button" data-to="6" disabled>Next ▶</button></div></div></div><script>(function(){var P=[].slice.call(document.querySelectorAll('.part')),B=[].slice.call(document.querySelectorAll('.snav button'));
+function go(i){P.forEach(function(p,k){p.classList.toggle('on',k==i)});B.forEach(function(b,k){b.classList.toggle('on',k==i)});window.scrollTo(0,0);try{history.replaceState(null,'','#s'+i)}catch(e){}}
+B.forEach(function(b,k){b.onclick=function(){go(k)}});
+document.querySelectorAll('.pn button').forEach(function(b){b.onclick=function(){go(+b.dataset.to)}});
+var h=+(location.hash.replace('#s','')||0);go(h>=0&&h<P.length?h:0)})();</script></body></html>

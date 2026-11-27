@@ -1,0 +1,626 @@
+<!doctype html><html lang="en" data-subj="physics"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root {
+  --ink: #1E1B3A; --ink2: #4A4668; --muted: #7A7598; --line: #E6E2F5;
+  --bg: #F4F2FF; --card: #FFFFFF; --soft: #F1EFFB;
+  --pink: #FF8FB1; --pink-l: #FFE3EC; --yellow: #FFC94D; --yellow-l: #FFF3D1;
+  --mint: #3CCB9A; --mint-l: #DDF7EE; --sky: #4DA3FF; --sky-l: #DDEEFF;
+  --lilac: #8B7BFF; --lilac-l: #ECE8FF; --peach: #FF9F6B; --peach-l: #FFE8DA;
+  --red: #F0525A; --red-l: #FFE1E3; --green: #1FAF6B; --green-l: #DCF5E8;
+  --c: #6D5DD3; --c-d: #4B3DB8; --c-l: #ECE8FF; --c-ll: #F6F4FF;
+  --r-xl: 48px; --r-lg: 36px; --r-md: 26px; --r-sm: 18px;
+  --sh: 0 4px 10px rgba(40,30,110,.05), 0 18px 44px rgba(40,30,110,.09);
+  --font: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+html[data-subj="biology"]   { --c: #12A06E; --c-d: #0B7A53; --c-l: #D9F4E9; --c-ll: #F0FBF6; --bg: #F1FAF6; }
+html[data-subj="chemistry"] { --c: #0E8FB0; --c-d: #0A6C86; --c-l: #D7F0F7; --c-ll: #EFF9FC; --bg: #F0F8FB; }
+html[data-subj="physics"]   { --c: #3B5BDB; --c-d: #2A43AE; --c-l: #E0E6FF; --c-ll: #F2F4FF; --bg: #F2F4FF; }
+svg { font-family: var(--font); }
+svg .ln { fill: none; stroke: var(--ink); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+svg .ln-c { fill: none; stroke: var(--c); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+svg .thin { fill: none; stroke: var(--ink2); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+svg .dash { fill: none; stroke: var(--muted); stroke-width: 4; stroke-dasharray: 12 12; stroke-linecap: round; }
+svg .f-c { fill: var(--c-l); } svg .f-cc { fill: var(--c); } svg .f-card { fill: #fff; }
+svg .f-pink { fill: var(--pink-l); } svg .f-yellow { fill: var(--yellow-l); } svg .f-mint { fill: var(--mint-l); }
+svg .f-sky { fill: var(--sky-l); } svg .f-lilac { fill: var(--lilac-l); } svg .f-peach { fill: var(--peach-l); } svg .f-red { fill: var(--red-l); }
+svg .s-pink { stroke: var(--pink); } svg .s-yellow { stroke: var(--yellow); } svg .s-mint { stroke: var(--mint); } svg .s-sky { stroke: var(--sky); }
+svg .s-lilac { stroke: var(--lilac); } svg .s-peach { stroke: var(--peach); } svg .s-red { stroke: var(--red); }
+svg .lbl { font: 800 30px var(--font); fill: var(--ink); }
+svg .lbl-s { font: 700 24px var(--font); fill: var(--ink2); }
+svg .lbl-c { font: 900 30px var(--font); fill: var(--c-d); }
+svg .pill { fill: #fff; stroke: var(--line); stroke-width: 3; }
+@page{size:A4;margin:11mm 9mm 13mm 9mm}
+*{box-sizing:border-box}
+html{font-size:var(--fs,8.6px)}
+body{margin:0;font-family:var(--font);color:var(--ink);background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero{display:flex;align-items:center;gap:3.5mm;background:var(--c);color:#fff;border-radius:4mm;padding:3.2mm 5mm;margin-bottom:3mm}
+.hero .n{flex:none;width:11mm;height:11mm;border-radius:50%;background:#fff;color:var(--c-d);font:900 6.2mm/11mm var(--font);text-align:center}
+.hero h1{margin:0;font:900 6.4mm/1.1 var(--font)}.hero p{margin:.5mm 0 0;font:700 3mm var(--font);opacity:.9}
+.cols{column-count:2;column-gap:4mm}
+.blk{break-inside:avoid;margin:0 0 2mm}
+.sec{break-inside:avoid;break-after:avoid;display:flex;align-items:center;gap:2mm;background:var(--c-l);border-radius:2.5mm;padding:1.2mm 2.5mm;margin:2.5mm 0 1.6mm;font:900 3.7mm/1.15 var(--font);color:var(--c-d)}
+.sec b{flex:none;width:5.2mm;height:5.2mm;border-radius:50%;background:var(--c);color:#fff;font:900 3.2mm/5.2mm var(--font);text-align:center}
+.sub{break-after:avoid;margin:1.4mm 0 .8mm;font:900 3.1mm/1.2 var(--font);color:var(--ink);border-left:1mm solid var(--c);padding-left:1.6mm}
+.sub em{font-style:normal;color:var(--c-d)}
+p,li{margin:0;font:600 1.15rem/1.32 var(--font);color:var(--ink2)}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.mist{break-inside:avoid;border-radius:2mm;margin:0 0 1.5mm;padding:1.3mm 2.2mm}
+.def{background:var(--c-ll);border-left:1mm solid var(--c)}.def .term{display:block;font:900 2.3mm var(--font);text-transform:uppercase;letter-spacing:.2mm;color:var(--c-d)}
+.def p{color:var(--ink);font-weight:700}
+.card{background:var(--bg2,#eef)}.card h3{margin:0 0 .3mm;font:900 1.2rem/1.2 var(--font);color:var(--ink)}
+.card.mint{background:var(--mint-l)}.card.sky{background:var(--sky-l)}.card.pink{background:var(--pink-l)}.card.yellow{background:var(--yellow-l)}.card.peach{background:var(--peach-l)}
+.tip{background:var(--yellow-l);border-left:1mm solid var(--yellow)}.tip b{display:inline;font-weight:900;color:var(--ink);margin-right:1mm;text-transform:uppercase;font-size:2.2mm}
+.warn{background:var(--red-l);border-left:1mm solid var(--red)}
+table.t{width:100%;border-collapse:separate;border-spacing:0;margin:0 0 1.8mm;break-inside:avoid;border-radius:2mm;overflow:hidden;font-size:1.08rem}
+table.t th{background:var(--c);color:#fff;font:900 1.08rem var(--font);text-align:left;padding:.9mm 1.8mm}
+table.t td{font:600 1.08rem/1.28 var(--font);padding:.8mm 1.8mm;border-top:.25mm solid var(--line);vertical-align:top;color:var(--ink2)}
+table.t td:first-child{font-weight:900;color:var(--ink)}
+table.t tr:nth-child(even) td{background:var(--c-ll)}
+.worked{background:#fff;border:.3mm solid var(--c-l)}.worked .q{font:800 1.18rem/1.3 var(--font);color:var(--ink);background:var(--c-ll);border-radius:1.6mm;padding:1mm 1.8mm;margin-bottom:.8mm}
+.worked .step{display:flex;gap:1.6mm;font:700 1.1rem/1.3 var(--font);color:var(--ink2)}.worked .step i{font-style:normal;flex:none;min-width:11mm;font:900 2.2mm var(--font);text-transform:uppercase;color:var(--c)}
+.worked .ans{display:inline-block;margin-top:.8mm;font:900 1.2rem var(--font);color:#fff;background:var(--c);padding:.7mm 2.4mm;border-radius:5mm}
+.nums{margin:0 0 1.6mm;padding:0;list-style:none;counter-reset:n;break-inside:avoid}
+.nums>*{counter-increment:n;position:relative;padding-left:5mm;margin-bottom:.7mm;font:600 1.15rem/1.3 var(--font);color:var(--ink2)}
+.nums>*::before{content:counter(n);position:absolute;left:0;top:.1mm;width:3.6mm;height:3.6mm;border-radius:50%;background:var(--c);color:#fff;font:900 2.3mm/3.6mm var(--font);text-align:center}
+.cols-2,.cols-3,.stack,.wide-left,.body{display:block}
+.fig{break-inside:avoid;margin:0 0 1.6mm;background:#fff;border:.3mm solid var(--line);border-radius:2mm;padding:1mm;text-align:center}
+.fig svg{width:100%;height:auto;max-height:46mm;display:block}
+.fig svg text{font-family:var(--font)}
+.nutshell{background:var(--c);color:#fff}.nutshell h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:#fff}.nutshell li{color:#fff;font-weight:700;margin-left:3.6mm}
+.test{background:var(--lilac-l)}.test h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:var(--ink)}.test .qq{font:700 1.12rem/1.3 var(--font);color:var(--ink);margin-bottom:.6mm}.test .a{color:var(--c-d);font-weight:900;margin-left:1.2mm}
+.say{background:var(--mint-l)}.mist{background:var(--red-l)}.say,.mist{break-inside:avoid;border-radius:2mm;padding:1.3mm 2.2mm;margin:0 0 1.5mm}.say h3,.mist h3{margin:0 0 .4mm;font:900 1.2rem var(--font)}
+.chips,.bignum,.checks{display:none}
+
+@page{margin:0}
+html{font-size:15.5px;background:var(--bg)}
+body{max-width:900px;margin:0 auto;padding:18px 16px 60px;background:var(--bg)}
+.cols{column-count:1}
+.hero{padding:5mm 6mm;border-radius:6mm}.hero .n{width:15mm;height:15mm;font-size:9mm;line-height:15mm}.hero h1{font-size:9mm}.hero p{font-size:3.6mm}
+.sec{font-size:5.4mm;padding:2mm 4mm;border-radius:4mm;margin:6mm 0 3mm;position:sticky;top:0;z-index:2}.sec b{width:7.5mm;height:7.5mm;font-size:4.6mm;line-height:7.5mm}
+.sub{font-size:4.6mm;margin:3mm 0 1.6mm}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.say,.mist{padding:2.6mm 4mm;border-radius:3.4mm;margin-bottom:2.6mm}
+.def .term{font-size:3mm}.card h3{font-size:1.3rem}.tip b{font-size:3mm}
+.worked .step i{font-size:3mm;min-width:16mm}.nutshell h4,.test h4{font-size:5mm}
+.nums>*{padding-left:8mm}.nums>*::before{width:5.6mm;height:5.6mm;font-size:3.4mm;line-height:5.6mm}
+table.t{font-size:1.15rem}table.t th,table.t td{font-size:1.15rem;padding:1.6mm 3mm}
+.fig svg{max-height:60mm}
+.test .qq{font-size:1.2rem;margin-bottom:1.4mm}.say h3,.mist h3{font-size:1.3rem}
+p,li{font-size:1.2rem}
+
+.hero p{color:#fff}
+.eq{break-inside:avoid;background:#fff;border:.3mm solid var(--c-l);border-radius:3.4mm;padding:2.6mm 4mm;margin:0 0 2.6mm;text-align:center}
+.eq .words{font:800 1.2rem/1.3 var(--font);color:var(--ink2)}
+.eq .sym{display:inline-block;margin:1.4mm 0;font:900 2rem/1.15 var(--font);color:var(--c-d);background:var(--c-ll);padding:1.6mm 5mm;border-radius:3mm}
+.eq .units{font:700 1rem var(--font);color:var(--muted)}.eq .units span{background:var(--soft);border-radius:5mm;padding:.4mm 2.4mm;margin:0 1mm;display:inline-block}
+.remember{break-inside:avoid;background:var(--mint-l);border-left:1.2mm solid var(--mint);border-radius:3.4mm;padding:2.6mm 4mm;margin-bottom:2.6mm;font:700 1.2rem/1.35 var(--font);color:var(--ink)}
+.warn b,.tip b{margin-right:1.6mm}
+.remember b:first-child{display:block;font-size:3mm;text-transform:uppercase;letter-spacing:.3mm;margin-bottom:.8mm}
+.flow{display:flex;flex-wrap:wrap;gap:2mm;margin:0 0 2.6mm;break-inside:avoid}
+.flow>div{flex:1 1 40mm;background:#fff;border:.3mm solid var(--c-l);border-radius:3mm;padding:2mm 3mm;text-align:center;font:800 1.15rem/1.3 var(--font);color:var(--ink)}
+.flow>div small{display:block;font:600 1rem var(--font);color:var(--muted)}.flow>span{align-self:center;font:900 1.6rem var(--font);color:var(--c)}
+.cols-4{display:block}.wide-right{display:block}
+[style*="font-size:52px"],[style*="font:900 72px"]{font-size:2.2rem !important}
+.card [style]{line-height:1.1}.card .sym{font-size:1.6rem}
+.tag{display:inline-block;font:900 2.6mm var(--font);text-transform:uppercase;background:var(--c);color:#fff;padding:.5mm 2.2mm;border-radius:5mm;margin-bottom:1mm}
+</style><style>.snav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:6px;background:var(--bg);padding:8px 0 10px;margin:0 0 6px}
+.snav button{font:800 14px var(--font);border:2px solid var(--c-l);background:#fff;color:var(--ink);border-radius:20px;padding:6px 12px;cursor:pointer}
+.snav button.on{background:var(--c);border-color:var(--c);color:#fff}
+.part{display:none}.part.on{display:block}.part .sec{position:static!important}
+.pn{display:flex;justify-content:space-between;gap:10px;margin:18px 0 0}.pn button{font:900 15px var(--font);border:0;background:var(--c);color:#fff;border-radius:22px;padding:10px 20px;cursor:pointer}.pn button[disabled]{opacity:.25}</style><style id="stepfix">.worked{counter-reset:st;border:2px solid var(--c-l)!important;padding:12px 16px!important}
+.worked .q{font-size:1.25rem!important;border-left:5px solid var(--c);margin-bottom:10px!important}
+.worked .q::before{content:"Worked example  ";font:900 .8rem var(--font);text-transform:uppercase;letter-spacing:.5px;color:var(--c-d);display:block}
+.worked .step{counter-increment:st;display:grid!important;grid-template-columns:78px 1fr;gap:10px;align-items:baseline;padding:7px 0;border-top:1px dashed var(--c-l);font-size:1.2rem!important}
+.worked .step i{min-width:0!important;font-size:.85rem!important;color:var(--c-d)!important}
+.worked .step i::before{content:"Step " counter(st) "";display:block;font-weight:900;color:var(--c)}
+.worked .ans{display:block!important;margin-top:10px;padding:8px 14px!important;border-radius:10px!important;font-size:1.25rem!important}
+.worked .ans::before{content:"Answer:  "}</style></head><body>
+<div class="hero"><div class="n">21</div><div><h1>Electric Motors and Electromagnetic Induction</h1><p>Physics · Unit 6 · Magnetism and electromagnetism · Last-minute notes · Book pages 206–216</p></div></div>
+<div class="snav"><button type="button">Summary</button><button type="button">21.1 The motor effect</button><button type="button">21.2 Loudspeakers and d.c. motors</button><button type="button">21.3 Electromagnetic induction</button><button type="button">21.4 Generating electricity</button><button type="button">21.5 Transformers and the National Grid</button><button type="button">Test yourself</button></div><div class="cols"><div class="part"><div class="nutshell"><h4>Chapter in a nutshell</h4><ul style="margin:0;padding:0"><li>Current in a field feels a force (not if parallel)</li><li>Left hand: Field, Current, Motion</li><li>Bigger force: more current, stronger field</li><li>Reverse current or field → force reverses</li><li>Loudspeaker: changing current → cone vibrates</li><li>d.c. motor: split ring reverses current each half turn</li><li>Cutting field lines induces a voltage</li><li>More voltage: faster, stronger magnet, more turns</li><li>Dynamo: magnet spins; alternator: coil spins → a.c.</li><li>Vp / Vs = np / ns and VpIp = VsIs</li><li>Grid: up to ≈ 400 kV, down to ≈ 230 V</li><li>High voltage → low current → less energy wasted</li></ul></div><div class="pn"><button type="button" data-to="-1" disabled>◀ Back</button><button type="button" data-to="1">Next ▶</button></div></div><div class="part"><div class="sec"><b>1</b><span>The <em>motor effect</em></span></div><div class="blk"><div class="sub">Moving charges get <em>pushed</em> <span class="tag only" style="vertical-align:middle">Physics only</span></div></div><div class="blk"><div class="sub">The demonstration: the wire <em>jumps</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 560" aria-label="Wire between N and S poles with current out of the page is pushed upwards">
+          <rect x="40" y="110" width="200" height="320" rx="24" class="f-pink"/><text x="140" y="295" class="lbl" text-anchor="middle" style="font-size:72px">N</text>
+          <rect x="660" y="110" width="200" height="320" rx="24" class="f-sky"/><text x="760" y="295" class="lbl" text-anchor="middle" style="font-size:72px">S</text>
+          <path d="M255 170 L645 170 M255 370 L645 370 M255 270 L395 270 M505 270 L645 270" class="dash"/>
+          <path d="M624 158 L646 170 L624 182 M624 258 L646 270 L624 282 M624 358 L646 370 L624 382" class="thin"/>
+          <circle cx="450" cy="270" r="38" class="f-yellow"/><circle cx="450" cy="270" r="38" class="ln"/><circle cx="450" cy="270" r="9" style="fill:#1E1B3A"/>
+          <path d="M450 218 L450 62" class="ln s-pink" style="stroke-width:9"/><path d="M428 86 L450 58 L472 86" class="ln s-pink" style="stroke-width:9"/>
+          <rect x="482" y="62" width="130" height="54" rx="27" class="pill"/><text x="547" y="98" class="lbl-s" text-anchor="middle">force</text>
+          <rect x="245" y="452" width="410" height="54" rx="27" class="pill"/><text x="450" y="488" class="lbl-s" text-anchor="middle">wire: current out of the page</text>
+          <text x="450" y="548" class="lbl-s" text-anchor="middle">field goes from N to S</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card mint"><h3>What happens</h3><p>Close the switch → current flows → the wire <strong>jumps upwards</strong>. This is the <span class="hl">motor effect</span>.</p></div>
+        <div class="card sky"><h3>Reading the symbol</h3><p>A dot ● means current comes <strong>out of</strong> the page. A cross × means <strong>into</strong> the page.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Why? Two fields <em>overlap</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 560" aria-label="Magnet field plus wire field gives a combined field, weak above and strong below, pushing the wire up">
+          <text x="135" y="60" class="lbl" text-anchor="middle">magnet</text>
+          <path d="M30 160 L235 160 M30 240 L235 240 M30 320 L235 320 M30 400 L235 400 M30 480 L235 480" class="thin"/>
+          <path d="M218 150 L238 160 L218 170 M218 230 L238 240 L218 250 M218 310 L238 320 L218 330 M218 390 L238 400 L218 410 M218 470 L238 480 L218 490" class="thin"/>
+          <text x="282" y="340" class="lbl" text-anchor="middle" style="font-size:60px">+</text>
+          <text x="420" y="60" class="lbl" text-anchor="middle">wire</text>
+          <circle cx="420" cy="320" r="100" class="thin"/><circle cx="420" cy="320" r="58" class="thin"/>
+          <path d="M436 206 L416 220 L436 234 M404 406 L424 420 L404 434 M434 250 L416 262 L434 274" class="thin"/>
+          <circle cx="420" cy="320" r="22" class="f-yellow"/><circle cx="420" cy="320" r="22" class="ln" style="stroke-width:4"/><circle cx="420" cy="320" r="6" style="fill:#1E1B3A"/>
+          <text x="560" y="340" class="lbl" text-anchor="middle" style="font-size:60px">=</text>
+          <text x="750" y="60" class="lbl" text-anchor="middle">together</text>
+          <path d="M610 175 Q750 135 890 175 M610 262 Q750 182 890 262 M610 330 Q750 430 890 330 M610 370 Q750 450 890 370 M610 410 Q750 470 890 410 M610 450 Q750 490 890 450" class="thin"/>
+          <circle cx="750" cy="330" r="22" class="f-yellow"/><circle cx="750" cy="330" r="22" class="ln" style="stroke-width:4"/><circle cx="750" cy="330" r="6" style="fill:#1E1B3A"/>
+          <path d="M750 298 L750 100" class="ln s-pink" style="stroke-width:9"/><path d="M730 122 L750 96 L770 122" class="ln s-pink" style="stroke-width:9"/>
+          <rect x="595" y="78" width="130" height="50" rx="25" class="pill"/><text x="660" y="111" class="lbl-s" text-anchor="middle">weak</text>
+          <rect x="775" y="78" width="115" height="50" rx="25" class="pill"/><text x="832" y="111" class="lbl-s" text-anchor="middle">force</text>
+          <rect x="680" y="500" width="140" height="50" rx="25" class="pill"/><text x="750" y="533" class="lbl-s" text-anchor="middle">strong</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <ol class="nums">
+          <li>The magnet makes a straight field (N → S). The current makes a <strong>circular field</strong> round the wire.</li>
+          <li>Same direction → fields <strong>add</strong> → strong. Opposite → they partly <strong>cancel</strong> → weak.</li>
+          <li>The wire is pushed from the <span class="hl">strong</span> side towards the <span class="hl">weak</span> side.</li>
+        </ol>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Make the force <em>bigger</em> — or <em>flip</em> it</div>
+    <div class="cols-3">
+      <div class="card mint"><h3>Bigger force</h3><ul class="dots"><li>Larger <strong>current</strong></li><li>Stronger <strong>magnetic field</strong></li></ul></div>
+      <div class="card pink"><h3>Reverse the force</h3><ul class="dots"><li>Reverse the <strong>current</strong></li><li>Or swap the <strong>poles</strong></li><li>Reverse <strong>both</strong> → force goes back to the first direction</li></ul></div>
+      <div class="fig">
+        <svg viewBox="0 0 500 540" aria-label="Wire at 90 degrees to the field has the biggest force; wire parallel to the field has none">
+          <path d="M30 60 L470 60 M30 130 L470 130 M30 200 L470 200" class="dash"/>
+          <path d="M250 30 L250 230" class="ln s-yellow" style="stroke-width:16"/>
+          <rect x="70" y="244" width="360" height="50" rx="25" class="pill"/><text x="250" y="277" class="lbl-s" text-anchor="middle">at 90°: biggest force</text>
+          <path d="M30 340 L470 340 M30 440 L470 440" class="dash"/>
+          <path d="M80 390 L420 390" class="ln s-yellow" style="stroke-width:16"/>
+          <rect x="70" y="474" width="360" height="50" rx="25" class="pill"/><text x="250" y="507" class="lbl-s" text-anchor="middle">parallel: zero force</text>
+        </svg>
+      </div>
+    </div>
+    <div class="tip"><b>Remember</b>The force depends on the size and direction of both the current and the field.</div>
+  </div><div class="blk"><div class="sub">Your <em>left hand</em> finds the force</div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 620" aria-label="Fleming's left-hand rule: thumb is motion, first finger is field, second finger is current, all at right angles">
+          <path d="M430 350 L460 350 L460 380" class="thin"/>
+          <path d="M430 380 L775 380" class="ln-c" style="stroke-width:10"/><path d="M752 360 L780 380 L752 400" class="ln-c" style="stroke-width:10"/>
+          <path d="M430 380 L430 115" class="ln s-pink" style="stroke-width:10"/><path d="M410 138 L430 110 L450 138" class="ln s-pink" style="stroke-width:10"/>
+          <path d="M430 380 L224 557" class="ln s-yellow" style="stroke-width:10"/><path d="M251 556 L220 560 L231 531" class="ln s-yellow" style="stroke-width:10"/>
+          <circle cx="430" cy="380" r="14" class="f-cc"/>
+          <rect x="465" y="100" width="350" height="56" rx="28" class="pill"/><text x="640" y="137" class="lbl" text-anchor="middle">thuMb = Motion</text>
+          <rect x="470" y="410" width="410" height="56" rx="28" class="pill"/><text x="675" y="447" class="lbl" text-anchor="middle">First finger = Field</text>
+          <rect x="270" y="530" width="430" height="56" rx="28" class="pill"/><text x="485" y="567" class="lbl" text-anchor="middle">seCond finger = Current</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <p>Hold your thumb, first and second fingers of your <strong>LEFT</strong> hand at right angles.</p>
+        <ol class="nums">
+          <li><strong>F</strong>irst finger → <strong>F</strong>ield (N to S)</li>
+          <li>se<strong>C</strong>ond finger → <strong>C</strong>urrent (+ to −)</li>
+          <li>thu<strong>M</strong>b → <strong>M</strong>otion (force)</li>
+        </ol>
+        <div class="warn"><b>Watch out</b>Only works when the current is at right angles to the field.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Using the rule: <em>which way?</em></div>
+    <div class="wide-right">
+      <div class="fig">
+        <svg viewBox="0 0 900 520" aria-label="Wire with current into the page between N and S is pushed downwards">
+          <rect x="40" y="60" width="200" height="300" rx="24" class="f-pink"/><text x="140" y="235" class="lbl" text-anchor="middle" style="font-size:72px">N</text>
+          <rect x="660" y="60" width="200" height="300" rx="24" class="f-sky"/><text x="760" y="235" class="lbl" text-anchor="middle" style="font-size:72px">S</text>
+          <path d="M255 110 L645 110 M255 310 L645 310 M255 210 L395 210 M505 210 L645 210" class="dash"/>
+          <path d="M624 98 L646 110 L624 122 M624 198 L646 210 L624 222 M624 298 L646 310 L624 322" class="thin"/>
+          <circle cx="450" cy="210" r="38" class="f-yellow"/><circle cx="450" cy="210" r="38" class="ln"/>
+          <path d="M436 196 L464 224 M464 196 L436 224" class="ln" style="stroke-width:5"/>
+          <path d="M450 262 L450 450" class="ln s-pink" style="stroke-width:9"/><path d="M428 426 L450 454 L472 426" class="ln s-pink" style="stroke-width:9"/>
+          <rect x="480" y="400" width="130" height="54" rx="27" class="pill"/><text x="545" y="436" class="lbl-s" text-anchor="middle">force</text>
+          <rect x="90" y="400" width="320" height="54" rx="27" class="pill"/><text x="250" y="436" class="lbl-s" text-anchor="middle">current into the page</text>
+        </svg>
+      </div>
+      <div class="worked">
+        <div class="q">Which way is the wire pushed?</div>
+        <div class="step"><i>Field</i>First finger points right (N → S)</div>
+        <div class="step"><i>Current</i>Second finger points into the page</div>
+        <div class="step"><i>Motion</i>Thumb points down</div>
+        <div class="ans">The wire moves down</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">What does the <em>wire</em> do?</div>
+    <table class="t" style="font-size:30px">
+      <tr><th>Wire between the poles</th><th>What happens</th></tr>
+      <tr><td>Current flows A → B</td><td>Force on the wire — it moves (direction from the left-hand rule)</td></tr>
+      <tr><td>Current reversed (B → A)</td><td>Force and movement in the <strong>opposite</strong> direction</td></tr>
+      <tr><td>Current B → A <em>and</em> poles swapped</td><td>Back to the <strong>original</strong> direction</td></tr>
+      <tr><td>Larger current</td><td><strong>Bigger force</strong> — moves further or faster</td></tr>
+    </table>
+    <div class="remember"><b>Two flips cancel out</b>Reversing the current and the field together gives the same force as before.</div>
+  </div><div class="pn"><button type="button" data-to="0">◀ Back</button><button type="button" data-to="2">Next ▶</button></div></div><div class="part"><div class="sec"><b>2</b><span>Loudspeakers and <em>d.c. motors</em></span></div><div class="blk"><div class="sub">The moving-coil <em>loudspeaker</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 600" aria-label="Loudspeaker: permanent magnet, coil in the gap, paper cone, sound waves">
+          <rect x="60" y="120" width="240" height="70" rx="12" class="f-sky"/><rect x="60" y="410" width="240" height="70" rx="12" class="f-sky"/>
+          <rect x="60" y="120" width="50" height="360" rx="12" class="f-sky"/>
+          <rect x="110" y="265" width="190" height="70" rx="12" class="f-pink"/>
+          <text x="205" y="168" class="lbl" text-anchor="middle">S</text><text x="205" y="458" class="lbl" text-anchor="middle">S</text><text x="205" y="312" class="lbl" text-anchor="middle">N</text>
+          <rect x="228" y="222" width="72" height="34" rx="8" class="f-yellow"/><rect x="228" y="222" width="72" height="34" rx="8" class="ln" style="stroke-width:4"/>
+          <rect x="228" y="344" width="72" height="34" rx="8" class="f-yellow"/><rect x="228" y="344" width="72" height="34" rx="8" class="ln" style="stroke-width:4"/>
+          <path d="M246 222 L246 256 M264 222 L264 256 M282 222 L282 256 M246 344 L246 378 M264 344 L264 378 M282 344 L282 378" class="thin"/>
+          <path d="M300 239 L560 92 M300 361 L560 508 M560 92 Q600 300 560 508" class="ln"/>
+          <path d="M650 230 Q685 300 650 370 M710 190 Q765 300 710 410 M770 150 Q845 300 770 450" class="ln-c"/>
+          <rect x="40" y="42" width="270" height="54" rx="27" class="pill"/><text x="175" y="78" class="lbl-s" text-anchor="middle">permanent magnet</text>
+          <path d="M345 300 L304 256" class="thin"/>
+          <rect x="345" y="274" width="110" height="52" rx="26" class="pill"/><text x="400" y="309" class="lbl-s" text-anchor="middle">coil</text>
+          <rect x="430" y="530" width="190" height="52" rx="26" class="pill"/><text x="525" y="565" class="lbl-s" text-anchor="middle">paper cone</text>
+          <rect x="760" y="490" width="120" height="52" rx="26" class="pill"/><text x="820" y="525" class="lbl-s" text-anchor="middle">sound</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <ol class="nums">
+          <li>A <strong>changing current</strong> (the signal, e.g. from a radio) flows in the coil.</li>
+          <li>The coil sits in the magnet's field → a <strong>motor-effect force</strong>.</li>
+          <li>The current keeps changing size and direction → the coil moves <strong>in and out</strong>.</li>
+          <li>The <strong>paper cone</strong> vibrates → pushes the air → <strong>sound waves</strong>.</li>
+        </ol>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">How a simple <em>d.c. motor</em> turns</div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 700" aria-label="Simple d.c. motor: loop between N and S, split-ring commutator, carbon brushes, d.c. supply, forces up and down">
+          <rect x="30" y="120" width="140" height="260" rx="20" class="f-pink"/><text x="100" y="275" class="lbl" text-anchor="middle" style="font-size:64px">N</text>
+          <rect x="730" y="120" width="140" height="260" rx="20" class="f-sky"/><text x="800" y="275" class="lbl" text-anchor="middle" style="font-size:64px">S</text>
+          <path d="M420 300 L250 300 L320 190 L580 190 L650 300 L480 300" class="ln-c"/>
+          <path d="M420 300 L420 400 M480 300 L480 400" class="ln-c"/>
+          <rect x="395" y="400" width="50" height="62" rx="12" class="f-yellow"/><rect x="395" y="400" width="50" height="62" rx="12" class="ln" style="stroke-width:4"/>
+          <rect x="455" y="400" width="50" height="62" rx="12" class="f-yellow"/><rect x="455" y="400" width="50" height="62" rx="12" class="ln" style="stroke-width:4"/>
+          <rect x="350" y="416" width="45" height="30" rx="6" class="f-cc"/><rect x="505" y="416" width="45" height="30" rx="6" class="f-cc"/>
+          <path d="M352 446 L352 640 L438 640 M548 446 L548 640 L466 640" class="ln"/>
+          <path d="M440 618 L440 662" class="ln" style="stroke-width:10"/><path d="M464 604 L464 676" class="ln" style="stroke-width:4"/>
+          <text x="572" y="650" class="lbl-s">d.c. supply</text>
+          <path d="M285 230 L285 82" class="ln s-pink" style="stroke-width:9"/><path d="M265 104 L285 78 L305 104" class="ln s-pink" style="stroke-width:9"/>
+          <path d="M615 250 L615 395" class="ln s-pink" style="stroke-width:9"/><path d="M595 373 L615 399 L635 373" class="ln s-pink" style="stroke-width:9"/>
+          <rect x="70" y="42" width="180" height="52" rx="26" class="pill"/><text x="160" y="77" class="lbl-s" text-anchor="middle">force up</text>
+          <rect x="650" y="400" width="200" height="52" rx="26" class="pill"/><text x="750" y="435" class="lbl-s" text-anchor="middle">force down</text>
+          <rect x="370" y="122" width="180" height="52" rx="26" class="pill"/><text x="460" y="157" class="lbl-s" text-anchor="middle">loop of wire</text>
+          <rect x="370" y="480" width="160" height="96" rx="28" class="pill"/><text x="450" y="520" class="lbl-s" text-anchor="middle">split-ring</text><text x="450" y="552" class="lbl-s" text-anchor="middle">commutator</text>
+          <path d="M300 431 L348 431" class="thin"/>
+          <rect x="100" y="405" width="200" height="52" rx="26" class="pill"/><text x="200" y="440" class="lbl-s" text-anchor="middle">carbon brush</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <ol class="nums">
+          <li>Current flows <strong>opposite ways</strong> in the two sides → one side is pushed <strong>up</strong>, the other <strong>down</strong> → the loop turns.</li>
+          <li>At the vertical position its <strong>momentum</strong> carries it past.</li>
+          <li>The <span class="hl">split-ring commutator</span> reverses the current every <strong>half turn</strong> → it keeps turning the same way.</li>
+        </ol>
+        <p class="small">Carbon brushes press on the split ring to connect the supply while it spins.</p>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Faster, backwards, and <em>real motors</em></div>
+    <div class="cols-2">
+      <div class="stack">
+        <div class="card mint"><h3>Turn faster (more force)</h3><ul class="dots"><li>More <strong>turns</strong> of wire (a coil)</li><li>Stronger <strong>magnetic field</strong></li><li>Larger <strong>current</strong></li></ul></div>
+        <div class="card pink"><h3>Turn the other way</h3><p>Reverse the <strong>current</strong>, or swap the magnet's <strong>poles</strong>.</p></div>
+      </div>
+      <div class="stack">
+        <div class="card sky"><h3>Uses</h3><p>Electric trains, drills, fans, washing machines — anything that turns electricity into <strong>movement</strong>.</p></div>
+        <div class="card lilac"><h3>Extension: real motors</h3><ul class="dots small"><li>Curved <strong>electromagnets</strong> → very strong field</li><li><strong>Several coils</strong> on one axle → more powerful, smoother</li><li>Coils on a plastic-coated <strong>soft iron core</strong> → more efficient</li></ul></div>
+      </div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="1">◀ Back</button><button type="button" data-to="3">Next ▶</button></div></div><div class="part"><div class="sec"><b>3</b><span>Electromagnetic <em>induction</em></span></div><div class="blk"><div class="sub">Motor or <em>generator</em>?</div>
+    <div class="flow">
+      <div>Motor<small>electricity → movement</small></div><span>⇄</span><div>Generator<small>movement → electricity</small></div>
+    </div>
+    <table class="t">
+      <tr><th></th><th>Motor</th><th>Generator</th></tr>
+      <tr><td>Energy in</td><td>electricity</td><td>movement</td></tr>
+      <tr><td>Energy out</td><td>movement</td><td>electricity</td></tr>
+      <tr><td>Effect used</td><td>motor effect</td><td>electromagnetic induction</td></tr>
+      <tr><td>Ring</td><td>split ring (d.c.)</td><td>slip rings (a.c.)</td></tr>
+    </table>
+    <p>Mains electricity comes from huge generators in <strong>power stations</strong>. Building sites use <strong>portable generators</strong>.</p>
+  </div><div class="blk"><div class="sub">A · Move a wire <em>across a field</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 640" aria-label="A wire moved across the field between N and S poles; an ammeter in the circuit shows a current">
+          <rect x="230" y="40" width="440" height="100" rx="20" class="f-pink"/><text x="450" y="108" class="lbl" text-anchor="middle" style="font-size:56px">N</text>
+          <rect x="230" y="400" width="440" height="100" rx="20" class="f-sky"/><text x="450" y="468" class="lbl" text-anchor="middle" style="font-size:56px">S</text>
+          <path d="M290 150 L290 388 M390 150 L390 388 M510 150 L510 388 M610 150 L610 388" class="dash"/>
+          <path d="M278 368 L290 390 L302 368 M378 368 L390 390 L402 368 M498 368 L510 390 L522 368 M598 368 L610 390 L622 368" class="thin"/>
+          <path d="M380 300 L150 300 L150 570 L414 570 M486 570 L780 570 L780 240 L520 240" class="ln"/>
+          <path d="M380 300 L520 240" class="ln s-yellow" style="stroke-width:16"/>
+          <circle cx="450" cy="570" r="36" class="f-card"/><circle cx="450" cy="570" r="36" class="ln"/><text x="450" y="581" class="lbl" text-anchor="middle">A</text>
+          <path d="M470 325 L630 325" class="ln s-pink" style="stroke-width:9"/><path d="M608 307 L634 325 L608 343" class="ln s-pink" style="stroke-width:9"/>
+          <rect x="645" y="300" width="110" height="52" rx="26" class="pill"/><text x="700" y="335" class="lbl-s" text-anchor="middle">move</text>
+          <rect x="40" y="200" width="160" height="52" rx="26" class="pill"/><text x="120" y="235" class="lbl-s" text-anchor="middle">wire</text>
+          <path d="M200 226 L330 296" class="thin"/>
+        </svg>
+      </div>
+      <div class="stack">
+        <p>Move the wire at <strong>right angles</strong> to the field → a voltage is <strong>induced</strong> (made) in it.</p>
+        <p>In a <strong>complete circuit</strong> a current flows — the ammeter needle moves.</p>
+        <div class="def"><span class="term">Key term</span><p>This is called electromagnetic induction.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">B · Push a magnet <em>into a coil</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 580" aria-label="Bar magnet pushed into a coil connected to an ammeter">
+          <g class="ln-c" style="stroke-width:6">
+            <ellipse cx="440" cy="260" rx="24" ry="110"/><ellipse cx="488" cy="260" rx="24" ry="110"/><ellipse cx="536" cy="260" rx="24" ry="110"/>
+            <ellipse cx="584" cy="260" rx="24" ry="110"/><ellipse cx="632" cy="260" rx="24" ry="110"/><ellipse cx="680" cy="260" rx="24" ry="110"/><ellipse cx="728" cy="260" rx="24" ry="110"/>
+          </g>
+          <path d="M440 370 L440 490 L550 490 M618 490 L728 490 L728 370" class="ln"/>
+          <circle cx="584" cy="490" r="34" class="f-card"/><circle cx="584" cy="490" r="34" class="ln"/><text x="584" y="501" class="lbl" text-anchor="middle">A</text>
+          <rect x="60" y="225" width="130" height="70" rx="10" class="f-sky"/><rect x="190" y="225" width="130" height="70" rx="10" class="f-pink"/>
+          <rect x="60" y="225" width="260" height="70" rx="10" class="ln" style="stroke-width:4"/>
+          <text x="125" y="272" class="lbl" text-anchor="middle">S</text><text x="255" y="272" class="lbl" text-anchor="middle">N</text>
+          <path d="M110 170 L320 170" class="ln s-pink" style="stroke-width:9"/><path d="M298 152 L324 170 L298 188" class="ln s-pink" style="stroke-width:9"/>
+          <rect x="130" y="90" width="160" height="52" rx="26" class="pill"/><text x="210" y="125" class="lbl-s" text-anchor="middle">move in</text>
+          <rect x="520" y="70" width="130" height="52" rx="26" class="pill"/><text x="585" y="105" class="lbl-s" text-anchor="middle">coil</text>
+          <rect x="680" y="510" width="180" height="52" rx="26" class="pill"/><text x="770" y="545" class="lbl-s" text-anchor="middle">ammeter</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card mint"><h3>Push it in</h3><p>Field lines cut the coil → current flows.</p></div>
+        <div class="card pink"><h3>Pull it out</h3><p>Current flows the <strong>opposite way</strong>.</p></div>
+        <div class="card yellow"><h3>Hold it still</h3><p><strong>No current</strong> at all.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">The rule — and how to get <em>more</em></div>
+    <div class="def"><span class="term">The rule</span><p>A voltage is induced when a conductor cuts through magnetic field lines, or when field lines cut through a conductor (the field through a coil changes).</p></div>
+    <div class="cols-2">
+      <div class="card mint"><h3>Bigger induced voltage</h3><ul class="dots"><li>Move the wire or magnet <strong>faster</strong></li><li>Use a <strong>stronger magnet</strong></li><li>Use a coil with <strong>more turns</strong></li></ul></div>
+      <div class="stack">
+        <div class="remember"><b>Remember</b>No movement → no cutting → no voltage.</div>
+        <div class="tip"><b>Extension · Faraday's law</b>The induced voltage is directly proportional to the rate of cutting of field lines.</div>
+      </div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="2">◀ Back</button><button type="button" data-to="4">Next ▶</button></div></div><div class="part"><div class="sec"><b>4</b><span>Generating <em>electricity</em></span></div><div class="blk"><div class="sub">A · Spin a magnet in a coil: the <em>dynamo</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 600" aria-label="Bicycle dynamo: magnet spins next to a soft iron core with a coil connected to a lamp">
+          <path d="M260 205 A95 95 0 0 0 260 395 Z" class="f-pink"/><path d="M260 205 A95 95 0 0 1 260 395 Z" class="f-sky"/>
+          <circle cx="260" cy="300" r="95" class="ln"/>
+          <text x="215" y="312" class="lbl" text-anchor="middle">N</text><text x="305" y="312" class="lbl" text-anchor="middle">S</text>
+          <path d="M140 190 Q260 90 380 190" class="ln s-pink" style="stroke-width:7"/><path d="M354 176 L382 192 L374 160" class="ln s-pink" style="stroke-width:7"/>
+          <path d="M380 230 L440 230 L440 120 L700 120 L700 480 L440 480 L440 370 L380 370" style="fill:none;stroke:#D9D2F7;stroke-width:40;stroke-linejoin:round"/>
+          <g class="ln-c" style="stroke-width:6">
+            <ellipse cx="700" cy="180" rx="52" ry="14"/><ellipse cx="700" cy="210" rx="52" ry="14"/><ellipse cx="700" cy="240" rx="52" ry="14"/>
+            <ellipse cx="700" cy="270" rx="52" ry="14"/><ellipse cx="700" cy="300" rx="52" ry="14"/><ellipse cx="700" cy="330" rx="52" ry="14"/>
+            <ellipse cx="700" cy="360" rx="52" ry="14"/><ellipse cx="700" cy="390" rx="52" ry="14"/><ellipse cx="700" cy="420" rx="52" ry="14"/>
+          </g>
+          <path d="M752 180 L830 180 L830 268 M830 332 L830 420 L752 420" class="ln"/>
+          <circle cx="830" cy="300" r="32" class="f-yellow"/><circle cx="830" cy="300" r="32" class="ln"/><path d="M807 277 L853 323 M853 277 L807 323" class="ln" style="stroke-width:4"/>
+          <rect x="170" y="30" width="190" height="52" rx="26" class="pill"/><text x="265" y="65" class="lbl-s" text-anchor="middle">magnet spins</text>
+          <rect x="465" y="200" width="160" height="88" rx="28" class="pill"/><text x="545" y="238" class="lbl-s" text-anchor="middle">soft iron</text><text x="545" y="268" class="lbl-s" text-anchor="middle">core</text>
+          <rect x="490" y="320" width="110" height="52" rx="26" class="pill"/><text x="545" y="355" class="lbl-s" text-anchor="middle">coil</text>
+          <rect x="640" y="520" width="230" height="52" rx="26" class="pill"/><text x="755" y="555" class="lbl-s" text-anchor="middle">to the lights</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <p>A dynamo is a simple generator.</p>
+        <ol class="nums">
+          <li>Pedalling turns the wheel → a small <strong>magnet spins</strong>.</li>
+          <li>Its field lines <strong>cut the coil</strong> → a voltage is induced.</li>
+          <li>A current flows to the bike lights.</li>
+        </ol>
+        <div class="remember"><b>So…</b>Pedal faster → magnet spins faster → brighter lights.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">B · Spin a coil in a field: the <em>alternator</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 620" aria-label="Alternator: coil turning between N and S, connected by slip rings and brushes to a lamp">
+          <rect x="30" y="110" width="150" height="260" rx="20" class="f-pink"/><text x="105" y="262" class="lbl" text-anchor="middle" style="font-size:64px">N</text>
+          <rect x="720" y="110" width="150" height="260" rx="20" class="f-sky"/><text x="795" y="262" class="lbl" text-anchor="middle" style="font-size:64px">S</text>
+          <path d="M420 300 L290 300 L360 180 L540 180 L610 300 L480 300" class="ln-c"/>
+          <path d="M420 300 L420 402 M480 300 L480 472" class="ln-c"/>
+          <ellipse cx="450" cy="420" rx="60" ry="18" class="f-yellow"/><ellipse cx="450" cy="420" rx="60" ry="18" class="ln" style="stroke-width:5"/>
+          <ellipse cx="450" cy="490" rx="60" ry="18" class="f-yellow"/><ellipse cx="450" cy="490" rx="60" ry="18" class="ln" style="stroke-width:5"/>
+          <rect x="510" y="408" width="44" height="24" rx="6" class="f-cc"/><rect x="510" y="478" width="44" height="24" rx="6" class="f-cc"/>
+          <path d="M554 420 L700 420 L700 425 M554 490 L700 490 L700 485" class="ln"/>
+          <circle cx="700" cy="455" r="30" class="f-yellow"/><circle cx="700" cy="455" r="30" class="ln"/><path d="M679 434 L721 476 M721 434 L679 476" class="ln" style="stroke-width:4"/>
+          <path d="M380 140 Q450 90 520 140" class="ln s-pink" style="stroke-width:7"/><path d="M494 130 L522 142 L512 114" class="ln s-pink" style="stroke-width:7"/>
+          <rect x="370" y="22" width="170" height="52" rx="26" class="pill"/><text x="455" y="57" class="lbl-s" text-anchor="middle">coil turns</text>
+          <rect x="160" y="430" width="170" height="52" rx="26" class="pill"/><text x="245" y="465" class="lbl-s" text-anchor="middle">slip rings</text>
+          <path d="M330 456 L388 450" class="thin"/>
+          <rect x="560" y="320" width="150" height="52" rx="26" class="pill"/><text x="635" y="355" class="lbl-s" text-anchor="middle">brushes</text>
+          <path d="M590 372 L540 406" class="thin"/>
+          <rect x="560" y="540" width="250" height="52" rx="26" class="pill"/><text x="685" y="575" class="lbl-s" text-anchor="middle">output: a.c.</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <ol class="nums">
+          <li>The coil turns between the poles.</li>
+          <li>Each side moves <strong>up</strong>, then <strong>down</strong>, through the field.</li>
+          <li>So the current changes direction every <strong>half turn</strong> → <span class="hl">alternating current</span>.</li>
+          <li><strong>Slip rings</strong> and brushes connect the turning coil to the circuit.</li>
+        </ol>
+        <div class="def"><span class="term">Key term · alternator</span><p>A generator that produces alternating current.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">d.c. flows one way — a.c. keeps <em>reversing</em></div>
+    <div class="cols-2">
+      <div class="fig">
+        <svg viewBox="0 0 800 430" aria-label="Graph of direct current: a flat line above zero">
+          <path d="M90 360 L760 360 M90 360 L90 40" class="ln"/><path d="M742 348 L762 360 L742 372 M78 58 L90 38 L102 58" class="ln"/>
+          <path d="M90 180 L720 180" class="ln-c"/>
+          <text x="60" y="370" class="lbl-s" text-anchor="middle">0</text>
+          <text x="40" y="200" class="lbl-s" text-anchor="middle" transform="rotate(-90 40 200)">current / A</text>
+          <text x="430" y="415" class="lbl-s" text-anchor="middle">time / s</text>
+          <rect x="250" y="230" width="300" height="52" rx="26" class="pill"/><text x="400" y="265" class="lbl-s" text-anchor="middle">one direction only</text>
+          <text x="420" y="130" class="lbl-c" text-anchor="middle">d.c. (direct current)</text>
+        </svg>
+      </div>
+      <div class="fig">
+        <svg viewBox="0 0 800 430" aria-label="Graph of alternating current: a wave going above and below zero, one cycle marked">
+          <path d="M90 210 L760 210 M90 400 L90 30" class="ln"/><path d="M742 198 L762 210 L742 222 M78 48 L90 28 L102 48" class="ln"/>
+          <path d="M90 210 Q170 20 250 210 Q330 400 410 210 Q490 20 570 210 Q650 400 730 210" class="ln-c"/>
+          <text x="60" y="220" class="lbl-s" text-anchor="middle">0</text>
+          <text x="40" y="215" class="lbl-s" text-anchor="middle" transform="rotate(-90 40 215)">current / A</text>
+          <text x="740" y="300" class="lbl-s" text-anchor="end">time / s</text>
+          <path d="M90 390 L410 390" class="thin"/><path d="M90 378 L90 402 M410 378 L410 402" class="thin"/>
+          <rect x="560" y="340" width="190" height="50" rx="25" class="pill"/><text x="655" y="373" class="lbl-s" text-anchor="middle">a.c.</text>
+          <text x="250" y="375" class="lbl-s" text-anchor="middle">1 cycle</text>
+        </svg>
+      </div>
+    </div>
+    <div class="cols-2" style="flex:none">
+      <div class="def"><span class="term">Frequency</span><p>Number of complete cycles per second, in hertz (Hz). UK mains: 50 Hz.</p></div>
+      <div class="worked" style="padding:28px 36px"><div class="step"><i>Example</i>Coil turns twice a second → 2 cycles each second</div><div class="ans">frequency = 2 Hz</div></div>
+    </div>
+  </div><div class="blk"><div class="sub">Power-station generators are <em>much bigger</em></div>
+    <p>Here the magnets stay still and the <strong>coils rotate</strong>. They make a much bigger voltage than a bike dynamo because they have:</p>
+    <div class="cols-3" style="flex:none">
+      <div class="card pink"><h3>Stronger magnets</h3><p>Much stronger field</p></div>
+      <div class="card mint"><h3>More turns</h3><p>Many more turns on the coil</p></div>
+      <div class="card sky"><h3>Faster spin</h3><p>Coils spin much faster</p></div>
+    </div>
+    <div class="cols-2">
+      <div class="card tint"><h3>Two ways to generate — learn both</h3><ul class="dots"><li>Rotate a <strong>magnet</strong> inside a coil (dynamo)</li><li>Rotate a <strong>coil</strong> inside a magnetic field (alternator)</li></ul></div>
+      <div class="card yellow"><h3>Bigger voltage</h3><p>Faster rotation, stronger magnet, more turns on the coil — plus a soft iron core.</p></div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="3">◀ Back</button><button type="button" data-to="5">Next ▶</button></div></div><div class="part"><div class="sec"><b>5</b><span><em>Transformers</em> and the National Grid</span></div><div class="blk"><div class="sub">Two coils on one <em>iron core</em> <span class="tag only" style="vertical-align:middle">Physics only</span></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 620" aria-label="Transformer: primary coil and secondary coil wound on a soft iron core">
+          <rect x="250" y="100" width="400" height="400" rx="24" class="f-lilac"/><rect x="330" y="180" width="240" height="240" rx="10" class="f-card"/>
+          <rect x="250" y="100" width="400" height="400" rx="24" class="thin"/><rect x="330" y="180" width="240" height="240" rx="10" class="thin"/>
+          <g class="ln-c" style="stroke-width:6">
+            <ellipse cx="290" cy="215" rx="62" ry="13"/><ellipse cx="290" cy="260" rx="62" ry="13"/><ellipse cx="290" cy="305" rx="62" ry="13"/>
+            <ellipse cx="290" cy="350" rx="62" ry="13"/><ellipse cx="290" cy="395" rx="62" ry="13"/>
+          </g>
+          <g class="ln s-pink" style="stroke-width:6">
+            <ellipse cx="610" cy="200" rx="62" ry="12"/><ellipse cx="610" cy="225" rx="62" ry="12"/><ellipse cx="610" cy="250" rx="62" ry="12"/>
+            <ellipse cx="610" cy="275" rx="62" ry="12"/><ellipse cx="610" cy="300" rx="62" ry="12"/><ellipse cx="610" cy="325" rx="62" ry="12"/>
+            <ellipse cx="610" cy="350" rx="62" ry="12"/><ellipse cx="610" cy="375" rx="62" ry="12"/><ellipse cx="610" cy="400" rx="62" ry="12"/>
+          </g>
+          <path d="M228 215 L110 215 L110 270 M110 340 L110 395 L228 395" class="ln"/>
+          <circle cx="110" cy="305" r="36" class="f-card"/><circle cx="110" cy="305" r="36" class="ln"/><path d="M90 307 Q100 290 110 305 Q120 320 130 303" class="ln" style="stroke-width:4"/>
+          <path d="M672 200 L800 200 M672 400 L800 400" class="ln"/><circle cx="800" cy="200" r="9" class="f-cc"/><circle cx="800" cy="400" r="9" class="f-cc"/>
+          <text x="40" y="180" class="lbl">input a.c.</text><text x="110" y="460" class="lbl-c" text-anchor="middle">Vp</text>
+          <text x="740" y="170" class="lbl">output a.c.</text><text x="800" y="310" class="lbl-c" text-anchor="middle">Vs</text>
+          <rect x="300" y="30" width="300" height="52" rx="26" class="pill"/><text x="450" y="65" class="lbl-s" text-anchor="middle">soft iron core</text>
+          <rect x="150" y="530" width="270" height="52" rx="26" class="pill"/><text x="285" y="565" class="lbl-s" text-anchor="middle">primary coil, np turns</text>
+          <rect x="480" y="530" width="300" height="52" rx="26" class="pill"/><text x="630" y="565" class="lbl-s" text-anchor="middle">secondary coil, ns turns</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <ol class="nums">
+          <li>a.c. in the <strong>primary coil</strong> makes a magnetic field that keeps <strong>changing</strong>.</li>
+          <li>The <strong>soft iron core</strong> carries this changing field to the secondary coil.</li>
+          <li>The changing field cuts the secondary turns → an <strong>alternating voltage is induced</strong>.</li>
+        </ol>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub"><em>Step-up</em> or <em>step-down</em> — a.c. only <span class="tag only" style="vertical-align:middle">Physics only</span></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 440" aria-label="Step-up transformer: 3 turns to 9 turns; step-down transformer: 9 turns to 3 turns">
+          <text x="230" y="40" class="lbl-c" text-anchor="middle">Step-up</text>
+          <rect x="100" y="70" width="260" height="260" rx="18" class="f-lilac"/><rect x="160" y="130" width="140" height="140" rx="8" class="f-card"/>
+          <g class="ln-c" style="stroke-width:5"><ellipse cx="130" cy="170" rx="44" ry="10"/><ellipse cx="130" cy="200" rx="44" ry="10"/><ellipse cx="130" cy="230" rx="44" ry="10"/></g>
+          <g class="ln s-pink" style="stroke-width:5"><ellipse cx="330" cy="120" rx="44" ry="9"/><ellipse cx="330" cy="140" rx="44" ry="9"/><ellipse cx="330" cy="160" rx="44" ry="9"/><ellipse cx="330" cy="180" rx="44" ry="9"/><ellipse cx="330" cy="200" rx="44" ry="9"/><ellipse cx="330" cy="220" rx="44" ry="9"/><ellipse cx="330" cy="240" rx="44" ry="9"/><ellipse cx="330" cy="260" rx="44" ry="9"/><ellipse cx="330" cy="280" rx="44" ry="9"/></g>
+          <text x="230" y="380" class="lbl-s" text-anchor="middle">3 turns → 9 turns</text>
+          <rect x="120" y="396" width="220" height="44" rx="22" class="pill"/><text x="230" y="427" class="lbl-s" text-anchor="middle">voltage goes up</text>
+          <text x="670" y="40" class="lbl-c" text-anchor="middle">Step-down</text>
+          <rect x="540" y="70" width="260" height="260" rx="18" class="f-lilac"/><rect x="600" y="130" width="140" height="140" rx="8" class="f-card"/>
+          <g class="ln-c" style="stroke-width:5"><ellipse cx="570" cy="120" rx="44" ry="9"/><ellipse cx="570" cy="140" rx="44" ry="9"/><ellipse cx="570" cy="160" rx="44" ry="9"/><ellipse cx="570" cy="180" rx="44" ry="9"/><ellipse cx="570" cy="200" rx="44" ry="9"/><ellipse cx="570" cy="220" rx="44" ry="9"/><ellipse cx="570" cy="240" rx="44" ry="9"/><ellipse cx="570" cy="260" rx="44" ry="9"/><ellipse cx="570" cy="280" rx="44" ry="9"/></g>
+          <g class="ln s-pink" style="stroke-width:5"><ellipse cx="770" cy="170" rx="44" ry="10"/><ellipse cx="770" cy="200" rx="44" ry="10"/><ellipse cx="770" cy="230" rx="44" ry="10"/></g>
+          <text x="670" y="380" class="lbl-s" text-anchor="middle">9 turns → 3 turns</text>
+          <rect x="550" y="396" width="240" height="44" rx="22" class="pill"/><text x="670" y="427" class="lbl-s" text-anchor="middle">voltage goes down</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card mint"><h3>Step-up</h3><p>ns &gt; np → voltage <strong>up</strong></p></div>
+        <div class="card pink"><h3>Step-down</h3><p>ns &lt; np → voltage <strong>down</strong></p></div>
+        <div class="warn"><b>a.c. only</b>d.c. makes a steady field → no voltage is induced.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Making transformers <em>efficient</em> <span class="tag only" style="vertical-align:middle">Physics only</span></div>
+    <div class="cols-2">
+      <div class="card pink"><h3>Thick copper wire</h3><p>For the coils: low resistance, so less heating and less energy wasted.</p></div>
+      <div class="card sky"><h3>Soft iron core</h3><p>Made of thin plastic-coated layers, which also keeps energy losses small.</p></div>
+    </div>
+    <div class="remember"><b>Remember</b>A 100% efficient transformer has power in = power out.</div>
+  </div><div class="blk"><div class="sub">The <em>turns-ratio</em> equation <span class="tag only" style="vertical-align:middle">Physics only</span></div>
+    <div class="cols-2">
+      <div class="stack">
+        <div class="eq"><div class="words">input (primary) voltage ÷ output (secondary) voltage = primary turns ÷ secondary turns</div><div class="sym">Vp / Vs = np / ns</div>
+          <div class="units"><span>Vp, Vs in volts (V)</span><span>np, ns = number of turns</span></div></div>
+        <div class="tip"><b>Quick check</b>5 × the turns → 5 × the voltage (step-up).</div>
+      </div>
+      <div class="worked">
+        <div class="q">np = 100, ns = 500, Vp = 2 V. Find Vs.</div>
+        <div class="step"><i>Equation</i>Vp / Vs = np / ns</div>
+        <div class="step"><i>Substitute</i>2 / Vs = 100 / 500</div>
+        <div class="step"><i>Rearrange</i>Vs = 2 × 500 ÷ 100</div>
+        <div class="ans">Vs = 10 V</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Power in = <em>power out</em> <span class="tag only" style="vertical-align:middle">Physics only</span></div>
+    <div class="cols-2">
+      <div class="stack">
+        <div class="eq"><div class="words">input power = output power (100% efficient)</div><div class="sym">Vp × Ip = Vs × Is</div>
+          <div class="units"><span>V in volts (V)</span><span>I in amps (A)</span><span>V × I = power (W)</span></div></div>
+        <div class="remember"><b>Pattern</b>Voltage goes down → current goes up (and the other way round).</div>
+      </div>
+      <div class="worked">
+        <div class="q">Vp = 12 V, Ip = 0.4 A, Vs = 2 V. Find Is.</div>
+        <div class="step"><i>Equation</i>Vp × Ip = Vs × Is</div>
+        <div class="step"><i>Substitute</i>12 × 0.4 = 2 × Is → 4.8 = 2 × Is</div>
+        <div class="step"><i>Rearrange</i>Is = 4.8 ÷ 2</div>
+        <div class="ans">Is = 2.4 A</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">From power station to <em>your home</em> <span class="tag only" style="vertical-align:middle">Physics only</span></div>
+    <div class="fig">
+      <svg viewBox="0 0 1700 400" aria-label="Power station, step-up transformer, pylons at about 400 kV, step-down transformer, homes at about 230 V">
+        <rect x="30" y="200" width="180" height="120" rx="12" class="f-peach"/><rect x="140" y="110" width="40" height="90" rx="6" class="f-peach"/>
+        <rect x="30" y="200" width="180" height="120" rx="12" class="thin"/><rect x="140" y="110" width="40" height="90" rx="6" class="thin"/>
+        <circle cx="175" cy="85" r="16" class="f-card"/><circle cx="198" cy="60" r="20" class="f-card"/><circle cx="175" cy="85" r="16" class="thin"/><circle cx="198" cy="60" r="20" class="thin"/>
+        <path d="M210 260 L270 260" class="ln"/>
+        <rect x="270" y="205" width="130" height="110" rx="16" class="f-c"/><text x="335" y="252" class="lbl-c" text-anchor="middle" style="font-size:26px">STEP</text><text x="335" y="285" class="lbl-c" text-anchor="middle" style="font-size:26px">UP</text>
+        <g class="ln" style="stroke-width:5">
+          <path d="M520 330 L560 110 L600 330 M500 140 L620 140 M525 210 L595 210 M533 270 L587 270"/>
+          <path d="M810 330 L850 110 L890 330 M790 140 L910 140 M815 210 L885 210 M823 270 L877 270"/>
+          <path d="M1100 330 L1140 110 L1180 330 M1080 140 L1200 140 M1105 210 L1175 210 M1113 270 L1167 270"/>
+        </g>
+        <path d="M400 245 L500 140 M620 140 Q705 185 790 140 M910 140 Q995 185 1080 140 M1200 140 L1270 245" class="ln-c" style="stroke-width:5"/>
+        <rect x="1270" y="205" width="130" height="110" rx="16" class="f-c"/><text x="1335" y="252" class="lbl-c" text-anchor="middle" style="font-size:26px">STEP</text><text x="1335" y="285" class="lbl-c" text-anchor="middle" style="font-size:26px">DOWN</text>
+        <path d="M1400 260 L1450 260" class="ln"/>
+        <path d="M1450 320 L1450 240 L1505 190 L1560 240 L1560 320 Z" class="f-mint"/><path d="M1450 320 L1450 240 L1505 190 L1560 240 L1560 320 Z" class="thin"/>
+        <path d="M1580 320 L1580 240 L1635 190 L1690 240 L1690 320 Z" class="f-mint"/><path d="M1580 320 L1580 240 L1635 190 L1690 240 L1690 320 Z" class="thin"/>
+        <path d="M1560 280 L1580 280" class="thin"/>
+        <rect x="660" y="10" width="380" height="54" rx="27" class="pill"/><text x="850" y="46" class="lbl" text-anchor="middle">≈ 400 kV, low current</text>
+        <rect x="20" y="340" width="220" height="52" rx="26" class="pill"/><text x="130" y="375" class="lbl-s" text-anchor="middle">power station</text>
+        <rect x="630" y="340" width="460" height="52" rx="26" class="pill"/><text x="860" y="375" class="lbl-s" text-anchor="middle">pylons (underground cables in towns)</text>
+        <rect x="1440" y="340" width="250" height="52" rx="26" class="pill"/><text x="1565" y="375" class="lbl-s" text-anchor="middle">homes ≈ 230 V</text>
+      </svg>
+    </div>
+    <div class="cols-3" style="flex:none">
+      <div class="card mint"><h3>1 · Step up</h3><p>To about <strong>400 kV</strong>. Current greatly reduced.</p></div>
+      <div class="card sky"><h3>2 · Send it</h3><p>Cables on tall pylons keep the danger high above the ground.</p></div>
+      <div class="card pink"><h3>3 · Step down</h3><p>To about <strong>230 V</strong> near homes. Current increased.</p></div>
+    </div>
+  </div><div class="blk"><div class="sub">Why send electricity at <em>high voltage?</em> <span class="tag only" style="vertical-align:middle">Physics only</span></div>
+    <div class="flow">
+      <div>Step-up transformer</div><span>→</span><div>Higher voltage</div><span>→</span><div>Lower current<small>P = V × I</small></div><span>→</span><div>Less heating of cables</div><span>→</span><div>Less energy wasted</div>
+    </div>
+    <ul class="dots"><li>Current in long cables <strong>heats</strong> them → energy wasted. Bigger current → more lost.</li><li>For the same power, high voltage means <strong>low current</strong>.</li></ul>
+    <div class="tip"><b>Exam tip · 3-mark answer</b>Step-up transformers increase the voltage and so decrease the current in the cables. A smaller current causes less heating, so less energy is wasted. Step-down transformers then reduce the voltage to a safe level (≈ 230 V) for homes.</div>
+  </div><div class="blk"><div class="sub">Common <em>mistakes</em> — and the fix</div>
+    <table class="t">
+      <tr><th>Mistake</th><th>The fix</th></tr>
+      <tr><td>Using the right hand for motors</td><td>It's the <strong>LEFT</strong> hand (Fleming's left-hand rule)</td></tr>
+      <tr><td>Field going S → N</td><td>Field lines go <strong>N → S</strong></td></tr>
+      <tr><td>Transformers work on d.c.</td><td><strong>a.c. only</strong> — they need a changing field</td></tr>
+      <tr><td>High voltage cuts losses "because of the voltage"</td><td>It's the <strong>lower current</strong> that means less heating</td></tr>
+      <tr><td>A still magnet in a coil induces a voltage</td><td>No movement → no cutting → <strong>nothing induced</strong></td></tr>
+    </table>
+  </div><div class="pn"><button type="button" data-to="4">◀ Back</button><button type="button" data-to="6">Next ▶</button></div></div><div class="part"><div class="test"><h4>Test yourself</h4><div class="qq">1. In the left-hand rule, what does the first finger show?<span class="a">The magnetic field (N → S).</span></div><div class="qq">2. Give two ways to make the force on a wire bigger.<span class="a">Larger current; stronger magnetic field.</span></div><div class="qq">3. What does the split-ring commutator do?<span class="a">Reverses the current every half turn, so the motor keeps turning the same way.</span></div><div class="qq">4. Give three ways to increase an induced voltage.<span class="a">Move faster; stronger magnet; more turns on the coil.</span></div><div class="qq">5. Why does a transformer not work with d.c.?<span class="a">The field is steady, not changing → no voltage is induced.</span></div><div class="qq">6. np = 200, ns = 50, Vp = 240 V. Find Vs.<span class="a">Vs = 240 × 50 ÷ 200 = 60 V</span></div><div class="qq">7. Vp = 230 V, Ip = 0.5 A, Vs = 11.5 V. Find Is.<span class="a">230 × 0.5 = 115 W → Is = 115 ÷ 11.5 = 10 A</span></div><div class="qq">8. Why is electricity sent at high voltage?<span class="a">Lower current → less heating of cables → less energy wasted.</span></div></div><div class="pn"><button type="button" data-to="5">◀ Back</button><button type="button" data-to="7" disabled>Next ▶</button></div></div></div><script>(function(){var P=[].slice.call(document.querySelectorAll('.part')),B=[].slice.call(document.querySelectorAll('.snav button'));
+function go(i){P.forEach(function(p,k){p.classList.toggle('on',k==i)});B.forEach(function(b,k){b.classList.toggle('on',k==i)});window.scrollTo(0,0);try{history.replaceState(null,'','#s'+i)}catch(e){}}
+B.forEach(function(b,k){b.onclick=function(){go(k)}});
+document.querySelectorAll('.pn button').forEach(function(b){b.onclick=function(){go(+b.dataset.to)}});
+var h=+(location.hash.replace('#s','')||0);go(h>=0&&h<P.length?h:0)})();</script></body></html>

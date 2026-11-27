@@ -1,0 +1,143 @@
+<!doctype html><html lang="en" data-subj="biology"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root {
+  --ink: #1E1B3A; --ink2: #4A4668; --muted: #7A7598; --line: #E6E2F5;
+  --bg: #F4F2FF; --card: #FFFFFF; --soft: #F1EFFB;
+  --pink: #FF8FB1; --pink-l: #FFE3EC; --yellow: #FFC94D; --yellow-l: #FFF3D1;
+  --mint: #3CCB9A; --mint-l: #DDF7EE; --sky: #4DA3FF; --sky-l: #DDEEFF;
+  --lilac: #8B7BFF; --lilac-l: #ECE8FF; --peach: #FF9F6B; --peach-l: #FFE8DA;
+  --red: #F0525A; --red-l: #FFE1E3; --green: #1FAF6B; --green-l: #DCF5E8;
+  --c: #6D5DD3; --c-d: #4B3DB8; --c-l: #ECE8FF; --c-ll: #F6F4FF;
+  --r-xl: 48px; --r-lg: 36px; --r-md: 26px; --r-sm: 18px;
+  --sh: 0 4px 10px rgba(40,30,110,.05), 0 18px 44px rgba(40,30,110,.09);
+  --font: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+html[data-subj="biology"]   { --c: #12A06E; --c-d: #0B7A53; --c-l: #D9F4E9; --c-ll: #F0FBF6; --bg: #F1FAF6; }
+html[data-subj="chemistry"] { --c: #0E8FB0; --c-d: #0A6C86; --c-l: #D7F0F7; --c-ll: #EFF9FC; --bg: #F0F8FB; }
+html[data-subj="physics"]   { --c: #3B5BDB; --c-d: #2A43AE; --c-l: #E0E6FF; --c-ll: #F2F4FF; --bg: #F2F4FF; }
+svg { font-family: var(--font); }
+svg .ln { fill: none; stroke: var(--ink); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+svg .ln-c { fill: none; stroke: var(--c); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+svg .thin { fill: none; stroke: var(--ink2); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+svg .dash { fill: none; stroke: var(--muted); stroke-width: 4; stroke-dasharray: 12 12; stroke-linecap: round; }
+svg .f-c { fill: var(--c-l); } svg .f-cc { fill: var(--c); } svg .f-card { fill: #fff; }
+svg .f-pink { fill: var(--pink-l); } svg .f-yellow { fill: var(--yellow-l); } svg .f-mint { fill: var(--mint-l); }
+svg .f-sky { fill: var(--sky-l); } svg .f-lilac { fill: var(--lilac-l); } svg .f-peach { fill: var(--peach-l); } svg .f-red { fill: var(--red-l); }
+svg .s-pink { stroke: var(--pink); } svg .s-yellow { stroke: var(--yellow); } svg .s-mint { stroke: var(--mint); } svg .s-sky { stroke: var(--sky); }
+svg .s-lilac { stroke: var(--lilac); } svg .s-peach { stroke: var(--peach); } svg .s-red { stroke: var(--red); }
+svg .lbl { font: 800 30px var(--font); fill: var(--ink); }
+svg .lbl-s { font: 700 24px var(--font); fill: var(--ink2); }
+svg .lbl-c { font: 900 30px var(--font); fill: var(--c-d); }
+svg .pill { fill: #fff; stroke: var(--line); stroke-width: 3; }
+@page{size:A4;margin:11mm 9mm 13mm 9mm}
+*{box-sizing:border-box}
+html{font-size:var(--fs,8.6px)}
+body{margin:0;font-family:var(--font);color:var(--ink);background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero{display:flex;align-items:center;gap:3.5mm;background:var(--c);color:#fff;border-radius:4mm;padding:3.2mm 5mm;margin-bottom:3mm}
+.hero .n{flex:none;width:11mm;height:11mm;border-radius:50%;background:#fff;color:var(--c-d);font:900 6.2mm/11mm var(--font);text-align:center}
+.hero h1{margin:0;font:900 6.4mm/1.1 var(--font)}.hero p{margin:.5mm 0 0;font:700 3mm var(--font);opacity:.9}
+.cols{column-count:2;column-gap:4mm}
+.blk{break-inside:avoid;margin:0 0 2mm}
+.sec{break-inside:avoid;break-after:avoid;display:flex;align-items:center;gap:2mm;background:var(--c-l);border-radius:2.5mm;padding:1.2mm 2.5mm;margin:2.5mm 0 1.6mm;font:900 3.7mm/1.15 var(--font);color:var(--c-d)}
+.sec b{flex:none;width:5.2mm;height:5.2mm;border-radius:50%;background:var(--c);color:#fff;font:900 3.2mm/5.2mm var(--font);text-align:center}
+.sub{break-after:avoid;margin:1.4mm 0 .8mm;font:900 3.1mm/1.2 var(--font);color:var(--ink);border-left:1mm solid var(--c);padding-left:1.6mm}
+.sub em{font-style:normal;color:var(--c-d)}
+p,li{margin:0;font:600 1.15rem/1.32 var(--font);color:var(--ink2)}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.mist{break-inside:avoid;border-radius:2mm;margin:0 0 1.5mm;padding:1.3mm 2.2mm}
+.def{background:var(--c-ll);border-left:1mm solid var(--c)}.def .term{display:block;font:900 2.3mm var(--font);text-transform:uppercase;letter-spacing:.2mm;color:var(--c-d)}
+.def p{color:var(--ink);font-weight:700}
+.card{background:var(--bg2,#eef)}.card h3{margin:0 0 .3mm;font:900 1.2rem/1.2 var(--font);color:var(--ink)}
+.card.mint{background:var(--mint-l)}.card.sky{background:var(--sky-l)}.card.pink{background:var(--pink-l)}.card.yellow{background:var(--yellow-l)}.card.peach{background:var(--peach-l)}
+.tip{background:var(--yellow-l);border-left:1mm solid var(--yellow)}.tip b{display:inline;font-weight:900;color:var(--ink);margin-right:1mm;text-transform:uppercase;font-size:2.2mm}
+.warn{background:var(--red-l);border-left:1mm solid var(--red)}
+table.t{width:100%;border-collapse:separate;border-spacing:0;margin:0 0 1.8mm;break-inside:avoid;border-radius:2mm;overflow:hidden;font-size:1.08rem}
+table.t th{background:var(--c);color:#fff;font:900 1.08rem var(--font);text-align:left;padding:.9mm 1.8mm}
+table.t td{font:600 1.08rem/1.28 var(--font);padding:.8mm 1.8mm;border-top:.25mm solid var(--line);vertical-align:top;color:var(--ink2)}
+table.t td:first-child{font-weight:900;color:var(--ink)}
+table.t tr:nth-child(even) td{background:var(--c-ll)}
+.worked{background:#fff;border:.3mm solid var(--c-l)}.worked .q{font:800 1.18rem/1.3 var(--font);color:var(--ink);background:var(--c-ll);border-radius:1.6mm;padding:1mm 1.8mm;margin-bottom:.8mm}
+.worked .step{display:flex;gap:1.6mm;font:700 1.1rem/1.3 var(--font);color:var(--ink2)}.worked .step i{font-style:normal;flex:none;min-width:11mm;font:900 2.2mm var(--font);text-transform:uppercase;color:var(--c)}
+.worked .ans{display:inline-block;margin-top:.8mm;font:900 1.2rem var(--font);color:#fff;background:var(--c);padding:.7mm 2.4mm;border-radius:5mm}
+.nums{margin:0 0 1.6mm;padding:0;list-style:none;counter-reset:n;break-inside:avoid}
+.nums>*{counter-increment:n;position:relative;padding-left:5mm;margin-bottom:.7mm;font:600 1.15rem/1.3 var(--font);color:var(--ink2)}
+.nums>*::before{content:counter(n);position:absolute;left:0;top:.1mm;width:3.6mm;height:3.6mm;border-radius:50%;background:var(--c);color:#fff;font:900 2.3mm/3.6mm var(--font);text-align:center}
+.cols-2,.cols-3,.stack,.wide-left,.body{display:block}
+.fig{break-inside:avoid;margin:0 0 1.6mm;background:#fff;border:.3mm solid var(--line);border-radius:2mm;padding:1mm;text-align:center}
+.fig svg{width:100%;height:auto;max-height:46mm;display:block}
+.fig svg text{font-family:var(--font)}
+.nutshell{background:var(--c);color:#fff}.nutshell h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:#fff}.nutshell li{color:#fff;font-weight:700;margin-left:3.6mm}
+.test{background:var(--lilac-l)}.test h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:var(--ink)}.test .qq{font:700 1.12rem/1.3 var(--font);color:var(--ink);margin-bottom:.6mm}.test .a{color:var(--c-d);font-weight:900;margin-left:1.2mm}
+.say{background:var(--mint-l)}.mist{background:var(--red-l)}.say,.mist{break-inside:avoid;border-radius:2mm;padding:1.3mm 2.2mm;margin:0 0 1.5mm}.say h3,.mist h3{margin:0 0 .4mm;font:900 1.2rem var(--font)}
+.chips,.bignum,.checks{display:none}
+
+@page{margin:0}
+html{font-size:15.5px;background:var(--bg)}
+body{max-width:900px;margin:0 auto;padding:18px 16px 60px;background:var(--bg)}
+.cols{column-count:1}
+.hero{padding:5mm 6mm;border-radius:6mm}.hero .n{width:15mm;height:15mm;font-size:9mm;line-height:15mm}.hero h1{font-size:9mm}.hero p{font-size:3.6mm}
+.sec{font-size:5.4mm;padding:2mm 4mm;border-radius:4mm;margin:6mm 0 3mm;position:sticky;top:0;z-index:2}.sec b{width:7.5mm;height:7.5mm;font-size:4.6mm;line-height:7.5mm}
+.sub{font-size:4.6mm;margin:3mm 0 1.6mm}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.say,.mist{padding:2.6mm 4mm;border-radius:3.4mm;margin-bottom:2.6mm}
+.def .term{font-size:3mm}.card h3{font-size:1.3rem}.tip b{font-size:3mm}
+.worked .step i{font-size:3mm;min-width:16mm}.nutshell h4,.test h4{font-size:5mm}
+.nums>*{padding-left:8mm}.nums>*::before{width:5.6mm;height:5.6mm;font-size:3.4mm;line-height:5.6mm}
+table.t{font-size:1.15rem}table.t th,table.t td{font-size:1.15rem;padding:1.6mm 3mm}
+.fig svg{max-height:60mm}
+.test .qq{font-size:1.2rem;margin-bottom:1.4mm}.say h3,.mist h3{font-size:1.3rem}
+p,li{font-size:1.2rem}
+
+.hero p{color:#fff}
+.eq{break-inside:avoid;background:#fff;border:.3mm solid var(--c-l);border-radius:3.4mm;padding:2.6mm 4mm;margin:0 0 2.6mm;text-align:center}
+.eq .words{font:800 1.2rem/1.3 var(--font);color:var(--ink2)}
+.eq .sym{display:inline-block;margin:1.4mm 0;font:900 2rem/1.15 var(--font);color:var(--c-d);background:var(--c-ll);padding:1.6mm 5mm;border-radius:3mm}
+.eq .units{font:700 1rem var(--font);color:var(--muted)}.eq .units span{background:var(--soft);border-radius:5mm;padding:.4mm 2.4mm;margin:0 1mm;display:inline-block}
+.remember{break-inside:avoid;background:var(--mint-l);border-left:1.2mm solid var(--mint);border-radius:3.4mm;padding:2.6mm 4mm;margin-bottom:2.6mm;font:700 1.2rem/1.35 var(--font);color:var(--ink)}
+.warn b,.tip b{margin-right:1.6mm}
+.remember b:first-child{display:block;font-size:3mm;text-transform:uppercase;letter-spacing:.3mm;margin-bottom:.8mm}
+.flow{display:flex;flex-wrap:wrap;gap:2mm;margin:0 0 2.6mm;break-inside:avoid}
+.flow>div{flex:1 1 40mm;background:#fff;border:.3mm solid var(--c-l);border-radius:3mm;padding:2mm 3mm;text-align:center;font:800 1.15rem/1.3 var(--font);color:var(--ink)}
+.flow>div small{display:block;font:600 1rem var(--font);color:var(--muted)}.flow>span{align-self:center;font:900 1.6rem var(--font);color:var(--c)}
+.cols-4{display:block}.wide-right{display:block}
+[style*="font-size:52px"],[style*="font:900 72px"]{font-size:2.2rem !important}
+.card [style]{line-height:1.1}.card .sym{font-size:1.6rem}
+.tag{display:inline-block;font:900 2.6mm var(--font);text-transform:uppercase;background:var(--c);color:#fff;padding:.5mm 2.2mm;border-radius:5mm;margin-bottom:1mm}
+</style><style>.snav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:6px;background:var(--bg);padding:8px 0 10px;margin:0 0 6px}
+.snav button{font:800 14px var(--font);border:2px solid var(--c-l);background:#fff;color:var(--ink);border-radius:20px;padding:6px 12px;cursor:pointer}
+.snav button.on{background:var(--c);border-color:var(--c);color:#fff}
+.part{display:none}.part.on{display:block}.part .sec{position:static!important}
+.pn{display:flex;justify-content:space-between;gap:10px;margin:18px 0 0}.pn button{font:900 15px var(--font);border:0;background:var(--c);color:#fff;border-radius:22px;padding:10px 20px;cursor:pointer}.pn button[disabled]{opacity:.25}</style><style id="stepfix">.worked{counter-reset:st;border:2px solid var(--c-l)!important;padding:12px 16px!important}
+.worked .q{font-size:1.25rem!important;border-left:5px solid var(--c);margin-bottom:10px!important}
+.worked .q::before{content:"Worked example  ";font:900 .8rem var(--font);text-transform:uppercase;letter-spacing:.5px;color:var(--c-d);display:block}
+.worked .step{counter-increment:st;display:grid!important;grid-template-columns:78px 1fr;gap:10px;align-items:baseline;padding:7px 0;border-top:1px dashed var(--c-l);font-size:1.2rem!important}
+.worked .step i{min-width:0!important;font-size:.85rem!important;color:var(--c-d)!important}
+.worked .step i::before{content:"Step " counter(st) "";display:block;font-weight:900;color:var(--c)}
+.worked .ans{display:block!important;margin-top:10px;padding:8px 14px!important;border-radius:10px!important;font-size:1.25rem!important}
+.worked .ans::before{content:"Answer:  "}</style></head><body>
+<div class="hero"><div class="n">22</div><div><h1>Genetic modification</h1><p>Biology · Unit 6 · Microorganisms and genetic engineering · Last-minute notes · Book pages 289–299</p></div></div>
+<div class="snav"><button type="button">Summary</button><button type="button">22.1 What is GM?</button><button type="button">22.2 The tools</button><button type="button">22.3 Making insulin</button><button type="button">22.4 GM crops</button><button type="button">Test yourself</button></div><div class="cols"><div class="part"><div class="nutshell"><h4>Chapter in a nutshell</h4><ul style="margin:0;padding:0"><li>GM moves genes between species</li><li>Restriction enzymes cut; ligase joins</li><li>Plasmids are vectors</li><li>GM bacteria in a fermenter make insulin</li><li>GM crops: Bt, herbicide, Golden Rice</li><li>Benefits against concerns</li></ul></div><div class="pn"><button type="button" data-to="-1" disabled>◀ Back</button><button type="button" data-to="1">Next ▶</button></div></div><div class="part"><div class="sec"><b>1</b><span>What is <em>GM</em>?</span></div><div class="blk"><div class="sub">Genes across <em>species</em></div>
+<div class="wide-left"><div class="fig" style=""><svg viewBox="0 0 740 340" aria-label="Human insulin gene transferred into a bacterium"><rect x="0" y="0" width="740" height="340" rx="28" class="f-card"/><circle cx="130" cy="170" r="90" class="f-yellow" stroke="#2B2750" stroke-width="4"/><text x="130" y="165" class="lbl-s" text-anchor="middle" style="font-size:24px;font-weight:800">human cell</text><text x="130" y="200" class="lbl-s" text-anchor="middle" style="font-size:22px">insulin gene</text><path d="M235 170 L420 170" class="ln s-red"/><path d="M406 178 L420 170 L406 162" class="ln s-red"/><text x="330" y="145" class="lbl-s" text-anchor="middle" style="font-size:22px">gene transfer</text><ellipse cx="560" cy="170" rx="110" ry="65" class="f-mint" stroke="#2B2750" stroke-width="4"/><text x="560" y="165" class="lbl-s" text-anchor="middle" style="font-size:24px;font-weight:800">bacterium</text><text x="560" y="200" class="lbl-s" text-anchor="middle" style="font-size:22px">makes insulin</text></svg></div><div class="stack"><div class="def"><span class="term">Genetic modification</span><p>changing an organism's DNA, usually by moving a gene from one species to another</p></div><div class="def"><span class="term">Transgenic</span><p>contains a gene from a different species</p></div><div class="card sky"><h3>Why it works</h3><p>The genetic code is universal.</p></div></div></div>
+  </div><div class="blk"><div class="sub">GM vs <em>selective breeding</em></div>
+<div class="cols-2"><div class="card yellow"><h3>Selective breeding</h3><p>Mixes genes the organism already has. Slow, many generations.</p></div><div class="card mint"><h3>Genetic modification</h3><p>Adds a gene from any species. Much faster.</p></div></div>
+  </div><div class="pn"><button type="button" data-to="0">◀ Back</button><button type="button" data-to="2">Next ▶</button></div></div><div class="part"><div class="sec"><b>2</b><span>The <em>tools</em></span></div><div class="blk"><div class="sub">Cutting and <em>joining</em></div>
+<div class="cols-3"><div class="card pink"><h3>Restriction enzyme</h3><p>Cuts DNA at a specific base sequence, often leaving sticky ends.</p></div><div class="card sky"><h3>DNA ligase</h3><p>Joins DNA pieces by sealing the sugar-phosphate backbone.</p></div><div class="card mint"><h3>Vector</h3><p>Carries the gene into the host cell: plasmid or virus.</p></div></div>    <div class="def"><span class="term">Recombinant DNA</span><p>DNA made by joining pieces from different sources</p></div>
+  </div><div class="blk"><div class="sub"><em>Sticky ends</em></div>
+<div class="wide-left"><div class="fig" style=""><svg viewBox="0 0 760 360" aria-label="Restriction enzyme cutting DNA to leave sticky ends"><rect x="0" y="0" width="760" height="360" rx="28" class="f-card"/><text x="40" y="60" class="lbl" style="font-size:30px;font-weight:800;letter-spacing:6px">A T G G A A T T C C G A T</text><text x="40" y="110" class="lbl" style="font-size:30px;font-weight:800;letter-spacing:6px">T A C C T T A A G G C T A</text><rect x="168" y="35" width="238" height="100" rx="12" fill="none" stroke="#D9446C" stroke-width="4" stroke-dasharray="10 6"/><text x="287" y="160" class="lbl-s" text-anchor="middle" style="font-size:20px;fill:#D9446C">restriction site GAATTC</text><path d="M400 185 L400 225" class="ln s-red"/><path d="M392 211 L400 225 L408 211" class="ln s-red"/><text x="40" y="275" class="lbl" style="font-size:30px;font-weight:800;letter-spacing:6px">A T G G                        A A T T C C G A T</text><text x="40" y="325" class="lbl" style="font-size:30px;font-weight:800;letter-spacing:6px">T A C C T T A A              G G C T A</text></svg></div><div class="stack"><div class="card yellow"><h3>Staggered cut</h3><p>Leaves unpaired bases that can pair with complementary sticky ends.</p></div><div class="card mint"><h3>Same enzyme</h3><p>Cut the human gene and the plasmid with one enzyme so ends match.</p></div></div></div>
+  </div><div class="pn"><button type="button" data-to="1">◀ Back</button><button type="button" data-to="3">Next ▶</button></div></div><div class="part"><div class="sec"><b>3</b><span>Making <em>insulin</em></span></div><div class="blk"><div class="sub">Six <em>steps</em></div>
+    <div class="fig" style="flex:1"><svg viewBox="0 0 1380 200" aria-label="Steps in a process"><rect x="0" y="0" width="1380" height="200" rx="28" class="f-card"/><rect x="20.0" y="60" width="426.6666666666667" height="130" rx="26" class="f-yellow" stroke="#2B2750" stroke-width="4"/><text x="233.33333333333334" y="116.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">1 Isolate</text><text x="233.33333333333334" y="150.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">the gene</text><path d="M448.6666666666667 125.0 L474.6666666666667 125.0" class="ln s-red"/><path d="M461 133 L474.6666666666667 125.0 L461 117" class="ln s-red"/><rect x="476.6666666666667" y="60" width="426.6666666666667" height="130" rx="26" class="f-sky" stroke="#2B2750" stroke-width="4"/><text x="690.0" y="116.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">2 Cut open</text><text x="690.0" y="150.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">a plasmid</text><path d="M905.3333333333334 125.0 L931.3333333333334 125.0" class="ln s-red"/><path d="M917 133 L931.3333333333334 125.0 L917 117" class="ln s-red"/><rect x="933.3333333333334" y="60" width="426.6666666666667" height="130" rx="26" class="f-pink" stroke="#2B2750" stroke-width="4"/><text x="1146.6666666666667" y="116.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">3 Insert gene,</text><text x="1146.6666666666667" y="150.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">ligase seals</text></svg></div>    <div class="fig" style="flex:1"><svg viewBox="0 0 1380 200" aria-label="Steps in a process"><rect x="0" y="0" width="1380" height="200" rx="28" class="f-card"/><rect x="20.0" y="60" width="426.6666666666667" height="130" rx="26" class="f-mint" stroke="#2B2750" stroke-width="4"/><text x="233.33333333333334" y="116.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">4 Plasmid into</text><text x="233.33333333333334" y="150.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">bacterium</text><path d="M448.6666666666667 125.0 L474.6666666666667 125.0" class="ln s-red"/><path d="M461 133 L474.6666666666667 125.0 L461 117" class="ln s-red"/><rect x="476.6666666666667" y="60" width="426.6666666666667" height="130" rx="26" class="f-peach" stroke="#2B2750" stroke-width="4"/><text x="690.0" y="116.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">5 Grow in</text><text x="690.0" y="150.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">a fermenter</text><path d="M905.3333333333334 125.0 L931.3333333333334 125.0" class="ln s-red"/><path d="M917 133 L931.3333333333334 125.0 L917 117" class="ln s-red"/><rect x="933.3333333333334" y="60" width="426.6666666666667" height="130" rx="26" class="f-lilac" stroke="#2B2750" stroke-width="4"/><text x="1146.6666666666667" y="116.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">6 Extract and</text><text x="1146.6666666666667" y="150.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">purify insulin</text></svg></div>
+  </div><div class="blk"><div class="sub">Recombinant <em>plasmid</em></div>
+<div class="wide-left"><div class="fig" style=""><svg viewBox="0 0 800 340" aria-label="Plasmid ring with an inserted insulin gene"><rect x="0" y="0" width="800" height="340" rx="28" class="f-card"/><circle cx="400" cy="170" r="110" fill="none" stroke="#2B2750" stroke-width="8"/><path d="M400 60 A110 110 0 0 1 510 170" stroke="#D9446C" stroke-width="14" fill="none"/><text x="400" y="165" class="lbl-s" text-anchor="middle" style="font-size:24px;font-weight:800">plasmid</text><text x="400" y="200" class="lbl-s" text-anchor="middle" style="font-size:22px">+ insulin gene</text><text x="560" y="55" class="lbl-s" style="font-size:20px;fill:#D9446C">human gene</text></svg></div><div class="stack"><div class="card sky"><h3>Plasmid</h3><p>Small ring of DNA in bacteria; used as a vector.</p></div><div class="card mint"><h3>Result</h3><p>Each bacterium copies the plasmid and makes human insulin.</p></div><div class="tip"><b>Exam tip</b>Insulin treats type 1 diabetes.</div></div></div>
+  </div><div class="blk"><div class="sub">Advantages of <em>GM insulin</em></div>
+<div class="cols-2"><div class="card mint"><h3>The insulin</h3><p>Identical to human insulin, so fewer reactions. Made in large amounts, quickly and cheaply. No animals needed.</p></div><div class="card sky"><h3>The bacteria</h3><p>Reproduce very quickly, have plasmids that are easy to modify, grow easily in fermenters.</p></div></div>
+  </div><div class="pn"><button type="button" data-to="2">◀ Back</button><button type="button" data-to="4">Next ▶</button></div></div><div class="part"><div class="sec"><b>4</b><span>GM <em>crops</em></span></div><div class="blk"><div class="sub">Types of <em>GM crop</em></div>
+<div class="cols-3"><div class="card pink"><h3>Pest-resistant (Bt)</h3><p>Bacterial gene makes a toxin that kills insects: less insecticide, higher yield.</p></div><div class="card yellow"><h3>Herbicide-resistant</h3><p>Spray kills weeds, crop survives: less competition.</p></div><div class="card mint"><h3>Golden Rice</h3><p>Makes beta-carotene for vitamin A, preventing deficiency.</p></div></div>
+  </div><div class="blk"><div class="sub">Making a <em>pest-resistant</em> crop</div>
+    <div class="fig" style="flex:1"><svg viewBox="0 0 1380 260" aria-label="Steps in a process"><rect x="0" y="0" width="1380" height="260" rx="28" class="f-card"/><rect x="20.0" y="60" width="312.5" height="140" rx="26" class="f-yellow" stroke="#2B2750" stroke-width="4"/><text x="176.25" y="121.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">Bt bacterium</text><text x="176.25" y="155.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">has toxin gene</text><path d="M334.5 130.0 L360.5 130.0" class="ln s-red"/><path d="M346 138 L360.5 130.0 L346 122" class="ln s-red"/><rect x="362.5" y="60" width="312.5" height="140" rx="26" class="f-sky" stroke="#2B2750" stroke-width="4"/><text x="518.75" y="121.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">Vector carries</text><text x="518.75" y="155.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">gene into plant</text><path d="M677.0 130.0 L703.0 130.0" class="ln s-red"/><path d="M689 138 L703.0 130.0 L689 122" class="ln s-red"/><rect x="705.0" y="60" width="312.5" height="140" rx="26" class="f-mint" stroke="#2B2750" stroke-width="4"/><text x="861.25" y="121.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">GM maize makes</text><text x="861.25" y="155.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">own insecticide</text><path d="M1019.5 130.0 L1045.5 130.0" class="ln s-red"/><path d="M1031 138 L1045.5 130.0 L1031 122" class="ln s-red"/><rect x="1047.5" y="60" width="312.5" height="140" rx="26" class="f-pink" stroke="#2B2750" stroke-width="4"/><text x="1203.75" y="121.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">Insects eating</text><text x="1203.75" y="155.0" class="lbl-s" text-anchor="middle" style="font-size:26px;font-weight:800">it die</text></svg></div>
+  </div><div class="blk"><div class="sub">Benefits and <em>concerns</em></div>
+<div class="cols-2"><div class="card mint"><h3>Benefits</h3><p>Higher yields; less pesticide; grow in poor conditions; more nutritious; medicines; gene therapy.</p></div><div class="card pink"><h3>Concerns</h3><p>Genes spread by pollen; harm to bees; pests evolve resistance; unknown health effects; less biodiversity; costly seeds.</p></div></div>
+  </div><div class="blk"><div class="sub">Transgenic <em>animals</em></div>
+<div class="wide-left"><div class="stack"><div class="card sky"><h3>How</h3><p>A human gene is put in a fertilised egg of a sheep, goat or cow, switched on in milk. The animal is then cloned.</p></div></div><div class="stack"><div class="card yellow"><h3>Examples</h3><p>Sheep: alpha-1-antitrypsin for emphysema. Goats: antithrombin. Cows: human antibodies.</p></div><div class="tip"><b>Exam tip</b>Cloning uses nuclear transfer (chapter 20).</div></div></div>
+  </div><div class="blk"><div class="sub">Key <em>words</em></div>
+<table class="t"><tr><th>Term</th><th>Meaning</th></tr><tr><td>Vector</td><td>Carries DNA into a host cell</td></tr><tr><td>Plasmid</td><td>Small ring of DNA in bacteria</td></tr><tr><td>Sticky ends</td><td>Single-stranded overhangs after a cut</td></tr><tr><td>Gene therapy</td><td>Treating disorders by changing genes</td></tr><tr><td>Golden Rice</td><td>GM rice with beta-carotene</td></tr></table>
+  </div><div class="pn"><button type="button" data-to="3">◀ Back</button><button type="button" data-to="5">Next ▶</button></div></div><div class="part"><div class="say"><h3>✓ Say this</h3><p>Restriction enzyme cuts at specific sites, sticky ends. Same enzyme cuts plasmid. Ligase joins. Bacteria grown in a fermenter.</p></div><div class="mist"><h3>✗ Avoid this</h3><p>GM is selective breeding; ligase cuts DNA; plasmid is a bacterium; fermenter forgotten.</p></div><div class="test"><h4>Test yourself</h4><div class="qq">1. What does ligase do?<span class="a">Joins DNA pieces</span></div><div class="qq">2. What is a vector?<span class="a">Carries a gene into a cell</span></div><div class="qq">3. Why can bacteria make human insulin?<span class="a">Universal genetic code</span></div></div><div class="pn"><button type="button" data-to="4">◀ Back</button><button type="button" data-to="6" disabled>Next ▶</button></div></div></div><script>(function(){var P=[].slice.call(document.querySelectorAll('.part')),B=[].slice.call(document.querySelectorAll('.snav button'));
+function go(i){P.forEach(function(p,k){p.classList.toggle('on',k==i)});B.forEach(function(b,k){b.classList.toggle('on',k==i)});window.scrollTo(0,0);try{history.replaceState(null,'','#s'+i)}catch(e){}}
+B.forEach(function(b,k){b.onclick=function(){go(k)}});
+document.querySelectorAll('.pn button').forEach(function(b){b.onclick=function(){go(+b.dataset.to)}});
+var h=+(location.hash.replace('#s','')||0);go(h>=0&&h<P.length?h:0)})();</script></body></html>

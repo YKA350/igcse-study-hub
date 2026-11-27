@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en" data-subj="physics">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Physics Ch 27: Stellar Evolution</title>
+<link rel="stylesheet" href="../../assets/deck.css">
+<style>.big .card{justify-content:center}.big .card h3{font-size:50px}.big .card p{font-size:38px}</style>
+</head>
+<body>
+<div id="vp"><div id="stage">
+
+<section class="cover">
+  <span class="kicker"><b>27</b> Unit 8 · Astrophysics</span>
+  <h1>Stellar Evolution</h1>
+  <p class="lead">How stars are born, shine, swell and die, and how we sort them by colour and brightness.</p>
+  <div class="chips"><span>Milky Way</span><span>Star colour</span><span>O B A F G K M</span><span>Absolute magnitude</span><span>Life cycles</span><span>HR diagram</span></div>
+  <div class="bignum">27</div>
+</section>
+
+<section class="divider">
+  <div class="num">1</div>
+  <h2>Our place in the <em>Universe</em></h2>
+  <p class="lead">The Sun, the Milky Way and how big everything is.</p>
+</section>
+
+<section>
+  <span class="kicker">Scale of the Universe</span>
+  <h2>From the Universe down to the <em>Sun</em></h2>
+  <div class="body">
+    <div class="flow"><div>Universe<small>billions of galaxies</small></div><span>›</span><div>Galaxy<small>billions of stars</small></div><span>›</span><div>Solar System<small>the Sun + 8 planets</small></div><span>›</span><div>Sun<small>a star</small></div></div>
+    <div class="wide-left" style="grid-template-columns:1fr 1.2fr">
+      <div class="fig"><svg viewBox="0 0 600 560" aria-label="Nested scale"><rect x="0" y="0" width="600" height="560" rx="28" class="f-card"/><circle cx="300" cy="280" r="250" class="f-lilac" style="stroke:#8B7BFF;stroke-width:6"/><circle cx="300" cy="330" r="150" class="f-sky" style="stroke:#4DA3FF;stroke-width:6"/><circle cx="300" cy="385" r="80" class="f-yellow" style="stroke:#FFC94D;stroke-width:6"/><circle cx="300" cy="400" r="18" class="f-peach" style="stroke:#FF9F6B;stroke-width:5"/><rect x="220" y="42" width="160" height="56" rx="28" class="pill"/><text x="300" y="79" class="lbl-s" text-anchor="middle">Universe</text><rect x="235" y="177" width="130" height="56" rx="28" class="pill"/><text x="300" y="214" class="lbl-s" text-anchor="middle">Galaxy</text><rect x="205" y="302" width="190" height="56" rx="28" class="pill"/><text x="300" y="339" class="lbl-s" text-anchor="middle">Solar System</text><rect x="435" y="402" width="90" height="56" rx="28" class="pill"/><text x="480" y="439" class="lbl-s" text-anchor="middle">Sun</text><path d="M318 410 L436 430" class="ln" style="stroke-width:4"/></svg></div>
+      <div class="stack"><div class="card tint"><h3>Biggest to smallest</h3><p>Each one contains the next. Our Solar System is inside a galaxy called the <strong>Milky Way</strong>.</p></div>
+      <div class="card yellow"><h3>Huge gaps</h3><p>Distances between galaxies are <strong>millions of times</strong> bigger than distances between stars.</p></div></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.10</b> describe the evolution of stars with a mass larger than the Sun</div>
+</section>
+
+<section>
+  <span class="kicker">The Sun</span>
+  <h2>The Sun is a <em>star</em></h2>
+  <div class="body">
+    <div class="wide-left">
+<div class="fig"><svg viewBox="0 0 900 560" aria-label="The Sun with its core and surface"><rect x="0" y="0" width="900" height="560" rx="28" class="f-card"/>
+<circle cx="450" cy="285" r="235" class="f-yellow" style="stroke:#FFC94D;stroke-width:8"/>
+<circle cx="450" cy="285" r="95" class="f-peach" style="stroke:#FF9F6B;stroke-width:8" stroke-dasharray="4 18"/>
+<circle cx="450" cy="285" r="95" fill="none" class="ln s-peach" stroke-dasharray="2 16"/>
+<text x="450" y="295" class="lbl-c" text-anchor="middle">core</text>
+<rect x="305" y="472" width="290" height="56" rx="28" class="pill"/><text x="450" y="509" class="lbl-s" text-anchor="middle">surface ≈ 6000 °C</text><path d="M450 192 L450 112" class="ln"/><rect x="280" y="57" width="340" height="56" rx="28" class="pill"/><text x="450" y="94" class="lbl-s" text-anchor="middle">core ≈ 15 000 000 °C</text><path d="M450 520 L450 520" class="ln"/></svg></div>
+      <div class="stack">
+        <div class="def"><span class="term">Key fact</span><p>The Sun is our nearest star, at the centre of our Solar System.</p></div>
+        <div class="card sky"><h3>≈ 150 million km</h3><p>from the Earth to the Sun.</p></div>
+        <div class="card peach"><h3>Hot inside</h3><p>The core is far hotter than the surface.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.8</b> know that a star’s colour is related to its surface temperature</div>
+</section>
+
+<section>
+  <span class="kicker">Galaxies</span>
+  <h2>Galaxies and the <em>Milky Way</em></h2>
+  <div class="body">
+    <div class="wide-left">
+<div class="fig"><svg viewBox="0 0 900 560" aria-label="Spiral galaxy"><rect x="0" y="0" width="900" height="560" rx="28" class="f-card"/><ellipse cx="450" cy="285" rx="420" ry="262" class="f-lilac" opacity=".45"/><path d="M498 285 L503 287 L508 289 L512 292 L516 295 L520 299 L523 302 L526 307 L528 311 L530 315 L531 320 L531 325 L531 330 L530 336 L528 341 L526 346 L523 352 L518 357 L514 362 L508 368 L502 373 L495 377 L487 382 L478 386 L469 390 L459 394 L448 397 L437 400 L425 403 L412 404 L400 406 L386 407 L373 407 L359 407 L345 406 L330 404 L316 402 L302 399 L287 396 L273 392 L259 387 L246 381 L233 375 L220 368 L208 361 L196 353 L185 344 L175 335 L166 325 L158 314 L150 303 L144 292 L139 280 L135 268 L132 256 L130 243 L130 230 L131 217 L134 204 L138 191 L143 178 L150 164 L158 151 L168 138 L179 126 L191 113 L205 102 L221 90 L237 79 L255 69" class="ln s-lilac" style="stroke-width:30;opacity:.6"/><path d="M402 285 L397 283 L392 281 L388 278 L384 275 L380 271 L377 268 L374 263 L372 259 L370 255 L369 250 L369 245 L369 240 L370 234 L372 229 L374 224 L377 218 L382 213 L386 208 L392 202 L398 197 L405 193 L413 188 L422 184 L431 180 L441 176 L452 173 L463 170 L475 167 L488 166 L500 164 L514 163 L527 163 L541 163 L555 164 L570 166 L584 168 L598 171 L613 174 L627 178 L641 183 L654 189 L667 195 L680 202 L692 209 L704 217 L715 226 L725 235 L734 245 L742 256 L750 267 L756 278 L761 290 L765 302 L768 314 L770 327 L770 340 L769 353 L766 366 L762 379 L757 392 L750 406 L742 419 L732 432 L721 444 L709 457 L695 468 L679 480 L663 491 L645 501" class="ln s-sky" style="stroke-width:30;opacity:.6"/><circle cx="450" cy="285" r="50" class="f-yellow" style="stroke:#FFC94D;stroke-width:6"/><circle cx="155" cy="311" r="13" class="f-cc" style="stroke:#fff;stroke-width:4"/><path d="M155 327 L155 470" class="ln"/><rect x="-5" y="472" width="320" height="56" rx="28" class="pill"/><text x="155" y="509" class="lbl-s" text-anchor="middle">we are here (the Sun)</text></svg></div>
+      <div class="stack">
+        <div class="def"><span class="term">Key term · galaxy</span><p>A huge group of billions of stars, pulled together by gravity.</p></div>
+        <ul class="dots"><li>Our galaxy is a <strong>spiral galaxy</strong> called the <strong>Milky Way</strong>.</li><li>The Sun is one ordinary star, about <strong>two-thirds of the way out</strong> along one arm.</li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="divider">
+  <div class="num">2</div>
+  <h2>Star colour and <em>temperature</em></h2>
+  <p class="lead">How the colour of a star tells us how hot its surface is, and how stars are classified.</p>
+</section>
+
+<section>
+  <span class="kicker">Colour and temperature</span>
+  <h2>A star's colour tells its <em>temperature</em></h2>
+  <div class="body">
+    <div class="wide-left">
+<div class="fig"><svg viewBox="0 0 900 520" aria-label="Star colours from red to blue"><rect x="0" y="0" width="900" height="520" rx="28" class="f-card"/>
+<defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#F0525A"/><stop offset=".25" stop-color="#FF9F6B"/><stop offset=".5" stop-color="#FFC94D"/><stop offset=".75" stop-color="#F4F2FF"/><stop offset="1" stop-color="#4DA3FF"/></linearGradient></defs>
+<rect x="60" y="200" width="780" height="110" rx="55" class="ln" style="fill:url(#g1);stroke-width:6"/>
+<rect x="80" y="112" width="110" height="56" rx="28" class="pill"/><text x="135" y="149" class="lbl-s" text-anchor="middle">red</text><rect x="230" y="112" width="140" height="56" rx="28" class="pill"/><text x="300" y="149" class="lbl-s" text-anchor="middle">orange</text><rect x="405" y="112" width="130" height="56" rx="28" class="pill"/><text x="470" y="149" class="lbl-s" text-anchor="middle">yellow</text><rect x="580" y="112" width="120" height="56" rx="28" class="pill"/><text x="640" y="149" class="lbl-s" text-anchor="middle">white</text><rect x="735" y="112" width="110" height="56" rx="28" class="pill"/><text x="790" y="149" class="lbl-s" text-anchor="middle">blue</text><path d="M60 380 L840 380" class="ln-c"/><path d="M822 364 L842 380 L822 396" class="ln-c"/><rect x="55" y="432" width="190" height="56" rx="28" class="pill"/><text x="150" y="469" class="lbl" text-anchor="middle">coolest</text><rect x="655" y="432" width="190" height="56" rx="28" class="pill"/><text x="750" y="469" class="lbl" text-anchor="middle">hottest</text><rect x="365" y="352" width="210" height="56" rx="28" class="pill"/><text x="470" y="389" class="lbl-s" text-anchor="middle">getting hotter</text></svg></div>
+      <div class="stack">
+        <div class="card peach"><h3>Like hot iron</h3><p>A blacksmith's iron glows dull red, then orange, then white as it gets hotter.</p></div>
+        <div class="def"><span class="term">Key fact</span><p>A very hot star gives out more blue light, so it looks blue.</p></div>
+        <div class="card yellow"><h3>The Sun is yellow</h3><p>A medium-temperature star.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.8</b> know that a star’s colour is related to its surface temperature</div>
+</section>
+
+<section>
+  <span class="kicker">Star classes</span>
+  <h2>Classes <em>O B A F G K M</em></h2>
+  <div class="body">
+    <table class="t">
+      <tr><th>Class</th><th>Surface temperature / K</th><th>Colour</th><th></th></tr>
+      <tr><td>O</td><td>more than 33 000</td><td>blue</td><td>hottest</td></tr>
+      <tr><td>B</td><td>10 000 – 33 000</td><td>blue-white</td><td></td></tr>
+      <tr><td>A</td><td>7500 – 10 000</td><td>white</td><td></td></tr>
+      <tr><td>F</td><td>6000 – 7500</td><td>yellow-white</td><td></td></tr>
+      <tr><td>G</td><td>5200 – 6000</td><td>yellow</td><td>the Sun</td></tr>
+      <tr><td>K</td><td>3700 – 5200</td><td>orange</td><td></td></tr>
+      <tr><td>M</td><td>2000 – 3700</td><td>red</td><td>coolest</td></tr>
+    </table>
+  </div>
+<div class="spec-tag"><b>Spec 8.8</b> know that a star’s colour is related to its surface temperature</div>
+</section>
+
+<section>
+  <span class="kicker">Using the classes</span>
+  <h2>Classifying a <em>star</em></h2>
+  <div class="body">
+    <div class="remember"><b>Learn the order</b>O B A F G K M runs from <strong>hottest to coolest</strong>. The Sun is class G (a G2 star, extension).</div>
+    <div class="big cols-3">
+      <div class="card mint"><h3>A star at 2500 K</h3><p>Between 2000 and 3700 K, so class <strong>M</strong>. It looks <strong>red</strong>.</p></div>
+      <div class="card yellow"><h3>Lots of yellow light</h3><p>Class <strong>F or G</strong>, about <strong>5200–7500 K</strong>.</p></div>
+      <div class="card sky"><h3>Classes B and K</h3><p><strong>B</strong>: blue-white, 10 000–33 000 K.<br><strong>K</strong>: orange, 3700–5200 K.</p></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.9</b> describe the evolution of stars of similar mass to the Sun through the following stages: nebula; star…</div>
+</section>
+
+<section class="divider">
+  <div class="num">3</div>
+  <h2>Brightness and <em>magnitude</em></h2>
+  <p class="lead">Why a star's brightness from Earth can fool us, and how absolute magnitude fixes it.</p><span class="tag only">Physics only</span>
+</section>
+
+<section>
+  <span class="kicker">Brightness</span>
+  <h2>Why brightness is <em>tricky</em></h2>
+  <div class="body">
+    <div class="wide-left">
+<div class="fig"><svg viewBox="0 0 900 540" aria-label="The same star at two distances"><rect x="0" y="0" width="900" height="540" rx="28" class="f-card"/>
+<circle cx="90" cy="290" r="34" class="f-c" style="stroke:#3B5BDB;stroke-width:6"/><text x="90" y="360" class="lbl-s" text-anchor="middle">Earth</text>
+<path d="M130 290 L250 290" class="ln-c" stroke-dasharray="4 14"/>
+<circle cx="290" cy="290" r="40" class="f-yellow" style="stroke:#FFC94D;stroke-width:8"/>
+<path d="M340 290 L700 290" class="ln-c" stroke-dasharray="4 14"/>
+<circle cx="780" cy="290" r="40" class="f-yellow" style="stroke:#FFC94D;stroke-width:8"/>
+<rect x="155" y="102" width="270" height="56" rx="28" class="pill"/><text x="290" y="139" class="lbl-s" text-anchor="middle">close: looks bright</text><rect x="650" y="102" width="220" height="56" rx="28" class="pill"/><text x="760" y="139" class="lbl-s" text-anchor="middle">far: looks dim</text><path d="M290 175 L290 235" class="ln"/><path d="M780 175 L780 235" class="ln"/><rect x="230" y="432" width="440" height="56" rx="28" class="pill"/><text x="450" y="469" class="lbl" text-anchor="middle">same star, different distance</text></svg></div>
+      <div class="stack">
+        <div class="card tint"><h3>Car headlights</h3><p>A bright headlight far away can look dimmer than a weak one close by.</p></div>
+        <ul class="dots"><li>Its <strong>distance</strong> from the Earth.</li><li>Its <strong>luminosity</strong>: the energy it gives out each second.</li></ul>
+        <p>Luminosity depends on what the star is made of and its nuclear reactions.</p>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.11P</b> understand how the brightness of a star at a standard distance can be represented using absolute magnitude</div>
+</section>
+
+<section>
+  <span class="kicker">Brightness <span class="tag only">Physics only</span></span>
+  <h2>Three brightness <em>words</em></h2>
+  <div class="body">
+    <div class="big cols-3">
+      <div class="card sky"><h3>1 · Apparent magnitude</h3><p>How bright the star looks from Earth.</p><p>Easiest to measure, but <strong>distance</strong> changes it.</p></div>
+      <div class="card mint"><h3>2 · Absolute magnitude</h3><p>How bright the star would look at a standard distance from Earth: <strong>10 parsecs</strong> (32.6 light years).</p><p>Lets scientists compare stars fairly.</p></div>
+      <div class="card yellow"><h3>3 · Luminosity</h3><p>The total energy emitted as light from the star's surface every second.</p></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.11P</b> understand how the brightness of a star at a standard distance can be represented using absolute magnitude</div>
+</section>
+
+<section>
+  <span class="kicker">Apparent and absolute <span class="tag only">Physics only</span></span>
+  <h2>Apparent vs <em>absolute</em></h2>
+  <div class="body">
+    <div class="wide-left">
+<div class="fig"><svg viewBox="0 0 900 540" aria-label="Stars at the same standard distance"><rect x="0" y="0" width="900" height="540" rx="28" class="f-card"/>
+<circle cx="80" cy="280" r="34" class="f-c" style="stroke:#3B5BDB;stroke-width:6"/>
+<path d="M440 70 L440 490" class="ln s-mint" stroke-dasharray="14 14"/>
+<circle cx="440" cy="160" r="22" class="f-yellow" style="stroke:#FFC94D;stroke-width:6"/><circle cx="440" cy="400" r="46" class="f-pink" style="stroke:#FF8FB1;stroke-width:6"/>
+<circle cx="230" cy="190" r="14" class="f-yellow" style="stroke:#FFC94D;stroke-width:6"/><circle cx="790" cy="400" r="34" class="f-pink" style="stroke:#FF8FB1;stroke-width:6"/>
+<path d="M118 272 L212 196" class="ln" stroke-dasharray="4 12"/><path d="M118 292 L750 392" class="ln" stroke-dasharray="4 12"/>
+<rect x="30" y="322" width="100" height="56" rx="28" class="pill"/><text x="80" y="359" class="lbl-s" text-anchor="middle">Earth</text><rect x="355" y="2" width="170" height="56" rx="28" class="pill"/><text x="440" y="39" class="lbl-s" text-anchor="middle">10 parsecs</text><rect x="155" y="82" width="150" height="56" rx="28" class="pill"/><text x="230" y="119" class="lbl-s" text-anchor="middle">near star</text><rect x="725" y="292" width="130" height="56" rx="28" class="pill"/><text x="790" y="329" class="lbl-s" text-anchor="middle">far star</text></svg></div>
+      <div class="stack">
+        <div class="card sky"><h3>Apparent</h3><p>How bright it looks from Earth. Depends on its <strong>distance and luminosity</strong>.</p></div>
+        <div class="card mint"><h3>Absolute</h3><p>How bright it would look at <strong>10 parsecs</strong>. Depends only on the <strong>star itself</strong>.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.11P</b> understand how the brightness of a star at a standard distance can be represented using absolute magnitude</div>
+</section>
+
+<section class="divider">
+  <div class="num">4</div>
+  <h2>The life cycle of <em>stars</em></h2>
+  <p class="lead">From a cloud of gas to a white dwarf, a neutron star or a black hole.</p>
+</section>
+
+<section>
+  <span class="kicker">The map</span>
+  <h2>Two paths: it depends on <em>mass</em></h2>
+  <div class="body">
+    <div class="wide-left" style="grid-template-columns:1.9fr 1fr">
+<div class="fig"><svg viewBox="0 0 910 560" aria-label="The two life cycles"><rect x="0" y="0" width="910" height="560" rx="28" class="f-card"/><rect x="20" y="244" width="150" height="72" rx="36" class="f-c" style="stroke:#1E1B3A;stroke-width:5"/><text x="95" y="291" class="lbl-s" text-anchor="middle" style="font-weight:800">nebula</text><path d="M170 280 L205 280" class="ln"/><path d="M193 268 L205 280 L193 292" class="ln"/><rect x="205" y="244" width="230" height="72" rx="36" class="f-c" style="stroke:#1E1B3A;stroke-width:5"/><text x="320" y="291" class="lbl-s" text-anchor="middle" style="font-weight:800">main sequence</text><path d="M435 280 L470 280 L470 130 L500 130" class="ln"/><path d="M435 280 L470 280 L470 430 L500 430" class="ln"/><rect x="490" y="22" width="330" height="56" rx="28" class="pill"/><text x="655" y="59" class="lbl-s" text-anchor="middle">about the mass of the Sun</text><rect x="440" y="482" width="430" height="56" rx="28" class="pill"/><text x="655" y="519" class="lbl-s" text-anchor="middle">much more massive than the Sun</text><rect x="500" y="94" width="170" height="72" rx="36" class="f-peach" style="stroke:#1E1B3A;stroke-width:5"/><text x="585" y="141" class="lbl-s" text-anchor="middle" style="font-weight:800">red giant</text><path d="M670 130 L705 130" class="ln"/><path d="M693 118 L705 130 L693 142" class="ln"/><rect x="705" y="94" width="185" height="72" rx="36" class="f-sky" style="stroke:#1E1B3A;stroke-width:5"/><text x="797" y="141" class="lbl-s" text-anchor="middle" style="font-weight:800">white dwarf</text><path d="M797 166 L797 200" class="ln"/><path d="M785 188 L797 200 L809 188" class="ln"/><rect x="705" y="200" width="185" height="72" rx="36" class="f-lilac" style="stroke:#1E1B3A;stroke-width:5"/><text x="797" y="247" class="lbl-s" text-anchor="middle" style="font-weight:800">black dwarf</text><rect x="500" y="394" width="215" height="72" rx="36" class="f-pink" style="stroke:#1E1B3A;stroke-width:5"/><text x="607" y="441" class="lbl-s" text-anchor="middle" style="font-weight:800">red supergiant</text><path d="M715 430 L745 430" class="ln"/><path d="M733 418 L745 430 L733 442" class="ln"/><rect x="745" y="394" width="145" height="72" rx="36" class="f-red" style="stroke:#1E1B3A;stroke-width:5"/><text x="817" y="441" class="lbl-s" text-anchor="middle" style="font-weight:800">supernova</text><path d="M817 466 L817 490" class="ln" style="stroke-width:0"/></svg></div>
+      <div class="stack">
+        <div class="card tint"><h3>Every star</h3><p>starts as a nebula and joins the main sequence.</p></div>
+        <div class="card yellow"><h3>Then it splits</h3><p>What happens next depends on the star's <strong>mass</strong>.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.9</b> describe the evolution of stars of similar mass to the Sun through the following stages: nebula; star…</div>
+</section>
+
+<section>
+  <span class="kicker">Birth</span>
+  <h2>From nebula to <em>star</em></h2>
+  <div class="body">
+    <div class="wide-left" style="grid-template-columns:1.6fr 1fr">
+<div class="fig"><svg viewBox="0 0 900 540" aria-label="A nebula becomes a star"><rect x="0" y="0" width="900" height="540" rx="28" class="f-card"/>
+<ellipse cx="150" cy="280" rx="115" ry="150" class="f-lilac" style="stroke:#8B7BFF;stroke-width:6" stroke-dasharray="10 12"/>
+<path d="M285 280 L345 280" class="ln"/><path d="M333 268 L345 280 L333 292" class="ln"/>
+<ellipse cx="450" cy="280" rx="85" ry="105" class="f-lilac" style="stroke:#8B7BFF;stroke-width:6"/>
+<path d="M550 280 L610 280" class="ln"/><path d="M598 268 L610 280 L598 292" class="ln"/>
+<circle cx="745" cy="280" r="80" class="f-yellow" style="stroke:#FFC94D;stroke-width:8"/>
+<path d="M745 170 L745 140 M745 390 L745 420 M635 280 L605 280 M855 280 L885 280" class="ln s-yellow" style="stroke-width:0"/>
+<rect x="25" y="452" width="250" height="56" rx="28" class="pill"/><text x="150" y="489" class="lbl-s" text-anchor="middle">nebula: dust + gas</text><rect x="315" y="452" width="270" height="56" rx="28" class="pill"/><text x="450" y="489" class="lbl-s" text-anchor="middle">gravity pulls it in</text><rect x="610" y="452" width="270" height="56" rx="28" class="pill"/><text x="745" y="489" class="lbl-s" text-anchor="middle">fusion starts: star</text><rect x="260" y="32" width="380" height="56" rx="28" class="pill"/><text x="450" y="69" class="lbl-s" text-anchor="middle">temperature + pressure rise</text></svg></div>
+      <div class="stack">
+        <div class="def"><span class="term">Key term · nebula</span><p>A cloud of dust and gas, pulled together by gravity over a long time.</p></div>
+        <ul class="dots"><li>Nuclear <strong>fusion of hydrogen</strong> starts: a young star.</li><li>Leftover material may form <strong>planets, moons and comets</strong>.</li></ul>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.8</b> know that a star’s colour is related to its surface temperature</div>
+</section>
+
+<section>
+  <span class="kicker">Main sequence</span>
+  <h2>A balance of <em>forces</em></h2>
+  <div class="body">
+    <div class="wide-left">
+<div class="fig"><svg viewBox="0 0 900 560" aria-label="Balanced forces in a main sequence star"><rect x="0" y="0" width="900" height="560" rx="28" class="f-card"/><circle cx="450" cy="280" r="120" class="f-yellow" style="stroke:#FFC94D;stroke-width:8"/><text x="450" y="290" class="lbl-c" text-anchor="middle">star</text><path d="M750.0 280.0 L620.0 280.0" class="ln" style="stroke:#3B5BDB;stroke-width:10"/><path d="M642 262 L620.0 280.0 L642 298" class="ln" style="stroke:#3B5BDB;stroke-width:10"/><path d="M150.0 280.00000000000006 L280.0 280.0" class="ln" style="stroke:#3B5BDB;stroke-width:10"/><path d="M258 298 L280.0 280.0 L258 262" class="ln" style="stroke:#3B5BDB;stroke-width:10"/><path d="M517.175144212722 347.175144212722 L594.9568901432423 424.9568901432422" class="ln" style="stroke:#F0525A;stroke-width:10"/><path d="M567 422 L594.9568901432423 424.9568901432422 L592 397" class="ln" style="stroke:#F0525A;stroke-width:10"/><path d="M382.824855787278 347.175144212722 L305.0431098567578 424.9568901432423" class="ln" style="stroke:#F0525A;stroke-width:10"/><path d="M308 397 L305.0431098567578 424.9568901432423 L333 422" class="ln" style="stroke:#F0525A;stroke-width:10"/><path d="M517.175144212722 212.824855787278 L594.9568901432423 135.04310985675778" class="ln" style="stroke:#F0525A;stroke-width:10"/><path d="M592 163 L594.9568901432423 135.04310985675778 L567 138" class="ln" style="stroke:#F0525A;stroke-width:10"/><path d="M382.824855787278 212.82485578727798 L305.0431098567578 135.04310985675775" class="ln" style="stroke:#F0525A;stroke-width:10"/><path d="M333 138 L305.0431098567578 135.04310985675775 L308 163" class="ln" style="stroke:#F0525A;stroke-width:10"/><rect x="-5" y="62" width="230" height="56" rx="28" class="pill"/><text x="110" y="99" class="lbl-s" text-anchor="middle">gravity pulls in</text><rect x="675" y="62" width="230" height="56" rx="28" class="pill"/><text x="790" y="99" class="lbl-s" text-anchor="middle">gravity pulls in</text><rect x="285" y="492" width="330" height="56" rx="28" class="pill"/><text x="450" y="529" class="lbl-s" text-anchor="middle">gas pressure pushes out</text></svg></div>
+      <div class="stack">
+        <div class="def"><span class="term">Main sequence</span><p>Gravity pulling in is balanced by the outward pressure from the hot gas.</p></div>
+        <ul class="dots"><li>The hot gas is heated by <strong>fusion energy</strong>.</li><li>A stable stage that lasts <strong>millions or billions of years</strong>.</li></ul>
+        <div class="card mint"><h3>The Sun is here now</h3></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.9</b> describe the evolution of stars of similar mass to the Sun through the following stages: nebula; star…</div>
+</section>
+
+<section>
+  <span class="kicker">Stars like the Sun</span>
+  <h2>The <em>red giant</em> stage</h2>
+  <div class="body">
+    <div class="wide-left">
+<div class="fig"><svg viewBox="0 0 900 540" aria-label=""><rect x="0" y="0" width="900" height="540" rx="28" class="f-card"/>
+<circle cx="150" cy="280" r="70" class="f-yellow" style="stroke:#FFC94D;stroke-width:8"/>
+<path d="M260 280 L350 280" class="ln"/><path d="M338 268 L350 280 L338 292" class="ln"/>
+<circle cx="640" cy="280" r="215" class="f-red" style="stroke:#F0525A;stroke-width:8"/>
+<rect x="80" y="372" width="140" height="56" rx="28" class="pill"/><text x="150" y="409" class="lbl-s" text-anchor="middle">Sun now</text><rect x="540" y="252" width="200" height="56" rx="28" class="pill"/><text x="640" y="289" class="lbl" text-anchor="middle">red giant</text></svg></div>
+      <ol class="nums">
+        <li>The <strong>hydrogen runs out</strong> in the core and fusion stops.</li>
+        <li><strong>Gravity compresses</strong> the star.</li>
+        <li>It <strong>heats up</strong> and <strong>helium fusion</strong> starts.</li>
+        <li>It <strong>expands hugely</strong> and cools a little: a red giant.</li>
+      </ol>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.9</b> describe the evolution of stars of similar mass to the Sun through the following stages: nebula; star…</div>
+</section>
+
+<section>
+  <span class="kicker">Stars like the Sun</span>
+  <h2>White dwarf, then <em>black dwarf</em></h2>
+  <div class="body">
+    <div class="wide-left" style="grid-template-columns:1.5fr 1fr">
+<div class="fig"><svg viewBox="0 0 900 520" aria-label="Red giant to white dwarf to black dwarf"><rect x="0" y="0" width="900" height="520" rx="28" class="f-card"/>
+<circle cx="130" cy="260" r="110" class="f-red" style="stroke:#F0525A;stroke-width:8"/>
+<path d="M255 260 L330 260" class="ln"/><path d="M318 248 L330 260 L318 272" class="ln"/>
+<circle cx="450" cy="260" r="36" class="f-sky" style="stroke:#4DA3FF;stroke-width:8"/>
+<path d="M525 260 L600 260" class="ln"/><path d="M588 248 L600 260 L588 272" class="ln"/>
+<circle cx="740" cy="260" r="36" class="f-lilac" style="stroke:#1E1B3A;stroke-width:8"/>
+<rect x="45" y="402" width="170" height="56" rx="28" class="pill"/><text x="130" y="439" class="lbl-s" text-anchor="middle">red giant</text><rect x="355" y="332" width="190" height="56" rx="28" class="pill"/><text x="450" y="369" class="lbl-s" text-anchor="middle">white dwarf</text><rect x="645" y="332" width="190" height="56" rx="28" class="pill"/><text x="740" y="369" class="lbl-s" text-anchor="middle">black dwarf</text></svg></div>
+      <div class="stack">
+        <div class="card sky"><h3>White dwarf</h3><p>When the helium is used up, the star contracts and heats up. White/blue and <strong>extremely dense</strong>.</p></div>
+        <div class="card lilac"><h3>Black dwarf</h3><p>The white dwarf slowly <strong>cools</strong> until it stops glowing.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.9</b> describe the evolution of stars of similar mass to the Sun through the following stages: nebula; star…</div>
+</section>
+
+<section>
+  <span class="kicker">Much more massive stars</span>
+  <h2>Supergiant and <em>supernova</em></h2>
+  <div class="body">
+    <div class="flow"><div>Main sequence<small>much more massive</small></div><span>›</span><div>Red supergiant<small>huge and cool</small></div><span>›</span><div>Supernova<small>explosion</small></div><span>›</span><div>New nebula<small>dust and gas</small></div></div>
+    <div class="big cols-2">
+      <div class="card pink"><h3>Red supergiant</h3><p>After the main sequence, a star much more massive than the Sun becomes a <strong>red supergiant</strong>.</p></div>
+      <div class="card peach"><h3>Supernova</h3><p>It contracts, becomes <strong>unstable</strong> and <strong>explodes</strong>. Dust and gas are thrown into space and can form a new nebula.</p></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.9</b> describe the evolution of stars of similar mass to the Sun through the following stages: nebula; star…</div>
+</section>
+
+<section>
+  <span class="kicker">After a supernova</span>
+  <h2>Neutron star or <em>black hole</em></h2>
+  <div class="body">
+    <div class="wide-left" style="grid-template-columns:1.4fr 1fr">
+<div class="fig"><svg viewBox="0 0 900 560" aria-label="What the core becomes"><rect x="0" y="0" width="900" height="560" rx="28" class="f-card"/>
+<circle cx="450" cy="70" r="46" class="f-red" style="stroke:#F0525A;stroke-width:6"/><text x="450" y="80" class="lbl-s" text-anchor="middle">core</text>
+<path d="M450 120 L450 180" class="ln"/>
+<rect x="250" y="180" width="400" height="90" rx="45" class="f-yellow" style="stroke:#1E1B3A;stroke-width:5"/><text x="450" y="218" class="lbl-s" text-anchor="middle" style="font-weight:800">remaining mass</text><text x="450" y="250" class="lbl-s" text-anchor="middle" style="font-weight:800">about 3 × Sun or more?</text>
+<path d="M300 270 L200 340 L200 370" class="ln"/><path d="M600 270 L700 340 L700 370" class="ln"/>
+<rect x="170" y="292" width="80" height="56" rx="28" class="pill"/><text x="210" y="329" class="lbl-s" text-anchor="middle">no</text><rect x="645" y="292" width="90" height="56" rx="28" class="pill"/><text x="690" y="329" class="lbl-s" text-anchor="middle">yes</text><circle cx="200" cy="445" r="52" class="f-sky" style="stroke:#4DA3FF;stroke-width:8"/><circle cx="700" cy="445" r="52" fill="#1E1B3A"/><circle cx="700" cy="445" r="52" fill="none" stroke="#8B7BFF" stroke-width="8"/><rect x="95" y="497" width="210" height="56" rx="28" class="pill"/><text x="200" y="534" class="lbl-s" text-anchor="middle">neutron star</text><rect x="605" y="497" width="190" height="56" rx="28" class="pill"/><text x="700" y="534" class="lbl-s" text-anchor="middle">black hole</text></svg></div>
+      <div class="stack">
+        <div class="card sky"><h3>Neutron star</h3><p>The core left behind becomes a very <strong>dense</strong> neutron star.</p></div>
+        <div class="card lilac"><h3>Black hole</h3><p>If the remaining mass is about <strong>3 times the Sun's or more</strong>, it collapses into a black hole. Not even light can escape.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="kicker">Extension</span>
+  <h2>Stars make the <em>elements</em></h2>
+  <div class="body">
+    <div class="big cols-2">
+      <div class="card mint"><h3>Fusion in stars</h3><p>Makes elements <strong>up to iron</strong>.</p></div>
+      <div class="card pink"><h3>Supernovae</h3><p>The only place that makes elements <strong>heavier than iron</strong>.</p></div>
+    </div>
+    <div class="def"><span class="term">Key fact · supernova</span><p>The largest explosion in space, caused by the core of a massive star collapsing under gravity.</p></div>
+  </div>
+<div class="spec-tag"><b>Spec 8.10</b> describe the evolution of stars with a mass larger than the Sun</div>
+</section>
+
+<section class="divider">
+  <div class="num">5</div>
+  <h2>The <em>Hertzsprung–Russell</em> diagram</h2>
+  <p class="lead">Plotting stars by luminosity and temperature.</p><span class="tag only">Physics only</span>
+</section>
+
+<section>
+  <span class="kicker">HR diagram <span class="tag only">Physics only</span></span>
+  <h2>The <em>HR diagram</em></h2>
+  <div class="body">
+    <div class="wide-left">
+<div class="fig"><svg viewBox="0 0 900 560" aria-label="HR diagram"><rect x="0" y="0" width="900" height="560" rx="28" class="f-card"/><line x1="110" y1="450" x2="860" y2="450" class="ln"/><line x1="110" y1="450" x2="110" y2="30" class="ln"/><path d="M846 438 L862 450 L846 462" class="ln"/><path d="M98 46 L110 28 L122 46" class="ln"/><path d="M190 100 L700 400" class="ln s-lilac" style="stroke-width:56;opacity:.45"/><ellipse cx="640" cy="170" rx="85" ry="42" class="f-peach" style="stroke:#FF9F6B;stroke-width:5"/><ellipse cx="560" cy="82" rx="210" ry="26" class="f-pink" style="stroke:#FF8FB1;stroke-width:5"/><ellipse cx="270" cy="395" rx="95" ry="32" class="f-sky" style="stroke:#4DA3FF;stroke-width:5"/><text x="190" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">O</text><text x="275" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">B</text><text x="360" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">A</text><text x="445" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">F</text><text x="530" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">G</text><text x="615" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">K</text><text x="700" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">M</text><text x="486" y="540" class="lbl" text-anchor="middle">surface temperature / star class</text><text x="40" y="240" class="lbl" text-anchor="middle" transform="rotate(-90 40 240)">luminosity (brighter ↑)</text><circle cx="530" cy="268" r="13" class="f-yellow" style="stroke:#1E1B3A;stroke-width:5"/><rect x="150" y="187" width="210" height="56" rx="28" class="pill"/><text x="255" y="224" class="lbl-s" text-anchor="middle">main sequence</text><rect x="470" y="54" width="180" height="56" rx="28" class="pill"/><text x="560" y="91" class="lbl-s" text-anchor="middle">supergiants</text><rect x="585" y="142" width="110" height="56" rx="28" class="pill"/><text x="640" y="179" class="lbl-s" text-anchor="middle">giants</text><rect x="175" y="367" width="190" height="56" rx="28" class="pill"/><text x="270" y="404" class="lbl-s" text-anchor="middle">white dwarfs</text><rect x="555" y="234" width="80" height="56" rx="28" class="pill"/><text x="595" y="271" class="lbl-s" text-anchor="middle">Sun</text></svg></div>
+      <div class="stack">
+        <div class="def"><span class="term">Key term · HR diagram</span><p>A graph of luminosity (or absolute magnitude) against surface temperature (or star class).</p></div>
+        <div class="warn"><b>Learn the shape</b>You may need to draw it.</div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.9</b> describe the evolution of stars of similar mass to the Sun through the following stages: nebula; star…</div>
+</section>
+
+<section>
+  <span class="kicker">HR diagram <span class="tag only">Physics only</span></span>
+  <h2>Key <em>features</em></h2>
+  <div class="body">
+    <div class="wide-right" style="grid-template-columns:1fr 1.2fr">
+      <div class="stack" style="gap:16px">
+        <div class="card tint" style="padding:26px 36px"><h3>Axes</h3><p>Luminosity up the side (up = brighter). Temperature or class along the bottom.</p></div>
+        <div class="card yellow" style="padding:26px 36px"><h3>Backwards axis</h3><p>Hot (O, blue) on the <strong>left</strong>, cool (M, red) on the right.</p></div>
+        <div class="card mint" style="padding:26px 36px"><h3>Main sequence</h3><p>Diagonal band: most stars, fusing hydrogen.</p></div>
+      </div>
+      <div class="fig"><svg viewBox="0 0 900 560" aria-label="HR diagram"><rect x="0" y="0" width="900" height="560" rx="28" class="f-card"/><line x1="110" y1="450" x2="860" y2="450" class="ln"/><line x1="110" y1="450" x2="110" y2="30" class="ln"/><path d="M846 438 L862 450 L846 462" class="ln"/><path d="M98 46 L110 28 L122 46" class="ln"/><path d="M190 100 L700 400" class="ln s-lilac" style="stroke-width:56;opacity:.45"/><ellipse cx="640" cy="170" rx="85" ry="42" class="f-peach" style="stroke:#FF9F6B;stroke-width:5"/><ellipse cx="560" cy="82" rx="210" ry="26" class="f-pink" style="stroke:#FF8FB1;stroke-width:5"/><ellipse cx="270" cy="395" rx="95" ry="32" class="f-sky" style="stroke:#4DA3FF;stroke-width:5"/><text x="190" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">O</text><text x="275" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">B</text><text x="360" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">A</text><text x="445" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">F</text><text x="530" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">G</text><text x="615" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">K</text><text x="700" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">M</text><text x="486" y="540" class="lbl" text-anchor="middle">surface temperature / star class</text><text x="40" y="240" class="lbl" text-anchor="middle" transform="rotate(-90 40 240)">luminosity (brighter ↑)</text><circle cx="530" cy="268" r="13" class="f-yellow" style="stroke:#1E1B3A;stroke-width:5"/><rect x="150" y="187" width="210" height="56" rx="28" class="pill"/><text x="255" y="224" class="lbl-s" text-anchor="middle">main sequence</text><rect x="470" y="54" width="180" height="56" rx="28" class="pill"/><text x="560" y="91" class="lbl-s" text-anchor="middle">supergiants</text><rect x="585" y="142" width="110" height="56" rx="28" class="pill"/><text x="640" y="179" class="lbl-s" text-anchor="middle">giants</text><rect x="175" y="367" width="190" height="56" rx="28" class="pill"/><text x="270" y="404" class="lbl-s" text-anchor="middle">white dwarfs</text><rect x="555" y="234" width="80" height="56" rx="28" class="pill"/><text x="595" y="271" class="lbl-s" text-anchor="middle">Sun</text></svg></div>
+    </div>
+    <div class="cols-2" style="flex:none"><div class="card peach" style="padding:20px 36px"><p><strong>Giants and supergiants:</strong> top-right. Cool but very bright, because they are huge.</p></div><div class="card sky" style="padding:20px 36px"><p><strong>White dwarfs:</strong> bottom-left. Hot but dim, because they are tiny.</p></div></div>
+  </div>
+<div class="spec-tag"><b>Spec 8.9</b> describe the evolution of stars of similar mass to the Sun through the following stages: nebula; star…</div>
+</section>
+
+<section>
+  <span class="kicker">HR diagram <span class="tag only">Physics only</span></span>
+  <h2>Using the <em>HR diagram</em></h2>
+  <div class="body">
+    <div class="wide-left">
+<div class="fig"><svg viewBox="0 0 900 560" aria-label="HR diagram"><rect x="0" y="0" width="900" height="560" rx="28" class="f-card"/><line x1="110" y1="450" x2="860" y2="450" class="ln"/><line x1="110" y1="450" x2="110" y2="30" class="ln"/><path d="M846 438 L862 450 L846 462" class="ln"/><path d="M98 46 L110 28 L122 46" class="ln"/><path d="M190 100 L700 400" class="ln s-lilac" style="stroke-width:56;opacity:.45"/><ellipse cx="640" cy="170" rx="85" ry="42" class="f-peach" style="stroke:#FF9F6B;stroke-width:5"/><ellipse cx="560" cy="82" rx="210" ry="26" class="f-pink" style="stroke:#FF8FB1;stroke-width:5"/><ellipse cx="270" cy="395" rx="95" ry="32" class="f-sky" style="stroke:#4DA3FF;stroke-width:5"/><text x="190" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">O</text><text x="275" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">B</text><text x="360" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">A</text><text x="445" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">F</text><text x="530" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">G</text><text x="615" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">K</text><text x="700" y="492" class="lbl-s" text-anchor="middle" style="font-weight:900">M</text><text x="486" y="540" class="lbl" text-anchor="middle">surface temperature / star class</text><text x="40" y="240" class="lbl" text-anchor="middle" transform="rotate(-90 40 240)">luminosity (brighter ↑)</text><circle cx="450" cy="226" r="13" class="f-mint" style="stroke:#1E1B3A;stroke-width:5"/><rect x="280" y="177" width="110" height="56" rx="28" class="pill"/><text x="335" y="214" class="lbl-s" text-anchor="middle">Sirius</text><circle cx="470" cy="82" r="13" class="f-red" style="stroke:#1E1B3A;stroke-width:5"/><circle cx="640" cy="170" r="13" class="f-yellow" style="stroke:#1E1B3A;stroke-width:5"/><circle cx="250" cy="395" r="13" class="f-c" style="stroke:#1E1B3A;stroke-width:5"/><rect x="420" y="8" width="100" height="56" rx="28" class="pill"/><text x="470" y="45" class="lbl-s" text-anchor="middle">Rigel</text><rect x="630" y="207" width="140" height="56" rx="28" class="pill"/><text x="700" y="244" class="lbl-s" text-anchor="middle">Canopus</text><rect x="180" y="302" width="140" height="56" rx="28" class="pill"/><text x="250" y="339" class="lbl-s" text-anchor="middle">Sirius B</text></svg></div>
+      <div class="stack" style="gap:16px">
+        <div class="card mint" style="padding:22px 34px"><h3>Sirius: main sequence</h3><p>Fuses hydrogen, like the Sun. Will become a red giant.</p></div>
+        <div class="card pink" style="padding:22px 34px"><h3>Rigel: supergiant</h3><p>Mainly helium fusion. Will become a neutron star or black hole.</p></div>
+        <div class="card peach" style="padding:22px 34px"><h3>Canopus: (super)giant</h3><p>Helium fusion in its core.</p></div>
+        <div class="card sky" style="padding:22px 34px"><h3>Sirius B: white dwarf</h3><p>Next it cools to a black dwarf.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.9</b> describe the evolution of stars of similar mass to the Sun through the following stages: nebula; star…</div>
+</section>
+
+<section>
+  <span class="kicker">Exam toolkit</span>
+  <h2>Common <em>mistakes</em></h2>
+  <div class="body">
+    <div class="cols-2">
+      <div class="stack">
+        <div class="warn"><b>Colour</b>Red stars are hottest. No: <strong>blue is hottest</strong>, red is coolest.</div>
+        <div class="warn"><b>HR diagram</b>Drawing the temperature axis the normal way. Hot goes on the <strong>left</strong>.</div>
+        <div class="warn"><b>The Sun</b>It will not be a supernova. It becomes a <strong>red giant, then a white dwarf</strong>.</div>
+      </div>
+      <div class="stack">
+        <div class="warn"><b>Magnitude</b>Apparent = as seen from Earth. Absolute = at <strong>10 parsecs</strong>.</div>
+        <div class="warn"><b>Main sequence</b>Say that <strong>gravity in is balanced by gas pressure out</strong>.</div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 8.9</b> describe the evolution of stars of similar mass to the Sun through the following stages: nebula; star…</div>
+</section>
+
+<section>
+  <span class="kicker">Quick check</span>
+  <h2>Test <em>yourself</em> · 1</h2>
+  <div class="body">
+    <div class="qc hide">
+      <div class="qq">1. What is a large group of stars held together by gravity called?<span class="a">A galaxy. Ours is the Milky Way.</span></div>
+      <div class="qq">2. A star is 2500 K. Which class is it, and what colour?<span class="a">Class M (2000–3700 K): red.</span></div>
+      <div class="qq">3. Give the order of star classes from hottest to coolest.<span class="a">O B A F G K M</span></div>
+      <div class="qq">4. What is the difference between apparent and absolute magnitude?<span class="a">Apparent: how bright from Earth. Absolute: how bright at 10 parsecs.</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="kicker">Quick check</span>
+  <h2>Test <em>yourself</em> · 2</h2>
+  <div class="body">
+    <div class="qc hide">
+      <div class="qq">1. Describe the life cycle of a star like the Sun.<span class="a">Nebula, main sequence, red giant, white dwarf, black dwarf.</span></div>
+      <div class="qq">2. What is balanced in a main sequence star?<span class="a">Gravity pulling in and gas pressure pushing out.</span></div>
+      <div class="qq">3. What happens to a star much more massive than the Sun?<span class="a">Red supergiant, supernova, then a neutron star or black hole.</span></div>
+      <div class="qq">4. Where are white dwarfs on the HR diagram?<span class="a">Bottom-left: hot but dim.</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="kicker">Recap</span>
+  <h2>Chapter 27 in a <em>nutshell</em></h2>
+  <div class="body">
+    <div class="checks">
+      <div>Universe: billions of galaxies, each with billions of stars</div><div>Colour shows temperature: blue hot, red cool</div>
+      <div>Classes O B A F G K M, hottest to coolest</div><div>Absolute magnitude: brightness at 10 parsecs</div>
+      <div>Sun-like: nebula, main sequence, red giant, white dwarf, black dwarf</div><div>Massive: red supergiant, supernova, neutron star or black hole</div>
+      <div>Main sequence: gravity balanced by gas pressure</div><div>HR diagram: hot on the left, main sequence diagonal</div>
+    </div>
+  </div>
+</section>
+
+</div></div>
+<script src="../../assets/deck.js"></script>
+</body>
+</html>

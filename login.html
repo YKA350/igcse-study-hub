@@ -1,0 +1,63 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sign in · IGCSE Study Hub</title><link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgcng9IjI0IiBmaWxsPSIjZTA0NTdiIi8+PHBhdGggZD0iTTUwIDE4Yy0xMyAwLTIyIDktMjIgMjEgMCA4IDQgMTMgOCAxOCAyIDMgMyA1IDMgOWgyMmMwLTQgMS02IDMtOSA0LTUgOC0xMCA4LTE4IDAtMTItOS0yMS0yMi0yMXoiIGZpbGw9IiNmZmQ4NGQiLz48cmVjdCB4PSI0MCIgeT0iNjgiIHdpZHRoPSIyMCIgaGVpZ2h0PSI1IiByeD0iMi41IiBmaWxsPSIjZmZmIi8+PHJlY3QgeD0iNDMiIHk9Ijc2IiB3aWR0aD0iMTQiIGhlaWdodD0iNSIgcng9IjIuNSIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik00NCA0MGw2IDggNi04IiBmaWxsPSJub25lIiBzdHJva2U9IiNlMDQ1N2IiIHN0cm9rZS13aWR0aD0iMyIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+PC9zdmc+">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#2b2a4a;--paper:#fbf6e6;--line:#bcd3ee;--red:#f0a1a1;--hl:#ffd84d}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:28px 14px;font:700 16px/1.4 "Nunito","Segoe UI",system-ui,sans-serif;color:var(--ink);background:#e8dfc4}
+.sheet{position:relative;width:100%;max-width:470px;background:var(--paper);border-radius:6px 18px 18px 6px;padding:30px 28px 28px 64px;box-shadow:0 2px 0 #d9cfae,0 18px 40px rgba(60,45,10,.28);transform:rotate(-.6deg);
+background-image:repeating-linear-gradient(transparent 0 31px,var(--line) 31px 32px);background-position:0 12px}
+.sheet::before{content:"";position:absolute;left:48px;top:0;bottom:0;width:2px;background:var(--red)}
+.holes{position:absolute;left:12px;top:30px;bottom:30px;display:flex;flex-direction:column;justify-content:space-between}.holes i{width:18px;height:18px;border-radius:50%;background:#e8dfc4;box-shadow:inset 0 2px 3px rgba(60,45,10,.35)}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:6px}.brand svg{width:44px;height:44px;border-radius:12px;transform:rotate(-6deg);box-shadow:2px 3px 0 rgba(43,42,74,.25)}
+.brand b{font:700 32px/1 "Caveat","Comic Sans MS",cursive;color:var(--ink)}.brand b span{background:linear-gradient(transparent 52%,var(--hl) 52% 92%,transparent 92%);padding:0 4px}
+h1{margin:14px 0 0;font:700 40px/1 "Caveat","Comic Sans MS",cursive;color:var(--ink)}p.sub{margin:4px 0 14px;font-weight:700;font-size:15px;color:#5d5a7e}
+.tabs{display:flex;gap:18px;margin-bottom:14px}.tabs button{border:0;background:none;padding:2px 2px 4px;font:700 26px/1 "Caveat","Comic Sans MS",cursive;color:#8a87a6;cursor:pointer}
+.tabs button.on{color:var(--ink);background:linear-gradient(transparent 58%,var(--hl) 58% 92%,transparent 92%)}
+.sso{display:grid;gap:9px}.sso button{display:flex;align-items:center;gap:12px;width:100%;border:2px solid var(--ink);background:#fff;border-radius:10px;padding:10px 14px;font:800 15px inherit;font-family:inherit;color:var(--ink);cursor:pointer;box-shadow:3px 3px 0 rgba(43,42,74,.9);transition:transform .08s,box-shadow .08s}
+.sso button:hover{transform:translate(-1px,-1px);box-shadow:5px 5px 0 rgba(43,42,74,.9)}.sso button:active{transform:translate(2px,2px);box-shadow:1px 1px 0 rgba(43,42,74,.9)}
+.lg{flex:none;width:22px;height:22px}
+.or{margin:14px 0 10px;font:700 22px/1 "Caveat","Comic Sans MS",cursive;color:#7a7798;text-align:center}
+form{display:grid;gap:9px}input{width:100%;border:2px dashed var(--ink);border-radius:8px;padding:12px 13px;font:800 16px inherit;font-family:inherit;color:var(--ink);background:rgba(255,255,255,.85)}input:focus{outline:none;border-style:solid;background:#fff}
+.go{border:2px solid var(--ink);border-radius:10px;padding:13px;background:var(--ink);color:#fff;font:700 24px/1 "Caveat","Comic Sans MS",cursive;cursor:pointer;box-shadow:3px 3px 0 var(--hl),3px 3px 0 2px var(--ink);transition:transform .08s}
+.go:active{transform:translate(2px,2px)}.go:disabled{opacity:.5}
+.msg{min-height:20px;font-size:14px;font-weight:800}.msg.err{color:#c7254e}.msg.ok{color:#0b7a3f}
+.link{background:none;border:0;color:var(--ink);text-decoration:underline wavy #f0a1a1;font:800 14px inherit;font-family:inherit;cursor:pointer;padding:0;justify-self:start}
+.note{margin-top:12px;background:#fff6dd;border:2px solid var(--ink);border-radius:10px;padding:10px 12px;font-size:13px}
+.stick{position:absolute;right:-10px;top:-14px;background:var(--hl);border:2px solid var(--ink);border-radius:6px;padding:4px 12px;font:700 20px/1 "Caveat","Comic Sans MS",cursive;transform:rotate(5deg);box-shadow:2px 3px 0 rgba(43,42,74,.35)}
+.soon{margin:16px 0 0;text-align:center;font:700 24px/1 "Caveat","Comic Sans MS",cursive;color:var(--ink)}.soon{background:linear-gradient(transparent 60%,var(--hl) 60% 92%,transparent 92%);display:table;margin-left:auto;margin-right:auto;padding:0 8px}
+[hidden]{display:none!important}
+@media (max-width:480px){.sheet{padding:26px 18px 24px 52px;transform:none}.sheet::before{left:38px}.holes{left:8px}h1{font-size:34px}}
+</style></head><body>
+<div class="sheet"><div class="holes"><i></i><i></i><i></i><i></i><i></i><i></i></div><div class="stick">study time!</div>
+<div class="brand"><svg viewBox="0 0 100 100" aria-hidden="true"><rect width="100" height="100" rx="24" fill="#e0457b"/><path d="M50 18c-13 0-22 9-22 21 0 8 4 13 8 18 2 3 3 5 3 9h22c0-4 1-6 3-9 4-5 8-10 8-18 0-12-9-21-22-21z" fill="#ffd84d"/><rect x="40" y="68" width="20" height="5" rx="2.5" fill="#fff"/><rect x="43" y="76" width="14" height="5" rx="2.5" fill="#fff"/><path d="M44 40l6 8 6-8" fill="none" stroke="#e0457b" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><b><span>IGCSE</span> Study Hub</b></div>
+<h1 id="h">Welcome back 👋</h1><p class="sub" id="s">Sign in to pick up where you left off.</p>
+<div class="tabs"><button id="tin" class="on" type="button">Sign in</button><button id="tup" type="button">Sign up</button></div>
+<div class="sso">
+<button type="button" data-p="google"><svg class="lg" viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"/><path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"/><path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"/><path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"/></svg><span class="lbl">Continue with Google</span></button>
+</div>
+<div class="or">or use email</div>
+<form id="f"><input id="name" type="text" placeholder="Your name" autocomplete="name" hidden><input id="email" type="email" placeholder="Email" autocomplete="email" required><input id="pw" type="password" placeholder="Password (6+ characters)" autocomplete="current-password" required minlength="6">
+<button class="go" id="go" type="submit">Sign in</button><button class="link" id="fg" type="button">Forgot password?</button><div class="msg" id="m" role="status"></div></form>
+<div class="note" id="off" hidden>Login isn't switched on yet. Add your Firebase settings in <b>assets/auth-config.js</b>. Until then the site is open to everyone.<br><a href="index.html" style="color:#4b32c8;font-weight:900">Continue to the hub →</a></div>
+<p class="soon">🚀 More subjects coming soon!</p>
+</div>
+<script type="module">
+import { firebaseConfig } from "./assets/auth-config.js";
+const $=s=>document.querySelector(s); let up=false,auth=null,A=null;
+const msg=(t,k)=>{const m=$("#m");m.textContent=t||"";m.className="msg "+(k||"")};
+function mode(u){up=u;$("#tin").classList.toggle("on",!u);$("#tup").classList.toggle("on",u);$("#h").textContent=u?"Join the hub ✨":"Welcome back 👋";
+ $("#s").textContent=u?"Sign up free to save your progress.":"Sign in to pick up where you left off.";$("#go").textContent=u?"Create account":"Sign in";
+ $("#name").hidden=!u;$("#fg").hidden=u;$("#pw").autocomplete=u?"new-password":"current-password";
+ document.querySelectorAll(".sso .lbl").forEach(l=>l.textContent=l.textContent.replace(/^(Continue|Sign up|Sign in) with/,"Continue with"));msg("")}
+$("#tin").onclick=()=>mode(false);$("#tup").onclick=()=>mode(true);
+if(!firebaseConfig){$("#off").hidden=false;document.querySelectorAll("button:not(.tabs button), input").forEach(e=>{if(e.type!=="button"||e.dataset.p)e.disabled=true});$("#go").disabled=true}
+else{
+ const V="10.12.2",base=`https://www.gstatic.com/firebasejs/${V}/`;
+ const [{initializeApp},m]=await Promise.all([import(base+"firebase-app.js"),import(base+"firebase-auth.js")]);A=m;auth=m.getAuth(initializeApp(firebaseConfig));
+ m.onAuthStateChanged(auth,u=>{if(u)location.replace("index.html")});
+ const nice=e=>({"auth/invalid-credential":"Wrong email or password.","auth/email-already-in-use":"That email already has an account. Try signing in.","auth/weak-password":"Use at least 6 characters.","auth/invalid-email":"That email doesn't look right.","auth/popup-closed-by-user":"Sign-in window was closed.","auth/account-exists-with-different-credential":"This email is already registered with another sign-in method.","auth/too-many-requests":"Too many tries. Wait a moment and try again."})[e.code]||"Something went wrong ("+(e.code||e.message)+").";
+ document.querySelectorAll(".sso button").forEach(b=>b.onclick=async()=>{msg("");try{const p=b.dataset.p;const pr=p==="google"?new m.GoogleAuthProvider():new m.OAuthProvider(p==="microsoft"?"microsoft.com":"apple.com");if(p==="apple"){pr.addScope("email");pr.addScope("name")}await m.signInWithPopup(auth,pr)}catch(e){msg(nice(e),"err")}});
+ $("#f").onsubmit=async e=>{e.preventDefault();msg("");$("#go").disabled=true;try{const em=$("#email").value.trim(),pw=$("#pw").value;
+  if(up){const c=await m.createUserWithEmailAndPassword(auth,em,pw);const n=$("#name").value.trim();if(n)await m.updateProfile(c.user,{displayName:n})}else await m.signInWithEmailAndPassword(auth,em,pw)}catch(x){msg(nice(x),"err")}$("#go").disabled=false};
+ $("#fg").onclick=async()=>{const em=$("#email").value.trim();if(!em){msg("Type your email above first.","err");return}try{await m.sendPasswordResetEmail(auth,em);msg("Reset link sent. Check your email.","ok")}catch(x){msg(nice(x),"err")}};
+}
+</script></body></html>

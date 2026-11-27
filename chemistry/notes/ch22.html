@@ -1,0 +1,153 @@
+<!doctype html><html lang="en" data-subj="chemistry"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root {
+  --ink: #1E1B3A; --ink2: #4A4668; --muted: #7A7598; --line: #E6E2F5;
+  --bg: #F4F2FF; --card: #FFFFFF; --soft: #F1EFFB;
+  --pink: #FF8FB1; --pink-l: #FFE3EC; --yellow: #FFC94D; --yellow-l: #FFF3D1;
+  --mint: #3CCB9A; --mint-l: #DDF7EE; --sky: #4DA3FF; --sky-l: #DDEEFF;
+  --lilac: #8B7BFF; --lilac-l: #ECE8FF; --peach: #FF9F6B; --peach-l: #FFE8DA;
+  --red: #F0525A; --red-l: #FFE1E3; --green: #1FAF6B; --green-l: #DCF5E8;
+  --c: #6D5DD3; --c-d: #4B3DB8; --c-l: #ECE8FF; --c-ll: #F6F4FF;
+  --r-xl: 48px; --r-lg: 36px; --r-md: 26px; --r-sm: 18px;
+  --sh: 0 4px 10px rgba(40,30,110,.05), 0 18px 44px rgba(40,30,110,.09);
+  --font: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+html[data-subj="biology"]   { --c: #12A06E; --c-d: #0B7A53; --c-l: #D9F4E9; --c-ll: #F0FBF6; --bg: #F1FAF6; }
+html[data-subj="chemistry"] { --c: #0E8FB0; --c-d: #0A6C86; --c-l: #D7F0F7; --c-ll: #EFF9FC; --bg: #F0F8FB; }
+html[data-subj="physics"]   { --c: #3B5BDB; --c-d: #2A43AE; --c-l: #E0E6FF; --c-ll: #F2F4FF; --bg: #F2F4FF; }
+svg { font-family: var(--font); }
+svg .ln { fill: none; stroke: var(--ink); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+svg .ln-c { fill: none; stroke: var(--c); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+svg .thin { fill: none; stroke: var(--ink2); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+svg .dash { fill: none; stroke: var(--muted); stroke-width: 4; stroke-dasharray: 12 12; stroke-linecap: round; }
+svg .f-c { fill: var(--c-l); } svg .f-cc { fill: var(--c); } svg .f-card { fill: #fff; }
+svg .f-pink { fill: var(--pink-l); } svg .f-yellow { fill: var(--yellow-l); } svg .f-mint { fill: var(--mint-l); }
+svg .f-sky { fill: var(--sky-l); } svg .f-lilac { fill: var(--lilac-l); } svg .f-peach { fill: var(--peach-l); } svg .f-red { fill: var(--red-l); }
+svg .s-pink { stroke: var(--pink); } svg .s-yellow { stroke: var(--yellow); } svg .s-mint { stroke: var(--mint); } svg .s-sky { stroke: var(--sky); }
+svg .s-lilac { stroke: var(--lilac); } svg .s-peach { stroke: var(--peach); } svg .s-red { stroke: var(--red); }
+svg .lbl { font: 800 30px var(--font); fill: var(--ink); }
+svg .lbl-s { font: 700 24px var(--font); fill: var(--ink2); }
+svg .lbl-c { font: 900 30px var(--font); fill: var(--c-d); }
+svg .pill { fill: #fff; stroke: var(--line); stroke-width: 3; }
+@page{size:A4;margin:11mm 9mm 13mm 9mm}
+*{box-sizing:border-box}
+html{font-size:var(--fs,8.6px)}
+body{margin:0;font-family:var(--font);color:var(--ink);background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero{display:flex;align-items:center;gap:3.5mm;background:var(--c);color:#fff;border-radius:4mm;padding:3.2mm 5mm;margin-bottom:3mm}
+.hero .n{flex:none;width:11mm;height:11mm;border-radius:50%;background:#fff;color:var(--c-d);font:900 6.2mm/11mm var(--font);text-align:center}
+.hero h1{margin:0;font:900 6.4mm/1.1 var(--font)}.hero p{margin:.5mm 0 0;font:700 3mm var(--font);opacity:.9}
+.cols{column-count:2;column-gap:4mm}
+.blk{break-inside:avoid;margin:0 0 2mm}
+.sec{break-inside:avoid;break-after:avoid;display:flex;align-items:center;gap:2mm;background:var(--c-l);border-radius:2.5mm;padding:1.2mm 2.5mm;margin:2.5mm 0 1.6mm;font:900 3.7mm/1.15 var(--font);color:var(--c-d)}
+.sec b{flex:none;width:5.2mm;height:5.2mm;border-radius:50%;background:var(--c);color:#fff;font:900 3.2mm/5.2mm var(--font);text-align:center}
+.sub{break-after:avoid;margin:1.4mm 0 .8mm;font:900 3.1mm/1.2 var(--font);color:var(--ink);border-left:1mm solid var(--c);padding-left:1.6mm}
+.sub em{font-style:normal;color:var(--c-d)}
+p,li{margin:0;font:600 1.15rem/1.32 var(--font);color:var(--ink2)}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.mist{break-inside:avoid;border-radius:2mm;margin:0 0 1.5mm;padding:1.3mm 2.2mm}
+.def{background:var(--c-ll);border-left:1mm solid var(--c)}.def .term{display:block;font:900 2.3mm var(--font);text-transform:uppercase;letter-spacing:.2mm;color:var(--c-d)}
+.def p{color:var(--ink);font-weight:700}
+.card{background:var(--bg2,#eef)}.card h3{margin:0 0 .3mm;font:900 1.2rem/1.2 var(--font);color:var(--ink)}
+.card.mint{background:var(--mint-l)}.card.sky{background:var(--sky-l)}.card.pink{background:var(--pink-l)}.card.yellow{background:var(--yellow-l)}.card.peach{background:var(--peach-l)}
+.tip{background:var(--yellow-l);border-left:1mm solid var(--yellow)}.tip b{display:inline;font-weight:900;color:var(--ink);margin-right:1mm;text-transform:uppercase;font-size:2.2mm}
+.warn{background:var(--red-l);border-left:1mm solid var(--red)}
+table.t{width:100%;border-collapse:separate;border-spacing:0;margin:0 0 1.8mm;break-inside:avoid;border-radius:2mm;overflow:hidden;font-size:1.08rem}
+table.t th{background:var(--c);color:#fff;font:900 1.08rem var(--font);text-align:left;padding:.9mm 1.8mm}
+table.t td{font:600 1.08rem/1.28 var(--font);padding:.8mm 1.8mm;border-top:.25mm solid var(--line);vertical-align:top;color:var(--ink2)}
+table.t td:first-child{font-weight:900;color:var(--ink)}
+table.t tr:nth-child(even) td{background:var(--c-ll)}
+.worked{background:#fff;border:.3mm solid var(--c-l)}.worked .q{font:800 1.18rem/1.3 var(--font);color:var(--ink);background:var(--c-ll);border-radius:1.6mm;padding:1mm 1.8mm;margin-bottom:.8mm}
+.worked .step{display:flex;gap:1.6mm;font:700 1.1rem/1.3 var(--font);color:var(--ink2)}.worked .step i{font-style:normal;flex:none;min-width:11mm;font:900 2.2mm var(--font);text-transform:uppercase;color:var(--c)}
+.worked .ans{display:inline-block;margin-top:.8mm;font:900 1.2rem var(--font);color:#fff;background:var(--c);padding:.7mm 2.4mm;border-radius:5mm}
+.nums{margin:0 0 1.6mm;padding:0;list-style:none;counter-reset:n;break-inside:avoid}
+.nums>*{counter-increment:n;position:relative;padding-left:5mm;margin-bottom:.7mm;font:600 1.15rem/1.3 var(--font);color:var(--ink2)}
+.nums>*::before{content:counter(n);position:absolute;left:0;top:.1mm;width:3.6mm;height:3.6mm;border-radius:50%;background:var(--c);color:#fff;font:900 2.3mm/3.6mm var(--font);text-align:center}
+.cols-2,.cols-3,.stack,.wide-left,.body{display:block}
+.fig{break-inside:avoid;margin:0 0 1.6mm;background:#fff;border:.3mm solid var(--line);border-radius:2mm;padding:1mm;text-align:center}
+.fig svg{width:100%;height:auto;max-height:46mm;display:block}
+.fig svg text{font-family:var(--font)}
+.nutshell{background:var(--c);color:#fff}.nutshell h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:#fff}.nutshell li{color:#fff;font-weight:700;margin-left:3.6mm}
+.test{background:var(--lilac-l)}.test h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:var(--ink)}.test .qq{font:700 1.12rem/1.3 var(--font);color:var(--ink);margin-bottom:.6mm}.test .a{color:var(--c-d);font-weight:900;margin-left:1.2mm}
+.say{background:var(--mint-l)}.mist{background:var(--red-l)}.say,.mist{break-inside:avoid;border-radius:2mm;padding:1.3mm 2.2mm;margin:0 0 1.5mm}.say h3,.mist h3{margin:0 0 .4mm;font:900 1.2rem var(--font)}
+.chips,.bignum,.checks{display:none}
+
+@page{margin:0}
+html{font-size:15.5px;background:var(--bg)}
+body{max-width:900px;margin:0 auto;padding:18px 16px 60px;background:var(--bg)}
+.cols{column-count:1}
+.hero{padding:5mm 6mm;border-radius:6mm}.hero .n{width:15mm;height:15mm;font-size:9mm;line-height:15mm}.hero h1{font-size:9mm}.hero p{font-size:3.6mm}
+.sec{font-size:5.4mm;padding:2mm 4mm;border-radius:4mm;margin:6mm 0 3mm;position:sticky;top:0;z-index:2}.sec b{width:7.5mm;height:7.5mm;font-size:4.6mm;line-height:7.5mm}
+.sub{font-size:4.6mm;margin:3mm 0 1.6mm}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.say,.mist{padding:2.6mm 4mm;border-radius:3.4mm;margin-bottom:2.6mm}
+.def .term{font-size:3mm}.card h3{font-size:1.3rem}.tip b{font-size:3mm}
+.worked .step i{font-size:3mm;min-width:16mm}.nutshell h4,.test h4{font-size:5mm}
+.nums>*{padding-left:8mm}.nums>*::before{width:5.6mm;height:5.6mm;font-size:3.4mm;line-height:5.6mm}
+table.t{font-size:1.15rem}table.t th,table.t td{font-size:1.15rem;padding:1.6mm 3mm}
+.fig svg{max-height:60mm}
+.test .qq{font-size:1.2rem;margin-bottom:1.4mm}.say h3,.mist h3{font-size:1.3rem}
+p,li{font-size:1.2rem}
+
+.hero p{color:#fff}
+.eq{break-inside:avoid;background:#fff;border:.3mm solid var(--c-l);border-radius:3.4mm;padding:2.6mm 4mm;margin:0 0 2.6mm;text-align:center}
+.eq .words{font:800 1.2rem/1.3 var(--font);color:var(--ink2)}
+.eq .sym{display:inline-block;margin:1.4mm 0;font:900 2rem/1.15 var(--font);color:var(--c-d);background:var(--c-ll);padding:1.6mm 5mm;border-radius:3mm}
+.eq .units{font:700 1rem var(--font);color:var(--muted)}.eq .units span{background:var(--soft);border-radius:5mm;padding:.4mm 2.4mm;margin:0 1mm;display:inline-block}
+.remember{break-inside:avoid;background:var(--mint-l);border-left:1.2mm solid var(--mint);border-radius:3.4mm;padding:2.6mm 4mm;margin-bottom:2.6mm;font:700 1.2rem/1.35 var(--font);color:var(--ink)}
+.warn b,.tip b{margin-right:1.6mm}
+.remember b:first-child{display:block;font-size:3mm;text-transform:uppercase;letter-spacing:.3mm;margin-bottom:.8mm}
+.flow{display:flex;flex-wrap:wrap;gap:2mm;margin:0 0 2.6mm;break-inside:avoid}
+.flow>div{flex:1 1 40mm;background:#fff;border:.3mm solid var(--c-l);border-radius:3mm;padding:2mm 3mm;text-align:center;font:800 1.15rem/1.3 var(--font);color:var(--ink)}
+.flow>div small{display:block;font:600 1rem var(--font);color:var(--muted)}.flow>span{align-self:center;font:900 1.6rem var(--font);color:var(--c)}
+.cols-4{display:block}.wide-right{display:block}
+[style*="font-size:52px"],[style*="font:900 72px"]{font-size:2.2rem !important}
+.card [style]{line-height:1.1}.card .sym{font-size:1.6rem}
+.tag{display:inline-block;font:900 2.6mm var(--font);text-transform:uppercase;background:var(--c);color:#fff;padding:.5mm 2.2mm;border-radius:5mm;margin-bottom:1mm}
+</style><style>.snav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:6px;background:var(--bg);padding:8px 0 10px;margin:0 0 6px}
+.snav button{font:800 14px var(--font);border:2px solid var(--c-l);background:#fff;color:var(--ink);border-radius:20px;padding:6px 12px;cursor:pointer}
+.snav button.on{background:var(--c);border-color:var(--c);color:#fff}
+.part{display:none}.part.on{display:block}.part .sec{position:static!important}
+.pn{display:flex;justify-content:space-between;gap:10px;margin:18px 0 0}.pn button{font:900 15px var(--font);border:0;background:var(--c);color:#fff;border-radius:22px;padding:10px 20px;cursor:pointer}.pn button[disabled]{opacity:.25}</style><style id="stepfix">.worked{counter-reset:st;border:2px solid var(--c-l)!important;padding:12px 16px!important}
+.worked .q{font-size:1.25rem!important;border-left:5px solid var(--c);margin-bottom:10px!important}
+.worked .q::before{content:"Worked example  ";font:900 .8rem var(--font);text-transform:uppercase;letter-spacing:.5px;color:var(--c-d);display:block}
+.worked .step{counter-increment:st;display:grid!important;grid-template-columns:78px 1fr;gap:10px;align-items:baseline;padding:7px 0;border-top:1px dashed var(--c-l);font-size:1.2rem!important}
+.worked .step i{min-width:0!important;font-size:.85rem!important;color:var(--c-d)!important}
+.worked .step i::before{content:"Step " counter(st) "";display:block;font-weight:900;color:var(--c)}
+.worked .ans{display:block!important;margin-top:10px;padding:8px 14px!important;border-radius:10px!important;font-size:1.25rem!important}
+.worked .ans::before{content:"Answer:  "}</style></head><body>
+<div class="hero"><div class="n">22</div><div><h1>Introduction to organic chemistry</h1><p>Chemistry · Unit 4 · Organic chemistry · Last-minute notes · Book pages 255–267</p></div></div>
+<div class="snav"><button type="button">Summary</button><button type="button">22.1 Organic compounds and hydrocarbons</button><button type="button">22.2 Five ways to write a formula</button><button type="button">22.3 Homologous series and functional groups</button><button type="button">22.4 Naming compounds</button><button type="button">22.5 Structural isomers</button><button type="button">22.6 Classifying reactions</button><button type="button">Test yourself</button></div><div class="cols"><div class="part"><div class="nutshell"><h4>Chapter in a nutshell</h4><ul style="margin:0;padding:0"><li>Hydrocarbon: H and C only</li><li>Empirical, molecular, general, structural, displayed</li><li>Homologous series: same functional group, differ by CH₂</li><li>meth eth prop but pent hex</li><li>Isomers: same formula, different structure</li><li>Combustion, substitution, addition</li></ul></div><div class="pn"><button type="button" data-to="-1" disabled>◀ Back</button><button type="button" data-to="1">Next ▶</button></div></div><div class="part"><div class="sec"><b>1</b><span>Organic compounds and <em>hydrocarbons</em></span></div><div class="blk"><div class="sub">What is <em>organic</em> chemistry?</div>
+<div class="stack"><div class="def"><span class="term">Organic chemistry</span><p>the study of carbon compounds, except the simplest: CO₂, CO, carbonates, hydrogencarbonates</p></div><div class="cols-3"><div class="card sky"><h3>Hydrocarbon</h3><p>Hydrogen and carbon only.</p></div><div class="card mint"><h3>Saturated</h3><p>Only C–C single bonds.</p></div><div class="card pink"><h3>Unsaturated</h3><p>Contains C=C (or triple) bonds.</p></div></div></div>
+  </div><div class="blk"><div class="sub">Two <em>hydrocarbons</em></div>
+<div class="wide-left"><div class="fig" style=""><svg viewBox="0 0 700 260" aria-label="ethene displayed formula"><rect x="0" y="0" width="700" height="260" rx="28" class="f-card"/><text x="250" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">C</text><line x1="268" y1="125" x2="342" y2="125" stroke="#2B2750" stroke-width="4"/><line x1="268" y1="135" x2="342" y2="135" stroke="#2B2750" stroke-width="4"/><line x1="232" y1="130" x2="213.0" y2="130" stroke="#2B2750" stroke-width="4"/><text x="195.0" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><line x1="250" y1="112" x2="250" y2="90.0" stroke="#2B2750" stroke-width="4"/><text x="250" y="81" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><text x="360" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">C</text><line x1="378" y1="130" x2="397.0" y2="130" stroke="#2B2750" stroke-width="4"/><text x="415.0" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><line x1="360" y1="112" x2="360" y2="90.0" stroke="#2B2750" stroke-width="4"/><text x="360" y="81" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><text x="350" y="245" class="lbl-s" text-anchor="middle" style="font-size:24px;font-weight:800">ethene C₂H₄</text></svg></div><div class="stack"><div class="card yellow"><h3>Only H and C</h3><p>Nothing else may be present.</p></div><div class="tip"><b>Exam tip</b>Almost all organic compounds contain C and H; a hydrocarbon has nothing else.</div></div></div>
+  </div><div class="pn"><button type="button" data-to="0">◀ Back</button><button type="button" data-to="2">Next ▶</button></div></div><div class="part"><div class="sec"><b>2</b><span>Five ways to write a <em>formula</em></span></div><div class="blk"><div class="sub">Types of <em>formula</em></div>
+<table class="t"><tr><th>Type</th><th>Shows</th><th>Example</th></tr><tr><td>Empirical</td><td>Simplest whole-number ratio</td><td>ethane: CH₃</td></tr><tr><td>Molecular</td><td>Actual atoms</td><td>butane: C₄H₁₀</td></tr><tr><td>General</td><td>Whole homologous series</td><td>alkanes: CₙH₂ₙ₊₂</td></tr><tr><td>Structural</td><td>How atoms are joined</td><td>CH₃CH₂CH₂CH₃</td></tr><tr><td>Displayed</td><td>Every atom and bond</td><td>drawn below</td></tr></table>
+  </div><div class="blk"><div class="sub">Displayed <em>formula</em> of butane</div>
+<div class="wide-left"><div class="fig" style=""><svg viewBox="0 0 900 260" aria-label="butane displayed"><rect x="0" y="0" width="900" height="260" rx="28" class="f-card"/><text x="130" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">C</text><line x1="148" y1="130" x2="242" y2="130" stroke="#2B2750" stroke-width="4"/><line x1="112" y1="130" x2="83.0" y2="130" stroke="#2B2750" stroke-width="4"/><text x="65.0" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><line x1="130" y1="112" x2="130" y2="90.0" stroke="#2B2750" stroke-width="4"/><text x="130" y="81" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><line x1="130" y1="148" x2="130" y2="170.0" stroke="#2B2750" stroke-width="4"/><text x="130" y="197" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><text x="260" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">C</text><line x1="278" y1="130" x2="372" y2="130" stroke="#2B2750" stroke-width="4"/><line x1="260" y1="112" x2="260" y2="90.0" stroke="#2B2750" stroke-width="4"/><text x="260" y="81" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><line x1="260" y1="148" x2="260" y2="170.0" stroke="#2B2750" stroke-width="4"/><text x="260" y="197" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><text x="390" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">C</text><line x1="408" y1="130" x2="502" y2="130" stroke="#2B2750" stroke-width="4"/><line x1="390" y1="112" x2="390" y2="90.0" stroke="#2B2750" stroke-width="4"/><text x="390" y="81" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><line x1="390" y1="148" x2="390" y2="170.0" stroke="#2B2750" stroke-width="4"/><text x="390" y="197" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><text x="520" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">C</text><line x1="538" y1="130" x2="567.0" y2="130" stroke="#2B2750" stroke-width="4"/><text x="585.0" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><line x1="520" y1="112" x2="520" y2="90.0" stroke="#2B2750" stroke-width="4"/><text x="520" y="81" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><line x1="520" y1="148" x2="520" y2="170.0" stroke="#2B2750" stroke-width="4"/><text x="520" y="197" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><text x="450" y="245" class="lbl-s" text-anchor="middle" style="font-size:24px;font-weight:800">butane C₄H₁₀</text></svg></div><div class="stack"><div class="card sky"><h3>Valencies</h3><p>C forms 4 bonds, H 1, O 2, halogen 1.</p></div><div class="card yellow"><h3>Each line</h3><p>Is a shared pair of electrons.</p></div><div class="tip"><b>Exam tip</b>In an exam, draw displayed formulae.</div></div></div>
+  </div><div class="blk"><div class="sub">Formula <em>facts</em></div>
+<div class="cols-2"><div class="card pink"><h3>Empirical</h3><p>A molecular formula is a multiple of it: CH₂ could be C₂H₄, C₃H₆, C₄H₈.</p></div><div class="card sky"><h3>Twisting</h3><p>Bending a chain does not make a new molecule.</p></div></div>    <div class="def"><span class="term">Combustion equation</span><p>2C₄H₁₀ + 13O₂ → 8CO₂ + 10H₂O: molecular formulae are used when structure does not matter</p></div>
+  </div><div class="pn"><button type="button" data-to="1">◀ Back</button><button type="button" data-to="3">Next ▶</button></div></div><div class="part"><div class="sec"><b>3</b><span>Homologous series and <em>functional groups</em></span></div><div class="blk"><div class="sub">Two key <em>ideas</em></div>
+<div class="stack"><div class="def"><span class="term">Homologous series</span><p>compounds with similar chemical properties because they share a functional group; each member differs by –CH₂–</p></div><div class="def"><span class="term">Functional group</span><p>an atom or group of atoms that decides the chemical properties</p></div></div>
+  </div><div class="blk"><div class="sub">Families in <em>this unit</em></div>
+<table class="t"><tr><th>Series</th><th>General formula</th><th>Functional group</th><th>Example</th></tr><tr><td>Alkanes</td><td>CₙH₂ₙ₊₂</td><td>none (C–C, C–H)</td><td>ethane</td></tr><tr><td>Alkenes</td><td>CₙH₂ₙ</td><td>C=C</td><td>ethene</td></tr><tr><td>Alcohols</td><td>CₙH₂ₙ₊₂O</td><td>–OH</td><td>ethanol</td></tr><tr><td>Carboxylic acids</td><td></td><td>–COOH</td><td>ethanoic acid</td></tr><tr><td>Esters</td><td></td><td>–COO–</td><td>ethyl ethanoate</td></tr></table>
+  </div><div class="blk"><div class="sub">Using a <em>general formula</em></div>
+<div class="wide-left"><div class="worked"><div class="q">Dodecane, 12 carbons</div><div class="step"><i>Alkane</i>CₙH₂ₙ₊₂</div><div class="step"><i>n</i>12</div><div class="step"><i>H</i>2 × 12 + 2 = 26</div><div class="ans">C₁₂H₂₆</div></div><div class="stack"><table class="t"><tr><th>Alkanes</th><th>Alkenes</th><th>Alcohols</th></tr><tr><td>CH₄</td><td>–</td><td>CH₄O</td></tr><tr><td>C₂H₆</td><td>C₂H₄</td><td>C₂H₆O</td></tr><tr><td>C₃H₈</td><td>C₃H₆</td><td>C₃H₈O</td></tr><tr><td>C₄H₁₀</td><td>C₄H₈</td><td>C₄H₁₀O</td></tr></table></div></div>
+  </div><div class="pn"><button type="button" data-to="2">◀ Back</button><button type="button" data-to="4">Next ▶</button></div></div><div class="part"><div class="sec"><b>4</b><span>Naming <em>compounds</em></span></div><div class="blk"><div class="sub">Coding the <em>chain length</em></div>
+<table class="t"><tr><th>Code</th><th>meth</th><th>eth</th><th>prop</th><th>but</th><th>pent</th><th>hex</th></tr><tr><td>Carbons</td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td></tr></table>    <div class="tip"><b>Exam tip</b>Pent = 5 like a pentagon; hex = 6 like a hexagon.</div>
+  </div><div class="blk"><div class="sub">Coding the <em>type</em></div>
+<table class="t"><tr><th>Ending</th><th>Family</th><th>Example</th></tr><tr><td>-ane</td><td>alkane: C–C only</td><td>ethane</td></tr><tr><td>-ene</td><td>alkene: C=C</td><td>ethene</td></tr><tr><td>-ol</td><td>alcohol: –OH</td><td>propan-1-ol</td></tr><tr><td>-oic acid</td><td>carboxylic acid</td><td>propanoic acid</td></tr><tr><td>-yl …-oate</td><td>ester</td><td>ethyl ethanoate</td></tr></table>
+  </div><div class="blk"><div class="sub">Numbers in <em>names</em></div>
+<div class="wide-left"><div class="stack"><div class="card yellow"><h3>Rule</h3><p>Number from the end that gives the smaller numbers.</p></div><div class="card sky"><h3>but-1-ene</h3><p>CH₂=CHCH₂CH₃: double bond starts at carbon 1.</p></div><div class="card pink"><h3>but-2-ene</h3><p>CH₃CH=CHCH₃: starts at carbon 2.</p></div></div><div class="fig" style=""><svg viewBox="0 0 700 260" aria-label="but-1-ene displayed"><rect x="0" y="0" width="700" height="260" rx="28" class="f-card"/><text x="130" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">C</text><line x1="148" y1="125" x2="242" y2="125" stroke="#2B2750" stroke-width="4"/><line x1="148" y1="135" x2="242" y2="135" stroke="#2B2750" stroke-width="4"/><line x1="112" y1="130" x2="83.0" y2="130" stroke="#2B2750" stroke-width="4"/><text x="65.0" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><line x1="130" y1="112" x2="130" y2="90.0" stroke="#2B2750" stroke-width="4"/><text x="130" y="81" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><text x="260" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">C</text><line x1="278" y1="130" x2="372" y2="130" stroke="#2B2750" stroke-width="4"/><line x1="260" y1="112" x2="260" y2="90.0" stroke="#2B2750" stroke-width="4"/><text x="260" y="81" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><text x="390" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">C</text><line x1="408" y1="130" x2="502" y2="130" stroke="#2B2750" stroke-width="4"/><line x1="390" y1="112" x2="390" y2="90.0" stroke="#2B2750" stroke-width="4"/><text x="390" y="81" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><line x1="390" y1="148" x2="390" y2="170.0" stroke="#2B2750" stroke-width="4"/><text x="390" y="197" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><text x="520" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">C</text><line x1="538" y1="130" x2="567.0" y2="130" stroke="#2B2750" stroke-width="4"/><text x="585.0" y="139" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><line x1="520" y1="112" x2="520" y2="90.0" stroke="#2B2750" stroke-width="4"/><text x="520" y="81" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><line x1="520" y1="148" x2="520" y2="170.0" stroke="#2B2750" stroke-width="4"/><text x="520" y="197" class="lbl" text-anchor="middle" style="font-size:30px;font-weight:900;fill:#2B2750">H</text><text x="450" y="245" class="lbl-s" text-anchor="middle" style="font-size:24px;font-weight:800">but-1-ene</text></svg></div></div>
+  </div><div class="blk"><div class="sub">Coding <em>branches</em></div>
+<div class="wide-left"><div class="stack"><table class="t"><tr><th>Side chain</th><th>Name</th></tr><tr><td>CH₃–</td><td>methyl</td></tr><tr><td>CH₃CH₂–</td><td>ethyl</td></tr></table><div class="card sky"><h3>Longest chain</h3><p>Base the name on the longest carbon chain.</p></div></div><div class="stack"><div class="card yellow"><h3>2-methylbutane</h3><p>4-carbon chain, methyl on carbon 2.</p></div><div class="card pink"><h3>2,2-dimethylpropane</h3><p>Two methyls (di), both on carbon 2.</p></div><div class="card mint"><h3>2,3-dimethylbut-2-ene</h3><p>C=C from carbon 2; methyls on 2 and 3.</p></div></div></div>
+  </div><div class="pn"><button type="button" data-to="3">◀ Back</button><button type="button" data-to="5">Next ▶</button></div></div><div class="part"><div class="sec"><b>5</b><span>Structural <em>isomers</em></span></div><div class="blk"><div class="sub">What are <em>isomers</em>?</div>
+<div class="stack"><div class="def"><span class="term">Structural isomers</span><p>same molecular formula, different structural formulae; you cannot convert one to another by bending</p></div><div class="cols-2"><div class="card yellow"><h3>Not isotopes</h3><p>Isotopes: same atomic number, different mass number.</p></div><div class="card sky"><h3>Tip</h3><p>Draw the longest chain horizontally to avoid counting an isomer twice.</p></div></div></div>
+  </div><div class="blk"><div class="sub">Isomers of <em>C₅H₁₂</em></div>
+<div class="cols-3"><div class="card sky"><h3>Pentane</h3><p>CH₃CH₂CH₂CH₂CH₃</p></div><div class="card pink"><h3>2-methylbutane</h3><p>CH₃CH(CH₃)CH₂CH₃</p></div><div class="card yellow"><h3>2,2-dimethylpropane</h3><p>(CH₃)₄C</p></div></div>    <div class="tip"><b>Exam tip</b>There is no fourth: that is 2-methylbutane turned round.</div>
+  </div><div class="blk"><div class="sub">Isomers of <em>C₄H₈</em> and others</div>
+<div class="cols-3"><div class="card sky"><h3>But-1-ene</h3><p>Double bond on carbon 1.</p></div><div class="card pink"><h3>But-2-ene</h3><p>Double bond on carbon 2.</p></div><div class="card yellow"><h3>2-methylpropene</h3><p>Branched chain.</p></div></div><div class="cols-2"><div class="card mint"><h3>C₄H₁₀</h3><p>Butane and 2-methylpropane.</p></div><div class="card peach"><h3>Propanol</h3><p>Propan-1-ol and propan-2-ol: OH on end or middle carbon.</p></div></div>
+  </div><div class="pn"><button type="button" data-to="4">◀ Back</button><button type="button" data-to="6">Next ▶</button></div></div><div class="part"><div class="sec"><b>6</b><span>Classifying <em>reactions</em></span></div><div class="blk"><div class="sub">Three <em>reaction types</em></div>
+<table class="t"><tr><th>Type</th><th>What happens</th><th>Example</th></tr><tr><td>Combustion</td><td>Reacts with oxygen; excess gives CO₂ + H₂O</td><td>C₃H₈ + 5O₂ → 3CO₂ + 4H₂O</td></tr><tr><td>Substitution</td><td>Atom replaced by another</td><td>CH₃CH₃ + Br₂ → CH₃CH₂Br + HBr</td></tr><tr><td>Addition</td><td>Something added; nothing lost</td><td>CH₂=CH₂ + Br₂ → CH₂BrCH₂Br</td></tr></table>    <div class="tip"><b>Exam tip</b>Substitution has two products; addition has one.</div>
+  </div><div class="blk"><div class="sub">More <em>combustion</em></div>
+<div class="cols-2"><div class="card yellow"><h3>Butene</h3><p>C₄H₈ + 6O₂ → 4CO₂ + 4H₂O</p></div><div class="card sky"><h3>Ethanol</h3><p>C₂H₅OH + 3O₂ → 2CO₂ + 3H₂O. Count the O in the alcohol when balancing.</p></div></div>
+  </div><div class="pn"><button type="button" data-to="5">◀ Back</button><button type="button" data-to="7">Next ▶</button></div></div><div class="part"><div class="say"><h3>✓ Say this</h3><p>Every carbon has four bonds. Hydrocarbon: H and C only. Longest chain gives the name. Combustion in excess oxygen: CO₂ and water.</p></div><div class="mist"><h3>✗ Avoid this</h3><p>Isomers vs isotopes; five bonds on carbon; addition with two products.</p></div><div class="test"><h4>Test yourself</h4><div class="qq">1. What is a hydrocarbon?<span class="a">H and C only</span></div><div class="qq">2. Name for 4 carbons?<span class="a">But-</span></div><div class="qq">3. Same formula, different structure?<span class="a">Structural isomers</span></div></div><div class="pn"><button type="button" data-to="6">◀ Back</button><button type="button" data-to="8" disabled>Next ▶</button></div></div></div><script>(function(){var P=[].slice.call(document.querySelectorAll('.part')),B=[].slice.call(document.querySelectorAll('.snav button'));
+function go(i){P.forEach(function(p,k){p.classList.toggle('on',k==i)});B.forEach(function(b,k){b.classList.toggle('on',k==i)});window.scrollTo(0,0);try{history.replaceState(null,'','#s'+i)}catch(e){}}
+B.forEach(function(b,k){b.onclick=function(){go(k)}});
+document.querySelectorAll('.pn button').forEach(function(b){b.onclick=function(){go(+b.dataset.to)}});
+var h=+(location.hash.replace('#s','')||0);go(h>=0&&h<P.length?h:0)})();</script></body></html>

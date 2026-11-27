@@ -1,0 +1,141 @@
+<!doctype html><html lang="en" data-subj="biology"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root {
+  --ink: #1E1B3A; --ink2: #4A4668; --muted: #7A7598; --line: #E6E2F5;
+  --bg: #F4F2FF; --card: #FFFFFF; --soft: #F1EFFB;
+  --pink: #FF8FB1; --pink-l: #FFE3EC; --yellow: #FFC94D; --yellow-l: #FFF3D1;
+  --mint: #3CCB9A; --mint-l: #DDF7EE; --sky: #4DA3FF; --sky-l: #DDEEFF;
+  --lilac: #8B7BFF; --lilac-l: #ECE8FF; --peach: #FF9F6B; --peach-l: #FFE8DA;
+  --red: #F0525A; --red-l: #FFE1E3; --green: #1FAF6B; --green-l: #DCF5E8;
+  --c: #6D5DD3; --c-d: #4B3DB8; --c-l: #ECE8FF; --c-ll: #F6F4FF;
+  --r-xl: 48px; --r-lg: 36px; --r-md: 26px; --r-sm: 18px;
+  --sh: 0 4px 10px rgba(40,30,110,.05), 0 18px 44px rgba(40,30,110,.09);
+  --font: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+html[data-subj="biology"]   { --c: #12A06E; --c-d: #0B7A53; --c-l: #D9F4E9; --c-ll: #F0FBF6; --bg: #F1FAF6; }
+html[data-subj="chemistry"] { --c: #0E8FB0; --c-d: #0A6C86; --c-l: #D7F0F7; --c-ll: #EFF9FC; --bg: #F0F8FB; }
+html[data-subj="physics"]   { --c: #3B5BDB; --c-d: #2A43AE; --c-l: #E0E6FF; --c-ll: #F2F4FF; --bg: #F2F4FF; }
+svg { font-family: var(--font); }
+svg .ln { fill: none; stroke: var(--ink); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+svg .ln-c { fill: none; stroke: var(--c); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+svg .thin { fill: none; stroke: var(--ink2); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+svg .dash { fill: none; stroke: var(--muted); stroke-width: 4; stroke-dasharray: 12 12; stroke-linecap: round; }
+svg .f-c { fill: var(--c-l); } svg .f-cc { fill: var(--c); } svg .f-card { fill: #fff; }
+svg .f-pink { fill: var(--pink-l); } svg .f-yellow { fill: var(--yellow-l); } svg .f-mint { fill: var(--mint-l); }
+svg .f-sky { fill: var(--sky-l); } svg .f-lilac { fill: var(--lilac-l); } svg .f-peach { fill: var(--peach-l); } svg .f-red { fill: var(--red-l); }
+svg .s-pink { stroke: var(--pink); } svg .s-yellow { stroke: var(--yellow); } svg .s-mint { stroke: var(--mint); } svg .s-sky { stroke: var(--sky); }
+svg .s-lilac { stroke: var(--lilac); } svg .s-peach { stroke: var(--peach); } svg .s-red { stroke: var(--red); }
+svg .lbl { font: 800 30px var(--font); fill: var(--ink); }
+svg .lbl-s { font: 700 24px var(--font); fill: var(--ink2); }
+svg .lbl-c { font: 900 30px var(--font); fill: var(--c-d); }
+svg .pill { fill: #fff; stroke: var(--line); stroke-width: 3; }
+@page{size:A4;margin:11mm 9mm 13mm 9mm}
+*{box-sizing:border-box}
+html{font-size:var(--fs,8.6px)}
+body{margin:0;font-family:var(--font);color:var(--ink);background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero{display:flex;align-items:center;gap:3.5mm;background:var(--c);color:#fff;border-radius:4mm;padding:3.2mm 5mm;margin-bottom:3mm}
+.hero .n{flex:none;width:11mm;height:11mm;border-radius:50%;background:#fff;color:var(--c-d);font:900 6.2mm/11mm var(--font);text-align:center}
+.hero h1{margin:0;font:900 6.4mm/1.1 var(--font)}.hero p{margin:.5mm 0 0;font:700 3mm var(--font);opacity:.9}
+.cols{column-count:2;column-gap:4mm}
+.blk{break-inside:avoid;margin:0 0 2mm}
+.sec{break-inside:avoid;break-after:avoid;display:flex;align-items:center;gap:2mm;background:var(--c-l);border-radius:2.5mm;padding:1.2mm 2.5mm;margin:2.5mm 0 1.6mm;font:900 3.7mm/1.15 var(--font);color:var(--c-d)}
+.sec b{flex:none;width:5.2mm;height:5.2mm;border-radius:50%;background:var(--c);color:#fff;font:900 3.2mm/5.2mm var(--font);text-align:center}
+.sub{break-after:avoid;margin:1.4mm 0 .8mm;font:900 3.1mm/1.2 var(--font);color:var(--ink);border-left:1mm solid var(--c);padding-left:1.6mm}
+.sub em{font-style:normal;color:var(--c-d)}
+p,li{margin:0;font:600 1.15rem/1.32 var(--font);color:var(--ink2)}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.mist{break-inside:avoid;border-radius:2mm;margin:0 0 1.5mm;padding:1.3mm 2.2mm}
+.def{background:var(--c-ll);border-left:1mm solid var(--c)}.def .term{display:block;font:900 2.3mm var(--font);text-transform:uppercase;letter-spacing:.2mm;color:var(--c-d)}
+.def p{color:var(--ink);font-weight:700}
+.card{background:var(--bg2,#eef)}.card h3{margin:0 0 .3mm;font:900 1.2rem/1.2 var(--font);color:var(--ink)}
+.card.mint{background:var(--mint-l)}.card.sky{background:var(--sky-l)}.card.pink{background:var(--pink-l)}.card.yellow{background:var(--yellow-l)}.card.peach{background:var(--peach-l)}
+.tip{background:var(--yellow-l);border-left:1mm solid var(--yellow)}.tip b{display:inline;font-weight:900;color:var(--ink);margin-right:1mm;text-transform:uppercase;font-size:2.2mm}
+.warn{background:var(--red-l);border-left:1mm solid var(--red)}
+table.t{width:100%;border-collapse:separate;border-spacing:0;margin:0 0 1.8mm;break-inside:avoid;border-radius:2mm;overflow:hidden;font-size:1.08rem}
+table.t th{background:var(--c);color:#fff;font:900 1.08rem var(--font);text-align:left;padding:.9mm 1.8mm}
+table.t td{font:600 1.08rem/1.28 var(--font);padding:.8mm 1.8mm;border-top:.25mm solid var(--line);vertical-align:top;color:var(--ink2)}
+table.t td:first-child{font-weight:900;color:var(--ink)}
+table.t tr:nth-child(even) td{background:var(--c-ll)}
+.worked{background:#fff;border:.3mm solid var(--c-l)}.worked .q{font:800 1.18rem/1.3 var(--font);color:var(--ink);background:var(--c-ll);border-radius:1.6mm;padding:1mm 1.8mm;margin-bottom:.8mm}
+.worked .step{display:flex;gap:1.6mm;font:700 1.1rem/1.3 var(--font);color:var(--ink2)}.worked .step i{font-style:normal;flex:none;min-width:11mm;font:900 2.2mm var(--font);text-transform:uppercase;color:var(--c)}
+.worked .ans{display:inline-block;margin-top:.8mm;font:900 1.2rem var(--font);color:#fff;background:var(--c);padding:.7mm 2.4mm;border-radius:5mm}
+.nums{margin:0 0 1.6mm;padding:0;list-style:none;counter-reset:n;break-inside:avoid}
+.nums>*{counter-increment:n;position:relative;padding-left:5mm;margin-bottom:.7mm;font:600 1.15rem/1.3 var(--font);color:var(--ink2)}
+.nums>*::before{content:counter(n);position:absolute;left:0;top:.1mm;width:3.6mm;height:3.6mm;border-radius:50%;background:var(--c);color:#fff;font:900 2.3mm/3.6mm var(--font);text-align:center}
+.cols-2,.cols-3,.stack,.wide-left,.body{display:block}
+.fig{break-inside:avoid;margin:0 0 1.6mm;background:#fff;border:.3mm solid var(--line);border-radius:2mm;padding:1mm;text-align:center}
+.fig svg{width:100%;height:auto;max-height:46mm;display:block}
+.fig svg text{font-family:var(--font)}
+.nutshell{background:var(--c);color:#fff}.nutshell h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:#fff}.nutshell li{color:#fff;font-weight:700;margin-left:3.6mm}
+.test{background:var(--lilac-l)}.test h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:var(--ink)}.test .qq{font:700 1.12rem/1.3 var(--font);color:var(--ink);margin-bottom:.6mm}.test .a{color:var(--c-d);font-weight:900;margin-left:1.2mm}
+.say{background:var(--mint-l)}.mist{background:var(--red-l)}.say,.mist{break-inside:avoid;border-radius:2mm;padding:1.3mm 2.2mm;margin:0 0 1.5mm}.say h3,.mist h3{margin:0 0 .4mm;font:900 1.2rem var(--font)}
+.chips,.bignum,.checks{display:none}
+
+@page{margin:0}
+html{font-size:15.5px;background:var(--bg)}
+body{max-width:900px;margin:0 auto;padding:18px 16px 60px;background:var(--bg)}
+.cols{column-count:1}
+.hero{padding:5mm 6mm;border-radius:6mm}.hero .n{width:15mm;height:15mm;font-size:9mm;line-height:15mm}.hero h1{font-size:9mm}.hero p{font-size:3.6mm}
+.sec{font-size:5.4mm;padding:2mm 4mm;border-radius:4mm;margin:6mm 0 3mm;position:sticky;top:0;z-index:2}.sec b{width:7.5mm;height:7.5mm;font-size:4.6mm;line-height:7.5mm}
+.sub{font-size:4.6mm;margin:3mm 0 1.6mm}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.say,.mist{padding:2.6mm 4mm;border-radius:3.4mm;margin-bottom:2.6mm}
+.def .term{font-size:3mm}.card h3{font-size:1.3rem}.tip b{font-size:3mm}
+.worked .step i{font-size:3mm;min-width:16mm}.nutshell h4,.test h4{font-size:5mm}
+.nums>*{padding-left:8mm}.nums>*::before{width:5.6mm;height:5.6mm;font-size:3.4mm;line-height:5.6mm}
+table.t{font-size:1.15rem}table.t th,table.t td{font-size:1.15rem;padding:1.6mm 3mm}
+.fig svg{max-height:60mm}
+.test .qq{font-size:1.2rem;margin-bottom:1.4mm}.say h3,.mist h3{font-size:1.3rem}
+p,li{font-size:1.2rem}
+
+.hero p{color:#fff}
+.eq{break-inside:avoid;background:#fff;border:.3mm solid var(--c-l);border-radius:3.4mm;padding:2.6mm 4mm;margin:0 0 2.6mm;text-align:center}
+.eq .words{font:800 1.2rem/1.3 var(--font);color:var(--ink2)}
+.eq .sym{display:inline-block;margin:1.4mm 0;font:900 2rem/1.15 var(--font);color:var(--c-d);background:var(--c-ll);padding:1.6mm 5mm;border-radius:3mm}
+.eq .units{font:700 1rem var(--font);color:var(--muted)}.eq .units span{background:var(--soft);border-radius:5mm;padding:.4mm 2.4mm;margin:0 1mm;display:inline-block}
+.remember{break-inside:avoid;background:var(--mint-l);border-left:1.2mm solid var(--mint);border-radius:3.4mm;padding:2.6mm 4mm;margin-bottom:2.6mm;font:700 1.2rem/1.35 var(--font);color:var(--ink)}
+.warn b,.tip b{margin-right:1.6mm}
+.remember b:first-child{display:block;font-size:3mm;text-transform:uppercase;letter-spacing:.3mm;margin-bottom:.8mm}
+.flow{display:flex;flex-wrap:wrap;gap:2mm;margin:0 0 2.6mm;break-inside:avoid}
+.flow>div{flex:1 1 40mm;background:#fff;border:.3mm solid var(--c-l);border-radius:3mm;padding:2mm 3mm;text-align:center;font:800 1.15rem/1.3 var(--font);color:var(--ink)}
+.flow>div small{display:block;font:600 1rem var(--font);color:var(--muted)}.flow>span{align-self:center;font:900 1.6rem var(--font);color:var(--c)}
+.cols-4{display:block}.wide-right{display:block}
+[style*="font-size:52px"],[style*="font:900 72px"]{font-size:2.2rem !important}
+.card [style]{line-height:1.1}.card .sym{font-size:1.6rem}
+.tag{display:inline-block;font:900 2.6mm var(--font);text-transform:uppercase;background:var(--c);color:#fff;padding:.5mm 2.2mm;border-radius:5mm;margin-bottom:1mm}
+</style><style>.snav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:6px;background:var(--bg);padding:8px 0 10px;margin:0 0 6px}
+.snav button{font:800 14px var(--font);border:2px solid var(--c-l);background:#fff;color:var(--ink);border-radius:20px;padding:6px 12px;cursor:pointer}
+.snav button.on{background:var(--c);border-color:var(--c);color:#fff}
+.part{display:none}.part.on{display:block}.part .sec{position:static!important}
+.pn{display:flex;justify-content:space-between;gap:10px;margin:18px 0 0}.pn button{font:900 15px var(--font);border:0;background:var(--c);color:#fff;border-radius:22px;padding:10px 20px;cursor:pointer}.pn button[disabled]{opacity:.25}</style><style id="stepfix">.worked{counter-reset:st;border:2px solid var(--c-l)!important;padding:12px 16px!important}
+.worked .q{font-size:1.25rem!important;border-left:5px solid var(--c);margin-bottom:10px!important}
+.worked .q::before{content:"Worked example  ";font:900 .8rem var(--font);text-transform:uppercase;letter-spacing:.5px;color:var(--c-d);display:block}
+.worked .step{counter-increment:st;display:grid!important;grid-template-columns:78px 1fr;gap:10px;align-items:baseline;padding:7px 0;border-top:1px dashed var(--c-l);font-size:1.2rem!important}
+.worked .step i{min-width:0!important;font-size:.85rem!important;color:var(--c-d)!important}
+.worked .step i::before{content:"Step " counter(st) "";display:block;font-weight:900;color:var(--c)}
+.worked .ans{display:block!important;margin-top:10px;padding:8px 14px!important;border-radius:10px!important;font-size:1.25rem!important}
+.worked .ans::before{content:"Answer:  "}</style></head><body>
+<div class="hero"><div class="n">10</div><div><h1>Plants and food</h1><p>Biology · Unit 3 · Plant physiology · Last-minute notes · Book pages 136–153</p></div></div>
+<div class="snav"><button type="button">Summary</button><button type="button">10.1 Photosynthesis</button><button type="button">10.2 Limiting factors</button><button type="button">10.3 The leaf</button><button type="button">10.4 Using glucose and minerals</button><button type="button">10.5 Practicals</button><button type="button">Test yourself</button></div><div class="cols"><div class="part"><div class="nutshell"><h4>Chapter in a nutshell</h4><ul style="margin:0;padding:0"><li>6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂</li><li>Light, CO₂, temperature can limit the rate</li><li>Palisade: chloroplasts; spongy: air spaces</li><li>Stomata and guard cells control gas exchange</li><li>Glucose: respiration, starch, cellulose, sucrose</li><li>Nitrate for proteins, magnesium for chlorophyll</li><li>Starch test: boil, ethanol, rinse, iodine</li><li>Plants respire all the time</li></ul></div><div class="pn"><button type="button" data-to="-1" disabled>◀ Back</button><button type="button" data-to="1">Next ▶</button></div></div><div class="part"><div class="sec"><b>1</b><span><em>Photosynthesis</em></span></div><div class="blk"><div class="sub">Inputs and <em>outputs</em></div>
+<div class="wide-left"><div class="fig" style=""><svg viewBox="0 0 740 420" aria-label="Inputs and outputs of a leaf"><rect x="0" y="0" width="740" height="420" rx="28" class="f-card"/><path d="M60 320Q300 380 540 320" fill="none" stroke="#2E8B57" stroke-width="3"/><path d="M150 230Q300 120 450 230Q300 300 150 230Z" fill="#3CB371" stroke="#2B2750" stroke-width="5"/><path d="M300 20 L300 110" class="ln s-red"/><path d="M292 96 L300 110 L308 96" class="ln s-red"/><path d="M60 200 L150 230" class="ln s-red"/><path d="M134 233 L150 230 L139 218" class="ln s-red"/><path d="M450 230 L560 200" class="ln s-red"/><path d="M548 211 L560 200 L544 196" class="ln s-red"/><path d="M300 300 L300 380" class="ln s-red"/><path d="M292 366 L300 380 L308 366" class="ln s-red"/><rect x="330" y="30" width="240" height="40" rx="20" class="pill"/><text x="450.0" y="58.0" class="lbl-s" text-anchor="middle">light energy</text><rect x="0" y="150" width="200" height="40" rx="20" class="pill"/><text x="100.0" y="178.0" class="lbl-s" text-anchor="middle">CO₂ in</text><rect x="520" y="150" width="200" height="40" rx="20" class="pill"/><text x="620.0" y="178.0" class="lbl-s" text-anchor="middle">O₂ out</text><rect x="330" y="330" width="330" height="40" rx="20" class="pill"/><text x="495.0" y="358.0" class="lbl-s" text-anchor="middle">H₂O in (xylem)</text></svg></div><div class="stack"><div class="def"><span class="term">Photosynthesis</span><p>Light energy absorbed by chlorophyll in chloroplasts converts carbon dioxide and water into glucose, releasing oxygen.</p></div><div class="card mint"><h3>Equation</h3><p>6CO₂ + 6H₂O → C₆H₁₂O₆ + 6O₂</p></div><div class="remember"><b>Remember</b>Plants are autotrophs: they make their own food.</div></div></div>
+  </div><div class="pn"><button type="button" data-to="0">◀ Back</button><button type="button" data-to="2">Next ▶</button></div></div><div class="part"><div class="sec"><b>2</b><span><em>Limiting factors</em></span></div><div class="blk"><div class="sub">Effect of <em>light and CO₂</em></div>
+<div class="wide-left"><div class="fig" style=""><svg viewBox="0 0 800 400" aria-label="Rate against light intensity at two CO2 levels"><rect x="0" y="0" width="800" height="400" rx="28" class="f-card"/><path d="M70 340V40M70 340H760" stroke="#2B2750" stroke-width="4" fill="none"/><path d="M70 330Q200 300 330 120L560 100L740 100" fill="none" stroke="#12A06E" stroke-width="7"/><path d="M70 335Q200 320 330 250L560 230L740 230" fill="none" stroke="#3B5BDB" stroke-width="7"/><rect x="90" y="50" width="260" height="40" rx="20" class="pill"/><text x="220.0" y="78.0" class="lbl-s" text-anchor="middle">rate of photosynthesis</text><rect x="540" y="350" width="230" height="40" rx="20" class="pill"/><text x="655.0" y="378.0" class="lbl-s" text-anchor="middle">light intensity</text><rect x="430" y="60" width="180" height="40" rx="20" class="pill"/><text x="520.0" y="88.0" class="lbl-s" text-anchor="middle">high CO₂</text><rect x="430" y="190" width="180" height="40" rx="20" class="pill"/><text x="520.0" y="218.0" class="lbl-s" text-anchor="middle">low CO₂</text></svg></div><div class="stack"><div class="card yellow"><h3>Light</h3><p>The energy supply. More light, faster rate, until another factor limits.</p></div><div class="card sky"><h3>CO₂</h3><p>A raw material at only 0.04 % of air. Often limiting.</p></div><div class="tip"><b>Exam tip</b>Where the line rises, the x-axis factor is limiting. Where it levels off, another factor is.</div></div></div>
+  </div><div class="blk"><div class="sub"><em>Temperature</em></div>
+<div class="wide-left"><div class="stack"><div class="card pink"><h3>Enzymes</h3><p>Photosynthesis is enzyme-controlled: faster as it warms, then enzymes denature above the optimum.</p></div><div class="def"><span class="term">Limiting factor</span><p>The factor in shortest supply that limits the rate: light, CO₂ or temperature.</p></div></div><div class="stack"><div class="warn"><b>Common mistake</b>Light provides energy. It does not make energy.</div><div class="remember"><b>Remember</b>Greenhouses add CO₂ and light.</div></div></div>
+  </div><div class="pn"><button type="button" data-to="1">◀ Back</button><button type="button" data-to="3">Next ▶</button></div></div><div class="part"><div class="sec"><b>3</b><span>The <em>leaf</em></span></div><div class="blk"><div class="sub">Section through a <em>leaf</em></div>
+<div class="wide-left"><div class="fig" style=""><svg viewBox="0 0 800 420" aria-label="Layers of a leaf"><rect x="0" y="0" width="800" height="420" rx="28" class="f-card"/><rect x="20" y="20" width="760" height="30" rx="12" class="f-yellow" stroke="#2B2750" stroke-width="3"/><text x="400" y="43.0" class="lbl-s" text-anchor="middle" style="font-weight:800">waxy cuticle</text><rect x="20" y="58" width="760" height="50" rx="12" class="f-sky" stroke="#2B2750" stroke-width="3"/><text x="400" y="91.0" class="lbl-s" text-anchor="middle" style="font-weight:800">upper epidermis (transparent)</text><rect x="20" y="116" width="760" height="110" rx="12" class="f-mint" stroke="#2B2750" stroke-width="3"/><text x="400" y="179.0" class="lbl-s" text-anchor="middle" style="font-weight:800">palisade mesophyll (many chloroplasts)</text><rect x="20" y="234" width="760" height="110" rx="12" class="f-lilac" stroke="#2B2750" stroke-width="3"/><text x="400" y="297.0" class="lbl-s" text-anchor="middle" style="font-weight:800">spongy mesophyll + air spaces</text><rect x="20" y="352" width="760" height="50" rx="12" class="f-sky" stroke="#2B2750" stroke-width="3"/><text x="400" y="385.0" class="lbl-s" text-anchor="middle" style="font-weight:800">lower epidermis + stomata</text><rect x="420" y="360" width="60" height="30" rx="14" fill="#fff" stroke="#2B2750" stroke-width="3"/></svg></div><div class="stack"><div class="card mint"><h3>Palisade</h3><p>Tall, packed with chloroplasts near the top: main site of photosynthesis.</p></div><div class="card lilac"><h3>Spongy</h3><p>Air spaces give a large surface for gas exchange.</p></div><div class="card sky"><h3>Stomata</h3><p>Guard cells open and close the pores.</p></div></div></div>
+  </div><div class="blk"><div class="sub">Leaf <em>adaptations</em></div>
+<table class="t"><tr><th>Feature</th><th>Adaptation</th></tr><tr><td>Broad, flat, thin</td><td>Large surface area for light; short diffusion distance</td></tr><tr><td>Waxy cuticle</td><td>Reduces water loss</td></tr><tr><td>Upper epidermis</td><td>Transparent: light reaches palisade</td></tr><tr><td>Palisade cells</td><td>Many chloroplasts near the top</td></tr><tr><td>Spongy mesophyll</td><td>Air spaces for fast gas diffusion</td></tr><tr><td>Veins</td><td>Xylem brings water; phloem removes sucrose</td></tr></table>
+  </div><div class="pn"><button type="button" data-to="2">◀ Back</button><button type="button" data-to="4">Next ▶</button></div></div><div class="part"><div class="sec"><b>4</b><span>Using glucose and <em>minerals</em></span></div><div class="blk"><div class="sub">What plants do with <em>glucose</em></div>
+<div class="cols-4"><div class="card pink"><h3>Respiration</h3><p>Releases energy.</p></div><div class="card yellow"><h3>Starch</h3><p>Insoluble store.</p></div><div class="card mint"><h3>Cellulose</h3><p>Cell walls.</p></div><div class="card sky"><h3>Sucrose</h3><p>Carried in phloem; in fruit.</p></div></div><div class="tip"><b>Exam tip</b>With nitrate, glucose is used to make proteins; lipids are stored in seeds.</div>
+  </div><div class="blk"><div class="sub">Mineral <em>ions</em></div>
+<div class="wide-left"><table class="t"><tr><th>Ion</th><th>Needed for</th><th>Deficiency</th></tr><tr><td>Nitrate</td><td>amino acids, proteins</td><td>stunted growth, yellow older leaves</td></tr><tr><td>Magnesium</td><td>chlorophyll</td><td>yellow between veins (chlorosis)</td></tr></table><div class="stack"><div class="card mint"><h3>Absorbed</h3><p>Through root hairs by active transport.</p></div><div class="warn"><b>Common mistake</b>Plants make food; they do not get it from the soil.</div></div></div>
+  </div><div class="pn"><button type="button" data-to="3">◀ Back</button><button type="button" data-to="5">Next ▶</button></div></div><div class="part"><div class="sec"><b>5</b><span><em>Practicals</em></span></div><div class="blk"><div class="sub">Testing a leaf for <em>starch</em></div>
+<div class="flow"><div>Boil in water</div><span>→</span><div>Warm in ethanol (water bath)</div><span>→</span><div>Rinse in water</div><span>→</span><div>Add iodine</div></div><div class="cols-2"><div class="card mint"><h3>Why</h3><p>Boiling kills and stops reactions; ethanol removes chlorophyll; rinsing softens; blue-black means starch.</p></div><div class="warn"><b>Common mistake</b>Never heat ethanol over a flame. It is flammable.</div></div>
+  </div><div class="blk"><div class="sub">Is <em>light, chlorophyll or CO₂</em> needed?</div>
+<div class="wide-left"><div class="stack"><div class="card sky"><h3>De-starch</h3><p>Keep the plant in the dark for 48 h so starch is used up.</p></div><div class="card yellow"><h3>Light</h3><p>Cover part of a leaf with foil; only the uncovered part turns blue-black.</p></div></div><div class="stack"><div class="card mint"><h3>Chlorophyll</h3><p>Variegated leaf: only green parts make starch.</p></div><div class="card pink"><h3>CO₂</h3><p>Bag with soda lime absorbs CO₂; no starch. Control has none.</p></div></div></div>
+  </div><div class="blk"><div class="sub">Light intensity and <em>pondweed</em></div>
+<div class="wide-left"><div class="fig" style=""><svg viewBox="0 0 740 400" aria-label="Pondweed with lamp"><rect x="0" y="0" width="740" height="400" rx="28" class="f-card"/><rect x="250" y="150" width="120" height="200" rx="20" class="f-sky" fill-opacity=".5" stroke="#2B2750" stroke-width="5"/><path d="M310 340Q290 250 330 180" stroke="#2E8B57" stroke-width="8" fill="none"/><circle cx="300" cy="260" r="7" fill="#fff" stroke="#2B2750" stroke-width="3"/><circle cx="314" cy="230" r="7" fill="#fff" stroke="#2B2750" stroke-width="3"/><circle cx="328" cy="200" r="7" fill="#fff" stroke="#2B2750" stroke-width="3"/><circle cx="342" cy="170" r="7" fill="#fff" stroke="#2B2750" stroke-width="3"/><rect x="30" y="170" width="120" height="100" rx="20" class="f-yellow" stroke="#2B2750" stroke-width="5"/><path d="M150 220H250" stroke="#F4B400" stroke-width="6" stroke-dasharray="10 8"/><rect x="10" y="290" width="200" height="42" rx="21" class="pill"/><text x="110.0" y="319.0" class="lbl-s" text-anchor="middle">lamp (distance d)</text><rect x="380" y="200" width="280" height="42" rx="21" class="pill"/><text x="520.0" y="229.0" class="lbl-s" text-anchor="middle">O₂ bubbles from pondweed</text></svg></div><div class="stack"><ol class="nums" style=""><li>Pondweed in water with sodium hydrogencarbonate (CO₂).</li><li>Lamp at a set distance; wait 5 min.</li><li>Count bubbles per minute.</li><li>Repeat at 20 to 50 cm.</li></ol><div class="tip"><b>Exam tip</b>Closer lamp: more bubbles. Use a heat shield to keep temperature constant.</div></div></div>
+  </div><div class="blk"><div class="sub">Net gas exchange with <em>indicator</em></div>
+<div class="cols-3"><div class="card mint"><h3>Bright light</h3><p>Photosynthesis > respiration: CO₂ taken up, indicator turns <strong>purple</strong>.</p></div><div class="card yellow"><h3>Dim light</h3><p>Rates equal (compensation point): stays <strong>red</strong>.</p></div><div class="card pink"><h3>Dark</h3><p>Only respiration: CO₂ released, indicator turns <strong>yellow</strong>.</p></div></div><div class="remember"><b>Remember</b>Plants respire all the time, day and night. Tube with no leaf is the control.</div>
+  </div><div class="pn"><button type="button" data-to="4">◀ Back</button><button type="button" data-to="6">Next ▶</button></div></div><div class="part"><div class="mist"><h3>✗ Photosynthesis</h3><p>light energy absorbed by chlorophyll, converted to chemical energy</p></div><div class="mist"><h3>✗ Palisade</h3><p>many chloroplasts near the upper surface</p></div><div class="mist"><h3>✗ De-starch</h3><p>so any starch present was made during the experiment</p></div><div class="test"><h4>Test yourself</h4><div class="qq">1. Word equation for photosynthesis?<span class="a">Carbon dioxide + water → glucose + oxygen</span></div><div class="qq">2. Name three limiting factors.<span class="a">Light intensity, CO₂ concentration, temperature</span></div><div class="qq">3. Why are palisade cells at the top?<span class="a">Absorb most light; many chloroplasts</span></div><div class="qq">4. What does magnesium make?<span class="a">Chlorophyll</span></div><div class="qq">5. Colour of indicator in the dark?<span class="a">Yellow (CO₂ released)</span></div><div class="qq">6. Why de-starch a plant?<span class="a">So any starch was made during the experiment</span></div></div><div class="pn"><button type="button" data-to="5">◀ Back</button><button type="button" data-to="7" disabled>Next ▶</button></div></div></div><script>(function(){var P=[].slice.call(document.querySelectorAll('.part')),B=[].slice.call(document.querySelectorAll('.snav button'));
+function go(i){P.forEach(function(p,k){p.classList.toggle('on',k==i)});B.forEach(function(b,k){b.classList.toggle('on',k==i)});window.scrollTo(0,0);try{history.replaceState(null,'','#s'+i)}catch(e){}}
+B.forEach(function(b,k){b.onclick=function(){go(k)}});
+document.querySelectorAll('.pn button').forEach(function(b){b.onclick=function(){go(+b.dataset.to)}});
+var h=+(location.hash.replace('#s','')||0);go(h>=0&&h<P.length?h:0)})();</script></body></html>

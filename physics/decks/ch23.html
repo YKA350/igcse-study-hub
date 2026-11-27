@@ -1,0 +1,546 @@
+<!doctype html>
+<html lang="en" data-subj="physics">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Physics Ch 23: Radiation and Half-Life</title>
+<link rel="stylesheet" href="../../assets/deck.css">
+<style>.big td,.big th{font-size:40px!important;padding:26px 30px!important}.bigf>div{font-size:46px!important;line-height:1.25}.bigf>div small{font-size:34px!important}.bigf>div b{font-size:72px;color:var(--c)}.bigc p{font-size:40px}.bigc h3{font-size:50px}.qc.fill{flex:1}.qc.fill .qq{flex:1;display:flex;flex-direction:column;justify-content:center;font-size:38px}.qc.fill .qq .a{font-size:32px}.checks.fill{flex:1;grid-auto-rows:1fr}.checks.fill div{display:flex;align-items:center;font-size:36px;padding-left:100px}.pairs{display:grid;grid-template-columns:1fr 1fr;gap:22px 28px;flex:1}.pairs>div{font-size:34px}</style>
+</head>
+<body>
+<div id="vp"><div id="stage">
+<section class="cover">
+  <span class="kicker"><b>23</b> Unit 7 · Radioactivity and particles</span>
+  <h1>Radiation and Half-Life</h1>
+  <p class="lead">How we detect radiation, where it comes from, and how quickly radioactive things decay.</p>
+  <div class="chips"><span>GM tube</span><span>Film badges</span><span>Background radiation</span><span>Activity (Bq)</span><span>Random decay</span><span>Half-life</span><span>Decay curves</span></div>
+  <div class="bignum">23</div>
+  <aside>Chapter 23, book pages 233 to 240.</aside>
+</section>
+
+<section class="divider"><div class="num">1</div><h2>Detecting <em>radiation</em></h2><p class="lead">Photographic film and the Geiger–Müller tube, and how we measure activity.</p></section>
+
+<section>
+  <span class="kicker">Detecting radiation</span>
+  <h2>Detector 1: <em>photographic film</em></h2>
+  <div class="body"><div class="wide-right">
+    <div class="stack">
+      <div class="card mint"><h3>How radioactivity was found</h3><p>Becquerel left wrapped photographic plates under uranium ore. An image appeared on them. He had discovered radioactivity.</p></div>
+      <div class="card yellow"><h3>The film badge</h3><p>Radiation workers wear one. The more radiation it gets, the <strong>darker</strong> the film. Badges are checked regularly.</p></div>
+    </div>
+    <div class="fig"><svg viewBox="0 0 860 560" aria-label="Film badge: more radiation gives darker film">
+<rect width="860" height="560" rx="28" class="f-card"/>
+<g class="ln"><rect x="70" y="90" width="200" height="270" rx="26" fill="#F1EFFB"/><rect x="330" y="90" width="200" height="270" rx="26" fill="#B9B4D6"/><rect x="590" y="90" width="200" height="270" rx="26" fill="#4A4668"/></g>
+<rect x="100" y="120" width="140" height="80" rx="14" fill="#fff" opacity=".7"/><rect x="360" y="120" width="140" height="80" rx="14" fill="#fff" opacity=".45"/><rect x="620" y="120" width="140" height="80" rx="14" fill="#fff" opacity=".2"/>
+<rect x="70" y="395" width="200" height="56" rx="28" class="pill"/><text x="170" y="433" class="lbl-s" text-anchor="middle">a little</text>
+<rect x="330" y="395" width="200" height="56" rx="28" class="pill"/><text x="430" y="433" class="lbl-s" text-anchor="middle">more</text>
+<rect x="590" y="395" width="200" height="56" rx="28" class="pill"/><text x="690" y="433" class="lbl-s" text-anchor="middle">lots</text>
+<text x="430" y="52" class="lbl-c" text-anchor="middle">film in a badge</text>
+<text x="430" y="520" class="lbl" text-anchor="middle">more radiation → darker (fogged) film</text>
+</svg></div>
+  </div></div>
+  <aside>Röntgen had discovered x-rays in 1895.</aside>
+<div class="spec-tag"><b>Spec 7.9</b> know that photographic film or a Geiger−Müller detector can detect ionising radiations</div>
+</section>
+
+<section>
+  <span class="kicker">Detecting radiation</span>
+  <h2>Detector 2: the <em>Geiger–Müller tube</em></h2>
+  <div class="body"><div class="fig" style="flex:1"><svg viewBox="0 0 1000 560" aria-label="Geiger-Muller tube">
+<rect width="1000" height="560" rx="28" class="f-card"/>
+<rect x="230" y="200" width="520" height="170" rx="34" class="f-sky" style="stroke:#1E1B3A;stroke-width:8"/>
+<line x1="233" y1="218" x2="233" y2="352" stroke="#FF8FB1" stroke-width="12" stroke-linecap="round"/>
+<line x1="275" y1="285" x2="900" y2="285" class="ln-c" style="stroke-width:9"/>
+<circle cx="275" cy="285" r="11" class="f-cc"/>
+<g fill="#7A7598"><circle cx="400" cy="235" r="5"/><circle cx="540" cy="238" r="5"/><circle cx="660" cy="236" r="5"/><circle cx="470" cy="335" r="5"/><circle cx="610" cy="338" r="5"/><circle cx="350" cy="340" r="5"/></g>
+<text x="40" y="345" class="lbl-c">radiation</text>
+<line x1="40" y1="285" x2="205" y2="285" class="ln-c"/><path d="M188 268 L208 285 L188 302" class="ln-c"/>
+<rect x="60" y="60" width="300" height="56" rx="28" class="pill"/><text x="210" y="98" class="lbl-s" text-anchor="middle">thin mica window</text>
+<path d="M200 116 L228 200" class="thin"/>
+<rect x="430" y="60" width="520" height="56" rx="28" class="pill"/><text x="690" y="98" class="lbl-s" text-anchor="middle">glass tube + conducting coating (0 V)</text>
+<path d="M600 116 L600 197" class="thin"/>
+<rect x="640" y="410" width="320" height="56" rx="28" class="pill"/><text x="800" y="448" class="lbl-s" text-anchor="middle">to the detecting circuit</text>
+<path d="M850 410 L850 292" class="thin"/>
+<rect x="240" y="470" width="500" height="56" rx="28" class="pill"/><text x="490" y="508" class="lbl-s" text-anchor="middle">central electrode (anode), 300–500 V</text>
+<path d="M440 470 L440 292" class="thin"/>
+<text x="490" y="268" class="lbl-s" text-anchor="middle" style="fill:#2A43AE">low-pressure gas</text>
+</svg></div></div>
+<div class="spec-tag"><b>Spec 7.9</b> know that photographic film or a Geiger−Müller detector can detect ionising radiations</div>
+</section>
+
+<section>
+  <span class="kicker">Detecting radiation</span>
+  <h2>How the <em>GM tube</em> works</h2>
+  <div class="body">
+    <div class="flow bigf" style="flex:1">
+      <div><b>1</b>Radiation enters<small>through the thin mica window</small></div><span>→</span>
+      <div><b>2</b>The gas is ionised<small>the low-pressure gas inside the tube</small></div><span>→</span>
+      <div><b>3</b>A pulse is detected<small>ions let a small current flow between the central electrode and the coating</small></div>
+    </div>
+    <div class="remember"><b>Remember</b>One ionising event in the tube makes one pulse, which is one count.</div>
+  </div>
+<div class="spec-tag"><b>Spec 7.9</b> know that photographic film or a Geiger−Müller detector can detect ionising radiations</div>
+</section>
+
+<section>
+  <span class="kicker">Detecting radiation</span>
+  <h2>Counter or <em>rate meter</em>?</h2>
+  <div class="body"><div class="wide-left">
+    <div class="fig"><svg viewBox="0 0 900 520" aria-label="Counter and rate meter displays">
+<rect width="900" height="520" rx="28" class="f-card"/>
+<rect x="60" y="70" width="360" height="190" rx="26" class="f-lilac ln"/><rect x="90" y="100" width="300" height="100" rx="14" fill="#1E1B3A"/>
+<text x="240" y="170" text-anchor="middle" style="font:900 64px Nunito;fill:#3CCB9A">004 517</text>
+<rect x="60" y="290" width="360" height="56" rx="28" class="pill"/><text x="240" y="328" class="lbl-s" text-anchor="middle">counter: total counts</text>
+<rect x="480" y="70" width="360" height="190" rx="26" class="f-yellow ln"/><rect x="510" y="100" width="300" height="100" rx="14" fill="#1E1B3A"/>
+<text x="660" y="170" text-anchor="middle" style="font:900 64px Nunito;fill:#FFC94D">37 /s</text>
+<rect x="480" y="290" width="360" height="56" rx="28" class="pill"/><text x="660" y="328" class="lbl-s" text-anchor="middle">rate meter: per second</text>
+<g class="ln-c" style="stroke-width:6"><path d="M130 440 L130 470"/><path d="M180 420 L180 490"/><path d="M230 440 L230 470"/><path d="M280 410 L280 500"/></g>
+<text x="360" y="468" class="lbl-s">loudspeaker clicks</text>
+<text x="600" y="468" class="lbl-s">faster = more radioactive</text>
+</svg></div>
+    <div class="stack">
+      <div class="card lilac"><h3>Counter</h3><p>Counts the <strong>total number</strong> of ionising events.</p></div>
+      <div class="card yellow"><h3>Rate meter</h3><p>Measures events <strong>per second</strong>, which gives the activity in Bq.</p></div>
+      <div class="card mint"><h3>Loudspeaker</h3><p>Faster clicks mean more radioactivity.</p></div>
+    </div>
+  </div></div>
+<div class="spec-tag"><b>Spec 7.9</b> know that photographic film or a Geiger−Müller detector can detect ionising radiations</div>
+</section>
+
+<section>
+  <span class="kicker">Activity</span>
+  <h2>Activity and the <em>becquerel</em></h2>
+  <div class="body"><div class="cols-2">
+    <div class="stack">
+      <div class="def"><span class="term">Key term · activity</span><p>The number of unstable nuclei that decay each second.</p></div>
+      <div class="def"><span class="term">Key term · becquerel (Bq)</span><p>1 Bq = 1 disintegration per second.</p></div>
+      <p>The activity of a source <strong>decreases over time</strong>.</p>
+    </div>
+    <div class="stack">
+      <table class="t"><tr><th>Unit</th><th>Decays per second</th></tr><tr><td>1 Bq</td><td>1</td></tr><tr><td>1 kBq</td><td>1000</td></tr><tr><td>1 MBq</td><td>1 000 000</td></tr></table>
+      <div class="tip"><b>Why kBq and MBq?</b>The becquerel is a very small unit, so bigger units are more practical.</div>
+    </div>
+  </div></div>
+<div class="spec-tag"><b>Spec 7.11</b> know that the activity of a radioactive source decreases over a period of time and is measured in becquerels</div>
+</section>
+
+<section>
+  <span class="kicker">Worked example</span>
+  <h2>Using <em>kBq</em></h2>
+  <div class="body"><div class="wide-left">
+    <div class="worked">
+      <div class="q">A source has an activity of 4 kBq. How many nuclei decay each second?</div>
+      <div class="step"><i>Know</i>1 kBq = 1000 Bq</div>
+      <div class="step"><i>Equation</i>Bq = kBq × 1000</div>
+      <div class="step"><i>Substitute</i>4 × 1000</div>
+      <div class="ans">4000 Bq = 4000 decays per second</div>
+    </div>
+    <div class="stack">
+      <div class="eq"><div class="words">activity in Bq = activity in kBq × 1000</div><div class="sym">Bq = kBq × 1000</div><div class="units"><span>MBq × 1 000 000 → Bq</span></div></div>
+      <div class="card mint"><h3>Try it</h3><p>2 MBq = 2 × 1 000 000 = 2 000 000 Bq</p></div>
+    </div>
+  </div></div>
+<div class="spec-tag"><b>Spec 7.11</b> know that the activity of a radioactive source decreases over a period of time and is measured in becquerels</div>
+</section>
+
+<section class="divider"><div class="num">2</div><h2>Background <em>radiation</em></h2><p class="lead">Radiation that is around us all the time.</p></section>
+
+<section>
+  <span class="kicker">Background radiation</span>
+  <h2>Where does it <em>come from</em>?</h2>
+  <div class="body"><div class="wide-left">
+    <div class="fig"><svg viewBox="0 0 1000 600" aria-label="UK background radiation sources"><rect width="1000" height="600" rx="28" class="f-card"/><text x="290" y="74" class="lbl-s" text-anchor="end">radon gas</text><rect x="310" y="40" width="550" height="48" rx="24" fill="#FFC94D"/><text x="876" y="74" class="lbl-s">50%</text><text x="290" y="150" class="lbl-s" text-anchor="end">ground and buildings</text><rect x="310" y="116" width="154" height="48" rx="24" fill="#FFC94D"/><text x="480" y="150" class="lbl-s">14%</text><text x="290" y="226" class="lbl-s" text-anchor="end">medical</text><rect x="310" y="192" width="154" height="48" rx="24" fill="#1E1B3A"/><text x="480" y="226" class="lbl-s">14%</text><text x="290" y="302" class="lbl-s" text-anchor="end">food and drink</text><rect x="310" y="268" width="126" height="48" rx="24" fill="#FFC94D"/><text x="452" y="302" class="lbl-s">11.5%</text><text x="290" y="378" class="lbl-s" text-anchor="end">cosmic rays</text><rect x="310" y="344" width="110" height="48" rx="24" fill="#FFC94D"/><text x="436" y="378" class="lbl-s">10%</text><text x="290" y="454" class="lbl-s" text-anchor="end">nuclear power</text><rect x="310" y="420" width="8" height="48" rx="24" fill="#1E1B3A"/><text x="334" y="454" class="lbl-s">0.3%</text><text x="290" y="530" class="lbl-s" text-anchor="end">other</text><rect x="310" y="496" width="8" height="48" rx="24" fill="#1E1B3A"/><text x="334" y="530" class="lbl-s">0.2%</text>
+<rect x="310" y="560" width="26" height="26" rx="13" fill="#FFC94D"/><text x="348" y="582" class="lbl-s">natural</text><rect x="480" y="560" width="26" height="26" rx="13" fill="#1E1B3A"/><text x="518" y="582" class="lbl-s">artificial</text></svg></div>
+    <div class="stack">
+      <div class="def"><span class="term">Key term · background radiation</span><p>Low-level ionising radiation around us all the time, from natural and artificial sources.</p></div>
+      <p>Most of it is <strong>natural</strong>. Amounts vary from place to place.</p>
+      <div class="tip"><b>In experiments</b>Measure the background and subtract it.</div>
+    </div>
+  </div></div>
+<div class="spec-tag"><b>Spec 7.10</b> explain the sources of background (ionising) radiation from Earth and space</div>
+</section>
+
+<section>
+  <span class="kicker">Background radiation · natural</span>
+  <h2>Source 1: the <em>Earth</em></h2>
+  <div class="body"><div class="wide-right">
+    <div class="stack">
+      <div class="card tint" style="padding:24px 32px;gap:8px"><h3>Rocks</h3><p>Crust rocks still hold radioactive isotopes from when Earth formed 4.5 billion years ago.</p></div>
+      <div class="card yellow" style="padding:24px 32px;gap:8px"><h3>Radon and thoron</h3><p>Made by uranium decay. Dense gases that collect in basements.</p></div>
+      <div class="card mint" style="padding:24px 32px;gap:8px"><h3>Granite areas</h3><p>Levels are higher, for example in Cornwall.</p></div>
+    </div>
+    <div class="fig"><svg viewBox="0 0 900 560" aria-label="Radon collecting in a basement">
+<rect width="900" height="560" rx="28" class="f-card"/>
+<rect x="60" y="330" width="780" height="190" rx="24" fill="#B9B4D6" class="ln"/>
+<path d="M240 330 L240 190 L450 80 L660 190 L660 330 Z" class="f-yellow ln"/>
+<rect x="330" y="215" width="80" height="80" rx="8" class="f-sky ln"/><rect x="490" y="215" width="80" height="80" rx="8" class="f-sky ln"/>
+<rect x="300" y="330" width="300" height="110" rx="8" class="f-mint ln"/>
+<g fill="#8B7BFF"><circle cx="360" cy="385" r="10"/><circle cx="450" cy="400" r="10"/><circle cx="540" cy="380" r="10"/><circle cx="400" cy="415" r="10"/><circle cx="500" cy="420" r="10"/></g>
+<rect x="80" y="50" width="150" height="56" rx="28" class="pill"/><text x="155" y="88" class="lbl-s" text-anchor="middle">house</text><path d="M200 106 L320 150" class="thin"/>
+<rect x="660" y="240" width="180" height="56" rx="28" class="pill"/><text x="750" y="278" class="lbl-s" text-anchor="middle">basement</text><path d="M700 296 L600 350" class="thin"/>
+<path d="M740 86 L740 130 L610 360" class="thin" style="display:none"/>
+<rect x="110" y="455" width="330" height="56" rx="28" class="pill" style="display:none"/>
+<rect x="590" y="460" width="240" height="50" rx="25" class="pill"/><text x="710" y="494" class="lbl-s" text-anchor="middle">granite rock</text>
+<rect x="320" y="460" width="260" height="50" rx="25" class="pill"/><text x="450" y="494" class="lbl-s" text-anchor="middle">radon gas collects</text>
+</svg></div>
+  </div></div>
+<div class="spec-tag"><b>Spec 7.10</b> explain the sources of background (ionising) radiation from Earth and space</div>
+</section>
+
+<section>
+  <span class="kicker">Background radiation · natural</span>
+  <h2>Sources 2 and 3: <em>space</em> and <em>living things</em></h2>
+  <div class="body"><div class="wide-left">
+    <div class="fig"><svg viewBox="0 0 900 560" aria-label="Cosmic rays and the atmosphere">
+<rect width="900" height="560" rx="28" class="f-card"/>
+<rect x="0" y="130" width="900" height="200" class="f-sky" opacity=".6"/>
+<rect x="0" y="400" width="900" height="160" rx="28" fill="#3CCB9A" opacity=".5"/>
+<g class="ln-c" style="stroke-width:7"><path d="M150 30 L230 200"/><path d="M450 30 L450 230"/><path d="M700 30 L620 140"/><path d="M780 30 L780 395"/></g>
+<g fill="#3B5BDB"><path d="M222 186 l16 6 l-10 14 z"/><path d="M438 216 l24 0 l-12 20 z"/><path d="M606 126 l22 -2 l-10 20 z"/><path d="M768 380 l24 0 l-12 20 z"/></g>
+<rect x="40" y="260" width="300" height="56" rx="28" class="pill"/><text x="190" y="298" class="lbl-s" text-anchor="middle">atmosphere</text>
+<rect x="500" y="440" width="360" height="56" rx="28" class="pill"/><text x="680" y="478" class="lbl-s" text-anchor="middle">Earth's surface</text>
+<rect x="470" y="30" width="190" height="56" rx="28" class="pill"/><text x="565" y="68" class="lbl-s" text-anchor="middle">cosmic rays</text>
+<circle cx="860" cy="50" r="0"/>
+</svg></div>
+    <div class="stack">
+      <div class="card sky"><h3>Cosmic rays</h3><p>Very energetic particles from stars and exploding stars (supernovae). Lower-energy ones come from the Sun. The atmosphere protects us, but some reach the surface.</p></div>
+      <div class="card lilac"><h3>Living things</h3><p>Our bodies contain radioactive atoms, such as carbon-14, constantly renewed while we are alive. All food and drink contains radioactive isotopes.</p></div>
+    </div>
+  </div></div>
+<div class="spec-tag"><b>Spec 7.10</b> explain the sources of background (ionising) radiation from Earth and space</div>
+</section>
+
+<section>
+  <span class="kicker">Background radiation · artificial</span>
+  <h2>Human-made <em>sources</em></h2>
+  <div class="body">
+    <div class="cols-3 bigc">
+      <div class="card pink"><h3>Medical</h3><p>x-rays, tracers and cancer treatment.</p></div>
+      <div class="card peach"><h3>Nuclear power</h3><p>Leaks and accidents: Three Mile Island (1979), Chernobyl (1986), Fukushima (2011).</p></div>
+      <div class="card yellow"><h3>Weapons and industry</h3><p>Nuclear weapons testing and industrial tracers.</p></div>
+    </div>
+    <div class="remember"><b>Decay products</b>What a radioactive element decays into may itself be radioactive.</div>
+  </div>
+<div class="spec-tag"><b>Spec 7.10</b> explain the sources of background (ionising) radiation from Earth and space</div>
+</section>
+
+<section class="divider"><div class="num">3</div><h2>Random decay and <em>half-life</em></h2><p class="lead">We can't predict one nucleus, but we can predict a big sample.</p></section>
+
+<section>
+  <span class="kicker">Random decay</span>
+  <h2>Decay is <em>random</em></h2>
+  <div class="body"><div class="wide-right">
+    <div class="fig"><svg viewBox="0 0 660 560" aria-label="Random pattern of decayed nuclei"><rect width="660" height="560" rx="28" class="f-card"/><circle cx="80" cy="90" r="32" class="f-cc ln"/><circle cx="180" cy="90" r="32" fill="#fff" class="dash"/><circle cx="280" cy="90" r="32" class="f-cc ln"/><circle cx="380" cy="90" r="32" class="f-cc ln"/><circle cx="480" cy="90" r="32" fill="#fff" class="dash"/><circle cx="580" cy="90" r="32" class="f-cc ln"/><circle cx="80" cy="180" r="32" fill="#fff" class="dash"/><circle cx="180" cy="180" r="32" class="f-cc ln"/><circle cx="280" cy="180" r="32" class="f-cc ln"/><circle cx="380" cy="180" r="32" fill="#fff" class="dash"/><circle cx="480" cy="180" r="32" fill="#fff" class="dash"/><circle cx="580" cy="180" r="32" class="f-cc ln"/><circle cx="80" cy="270" r="32" class="f-cc ln"/><circle cx="180" cy="270" r="32" class="f-cc ln"/><circle cx="280" cy="270" r="32" fill="#fff" class="dash"/><circle cx="380" cy="270" r="32" class="f-cc ln"/><circle cx="480" cy="270" r="32" class="f-cc ln"/><circle cx="580" cy="270" r="32" fill="#fff" class="dash"/><circle cx="80" cy="360" r="32" fill="#fff" class="dash"/><circle cx="180" cy="360" r="32" fill="#fff" class="dash"/><circle cx="280" cy="360" r="32" class="f-cc ln"/><circle cx="380" cy="360" r="32" class="f-cc ln"/><circle cx="480" cy="360" r="32" fill="#fff" class="dash"/><circle cx="580" cy="360" r="32" class="f-cc ln"/><circle cx="80" cy="450" r="32" class="f-cc ln"/><circle cx="180" cy="450" r="32" fill="#fff" class="dash"/><circle cx="280" cy="450" r="32" fill="#fff" class="dash"/><circle cx="380" cy="450" r="32" class="f-cc ln"/><circle cx="480" cy="450" r="32" class="f-cc ln"/><circle cx="580" cy="450" r="32" fill="#fff" class="dash"/>
+<text x="330" y="535" class="lbl-s" text-anchor="middle">solid = not decayed · dashed = decayed</text></svg></div>
+    <div class="stack">
+      <div class="def"><span class="term">Key idea</span><p>Radioactive decay is a random (unpredictable) process, like throwing a coin.</p></div>
+      <ul class="dots"><li>You can't say <strong>which</strong> nucleus decays, or <strong>when</strong>.</li><li>With huge numbers of nuclei, a predictable <strong>fraction</strong> decays in a given time.</li></ul>
+    </div>
+  </div></div>
+<div class="spec-tag"><b>Spec 7.11</b> know that the activity of a radioactive source decreases over a period of time and is measured in becquerels</div>
+</section>
+
+<section>
+  <span class="kicker">Random decay</span>
+  <h2>Why activity <em>falls</em></h2>
+  <div class="body">
+    <div class="flow bigf" style="flex:1">
+      <div>A nucleus decays<small>it is "out of the game"</small></div><span>→</span>
+      <div>Fewer nuclei left<small>fewer that can decay</small></div><span>→</span>
+      <div>Fewer decays each second<small>so the activity falls over time</small></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 7.11</b> know that the activity of a radioactive source decreases over a period of time and is measured in becquerels</div>
+</section>
+
+<section>
+  <span class="kicker">Random decay</span>
+  <h2>The <em>coin model</em></h2>
+  <div class="body"><div class="wide-left">
+    <div class="fig"><svg viewBox="0 0 960 560" aria-label="Coin model results"><rect width="960" height="560" rx="28" class="f-card"/><line x1="90" y1="440" x2="940" y2="440" class="ln"/><rect x="110" y="60" width="84" height="380" rx="16" class="f-c ln" style="stroke-width:5"/><text x="152" y="45" class="lbl-s" text-anchor="middle">1000</text><text x="152" y="482" class="lbl-s" text-anchor="middle">0</text><rect x="230" y="243" width="84" height="197" rx="16" class="f-c ln" style="stroke-width:5"/><text x="272" y="228" class="lbl-s" text-anchor="middle">519</text><text x="272" y="482" class="lbl-s" text-anchor="middle">1</text><rect x="350" y="340" width="84" height="100" rx="16" class="f-c ln" style="stroke-width:5"/><text x="392" y="325" class="lbl-s" text-anchor="middle">264</text><text x="392" y="482" class="lbl-s" text-anchor="middle">2</text><rect x="470" y="387" width="84" height="53" rx="16" class="f-c ln" style="stroke-width:5"/><text x="512" y="372" class="lbl-s" text-anchor="middle">140</text><text x="512" y="482" class="lbl-s" text-anchor="middle">3</text><rect x="590" y="413" width="84" height="27" rx="16" class="f-c ln" style="stroke-width:5"/><text x="632" y="398" class="lbl-s" text-anchor="middle">72</text><text x="632" y="482" class="lbl-s" text-anchor="middle">4</text><rect x="710" y="427" width="84" height="13" rx="16" class="f-c ln" style="stroke-width:5"/><text x="752" y="412" class="lbl-s" text-anchor="middle">33</text><text x="752" y="482" class="lbl-s" text-anchor="middle">5</text><rect x="830" y="433" width="84" height="7" rx="16" class="f-c ln" style="stroke-width:5"/><text x="872" y="418" class="lbl-s" text-anchor="middle">19</text><text x="872" y="482" class="lbl-s" text-anchor="middle">6</text>
+<text x="520" y="535" class="lbl" text-anchor="middle">number of throws</text></svg></div>
+    <div class="stack">
+      <ol class="nums"><li>Throw 1000 coins.</li><li>Remove the "heads" each time.</li><li>About <strong>half</strong> go every throw.</li></ol>
+      <div class="warn"><b>Limitation</b>Real samples have millions of nuclei, not 1000.</div>
+    </div>
+  </div></div>
+</section>
+
+<section>
+  <span class="kicker">The decay curve</span>
+  <h2>The <em>exponential decay</em> curve</h2>
+  <div class="body"><div class="wide-left">
+    <div class="fig"><svg viewBox="0 0 960 600" aria-label="Exponential decay curve"><rect width="960" height="600" rx="28" class="f-card"/>
+<line x1="140" y1="470" x2="900" y2="470" class="ln"/><line x1="140" y1="470" x2="140" y2="50" class="ln"/>
+<path d="M888 458 L906 470 L888 482" class="ln"/><path d="M128 62 L140 44 L152 62" class="ln"/>
+<path d="M140 90 L340 90 M140 280 L340 280 M140 375 L540 375 M140 422 L740 422" class="dash" style="stroke-width:3"/>
+<path d="M340 470 L340 280 M540 470 L540 375 M740 470 L740 422" class="dash" style="stroke-width:3"/>
+<path d="M140.0 90.0 L152.0 105.5 L164.0 120.3 L176.0 134.6 L188.0 148.2 L200.0 161.3 L212.0 173.9 L224.0 186.0 L236.0 197.5 L248.0 208.6 L260.0 219.3 L272.0 229.5 L284.0 239.3 L296.0 248.7 L308.0 257.7 L320.0 266.4 L332.0 274.7 L344.0 282.6 L356.0 290.2 L368.0 297.6 L380.0 304.6 L392.0 311.3 L404.0 317.8 L416.0 324.0 L428.0 329.9 L440.0 335.6 L452.0 341.1 L464.0 346.4 L476.0 351.4 L488.0 356.2 L500.0 360.9 L512.0 365.3 L524.0 369.6 L536.0 373.7 L548.0 377.6 L560.0 381.4 L572.0 385.0 L584.0 388.4 L596.0 391.8 L608.0 394.9 L620.0 398.0 L632.0 400.9 L644.0 403.7 L656.0 406.4 L668.0 409.0 L680.0 411.5 L692.0 413.9 L704.0 416.2 L716.0 418.4 L728.0 420.5 L740.0 422.5 L752.0 424.4 L764.0 426.3 L776.0 428.1 L788.0 429.8 L800.0 431.4 L812.0 433.0 L824.0 434.5 L836.0 435.9 L848.0 437.3 L860.0 438.7" class="ln-c"/>
+<circle cx="140" cy="90" r="9" class="f-cc"/><circle cx="340" cy="280" r="9" class="f-cc"/><circle cx="540" cy="375" r="9" class="f-cc"/><circle cx="740" cy="422" r="9" class="f-cc"/>
+<text x="106" y="100" class="lbl-c" text-anchor="end">m</text><text x="106" y="290" class="lbl-c" text-anchor="end">m/2</text><text x="106" y="385" class="lbl-c" text-anchor="end">m/4</text><text x="106" y="432" class="lbl-c" text-anchor="end">m/8</text>
+<text x="340" y="515" class="lbl-s" text-anchor="middle">1 t½</text><text x="540" y="515" class="lbl-s" text-anchor="middle">2 t½</text><text x="740" y="515" class="lbl-s" text-anchor="middle">3 t½</text>
+<text x="520" y="575" class="lbl" text-anchor="middle">time</text>
+<text x="40" y="270" class="lbl" text-anchor="middle" transform="rotate(-90 40 270)">amount / activity</text>
+</svg></div>
+    <div class="stack">
+      <p>The amount left, and the activity, falls <strong>steeply at first</strong>, then <strong>more and more slowly</strong>.</p>
+      <p>The smaller the amount, the slower it decreases.</p>
+      <div class="remember"><b>Pattern</b>It halves every half-life: m → m/2 → m/4 → m/8 …</div>
+    </div>
+  </div></div>
+<div class="spec-tag"><b>Spec 7.11</b> know that the activity of a radioactive source decreases over a period of time and is measured in becquerels</div>
+</section>
+
+<section>
+  <span class="kicker">Half-life</span>
+  <h2>What is <em>half-life</em>?</h2>
+  <div class="body">
+    <div class="def"><span class="term">Key term · half-life</span><p>The average time taken for half the nuclei (half the original radioactive material) in a sample to decay.</p></div>
+    <div class="fig" style="flex:1"><svg viewBox="0 0 1100 420" aria-label="16 nuclei become 8 then 4"><rect width="1100" height="420" rx="28" class="f-card"/>
+<circle cx="70" cy="90" r="22" class="f-cc"/><circle cx="132" cy="90" r="22" class="f-cc"/><circle cx="194" cy="90" r="22" class="f-cc"/><circle cx="256" cy="90" r="22" class="f-cc"/><circle cx="70" cy="152" r="22" class="f-cc"/><circle cx="132" cy="152" r="22" class="f-cc"/><circle cx="194" cy="152" r="22" class="f-cc"/><circle cx="256" cy="152" r="22" class="f-cc"/><circle cx="70" cy="214" r="22" class="f-cc"/><circle cx="132" cy="214" r="22" class="f-cc"/><circle cx="194" cy="214" r="22" class="f-cc"/><circle cx="256" cy="214" r="22" class="f-cc"/><circle cx="70" cy="276" r="22" class="f-cc"/><circle cx="132" cy="276" r="22" class="f-cc"/><circle cx="194" cy="276" r="22" class="f-cc"/><circle cx="256" cy="276" r="22" class="f-cc"/><circle cx="430" cy="90" r="22" class="f-cc"/><circle cx="492" cy="90" r="22" class="f-cc"/><circle cx="554" cy="90" r="22" class="f-cc"/><circle cx="616" cy="90" r="22" class="f-cc"/><circle cx="430" cy="152" r="22" class="f-cc"/><circle cx="492" cy="152" r="22" class="f-cc"/><circle cx="554" cy="152" r="22" class="f-cc"/><circle cx="616" cy="152" r="22" class="f-cc"/><circle cx="430" cy="214" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="492" cy="214" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="554" cy="214" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="616" cy="214" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="430" cy="276" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="492" cy="276" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="554" cy="276" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="616" cy="276" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="790" cy="90" r="22" class="f-cc"/><circle cx="852" cy="90" r="22" class="f-cc"/><circle cx="914" cy="90" r="22" class="f-cc"/><circle cx="976" cy="90" r="22" class="f-cc"/><circle cx="790" cy="152" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="852" cy="152" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="914" cy="152" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="976" cy="152" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="790" cy="214" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="852" cy="214" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="914" cy="214" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="976" cy="214" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="790" cy="276" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="852" cy="276" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="914" cy="276" r="22" fill="#fff" class="dash" style="stroke-width:3"/><circle cx="976" cy="276" r="22" fill="#fff" class="dash" style="stroke-width:3"/>
+<text x="130" y="350" class="lbl-s" text-anchor="middle">16 nuclei</text><text x="490" y="350" class="lbl-s" text-anchor="middle">8 left</text><text x="850" y="350" class="lbl-s" text-anchor="middle">4 left</text>
+<path d="M300 160 L386 160 M374 146 L390 160 L374 174" class="ln-c"/><path d="M660 160 L746 160 M734 146 L750 160 L734 174" class="ln-c"/>
+<text x="343" y="128" class="lbl-s" text-anchor="middle">1 half-life</text><text x="703" y="128" class="lbl-s" text-anchor="middle">1 half-life</text>
+<text x="550" y="400" class="lbl-s" text-anchor="middle">solid = still radioactive · dashed = decayed</text></svg></div>
+  </div>
+<div class="spec-tag"><b>Spec 7.12</b> know the definition of the term &#x27;half-life&#x27; and understand that it is different for different radioactive…</div>
+</section>
+
+<section>
+  <span class="kicker">Half-life</span>
+  <h2>Half-life and <em>activity</em></h2>
+  <div class="body"><div class="cols-3 bigc">
+    <div class="card tint"><h3>Same time, same fraction</h3><p>Every half-life, half of what is left decays.</p></div>
+    <div class="card mint"><h3>Activity halves too</h3><p>When the amount halves, the activity halves. Activity is what we measure.</p></div>
+    <div class="card yellow"><h3>Different isotopes</h3><p>Every radioactive isotope has its own half-life.</p></div>
+  </div>
+  <div class="tip"><b>Say it right</b>Half-life is the time for half the nuclei to decay, not half the time it takes for all of them to decay.</div></div>
+<div class="spec-tag"><b>Spec 7.12</b> know the definition of the term &#x27;half-life&#x27; and understand that it is different for different radioactive…</div>
+</section>
+
+<section>
+  <span class="kicker">Half-life</span>
+  <h2>Different isotopes, different <em>half-lives</em></h2>
+  <div class="body">
+    <table class="t big"><tr><th>Isotope</th><th>Half-life</th><th>Radiation given out</th></tr>
+    <tr><td>uranium-238</td><td>4.5 billion years</td><td>α</td></tr>
+    <tr><td>radium-226</td><td>1590 years</td><td>α, γ</td></tr>
+    <tr><td>radon-222</td><td>3.825 days</td><td>α</td></tr></table>
+    <div class="cols-2 bigc">
+      <div class="card mint"><h3>Short half-life</h3><p>Dies away fast, so it is used as a medical tracer.</p></div>
+      <div class="card sky"><h3>Long half-life</h3><p>Lasts a very long time, so it is used for dating.</p></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 7.12</b> know the definition of the term &#x27;half-life&#x27; and understand that it is different for different radioactive…</div>
+</section>
+
+<section class="divider"><div class="num">4</div><h2>Measuring and <em>calculating</em></h2><p class="lead">Find a half-life from an experiment, a graph or numbers.</p></section>
+
+<section>
+  <span class="kicker">Practical · measuring half-life</span>
+  <h2>How to measure a <em>half-life</em></h2>
+  <div class="body"><div class="wide-left">
+    <div class="fig"><svg viewBox="0 0 900 520" aria-label="Half-life apparatus"><rect width="900" height="520" rx="28" class="f-card"/>
+<rect x="50" y="230" width="120" height="70" rx="14" class="f-peach ln"/><circle cx="110" cy="265" r="8" class="f-cc"/>
+<rect x="260" y="205" width="260" height="120" rx="40" class="f-sky ln"/><line x1="285" y1="265" x2="520" y2="265" class="ln-c" style="stroke-width:6"/>
+<path d="M180 265 L250 265 M238 252 L252 265 L238 278" class="ln-c"/>
+<path d="M520 265 L600 265 L600 240" class="ln"/>
+<rect x="580" y="130" width="250" height="110" rx="22" class="f-yellow ln"/><text x="705" y="200" text-anchor="middle" style="font:900 48px Nunito;fill:#1E1B3A">37 Bq</text>
+<rect x="50" y="340" width="190" height="52" rx="26" class="pill"/><text x="145" y="375" class="lbl-s" text-anchor="middle">source</text>
+<path d="M110 340 L110 304" class="thin"/>
+<rect x="290" y="340" width="200" height="52" rx="26" class="pill"/><text x="390" y="375" class="lbl-s" text-anchor="middle">GM tube</text>
+<path d="M390 340 L390 322" class="thin"/>
+<rect x="590" y="40" width="230" height="52" rx="26" class="pill"/><text x="705" y="75" class="lbl-s" text-anchor="middle">rate meter</text>
+<path d="M705 92 L705 128" class="thin"/>
+<circle cx="740" cy="370" r="58" class="f-lilac ln"/><path d="M740 370 L740 330 M740 370 L768 384" class="ln"/><rect x="720" y="300" width="40" height="14" rx="6" class="f-cc"/><rect x="640" y="445" width="200" height="50" rx="25" class="pill"/><text x="740" y="480" class="lbl-s" text-anchor="middle">stopwatch</text>
+<rect x="640" y="470" width="200" height="44" rx="22" class="pill" style="display:none"/><text x="740" y="495" class="lbl-s" text-anchor="middle" style="display:none">stopwatch</text>
+</svg></div>
+    <ol class="nums">
+      <li>Measure the <strong>background</strong> count rate first (for example an average over 5 min) = x.</li>
+      <li>Measure the sample's count rate at <strong>regular intervals</strong>.</li>
+      <li>Corrected count rate C = reading − x.</li>
+      <li>Plot C against time. Read the time for C to halve. Repeat and average.</li>
+    </ol>
+  </div></div>
+<div class="spec-tag"><b>Spec 7.11</b> know that the activity of a radioactive source decreases over a period of time and is measured in becquerels</div>
+</section>
+
+<section>
+  <span class="kicker">Practical · measuring half-life</span>
+  <h2>Correct for the <em>background</em></h2>
+  <div class="body"><div class="wide-left">
+    <div class="stack">
+      <table class="t"><tr><th>t / min</th><th>Count rate / Bq</th><th>Corrected C / Bq</th></tr>
+      <tr><td>0</td><td>y₀</td><td>y₀ − x</td></tr><tr><td>5</td><td>y₅</td><td>y₅ − x</td></tr><tr><td>10</td><td>y₁₀</td><td>y₁₀ − x</td></tr></table>
+      <div class="eq" style="padding:22px 30px"><div class="sym" style="font-size:54px">C = reading − x</div></div>
+      <div class="tip"><b>Timing</b>For t½ of 10–20 min, take readings every few minutes for about an hour.</div>
+    </div>
+    <div class="fig"><svg viewBox="0 0 560 520" aria-label="Meter reading = background + sample"><rect width="560" height="520" rx="28" class="f-card"/>
+<rect x="150" y="50" width="200" height="300" rx="24" class="f-yellow ln"/><rect x="150" y="290" width="200" height="60" rx="0" fill="#B9B4D6" stroke="none"/><rect x="150" y="50" width="200" height="300" rx="24" class="ln" fill="none"/>
+<text x="250" y="190" class="lbl-c" text-anchor="middle">C</text><text x="250" y="328" class="lbl-s" text-anchor="middle">x</text>
+<rect x="370" y="150" width="170" height="52" rx="26" class="pill"/><text x="455" y="185" class="lbl-s" text-anchor="middle">from sample</text>
+<rect x="370" y="294" width="170" height="52" rx="26" class="pill"/><text x="455" y="329" class="lbl-s" text-anchor="middle">background</text>
+<text x="250" y="400" class="lbl" text-anchor="middle">one meter reading</text>
+<text x="280" y="470" class="lbl-s" text-anchor="middle">reading = C + x</text></svg></div>
+  </div></div>
+<div class="spec-tag"><b>Spec 7.12</b> know the definition of the term &#x27;half-life&#x27; and understand that it is different for different radioactive…</div>
+</section>
+
+<section>
+  <span class="kicker">Graphical method</span>
+  <h2>Reading half-life from a <em>graph</em></h2>
+  <div class="body"><div class="wide-left">
+    <div class="fig"><svg viewBox="0 0 960 600" aria-label="Reading half-life from a graph"><rect width="960" height="600" rx="28" class="f-card"/>
+<line x1="140" y1="470" x2="900" y2="470" class="ln"/><line x1="140" y1="470" x2="140" y2="50" class="ln"/>
+<path d="M888 458 L906 470 L888 482" class="ln"/><path d="M128 62 L140 44 L152 62" class="ln"/>
+<path d="M140.0 90.0 L152.0 102.9 L164.0 115.4 L176.0 127.5 L188.0 139.2 L200.0 150.5 L212.0 161.3 L224.0 171.9 L236.0 182.0 L248.0 191.8 L260.0 201.3 L272.0 210.5 L284.0 219.3 L296.0 227.8 L308.0 236.1 L320.0 244.1 L332.0 251.7 L344.0 259.2 L356.0 266.4 L368.0 273.3 L380.0 280.0 L392.0 286.5 L404.0 292.7 L416.0 298.8 L428.0 304.6 L440.0 310.2 L452.0 315.7 L464.0 320.9 L476.0 326.0 L488.0 330.9 L500.0 335.6 L512.0 340.2 L524.0 344.6 L536.0 348.9 L548.0 353.0 L560.0 357.0 L572.0 360.9 L584.0 364.6 L596.0 368.2 L608.0 371.6 L620.0 375.0 L632.0 378.2 L644.0 381.4 L656.0 384.4 L668.0 387.3 L680.0 390.1 L692.0 392.8 L704.0 395.5 L716.0 398.0 L728.0 400.5 L740.0 402.8 L752.0 405.1 L764.0 407.3 L776.0 409.5 L788.0 411.5 L800.0 413.5 L812.0 415.4 L824.0 417.3 L836.0 419.1 L848.0 420.8 L860.0 422.5" class="ln-c"/>
+<path d="M140 280 L380 280 M380 280 L380 470" class="dash s-pink" style="stroke:#FF8FB1;stroke-width:5"/>
+<path d="M380 375 L620 375 M620 375 L620 470" class="dash" style="stroke:#3CCB9A;stroke-width:5"/>
+<circle cx="140" cy="90" r="9" class="f-cc"/><circle cx="380" cy="280" r="9" fill="#FF8FB1"/><circle cx="620" cy="375" r="9" fill="#3CCB9A"/>
+<rect x="160" y="40" width="330" height="50" rx="25" class="pill"/><text x="325" y="74" class="lbl-s" text-anchor="middle">initial count rate</text>
+<rect x="190" y="215" width="170" height="50" rx="25" class="pill"/><text x="275" y="249" class="lbl-s" text-anchor="middle">half initial</text>
+<rect x="250" y="495" width="260" height="50" rx="25" class="pill"/><text x="380" y="529" class="lbl-s" text-anchor="middle">half-life</text>
+<text x="40" y="270" class="lbl" text-anchor="middle" transform="rotate(-90 40 270)">C / Bq</text>
+<text x="760" y="575" class="lbl" text-anchor="middle">t / minutes</text>
+</svg></div>
+    <div class="stack">
+      <ol class="nums"><li>Find the initial count rate.</li><li>Halve it. Go across to the curve.</li><li>Go down to the time axis. That time is the <strong>half-life</strong>.</li><li>Repeat from another start point and average.</li></ol>
+    </div>
+  </div></div>
+<div class="spec-tag"><b>Spec 7.13</b> use the concept of the half-life to carry out simple calculations on activity, including graphical methods</div>
+</section>
+
+<section>
+  <span class="kicker">Worked example</span>
+  <h2>Halving <em>step by step</em></h2>
+  <div class="body">
+    <div class="worked" style="padding:28px 42px;gap:12px">
+      <div class="q">A source has activity 200 Bq and half-life 20 min. What is the activity after 1 hour?</div>
+      <div class="step"><i>Half-lives</i>n = 60 ÷ 20 = 3</div>
+      <div class="step"><i>Halve 3 times</i>200 → 100 → 50 → 25</div>
+      <div class="ans">activity = 25 Bq</div>
+    </div>
+    <div class="fig" style="flex:1"><svg viewBox="0 0 1500 410" aria-label="200 Bq halved three times"><rect width="1500" height="410" rx="28" class="f-card"/><line x1="60" y1="330" x2="1440" y2="330" class="ln"/><rect x="110" y="102" width="170" height="228" rx="18" class="f-c ln" style="stroke-width:5"/><text x="195" y="87" class="lbl" text-anchor="middle">200 Bq</text><text x="195" y="380" class="lbl-s" text-anchor="middle">0 min</text><rect x="490" y="216" width="170" height="114" rx="18" class="f-c ln" style="stroke-width:5"/><text x="575" y="201" class="lbl" text-anchor="middle">100 Bq</text><text x="575" y="380" class="lbl-s" text-anchor="middle">20 min</text><rect x="870" y="273" width="170" height="57" rx="18" class="f-c ln" style="stroke-width:5"/><text x="955" y="258" class="lbl" text-anchor="middle">50 Bq</text><text x="955" y="380" class="lbl-s" text-anchor="middle">40 min</text><rect x="1250" y="302" width="170" height="28" rx="18" class="f-c ln" style="stroke-width:5"/><text x="1335" y="286" class="lbl" text-anchor="middle">25 Bq</text><text x="1335" y="380" class="lbl-s" text-anchor="middle">60 min</text><rect x="315" y="110" width="110" height="52" rx="26" class="pill"/><text x="370" y="146" class="lbl" text-anchor="middle">÷ 2</text><rect x="695" y="110" width="110" height="52" rx="26" class="pill"/><text x="750" y="146" class="lbl" text-anchor="middle">÷ 2</text><rect x="1075" y="110" width="110" height="52" rx="26" class="pill"/><text x="1130" y="146" class="lbl" text-anchor="middle">÷ 2</text></svg></div>
+  </div>
+<div class="spec-tag"><b>Spec 7.13</b> use the concept of the half-life to carry out simple calculations on activity, including graphical methods</div>
+</section>
+
+<section>
+  <span class="kicker">Worked example</span>
+  <h2>Many half-lives: use <em>(½)ⁿ</em></h2>
+  <div class="body"><div class="wide-left">
+    <div class="worked">
+      <div class="q">Same source (t½ = 20 min). What fraction is left after 3 hours?</div>
+      <div class="step"><i>Know</i>3 h = 180 min</div>
+      <div class="step"><i>Half-lives</i>n = 180 ÷ 20 = 9</div>
+      <div class="step"><i>Fraction</i>(½)⁹ = 1 ÷ 512</div>
+      <div class="ans">1/512 is left</div>
+    </div>
+    <div class="stack">
+      <div class="eq"><div class="words">final = start × (½)ⁿ</div><div class="sym">n = time ÷ t½</div><div class="units"><span>amount</span><span>nuclei</span><span>activity (Bq)</span></div></div>
+      <div class="tip"><b>Tip</b>Count the halvings first. Then multiply by ½ that many times.</div>
+    </div>
+  </div></div>
+<div class="spec-tag"><b>Spec 7.11</b> know that the activity of a radioactive source decreases over a period of time and is measured in becquerels</div>
+</section>
+
+<section>
+  <span class="kicker">Worked example</span>
+  <h2>Working backwards: find the <em>half-life</em></h2>
+  <div class="body"><div class="wide-left">
+    <div class="worked">
+      <div class="q">A source falls from 240 Bq to 30 Bq in 1 h 30 min. Find its half-life.</div>
+      <div class="step"><i>Know</i>1 h 30 min = 90 min</div>
+      <div class="step"><i>Count</i>240 → 120 → 60 → 30 = 3 half-lives</div>
+      <div class="step"><i>Equation</i>t½ = 90 ÷ 3</div>
+      <div class="ans">t½ = 30 min</div>
+    </div>
+    <div class="fig"><svg viewBox="0 0 900 520" aria-label="240 Bq to 30 Bq in 90 min"><rect width="900" height="520" rx="28" class="f-card"/>
+<line x1="110" y1="440" x2="850" y2="440" class="ln"/><line x1="110" y1="440" x2="110" y2="40" class="ln"/>
+<path d="M838 428 L856 440 L838 452" class="ln"/><path d="M98 52 L110 34 L122 52" class="ln"/>
+<path d="M110 90 L110 90" class="ln"/><path d="M110 104 L332 272 L554 356 L776 398" class="dash" style="stroke:#6D5DD3"/><path d="M110.0 104.0 L121.1 115.4 L132.2 126.5 L143.3 137.2 L154.4 147.5 L165.5 157.5 L176.6 167.1 L187.7 176.4 L198.8 185.4 L209.9 194.0 L221.0 202.4 L232.1 210.5 L243.2 218.3 L254.3 225.9 L265.4 233.2 L276.5 240.2 L287.6 247.0 L298.7 253.6 L309.8 259.9 L320.9 266.1 L332.0 272.0 L343.1 277.7 L354.2 283.3 L365.3 288.6 L376.4 293.7 L387.5 298.7 L398.6 303.5 L409.7 308.2 L420.8 312.7 L431.9 317.0 L443.0 321.2 L454.1 325.3 L465.2 329.2 L476.3 332.9 L487.4 336.6 L498.5 340.1 L509.6 343.5 L520.7 346.8 L531.8 350.0 L542.9 353.0 L554.0 356.0 L565.1 358.9 L576.2 361.6 L587.3 364.3 L598.4 366.9 L609.5 369.4 L620.6 371.8 L631.7 374.1 L642.8 376.3 L653.9 378.5 L665.0 380.6 L676.1 382.6 L687.2 384.6 L698.3 386.5 L709.4 388.3 L720.5 390.1 L731.6 391.8 L742.7 393.4 L753.8 395.0 L764.9 396.5 L776.0 398.0" class="ln-c"/><circle cx="110" cy="104" r="10" class="f-cc"/><text x="126" y="90" class="lbl-s">240</text><text x="110" y="485" class="lbl-s" text-anchor="middle">0</text><circle cx="332" cy="272" r="10" class="f-cc"/><text x="348" y="258" class="lbl-s">120</text><text x="332" y="485" class="lbl-s" text-anchor="middle">30</text><circle cx="554" cy="356" r="10" class="f-cc"/><text x="570" y="342" class="lbl-s">60</text><text x="554" y="485" class="lbl-s" text-anchor="middle">60</text><circle cx="776" cy="398" r="10" class="f-cc"/><text x="792" y="384" class="lbl-s">30</text><text x="776" y="485" class="lbl-s" text-anchor="middle">90</text><text x="500" y="515" class="lbl-s" text-anchor="middle" style="display:none"></text><text x="830" y="485" class="lbl-s" text-anchor="end" style="display:none"></text><text x="30" y="250" class="lbl-s" text-anchor="middle" transform="rotate(-90 30 250)">activity / Bq</text><text x="800" y="515" class="lbl-s" text-anchor="end">time / min</text></svg></div>
+  </div></div>
+<div class="spec-tag"><b>Spec 7.11</b> know that the activity of a radioactive source decreases over a period of time and is measured in becquerels</div>
+</section>
+
+<section>
+  <span class="kicker">Exam toolkit</span>
+  <h2>Fraction <em>left</em> and <em>decayed</em></h2>
+  <div class="body">
+    <table class="t big"><tr><th>Half-lives</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></tr>
+    <tr><td>Left</td><td>½</td><td>¼</td><td>⅛</td><td>1/16</td><td>1/32</td></tr>
+    <tr><td>Decayed</td><td>½</td><td>¾</td><td>⅞</td><td>15/16</td><td>31/32</td></tr></table>
+    <div class="remember"><b>Rule</b>Fraction decayed = 1 − fraction left. "¾ decayed" means ¼ left, which is 2 half-lives.</div>
+  </div>
+</section>
+
+<section>
+  <span class="kicker">Exam toolkit</span>
+  <h2>The <em>burette</em> model</h2>
+  <div class="body"><div class="wide-right">
+    <div class="fig"><svg viewBox="0 0 520 560" aria-label="Burette draining"><rect width="520" height="560" rx="28" class="f-card"/>
+<rect x="190" y="40" width="80" height="380" rx="20" class="f-sky ln"/><rect x="194" y="200" width="72" height="216" rx="14" fill="#4DA3FF" opacity=".7"/>
+<path d="M230 420 L230 470" class="ln"/><path d="M230 470 L230 500" class="ln-c" style="stroke:#4DA3FF"/>
+<path d="M270 200 L310 200" class="thin"/><text x="320" y="210" class="lbl-s">50 ml</text>
+<text x="290" y="320" class="lbl-s" style="display:none"></text>
+<text x="260" y="540" class="lbl-s" text-anchor="middle">burette of water</text></svg></div>
+    <div class="stack">
+      <div class="card tint"><h3>Half-life from the data</h3><p>50 ml drains to 25 ml in 35 s, so the "half-life" is <strong>35 s</strong>.</p></div>
+      <div class="card yellow"><h3>Time for ¾ to drain</h3><p>2 half-lives = 2 × 35 = <strong>70 s</strong>.</p></div>
+      <div class="card mint"><h3>Water left after 1¾ min</h3><p>105 s = 3 half-lives, so 50 × ⅛ = <strong>6.25 ml</strong>.</p></div>
+    </div>
+  </div></div>
+<div class="spec-tag"><b>Spec 7.12</b> know the definition of the term &#x27;half-life&#x27; and understand that it is different for different radioactive…</div>
+</section>
+
+<section>
+  <span class="kicker">Exam toolkit</span>
+  <h2>Common <em>mistakes</em></h2>
+  <div class="body"><div class="pairs">
+    <div class="warn"><b>Wrong</b>Forgetting to subtract background before working out half-life.</div>
+    <div class="remember"><b>Right</b>Always use C = reading − background.</div>
+    <div class="warn"><b>Wrong</b>Everything is gone after two half-lives.</div>
+    <div class="remember"><b>Right</b>After 2 half-lives, ¼ is left.</div>
+    <div class="warn"><b>Wrong</b>Half-life is half the time to decay.</div>
+    <div class="remember"><b>Right</b>It is the time for half the nuclei to decay.</div>
+    <div class="warn"><b>Wrong</b>We can predict which nucleus decays next.</div>
+    <div class="remember"><b>Right</b>Decay is random; only the fraction is predictable.</div>
+  </div></div>
+<div class="spec-tag"><b>Spec 7.12</b> know the definition of the term &#x27;half-life&#x27; and understand that it is different for different radioactive…</div>
+</section>
+
+<section>
+  <span class="kicker">Quick check</span>
+  <h2>Test <em>yourself</em> (1)</h2>
+  <div class="body"><div class="qc hide fill">
+    <div class="qq">1. Name two ways to detect ionising radiation.<span class="a">Photographic film, or a Geiger–Müller tube.</span></div>
+    <div class="qq">2. What is background radiation, and which source gives the most in the UK?<span class="a">Low-level ionising radiation always around us. Radon gas (50%).</span></div>
+    <div class="qq">3. What does a rate meter measure, and in what unit?<span class="a">Events per second (activity), in becquerels (Bq).</span></div>
+  </div></div>
+</section>
+
+<section>
+  <span class="kicker">Quick check</span>
+  <h2>Test <em>yourself</em> (2)</h2>
+  <div class="body"><div class="qc hide fill">
+    <div class="qq">1. Define half-life.<span class="a">The average time taken for half the nuclei in a sample to decay.</span></div>
+    <div class="qq">2. 80 Bq, t½ = 5 min. What is the activity after 15 min?<span class="a">3 half-lives: 80 → 40 → 20 → 10 Bq.</span></div>
+    <div class="qq">3. 50 ml drains to 25 ml in 35 s. How long for ¾ to drain?<span class="a">2 half-lives = 70 s.</span></div>
+  </div></div>
+</section>
+
+<section>
+  <span class="kicker">Recap</span>
+  <h2>Chapter 23 in a <em>nutshell</em></h2>
+  <div class="body"><div class="checks fill">
+    <div>Film fogs and a GM tube ionises gas to detect radiation</div><div>GM tube + counter or rate meter</div>
+    <div>Background: radon, rocks, cosmic rays, food, medical</div><div>Activity = decays per second, in Bq</div>
+    <div>Decay is random; the decay curve is exponential</div><div>Half-life = average time for half the nuclei to decay</div>
+    <div>Subtract background: C = reading − x</div><div>final = start × (½)ⁿ, n = time ÷ t½</div>
+  </div></div>
+</section>
+
+</div></div>
+<script src="../../assets/deck.js"></script>
+</body>
+</html>

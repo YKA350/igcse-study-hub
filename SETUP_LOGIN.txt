@@ -1,0 +1,13 @@
+TURN ON LOGIN (about 10 minutes, free)
+1. Go to console.firebase.google.com > Add project (any name).
+2. Build > Authentication > Get started > Sign-in method. Enable:
+   - Email/Password
+   - Google  (just toggle on, pick a support email)
+   - Microsoft (needs an app registered at portal.azure.com: paste its Client ID + secret, and add the redirect URL Firebase shows)
+   - Apple (needs a paid Apple Developer account: Services ID, key, team ID; Firebase shows the steps)
+   You can start with Email + Google only and add the others later.
+3. Authentication > Settings > Authorized domains: add your website address (e.g. yourname.netlify.app).
+4. Project settings (gear) > Your apps > Web (</>) > register app. Copy the firebaseConfig values.
+5. Open assets/auth-config.js, replace "null" with your config (example is in the file). Save and re-upload the site.
+Until step 5 is done, the site stays open to everyone.
+NOTE: this is a login screen on a static website. It stops casual visitors, but the lesson files themselves are still public to anyone who knows the exact file address.

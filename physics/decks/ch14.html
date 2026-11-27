@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en" data-subj="physics">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Physics Ch 14: Energy Transfers</title>
+<link rel="stylesheet" href="../../assets/deck.css">
+</head>
+<body>
+<div id="vp"><div id="stage">
+
+<!-- COVER -->
+<section class="cover">
+  <span class="kicker"><b>4</b> Unit 4 · Energy resources and energy transfers</span>
+  <h1>Energy Transfers</h1>
+  <p class="lead">Where energy is stored, how it moves, why some is always wasted, and how to work out efficiency.</p>
+  <div class="chips"><span>8 energy stores</span><span>4 ways to transfer</span><span>Conservation of energy</span><span>Wasted energy</span><span>Sankey diagrams</span><span>Efficiency</span></div>
+  <div class="bignum">14</div>
+  <aside>Chapter 14: Energy Transfers, book pages 133 to 138. One equation to learn: efficiency.</aside>
+</section>
+
+<!-- ============ PART 1 ============ -->
+<section class="divider">
+  <div class="num">1</div>
+  <h2>Energy <em>stores</em></h2>
+  <p class="lead">Energy is kept in stores – like money kept in different bank accounts.</p>
+</section>
+
+<section>
+  <span class="kicker">Energy stores</span>
+  <h2>Whenever anything <em>happens</em>…</h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 600" aria-label="Energy moving from one store to another">
+          <rect x="60" y="120" width="270" height="340" rx="40" class="f-card"/>
+          <rect x="60" y="190" width="270" height="270" rx="40" class="f-pink"/>
+          <rect x="60" y="120" width="270" height="340" rx="40" class="ln"/>
+          <rect x="570" y="120" width="270" height="340" rx="40" class="f-card"/>
+          <rect x="570" y="330" width="270" height="130" rx="40" class="f-mint"/>
+          <rect x="570" y="120" width="270" height="340" rx="40" class="ln"/>
+          <path d="M350 290 L540 290" class="ln-c"/><path d="M518 268 L546 290 L518 312" class="ln-c"/>
+          <rect x="345" y="200" width="200" height="56" rx="28" class="pill"/>
+          <text x="445" y="237" class="lbl-s" text-anchor="middle">transferred</text>
+          <text x="195" y="520" class="lbl" text-anchor="middle">chemical store</text>
+          <text x="195" y="560" class="lbl-s" text-anchor="middle">(food you ate)</text>
+          <text x="705" y="520" class="lbl" text-anchor="middle">kinetic store</text>
+          <text x="705" y="560" class="lbl-s" text-anchor="middle">(you, running)</text>
+          <text x="195" y="80" class="lbl-c" text-anchor="middle">STORE 1</text>
+          <text x="705" y="80" class="lbl-c" text-anchor="middle">STORE 2</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="def"><span class="term">Big idea</span><p>Whenever anything happens, energy is transferred from one store to another.</p></div>
+        <ul class="dots">
+          <li>World demand for energy keeps <strong>rising</strong>: more people, and people are wealthier.</li>
+          <li>The <strong>Sun</strong> is the Earth's main energy resource.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.2</b> describe energy transfers involving energy stores: energy stores: chemical, kinetic, gravitational,…</div>
+</section>
+
+<section>
+  <span class="kicker">Energy stores</span>
+  <h2>The <em>8 energy stores</em></h2>
+  <div class="body">
+    <div class="cols-4">
+<div class="card mint" style="padding:28px 30px;gap:10px"><div class="icon" style="background:#fff"><svg viewBox="0 0 84 84" style="width:72px;height:72px"><rect x="14" y="26" width="52" height="34" rx="8" class="f-mint"/><rect x="14" y="26" width="52" height="34" rx="8" class="thin"/><rect x="66" y="36" width="7" height="14" rx="3" class="f-cc"/><path d="M26 43 L36 43 M31 38 L31 48 M46 43 L56 43" class="thin"/></svg></div><h3 style="font-size:34px">Chemical</h3><p style="font-size:28px">food, fuels, batteries</p></div>
+<div class="card sky" style="padding:28px 30px;gap:10px"><div class="icon" style="background:#fff"><svg viewBox="0 0 84 84" style="width:72px;height:72px"><circle cx="54" cy="42" r="18" class="f-sky"/><circle cx="54" cy="42" r="18" class="thin"/><path d="M10 32 L28 32 M6 42 L28 42 M10 52 L28 52" class="thin"/></svg></div><h3 style="font-size:34px">Kinetic</h3><p style="font-size:28px">moving objects</p></div>
+<div class="card lilac" style="padding:28px 30px;gap:10px"><div class="icon" style="background:#fff"><svg viewBox="0 0 84 84" style="width:72px;height:72px"><rect x="30" y="10" width="26" height="22" rx="5" class="f-lilac"/><rect x="30" y="10" width="26" height="22" rx="5" class="thin"/><path d="M8 72 L76 72" class="thin"/><path d="M18 34 L18 70 M12 40 L18 34 L24 40 M12 64 L18 70 L24 64" class="thin"/></svg></div><h3 style="font-size:34px">Gravitational potential</h3><p style="font-size:28px">raised objects</p></div>
+<div class="card tint" style="padding:28px 30px;gap:10px"><div class="icon" style="background:#fff"><svg viewBox="0 0 84 84" style="width:72px;height:72px"><path d="M8 42 L18 42 L24 26 L34 58 L44 26 L54 58 L62 42 L76 42" class="thin" style="stroke:var(--c);stroke-width:5"/></svg></div><h3 style="font-size:34px">Elastic potential</h3><p style="font-size:28px">stretched or squashed springs</p></div>
+<div class="card peach" style="padding:28px 30px;gap:10px"><div class="icon" style="background:#fff"><svg viewBox="0 0 84 84" style="width:72px;height:72px"><rect x="34" y="8" width="16" height="52" rx="8" class="f-card"/><rect x="34" y="8" width="16" height="52" rx="8" class="thin"/><circle cx="42" cy="66" r="12" style="fill:var(--red)"/><rect x="39" y="26" width="6" height="36" style="fill:var(--red)"/></svg></div><h3 style="font-size:34px">Thermal</h3><p style="font-size:28px">hot objects</p></div>
+<div class="card pink" style="padding:28px 30px;gap:10px"><div class="icon" style="background:#fff"><svg viewBox="0 0 84 84" style="width:72px;height:72px"><path d="M20 14 L20 46 A22 22 0 0 0 64 46 L64 14" style="fill:none;stroke:var(--red);stroke-width:14"/><path d="M13 14 L27 14 M57 14 L71 14" style="stroke:var(--ink2);stroke-width:14"/></svg></div><h3 style="font-size:34px">Magnetic</h3><p style="font-size:28px">magnets</p></div>
+<div class="card yellow" style="padding:28px 30px;gap:10px"><div class="icon" style="background:#fff"><svg viewBox="0 0 84 84" style="width:72px;height:72px"><circle cx="24" cy="42" r="15" class="f-pink"/><circle cx="60" cy="42" r="15" class="f-sky"/><path d="M17 42 L31 42 M24 35 L24 49 M53 42 L67 42" class="thin" style="stroke-width:4"/></svg></div><h3 style="font-size:34px">Electrostatic</h3><p style="font-size:28px">electric charges</p></div>
+<div class="card tint" style="padding:28px 30px;gap:10px"><div class="icon" style="background:#fff"><svg viewBox="0 0 84 84" style="width:72px;height:72px"><circle cx="36" cy="36" r="11" class="f-pink"/><circle cx="50" cy="38" r="11" class="f-sky"/><circle cx="40" cy="50" r="11" class="f-sky"/><circle cx="54" cy="52" r="11" class="f-pink"/></svg></div><h3 style="font-size:34px">Nuclear</h3><p style="font-size:28px">atomic nuclei</p></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.2</b> describe energy transfers involving energy stores: energy stores: chemical, kinetic, gravitational,…</div>
+</section>
+
+<section>
+  <span class="kicker">Energy stores</span>
+  <h2>Stores in <em>everyday life</em> (1)</h2>
+  <div class="body">
+    <table class="t">
+      <tr><th style="width:22%">Store</th><th>Everyday examples</th></tr>
+      <tr><td>Chemical</td><td>Food (our energy source), fuels (coal, oil, gas, petrol) and batteries. Fuels are burned to generate electricity.</td></tr>
+      <tr><td>Thermal</td><td>Keeping our bodies warm; hot water in a tank; geothermal energy from the Earth's hot core (volcanoes, hot springs).</td></tr>
+      <tr><td>Kinetic</td><td>Muscles transfer chemical energy to movement; moving cars, trains and cyclists.</td></tr>
+    </table>
+    <div class="tip"><b>Word help</b>Geothermal = heat from inside the Earth: “geo” means Earth, “thermal” means heat.</div>
+  </div>
+<div class="spec-tag"><b>Spec 4.2</b> describe energy transfers involving energy stores: energy stores: chemical, kinetic, gravitational,…</div>
+</section>
+
+<section>
+  <span class="kicker">Energy stores</span>
+  <h2>Stores in <em>everyday life</em> (2)</h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 600" aria-label="Water held high in a mountain reservoir for hydroelectricity">
+          <path d="M20 540 L880 540" class="ln"/>
+          <path d="M20 540 L20 170 L130 110 L230 140 L330 150 L330 540 Z" class="f-mint"/>
+          <path d="M20 540 L20 170 L130 110 L230 140 L330 150" class="thin"/>
+          <path d="M330 180 L520 180 L520 540 L330 540 Z" class="f-sky"/>
+          <path d="M520 150 L560 150 L600 540 L520 540 Z" class="f-c"/>
+          <path d="M520 150 L560 150 L600 540 L520 540 Z" class="thin"/>
+          <path d="M540 470 L640 470 L640 520 L720 520" class="ln-c" style="stroke-width:14"/>
+          <rect x="720" y="420" width="140" height="120" rx="18" class="f-yellow"/>
+          <rect x="720" y="420" width="140" height="120" rx="18" class="thin"/>
+          <text x="790" y="400" class="lbl-s" text-anchor="middle">power station</text>
+          <path d="M440 190 L440 520" class="dash"/>
+          <path d="M428 206 L440 190 L452 206 M428 504 L440 520 L452 504" class="thin"/>
+          <rect x="250" y="60" width="380" height="56" rx="28" class="pill"/>
+          <text x="440" y="97" class="lbl-s" text-anchor="middle">water held high in a reservoir</text>
+          <rect x="360" y="320" width="160" height="56" rx="28" class="pill"/>
+          <text x="440" y="357" class="lbl-s" text-anchor="middle">height</text>
+          <rect x="590" y="190" width="100" height="56" rx="28" class="pill"/>
+          <text x="640" y="227" class="lbl-s" text-anchor="middle">dam</text>
+          <path d="M590 218 L566 218" class="thin"/>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card lilac"><h3>Gravitational potential</h3><p>Water held in mountain reservoirs (hydroelectricity); objects lifted up a hill.</p></div>
+        <div class="card tint"><h3>Elastic potential</h3><p>Stretched or squashed springs in clocks and toys; a pulled bow string.</p></div>
+        <div class="card pink"><h3>Nuclear</h3><p>Energy in atomic nuclei, released in nuclear power stations.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.2</b> describe energy transfers involving energy stores: energy stores: chemical, kinetic, gravitational,…</div>
+</section>
+
+<section>
+  <span class="kicker">Units</span>
+  <h2>Units you <em>need</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <table class="t">
+        <tr><th>Quantity</th><th>Unit</th><th>Symbol</th></tr>
+        <tr><td>Energy</td><td>joule</td><td>J</td></tr>
+        <tr><td>Power</td><td>watt</td><td>W</td></tr>
+        <tr><td>Mass</td><td>kilogram</td><td>kg</td></tr>
+        <tr><td>Distance</td><td>metre</td><td>m</td></tr>
+        <tr><td>Time</td><td>second</td><td>s</td></tr>
+        <tr><td>Speed</td><td>metre/second</td><td>m/s</td></tr>
+        <tr><td>Acceleration</td><td>metre/second²</td><td>m/s²</td></tr>
+        <tr><td>Force</td><td>newton</td><td>N</td></tr>
+      </table>
+      <div class="stack">
+        <div class="card sky"><h3>1 kJ = 1000 J</h3><p>The kettle example uses kilojoules (kJ).</p></div>
+        <div class="card mint"><h3>1 W = 1 J each second</h3><p>A 60 W bulb transfers 60 J every second.</p></div>
+        <div class="tip"><b>Exam tip</b>In efficiency, both energies must be in the same unit.</div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.1</b> use the following units: kilogram (kg), joule (J), metre (m), metre/second (m/s), metre/second² (m/s²),…</div>
+</section>
+
+<!-- ============ PART 2 ============ -->
+<section class="divider">
+  <div class="num">2</div>
+  <h2>Energy <em>transfers</em></h2>
+  <p class="lead">Stores are where energy is kept. Transfers are how it moves between stores.</p>
+</section>
+
+<section>
+  <span class="kicker">Energy transfers</span>
+  <h2>The <em>4 ways</em> energy is transferred</h2>
+  <div class="body">
+    <div class="cols-4">
+      <div class="card" style="padding:28px 30px">
+        <svg viewBox="0 0 320 220" style="width:100%;height:220px" aria-label="A force moving a box">
+          <path d="M20 190 L300 190" class="ln"/>
+          <rect x="150" y="90" width="110" height="100" rx="14" class="f-c"/><rect x="150" y="90" width="110" height="100" rx="14" class="thin"/>
+          <path d="M30 140 L130 140" class="ln-c"/><path d="M112 124 L134 140 L112 156" class="ln-c"/>
+          <text x="80" y="118" class="lbl-s" text-anchor="middle">force</text>
+          <path d="M160 50 L250 50" class="dash"/><path d="M236 38 L252 50 L236 62" class="thin"/>
+          <text x="205" y="32" class="lbl-s" text-anchor="middle">moves</text>
+        </svg>
+        <h3>Mechanically</h3><p>A force moves something (doing work).</p>
+      </div>
+      <div class="card" style="padding:28px 30px">
+        <svg viewBox="0 0 320 220" style="width:100%;height:220px" aria-label="Circuit with a cell and a lamp">
+          <path d="M60 60 L136 60 M164 60 L260 60 L260 120 M260 180 L260 190 L60 190 L60 60" class="ln"/>
+          <path d="M136 36 L136 84" class="ln"/><path d="M164 48 L164 72" class="ln" style="stroke-width:10"/>
+          <circle cx="260" cy="150" r="30" class="f-yellow"/><circle cx="260" cy="150" r="30" class="ln"/>
+          <path d="M239 129 L281 171 M281 129 L239 171" class="thin"/>
+          <path d="M90 190 L150 190" class="ln-c"/><path d="M134 176 L152 190 L134 204" class="ln-c"/>
+          <text x="150" y="20" class="lbl-s" text-anchor="middle">cell</text>
+          <text x="196" y="160" class="lbl-s" text-anchor="middle">lamp</text>
+        </svg>
+        <h3>Electrically</h3><p>By an electric current.</p>
+      </div>
+      <div class="card" style="padding:28px 30px">
+        <svg viewBox="0 0 320 220" style="width:100%;height:220px" aria-label="Energy moving from a hot block to a cold block">
+          <rect x="14" y="60" width="110" height="110" rx="18" style="fill:var(--red-l)"/><rect x="14" y="60" width="110" height="110" rx="18" class="thin"/>
+          <rect x="196" y="60" width="110" height="110" rx="18" class="f-sky"/><rect x="196" y="60" width="110" height="110" rx="18" class="thin"/>
+          <text x="69" y="124" class="lbl" text-anchor="middle">hot</text><text x="251" y="124" class="lbl" text-anchor="middle">cold</text>
+          <path d="M134 115 L184 115" class="ln-c"/><path d="M168 100 L186 115 L168 130" class="ln-c"/>
+          <path d="M40 40 q8 -10 0 -20 M69 40 q8 -10 0 -20 M98 40 q8 -10 0 -20" class="thin" style="stroke:var(--red)"/>
+        </svg>
+        <h3>By heating</h3><p>From hotter to colder.</p>
+      </div>
+      <div class="card" style="padding:28px 30px">
+        <svg viewBox="0 0 320 220" style="width:100%;height:220px" aria-label="Waves spreading out from a lamp">
+          <circle cx="70" cy="110" r="42" class="f-yellow"/><circle cx="70" cy="110" r="42" class="ln"/>
+          <path d="M130 70 q15 -12 30 0 t30 0 t30 0 t30 0" class="ln-c"/>
+          <path d="M130 110 q15 -12 30 0 t30 0 t30 0 t30 0" class="ln-c"/>
+          <path d="M130 150 q15 -12 30 0 t30 0 t30 0 t30 0" class="ln-c"/>
+          <text x="200" y="205" class="lbl-s" text-anchor="middle">waves</text>
+        </svg>
+        <h3>By radiation</h3><p>Light and sound waves.</p>
+      </div>
+    </div>
+    <div class="remember"><b>Remember</b>Store = where energy is kept. Transfer = how it moves.</div>
+  </div>
+<div class="spec-tag"><b>Spec 4.2</b> describe energy transfers involving energy stores: energy stores: chemical, kinetic, gravitational,…</div>
+</section>
+
+<section>
+  <span class="kicker">Energy transfers</span>
+  <h2>Describing a <em>transfer</em></h2>
+  <div class="body">
+    <p>Say where the energy <strong>starts</strong>, <strong>how</strong> it moves, and where it <strong>ends up</strong>.</p>
+    <table class="t">
+      <tr><th>Situation</th><th>From store</th><th>How</th><th>To store</th></tr>
+      <tr><td>Drawing back a bow</td><td>chemical (archer's muscles)</td><td>mechanically</td><td>elastic potential (bow)</td></tr>
+      <tr><td>Wind-up toy running</td><td>elastic potential (spring)</td><td>mechanically</td><td>kinetic (toy)</td></tr>
+      <tr><td>Hot drink cooling down</td><td>thermal (drink)</td><td>by heating</td><td>thermal (surroundings)</td></tr>
+      <tr><td>Torch shining</td><td>chemical (battery)</td><td>electrically, then by radiation (light)</td><td>thermal (surroundings)</td></tr>
+    </table>
+  </div>
+<div class="spec-tag"><b>Spec 4.2</b> describe energy transfers involving energy stores: energy stores: chemical, kinetic, gravitational,…</div>
+</section>
+
+<section>
+  <span class="kicker">Example · book p.135</span>
+  <h2>The cyclist with a <em>dynamo</em></h2>
+  <div class="body">
+    <div class="fig" style="flex:1">
+      <svg viewBox="0 0 1660 560" aria-label="Chain of energy transfers for a cyclist with a dynamo lamp">
+        <rect x="20" y="40" width="330" height="170" rx="30" class="f-pink"/>
+        <rect x="450" y="40" width="330" height="170" rx="30" class="f-sky"/>
+        <rect x="880" y="40" width="330" height="170" rx="30" class="f-c"/>
+        <rect x="1310" y="40" width="330" height="170" rx="30" class="f-mint"/>
+        <text x="185" y="115" class="lbl" text-anchor="middle">chemical store</text><text x="185" y="158" class="lbl-s" text-anchor="middle">food in the cyclist</text>
+        <text x="615" y="115" class="lbl" text-anchor="middle">kinetic store</text><text x="615" y="158" class="lbl-s" text-anchor="middle">legs and bike</text>
+        <text x="1045" y="115" class="lbl" text-anchor="middle">dynamo</text><text x="1045" y="158" class="lbl-s" text-anchor="middle">transfers electrically</text>
+        <text x="1475" y="115" class="lbl" text-anchor="middle">lamp: light</text><text x="1475" y="158" class="lbl-s" text-anchor="middle">the useful output</text>
+        <path d="M362 125 L432 125" class="ln-c"/><path d="M414 109 L436 125 L414 141" class="ln-c"/>
+        <path d="M792 125 L862 125" class="ln-c"/><path d="M844 109 L866 125 L844 141" class="ln-c"/>
+        <path d="M1222 125 L1292 125" class="ln-c"/><path d="M1274 109 L1296 125 L1274 141" class="ln-c"/>
+        <path d="M185 222 L185 410" class="dash"/><path d="M615 222 L615 410" class="dash"/><path d="M1045 222 L1045 410" class="dash"/><path d="M1475 222 L1475 410" class="dash"/>
+        <path d="M171 396 L185 414 L199 396 M601 396 L615 414 L629 396 M1031 396 L1045 414 L1059 396 M1461 396 L1475 414 L1489 396" class="thin"/>
+        <rect x="185" y="270" width="200" height="56" rx="28" class="pill" transform="translate(-100 0)"/><text x="185" y="307" class="lbl-s" text-anchor="middle">cyclist's body</text>
+        <rect x="505" y="270" width="220" height="56" rx="28" class="pill"/><text x="615" y="307" class="lbl-s" text-anchor="middle">friction in bike</text>
+        <rect x="945" y="270" width="200" height="56" rx="28" class="pill"/><text x="1045" y="307" class="lbl-s" text-anchor="middle">hot wires</text>
+        <rect x="1375" y="270" width="200" height="56" rx="28" class="pill"/><text x="1475" y="307" class="lbl-s" text-anchor="middle">hot lamp</text>
+        <rect x="60" y="430" width="1540" height="100" rx="30" class="f-peach"/>
+        <text x="830" y="492" class="lbl" text-anchor="middle">wasted: heating the surroundings (and some sound)</text>
+      </svg>
+    </div>
+    <div class="remember"><b>Key point</b>At every stage some energy is wasted heating the surroundings.</div>
+  </div>
+<div class="spec-tag"><b>Spec 4.2</b> describe energy transfers involving energy stores: energy stores: chemical, kinetic, gravitational,…</div>
+</section>
+
+<!-- ============ PART 3 ============ -->
+<section class="divider">
+  <div class="num">3</div>
+  <h2>Conservation and <em>wasted energy</em></h2>
+  <p class="lead">Energy is never made or destroyed – but not all of it ends up where we want.</p>
+</section>
+
+<section>
+  <span class="kicker">Conservation of energy</span>
+  <h2>Energy is <em>conserved</em></h2>
+  <div class="body">
+    <div class="def"><span class="term">Principle of conservation of energy</span><p>Energy cannot be created or destroyed – it is only transferred from one store to another.</p></div>
+    <div class="fig" style="flex:1">
+      <svg viewBox="0 0 1600 420" aria-label="3600 J in equals 1200 J light plus 2400 J heat">
+        <text x="20" y="92" class="lbl">electric lamp: in</text>
+        <rect x="320" y="40" width="1260" height="90" rx="24" class="f-c"/>
+        <text x="950" y="98" class="lbl-c" text-anchor="middle">electrical energy in: 3600 J</text>
+        <text x="20" y="262" class="lbl">out</text>
+        <rect x="320" y="210" width="416" height="90" rx="24" style="fill:var(--yellow)"/>
+        <rect x="748" y="210" width="832" height="90" rx="24" style="fill:var(--peach)"/>
+        <text x="528" y="268" class="lbl" text-anchor="middle">light 1200 J</text>
+        <text x="1164" y="268" class="lbl" text-anchor="middle">heat 2400 J</text>
+        <path d="M320 150 L320 190 M1580 150 L1580 190" class="dash"/>
+        <rect x="560" y="330" width="780" height="60" rx="30" class="pill"/>
+        <text x="950" y="370" class="lbl" text-anchor="middle">1200 J + 2400 J = 3600 J  ✓</text>
+      </svg>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.2</b> describe energy transfers involving energy stores: energy stores: chemical, kinetic, gravitational,…</div>
+</section>
+
+<section>
+  <span class="kicker">Wasted energy</span>
+  <h2>Useful and <em>“wasted”</em> energy</h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 600" aria-label="A car: petrol energy becomes motion, heat and sound">
+          <path d="M40 470 L860 470" class="thin"/>
+          <path d="M120 400 L120 330 Q130 300 180 296 L280 290 L350 220 Q370 205 400 205 L560 205 Q590 205 610 225 L670 290 L760 300 Q800 306 800 340 L800 400 Z" class="f-c"/>
+          <path d="M120 400 L120 330 Q130 300 180 296 L280 290 L350 220 Q370 205 400 205 L560 205 Q590 205 610 225 L670 290 L760 300 Q800 306 800 340 L800 400 Z" class="ln"/>
+          <path d="M370 280 L400 230 L480 230 L480 280 Z M510 280 L510 230 L570 230 L620 280 Z" class="f-card"/>
+          <circle cx="250" cy="410" r="52" class="f-card"/><circle cx="250" cy="410" r="52" class="ln"/><circle cx="250" cy="410" r="16" class="f-cc"/>
+          <circle cx="670" cy="410" r="52" class="f-card"/><circle cx="670" cy="410" r="52" class="ln"/><circle cx="670" cy="410" r="16" class="f-cc"/>
+          <path d="M810 350 L880 350" class="ln-c" style="stroke:var(--mint)"/><path d="M862 332 L884 350 L862 368" class="ln-c" style="stroke:var(--mint)"/>
+          <path d="M700 250 q12 -20 0 -40 t0 -40 M740 260 q12 -20 0 -40 t0 -40" class="ln" style="stroke:var(--red);stroke-width:5"/>
+          <path d="M96 380 q-18 14 0 28 M76 366 q-30 28 0 56" class="ln" style="stroke:var(--peach);stroke-width:5"/>
+          <rect x="560" y="100" width="300" height="56" rx="28" class="pill"/><text x="710" y="137" class="lbl-s" text-anchor="middle">heat from engine: wasted</text>
+          <rect x="20" y="500" width="220" height="56" rx="28" class="pill"/><text x="130" y="537" class="lbl-s" text-anchor="middle">sound: wasted</text>
+          <rect x="590" y="500" width="290" height="56" rx="28" class="pill"/><text x="735" y="537" class="lbl-s" text-anchor="middle">motion (kinetic): useful</text>
+          <rect x="300" y="130" width="230" height="56" rx="28" class="pill"/><text x="415" y="167" class="lbl-s" text-anchor="middle">petrol: chemical</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="def"><span class="term">Wasted energy</span><p>Energy transferred to unwanted stores – usually the thermal store of the surroundings.</p></div>
+        <ul class="dots">
+          <li>Often by heating, sound or friction.</li>
+          <li>A hot water tank loses energy heating the tank and the air.</li>
+        </ul>
+        <div class="warn"><b>Watch out</b>Unwanted transfers reduce efficiency.</div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.2</b> describe energy transfers involving energy stores: energy stores: chemical, kinetic, gravitational,…</div>
+</section>
+
+<section>
+  <span class="kicker">Wasted energy</span>
+  <h2>Is energy <em>“used up”</em>?</h2>
+  <div class="body">
+    <div class="wide-right">
+      <div class="stack">
+        <div class="card mint"><h3>No!</h3><p>Energy is conserved. The <strong>total</strong> in the Universe stays <strong>constant</strong>.</p></div>
+        <div class="card peach"><h3>But it spreads out</h3><p>Wasted energy spreads into the surroundings (and radiates into space). It can no longer do useful things.</p></div>
+        <div class="tip"><b>So…</b>That's why we still have an energy crisis.</div>
+      </div>
+      <div class="fig">
+        <svg viewBox="0 0 900 640" aria-label="Heat escaping from a badly insulated house">
+          <path d="M40 590 L860 590" class="thin"/>
+          <path d="M250 590 L250 330 L450 170 L650 330 L650 590 Z" class="f-yellow"/>
+          <path d="M250 590 L250 330 L450 170 L650 330 L650 590 Z" class="ln"/>
+          <rect x="300" y="380" width="100" height="90" rx="12" class="f-sky"/><rect x="300" y="380" width="100" height="90" rx="12" class="thin"/>
+          <rect x="490" y="470" width="90" height="120" rx="12" class="f-card"/><rect x="490" y="470" width="90" height="120" rx="12" class="thin"/>
+          <g class="ln" style="stroke:var(--red);stroke-width:6">
+            <path d="M450 150 q-14 -20 0 -40 t0 -40"/>
+            <path d="M340 230 q-24 -10 -24 -36 t-24 -36"/>
+            <path d="M560 230 q24 -10 24 -36 t24 -36"/>
+            <path d="M230 430 q-20 14 -40 0 t-40 0"/>
+            <path d="M670 430 q20 14 40 0 t40 0"/>
+          </g>
+          <path d="M146 418 L128 430 L146 442 M754 418 L772 430 L754 442 M438 72 L450 54 L462 72" class="thin" style="stroke:var(--red)"/>
+          <rect x="560" y="20" width="320" height="56" rx="28" class="pill"/><text x="720" y="57" class="lbl-s" text-anchor="middle">radiates into space</text>
+          <rect x="20" y="20" width="330" height="56" rx="28" class="pill"/><text x="185" y="57" class="lbl-s" text-anchor="middle">spreads out thinly</text>
+          <rect x="20" y="490" width="210" height="56" rx="28" class="pill"/><text x="125" y="527" class="lbl-s" text-anchor="middle">heat escapes</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.4</b> know and use the relationship between efficiency, useful energy output and total energy output: efficiency…</div>
+</section>
+
+<!-- ============ PART 4 ============ -->
+<section class="divider">
+  <div class="num">4</div>
+  <h2>Energy transfer and <em>Sankey diagrams</em></h2>
+  <p class="lead">Pictures that show where the energy goes – and how much goes each way.</p>
+</section>
+
+<section>
+  <span class="kicker">Energy transfer diagrams</span>
+  <h2>Input → process → <em>output</em></h2>
+  <div class="body">
+    <div class="flow">
+      <div>Energy input<small>mechanical work stretching the string and bow</small></div><span>→</span>
+      <div>Process<small>stretch and release</small></div><span>→</span>
+      <div>Energy output<small>kinetic energy of the arrow</small></div>
+    </div>
+    <div class="cols-2">
+      <div class="fig">
+        <svg viewBox="0 0 820 420" aria-label="A bow pulled back, then released">
+          <path d="M260 30 Q420 210 260 390" class="ln" style="stroke:var(--peach);stroke-width:14"/>
+          <path d="M260 30 L120 210 L260 390" class="thin"/>
+          <path d="M120 210 L620 210" class="ln"/><path d="M600 192 L640 210 L600 228 Z" class="f-cc"/>
+          <path d="M120 210 L96 192 M120 210 L96 228" class="thin"/>
+          <path d="M680 160 L780 160" class="ln-c"/><path d="M760 144 L784 160 L760 176" class="ln-c"/>
+          <rect x="20" y="300" width="230" height="56" rx="28" class="pill"/><text x="135" y="337" class="lbl-s" text-anchor="middle">string pulled back</text>
+          <rect x="430" y="300" width="300" height="56" rx="28" class="pill"/><text x="580" y="337" class="lbl-s" text-anchor="middle">arrow flies when let go</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card tint"><h3>Pull back</h3><p>The archer does work: energy goes into the <strong>elastic potential</strong> store of the bow.</p></div>
+        <div class="card mint"><h3>Let go</h3><p>The energy goes to the <strong>kinetic</strong> store of the arrow.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.2</b> describe energy transfers involving energy stores: energy stores: chemical, kinetic, gravitational,…</div>
+</section>
+
+<section>
+  <span class="kicker">Sankey diagrams</span>
+  <h2>How a <em>Sankey diagram</em> works</h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig">
+<svg viewBox="0 0 960 620" aria-label="How a Sankey diagram works">
+<rect x="40" y="120" width="302" height="280" rx="10" class="f-c"/>
+<path d="M340,123.0 L600,123.0 L600,100.12 L646.8,175.0 L600,249.88 L600,227.0 L340,227.0 Z" style="fill:var(--mint)"/>
+<path d="M340,233.0 A197.0,197.0 0 0 1 537.0,430 L537.0,460 L573.08,460 L455.0,530 L336.92,460 L373.0,460 L373.0,430 A33.0,33.0 0 0 0 340,397.0 Z" style="fill:var(--peach)"/>
+<text x="190" y="270" class="lbl" text-anchor="middle">energy in</text>
+<text x="662.8" y="168" class="lbl">useful</text>
+<text x="662.8" y="204" class="lbl-s">goes straight on</text>
+<text x="590" y="500" class="lbl">wasted</text>
+<text x="590" y="536" class="lbl-s">bends away</text>
+<path d="M18 120 L18 400" class="thin"/><path d="M8 120 L28 120 M8 400 L28 400" class="thin"/>
+<rect x="56" y="452" width="250" height="56" rx="28" class="pill"/>
+<text x="181" y="489" class="lbl-s" text-anchor="middle">width = amount</text>
+<path d="M60 70 L320 70" class="dash"/>
+<text x="190" y="52" class="lbl-s" text-anchor="middle">the arrow starts here</text>
+</svg>
+      </div>
+      <div class="stack">
+        <div class="def"><span class="term">Key idea</span><p>The width of each arrow is proportional to the amount of energy.</p></div>
+        <ul class="dots">
+          <li>Wide arrow = <strong>lots</strong> of energy.</li>
+          <li>Narrow arrow = <strong>a little</strong>.</li>
+          <li>Useful goes <strong>straight on</strong>; wasted usually <strong>bends away</strong>.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.5</b> describe a variety of everyday and scientific devices and situations, explaining the transfer of the input…</div>
+</section>
+
+<section>
+  <span class="kicker">Sankey diagrams</span>
+  <h2>Sankey diagram for a <em>typical car</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig">
+<svg viewBox="0 0 960 620" aria-label="Sankey diagram for a car">
+<rect x="40" y="110" width="322" height="300" rx="10" class="f-c"/>
+<path d="M360,113.0 L590,113.0 L590,89.24 L638.6,167.0 L590,244.76 L590,221.0 L360,221.0 Z" style="fill:var(--mint)"/>
+<path d="M360,225.2 L590,225.2 L590,216.2 L620,228.0 L590,239.8 L590,230.8 L360,230.8 Z" style="fill:var(--yellow)"/>
+<path d="M360,235.0 A205.0,205.0 0 0 1 565.0,440 L565.0,470 L602.84,470 L479.0,540 L355.15999999999997,470 L393.0,470 L393.0,440 A33.0,33.0 0 0 0 360,407.0 Z" style="fill:var(--peach)"/>
+<rect x="62" y="210" width="276" height="100" rx="24" class="pill"/>
+<text x="200" y="250" class="lbl" text-anchor="middle">chemical (petrol)</text>
+<text x="200" y="290" class="lbl-c" text-anchor="middle">100 000 J</text>
+<text x="652.6" y="150" class="lbl">kinetic</text>
+<text x="652.6" y="186" class="lbl-c">38 000 J</text>
+<text x="634" y="250" class="lbl-s">lights, radio,</text>
+<text x="634" y="280" class="lbl-s">battery: 2000 J</text>
+<text x="620" y="500" class="lbl">wasted: heating</text>
+<text x="620" y="536" class="lbl">and sound</text>
+<text x="620" y="574" class="lbl-c">60 000 J</text>
+</svg>
+      </div>
+      <div class="stack">
+        <div class="card mint"><h3>Only 38%</h3><p>of the petrol's energy actually moves the car.</p></div>
+        <div class="card peach"><h3>60% wasted</h3><p>by heating and sound.</p></div>
+        <div class="remember"><b>Check it adds up</b>38 000 + 2000 + 60 000 = 100 000 J</div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.2</b> describe energy transfers involving energy stores: energy stores: chemical, kinetic, gravitational,…</div>
+</section>
+
+<section>
+  <span class="kicker">Sankey diagrams</span>
+  <h2>Drawing a Sankey diagram <em>to scale</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 600" aria-label="Arrow widths drawn to scale for the car">
+          <path d="M40 480 L860 480" class="thin"/>
+          <rect x="80" y="80" width="180" height="400" rx="14" class="f-c"/>
+          <rect x="340" y="240" width="180" height="240" rx="14" style="fill:var(--peach)"/>
+          <rect x="600" y="328" width="180" height="152" rx="14" style="fill:var(--mint)"/>
+          <text x="170" y="290" class="lbl-c" text-anchor="middle">20 mm</text>
+          <text x="430" y="370" class="lbl" text-anchor="middle">12 mm</text>
+          <text x="690" y="414" class="lbl" text-anchor="middle">7.6 mm</text>
+          <text x="170" y="530" class="lbl" text-anchor="middle">100 000 J</text>
+          <text x="430" y="530" class="lbl" text-anchor="middle">60 000 J</text>
+          <text x="690" y="530" class="lbl" text-anchor="middle">38 000 J</text>
+          <text x="170" y="568" class="lbl-s" text-anchor="middle">input</text>
+          <text x="430" y="568" class="lbl-s" text-anchor="middle">60% of 20 mm</text>
+          <text x="690" y="568" class="lbl-s" text-anchor="middle">38% of 20 mm</text>
+          <text x="450" y="50" class="lbl-s" text-anchor="middle">arrow width (drawn here as height)</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <ol class="nums">
+          <li>Pick a width for the input: <strong>100 000 J = 20 mm</strong>.</li>
+          <li>Give each output its share: 60% → 12 mm, 38% → 7.6 mm.</li>
+          <li>Tiny outputs (2000 J = 2%) are just a very thin arrow.</li>
+        </ol>
+        <div class="remember"><b>Check</b>Total width in = total width out.</div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.5</b> describe a variety of everyday and scientific devices and situations, explaining the transfer of the input…</div>
+</section>
+
+<section>
+  <span class="kicker">Example · book p.136</span>
+  <h2>Sankey diagram for an <em>electric lamp</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig">
+<svg viewBox="0 0 960 620" aria-label="Sankey diagram for an electric lamp">
+<rect x="40" y="120" width="292" height="288" rx="10" class="f-c"/>
+<path d="M330,123.0 L590,123.0 L590,103.2 L630.5,168.0 L590,232.8 L590,213.0 L330,213.0 Z" style="fill:var(--yellow)"/>
+<path d="M330,219.0 A219.0,219.0 0 0 1 549.0,438 L549.0,470 L589.92,470 L456.0,540 L322.08,470 L363.0,470 L363.0,438 A33.0,33.0 0 0 0 330,405.0 Z" style="fill:var(--peach)"/>
+<rect x="60" y="218" width="250" height="92" rx="24" class="pill"/>
+<text x="185" y="256" class="lbl" text-anchor="middle">electrical</text>
+<text x="185" y="294" class="lbl-c" text-anchor="middle">3600 J · 3.6 cm</text>
+<text x="644.5" y="160" class="lbl">light (useful)</text>
+<text x="644.5" y="196" class="lbl-c">1200 J · 1.2 cm</text>
+<text x="590" y="510" class="lbl">heat (wasted)</text>
+<text x="590" y="548" class="lbl-c">2400 J · 2.4 cm</text>
+</svg>
+      </div>
+      <div class="stack">
+        <div class="card tint"><h3>Scale</h3><p>1 cm = 1000 J</p></div>
+        <div class="worked" style="gap:14px">
+          <div class="step"><i>Equation</i>useful ÷ total × 100%</div>
+          <div class="step"><i>Substitute</i>1200 ÷ 3600 × 100%</div>
+          <div class="ans">efficiency = 33%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.4</b> know and use the relationship between efficiency, useful energy output and total energy output: efficiency…</div>
+</section>
+
+<section>
+  <span class="kicker">Exam tips</span>
+  <h2>A <em>bouncing ball</em></h2>
+  <div class="body">
+    <div class="wide-right">
+      <div class="stack">
+        <div class="card tint"><h3>The question</h3><p>A ball lands with 10 J and rebounds with only 4 J. Where did the rest go?</p></div>
+        <div class="card peach"><h3>Answer</h3><p>10 − 4 = <strong>6 J</strong> is transferred to thermal energy (and sound) in the ball and the ground.</p></div>
+        <div class="tip"><b>Exam tip</b>Label every arrow with the energy store/type and the amount.</div>
+      </div>
+      <div class="fig">
+<svg viewBox="0 0 520 520" aria-label="Sankey diagram for a bouncing ball">
+<rect x="30" y="90" width="172" height="200" rx="10" class="f-c"/>
+<path d="M200,93.0 L330,93.0 L330,76.72 L363.3,130.0 L330,183.28 L330,167.0 L200,167.0 Z" style="fill:var(--mint)"/>
+<path d="M200,173.0 A147.0,147.0 0 0 1 347.0,320 L347.0,360 L372.08,360 L290.0,411.3 L207.92,360 L233.0,360 L233.0,320 A33.0,33.0 0 0 0 200,287.0 Z" style="fill:var(--peach)"/>
+<text x="115" y="198" class="lbl" text-anchor="middle">10 J in</text>
+<text x="243.3" y="60" class="lbl">rebound 4 J</text>
+<text x="395.0" y="420" class="lbl">thermal</text>
+<text x="395.0" y="454" class="lbl">+ sound</text>
+<text x="395.0" y="490" class="lbl-c">6 J</text>
+</svg>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.2</b> describe energy transfers involving energy stores: energy stores: chemical, kinetic, gravitational,…</div>
+</section>
+
+<!-- ============ PART 5 ============ -->
+<section class="divider">
+  <div class="num">5</div>
+  <h2><em>Efficiency</em></h2>
+  <p class="lead">How much of the energy we put in does the job we want?</p>
+</section>
+
+<section>
+  <span class="kicker">Efficiency</span>
+  <h2>The <em>efficiency</em> equation</h2>
+  <div class="body">
+    <div class="eq">
+      <div class="words">efficiency = (useful energy output ÷ total energy output) × 100%</div>
+      <div class="sym">efficiency = <span style="display:inline-block;vertical-align:middle;text-align:center;font-size:44px;line-height:1.25"><span style="display:block;border-bottom:5px solid currentColor;padding:0 10px">useful energy output</span><span style="display:block;padding:0 10px">total energy output</span></span> × 100%</div>
+    </div>
+    <div class="cols-3">
+      <div class="card sky"><h3>Total out = total in</h3><p>Energy is conserved, so the total output equals the input.</p></div>
+      <div class="card mint"><h3>No unit</h3><p>Efficiency is a ratio. Both energies in the same unit.</p></div>
+      <div class="card yellow"><h3>Fraction or decimal</h3><p>It can also be written as a decimal – always less than 1.</p></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.4</b> know and use the relationship between efficiency, useful energy output and total energy output: efficiency…</div>
+</section>
+
+<section>
+  <span class="kicker">Worked example · book p.137</span>
+  <h2>A <em>filament bulb</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="worked">
+        <div class="q">A 60 W bulb uses 60 J every second and is 5% efficient. How much useful light energy does it give each second?</div>
+        <div class="step"><i>Know</i>total = 60 J, efficiency = 5%</div>
+        <div class="step"><i>Substitute</i>5% = useful ÷ 60 J × 100%</div>
+        <div class="step"><i>Rearrange</i>useful = 5 × 60 ÷ 100</div>
+        <div class="ans">useful = 3 J each second</div>
+      </div>
+      <div class="fig">
+<svg viewBox="0 0 700 600" aria-label="Sankey diagram for a filament bulb">
+<rect x="40" y="120" width="222" height="240" rx="10" class="f-c"/>
+<path d="M260,121.8 L420,121.8 L420,112.8 L450,126.0 L420,139.2 L420,130.2 L260,130.2 Z" style="fill:var(--yellow)"/>
+<path d="M260,134.0 A256.0,256.0 0 0 1 516.0,390 L516.0,440 L565.28,440 L404.0,510 L242.72,440 L292.0,440 L292.0,390 A32.0,32.0 0 0 0 260,358.0 Z" style="fill:var(--peach)"/>
+<text x="150" y="226" class="lbl" text-anchor="middle">electrical</text>
+<text x="150" y="264" class="lbl-c" text-anchor="middle">60 J</text>
+<text x="390" y="90" class="lbl">light 3 J</text>
+<path d="M430 102 L430 118" class="thin"/>
+<text x="544.0" y="500" class="lbl">heat</text>
+<text x="544.0" y="538" class="lbl-c">57 J</text>
+</svg>
+        <div class="cap">The other 57 J heats the surroundings.</div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.4</b> know and use the relationship between efficiency, useful energy output and total energy output: efficiency…</div>
+</section>
+
+<section>
+  <span class="kicker">Worked example · book p.137</span>
+  <h2>An <em>electric kettle</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="worked">
+        <div class="q">350 kJ heats the water, 10 kJ heats the kettle and 40 kJ heats the surroundings. Find the efficiency.</div>
+        <div class="step"><i>Total</i>350 + 10 + 40 = 400 kJ</div>
+        <div class="step"><i>Equation</i>useful ÷ total × 100%</div>
+        <div class="step"><i>Substitute</i>350 ÷ 400 × 100%</div>
+        <div class="ans">efficiency = 87.5%</div>
+      </div>
+      <div class="fig">
+<svg viewBox="0 0 760 600" aria-label="Sankey diagram for an electric kettle">
+<rect x="40" y="150" width="282" height="300.0" rx="10" class="f-c"/>
+<path d="M320,156.375 A36.375,36.375 0 0 0 356.375,120 L356.375,80 L365.375,80 L353.75,50 L342.125,80 L351.125,80 L351.125,120 A31.125,31.125 0 0 1 320,151.125 Z" style="fill:var(--pink)"/>
+<path d="M320,159.5 L520,159.5 L520,102.63 L590,288.75 L520,474.87 L520,418.0 L320,418.0 Z" style="fill:var(--sky)"/>
+<path d="M320,422.0 A58.0,58.0 0 0 1 378.0,480.0 L378.0,490 L387.0,490 L365.0,520 L343.0,490 L352.0,490 L352.0,480.0 A32.0,32.0 0 0 0 320,448.0 Z" style="fill:var(--peach)"/>
+<text x="170" y="290" class="lbl" text-anchor="middle">electrical</text>
+<text x="170" y="328" class="lbl-c" text-anchor="middle">400 kJ</text>
+<text x="390" y="300" class="lbl">water</text>
+<text x="390" y="338" class="lbl-c">350 kJ</text>
+<text x="379.75" y="48" class="lbl">kettle 10 kJ</text>
+<text x="395.0" y="560" class="lbl">surroundings 40 kJ</text>
+</svg>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.4</b> know and use the relationship between efficiency, useful energy output and total energy output: efficiency…</div>
+</section>
+
+<section>
+  <span class="kicker">Efficiency</span>
+  <h2>Never over 100% – and how to <em>improve</em> it</h2>
+  <div class="body">
+    <div class="fig" style="padding:20px 26px">
+      <svg viewBox="0 0 1600 190" style="height:190px" aria-label="Efficiency scale from 0 to 100 percent">
+        <rect x="60" y="60" width="1340" height="56" rx="28" class="f-mint"/>
+        <rect x="1400" y="60" width="140" height="56" rx="28" style="fill:var(--red-l)"/>
+        <path d="M60 140 L60 160 M1400 40 L1400 136" class="thin"/>
+        <text x="60" y="44" class="lbl" text-anchor="middle">0%</text>
+        <text x="1400" y="30" class="lbl" text-anchor="middle">100%</text>
+        <text x="730" y="98" class="lbl" text-anchor="middle">real devices: always below 100%</text>
+        <text x="1470" y="98" class="lbl" text-anchor="middle" style="fill:var(--red)">never</text>
+        <text x="730" y="172" class="lbl-s" text-anchor="middle">some energy is always wasted</text>
+      </svg>
+    </div>
+    <div class="warn"><b>Answer over 100%?</b>You put the numbers upside down. Useful goes on top.</div>
+    <div class="cols-4">
+      <div class="card sky" style="padding:26px 30px"><h3>Lubricate</h3><p>moving parts: less friction</p></div>
+      <div class="card peach" style="padding:26px 30px"><h3>Insulate</h3><p>hot things: less heat escapes</p></div>
+      <div class="card yellow" style="padding:26px 30px"><h3>Use LEDs</h3><p>instead of filament bulbs</p></div>
+      <div class="card mint" style="padding:26px 30px"><h3>Streamline</h3><p>vehicles</p></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.4</b> know and use the relationship between efficiency, useful energy output and total energy output: efficiency…</div>
+</section>
+
+<section>
+  <span class="kicker">Devices</span>
+  <h2>Energy in <em>everyday devices</em></h2>
+  <div class="body">
+    <table class="t">
+      <tr><th>Device</th><th>Energy in</th><th>Useful out</th><th>Wasted out</th></tr>
+      <tr><td>Torch</td><td>chemical (battery) → electrical</td><td>light</td><td>heat</td></tr>
+      <tr><td>Candle</td><td>chemical</td><td>light (and heat)</td><td>heat to the air</td></tr>
+      <tr><td>Rubbing hands</td><td>kinetic</td><td>thermal (warm hands)</td><td>sound</td></tr>
+      <tr><td>Trampoline</td><td>kinetic ↔ elastic ↔ gravitational</td><td>height gained</td><td>heat, sound</td></tr>
+      <tr><td>Washing machine</td><td>electrical</td><td>thermal (water), kinetic (drum)</td><td>heat to surroundings, sound</td></tr>
+    </table>
+    <div class="tip"><b>For any device ask</b>What goes in? What do I want out? What else comes out that I don't want?</div>
+  </div>
+<div class="spec-tag"><b>Spec 4.2</b> describe energy transfers involving energy stores: energy stores: chemical, kinetic, gravitational,…</div>
+</section>
+
+<section>
+  <span class="kicker">Watch out</span>
+  <h2>Common <em>mistakes</em></h2>
+  <div class="body">
+    <div class="cols-3">
+      <div class="card pink"><h3>✗ Efficiency = 120%</h3><p>Never over 100%. Useful goes on <strong>top</strong>.</p></div>
+      <div class="card pink"><h3>✗ “Energy gets used up”</h3><p>It is conserved. Wasted energy just <strong>spreads out</strong>.</p></div>
+      <div class="card pink"><h3>✗ Outputs don't add up</h3><p>Total width in = total width out.</p></div>
+      <div class="card yellow"><h3>✗ Efficiency in joules</h3><p>Efficiency has <strong>no unit</strong> (a ratio or %).</p></div>
+      <div class="card yellow"><h3>✗ Unlabelled arrows</h3><p>Label each arrow: energy type <strong>and</strong> amount.</p></div>
+      <div class="card yellow"><h3>✗ Missing outputs</h3><p>Add <strong>all</strong> of them: 350 + 10 + 40 = 400 kJ.</p></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 4.4</b> know and use the relationship between efficiency, useful energy output and total energy output: efficiency…</div>
+</section>
+
+<!-- QUICK CHECKS -->
+<section>
+  <span class="kicker">Quick check 1</span>
+  <h2>Test <em>yourself</em></h2>
+  <div class="body">
+    <div class="qc hide" style="gap:12px">
+      <div class="qq" style="padding:16px 28px">1. What does the principle of conservation of energy say?<span class="a">Energy cannot be created or destroyed, only transferred.</span></div>
+      <div class="qq" style="padding:16px 28px">2. Name the 4 ways energy can be transferred.<span class="a">Mechanically, electrically, by heating, by radiation (light and sound).</span></div>
+      <div class="qq" style="padding:16px 28px">3. Which store does a stretched spring have?<span class="a">Elastic potential.</span></div>
+      <div class="qq" style="padding:16px 28px">4. Where does most wasted energy end up?<span class="a">The thermal store of the surroundings.</span></div>
+    </div>
+    <p class="hint">Click once to show the answers.</p>
+  </div>
+</section>
+
+<section>
+  <span class="kicker">Quick check 2</span>
+  <h2>Test <em>yourself</em></h2>
+  <div class="body">
+    <div class="qc hide" style="gap:12px">
+      <div class="qq" style="padding:16px 28px">1. What does the width of a Sankey arrow show?<span class="a">The amount of energy (width is proportional to energy).</span></div>
+      <div class="qq" style="padding:16px 28px">2. A motor takes in 500 J and gives 200 J of kinetic energy. Efficiency?<span class="a">200 ÷ 500 × 100% = 40%</span></div>
+      <div class="qq" style="padding:16px 28px">3. A ball lands with 10 J and rebounds with 4 J. How much is wasted?<span class="a">6 J – to thermal energy (and sound) in the ball and ground.</span></div>
+      <div class="qq" style="padding:16px 28px">4. Why can a real device never be 100% efficient?<span class="a">Some energy is always wasted, usually heating the surroundings.</span></div>
+    </div>
+    <p class="hint">Click once to show the answers.</p>
+  </div>
+</section>
+
+<!-- RECAP -->
+<section>
+  <span class="kicker">Recap</span>
+  <h2>Chapter 14 in a <em>nutshell</em></h2>
+  <div class="body">
+    <div class="checks">
+      <div>8 stores: chemical, kinetic, gravitational, elastic, thermal, magnetic, electrostatic, nuclear</div>
+      <div>4 transfers: mechanically, electrically, by heating, by radiation (light and sound)</div>
+      <div>Energy cannot be created or destroyed – only transferred</div>
+      <div>Wasted energy spreads out into the surroundings</div>
+      <div>Sankey diagrams: arrow width ∝ energy; in = out</div>
+      <div>Efficiency = useful ÷ total energy output × 100%</div>
+      <div>Efficiency has no unit and is always below 100%</div>
+      <div>Reduce waste: lubricate, insulate, LEDs, streamline</div>
+    </div>
+  </div>
+</section>
+
+</div></div>
+<script src="../../assets/deck.js"></script>
+</body>
+</html>

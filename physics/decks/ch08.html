@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en" data-subj="physics">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Physics Ch 8: Electrical Resistance</title>
+<link rel="stylesheet" href="../../assets/deck.css">
+</head>
+<body>
+<div id="vp"><div id="stage">
+
+<section class="cover">
+  <span class="kicker"><b>2</b> Unit 2 · Electricity</span>
+  <h1>Electrical Resistance</h1>
+  <p class="lead">What resistance is, V = I × R, resistors in series, current–voltage graphs and special resistors.</p>
+  <div class="chips"><span>Resistance in ohms</span><span>V = I × R</span><span>Series circuits</span><span>I–V practical</span><span>Lamp &amp; diode graphs</span><span>Thermistors &amp; LDRs</span><span>Diodes</span></div>
+  <div class="bignum">8</div>
+  <aside>Chapter 8, Electrical Resistance, book pages 75 to 83. We find out what resistance is, use V = I × R, add resistors in series, do the I–V core practical and meet thermistors, LDRs and diodes.</aside>
+</section>
+
+<section class="divider">
+  <div class="num">1</div>
+  <h2>Resistance and <em>V = I × R</em></h2>
+  <p class="lead">Resistance is how hard it is to push charge through something.</p>
+</section>
+
+<section>
+  <span class="kicker">What is resistance?</span>
+  <h2>Everything <em>pushes back</em> a bit</h2>
+  <div class="body">
+    <div class="def"><span class="term">Key idea · resistance</span><p>All components oppose the flow of charge to some extent. Resistance is measured in <strong>ohms (Ω)</strong>.</p></div>
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 820 520" aria-label="Circuit: a cell, connecting wires with low resistance and a resistor with high resistance that gets warm"><path d="M100 130 L520 130 L520 400 L100 400 Z" class="ln"/><rect x="294" y="86" width="32" height="88" class="f-card"/><line x1="299" y1="90" x2="299" y2="170" class="ln"/><line x1="321" y1="110" x2="321" y2="150" class="ln" style="stroke-width:12"/><rect x="255" y="376" width="110" height="48" rx="6" class="ln f-card"/><g class="ln s-red" style="stroke-width:5"><path d="M260 350 q-12 -14 0 -28 q12 -14 0 -28"/><path d="M310 350 q-12 -14 0 -28 q12 -14 0 -28"/><path d="M360 350 q-12 -14 0 -28 q12 -14 0 -28"/></g><rect x="260" y="33" width="100" height="54" rx="27" class="pill"/><text x="310" y="69" class="lbl-s" text-anchor="middle">cell</text><rect x="145" y="448" width="330" height="54" rx="27" class="pill"/><text x="310" y="484" class="lbl-s" text-anchor="middle">resistor: high R → heat</text><rect x="570" y="213" width="200" height="54" rx="27" class="pill"/><text x="670" y="249" class="lbl-s" text-anchor="middle">wire: low R</text><rect x="555" y="277" width="230" height="54" rx="27" class="pill"/><text x="670" y="313" class="lbl-s" text-anchor="middle">(taken as zero)</text><line x1="530" y1="265" x2="560" y2="265" class="thin"/><path d="M150 108 l40 0" class="ln-c"/><path d="M178 96 l14 12 l-14 12" class="ln-c"/><text x="100" y="92" class="lbl-c">charge</text></svg></div>
+      <div class="stack">
+        <div class="card mint"><h3>Low resistance</h3><p>Charges pass easily and lose little energy.</p></div>
+        <div class="card pink"><h3>High resistance</h3><p>Lots of energy is needed to push charges through – usually lost as heat.</p></div>
+      </div>
+    </div>
+  </div>
+  <aside>All components oppose the flow of charge. Low resistance: charges pass easily. High resistance: lots of energy needed, usually transferred as heat. Turning a volume knob changes the resistance in a circuit.</aside>
+<div class="spec-tag"><b>Spec 2.10</b> describe the qualitative effect of changing resistance on the current in a circuit</div>
+</section>
+
+<section>
+  <span class="kicker">The equation</span>
+  <h2>Voltage = current × <em>resistance</em></h2>
+  <div class="body">
+    <div class="wide-right">
+      <div class="fig"><svg viewBox="0 0 640 560" aria-label="Formula triangle with V on top and I times R at the bottom"><path d="M320 50 L600 480 L40 480 Z" class="ln f-c" style="stroke-width:7"/><line x1="132" y1="300" x2="508" y2="300" class="ln"/><line x1="320" y1="300" x2="320" y2="480" class="ln"/><text x="320" y="250" text-anchor="middle" style="font:900 96px var(--font);fill:var(--c-d)">V</text><text x="215" y="425" text-anchor="middle" style="font:900 88px var(--font);fill:var(--c-d)">I</text><text x="425" y="425" text-anchor="middle" style="font:900 88px var(--font);fill:var(--c-d)">R</text><rect x="155" y="498" width="330" height="54" rx="27" class="pill"/><text x="320" y="534" class="lbl-s" text-anchor="middle">cover the one you want</text></svg></div>
+      <div class="stack">
+        <div class="eq"><div class="words">voltage = current × resistance</div><div class="sym">V = I × R</div>
+          <div class="units"><span>V in volts (V)</span><span>I in amps (A)</span><span>R in ohms (Ω)</span></div></div>
+        <div class="card tint"><h3>Rearranged</h3><p><strong>R = V ÷ I</strong> &nbsp;and&nbsp; <strong>I = V ÷ R</strong></p></div>
+        <div class="warn"><b>Exam warning</b>Write the real equation, not just the triangle.</div>
+      </div>
+    </div>
+  </div>
+  <aside>We find the resistance of a component by comparing the current through it with the voltage across it.</aside>
+<div class="spec-tag"><b>Spec 2.19</b> calculate the currents, voltages and resistances of two resistive components connected in a series circuit</div>
+</section>
+
+<section>
+  <span class="kicker">Worked example</span>
+  <h2>The <em>doorbell</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="worked">
+        <div class="q">There is 12 V across a doorbell and the current is 0.1 A. What is its resistance?</div>
+        <div class="step"><i>Write down</i>V = 12 V, I = 0.1 A</div>
+        <div class="step"><i>Equation</i>V = I × R, so R = V ÷ I</div>
+        <div class="step"><i>Substitute</i>R = 12 ÷ 0.1</div>
+        <div class="ans">R = 120 Ω</div>
+        <div class="remember"><b>Big idea</b>We find resistance by comparing the current through a component with the voltage across it.</div>
+      </div>
+      <div class="stack">
+        <div class="fig"><svg viewBox="0 0 700 470" aria-label="Circuit: 12 V supply, ammeter reading 0.1 A and a doorbell"><path d="M110 110 L590 110 L590 360 L110 360 Z" class="ln"/><rect x="334" y="66" width="32" height="88" class="f-card"/><line x1="339" y1="70" x2="339" y2="150" class="ln"/><line x1="361" y1="90" x2="361" y2="130" class="ln" style="stroke-width:12"/><circle cx="110" cy="235" r="36" class="ln f-card"/><text x="110" y="246" class="lbl" text-anchor="middle">A</text><rect x="290" y="326" width="120" height="68" rx="14" class="ln f-yellow"/><path d="M330 372 q20 -36 40 0" class="ln"/><circle cx="350" cy="380" r="5" class="f-cc" style="fill:var(--ink)"/><rect x="290" y="15" width="120" height="54" rx="27" class="pill"/><text x="350" y="51" class="lbl-s" text-anchor="middle">12 V</text><rect x="270" y="413" width="160" height="54" rx="27" class="pill"/><text x="350" y="449" class="lbl-s" text-anchor="middle">doorbell</text><rect x="165" y="208" width="120" height="54" rx="27" class="pill"/><text x="225" y="244" class="lbl-s" text-anchor="middle">0.1 A</text></svg></div>
+        <div class="tip"><b>Quick check</b>÷ 0.1 is the same as × 10.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="kicker">Practice</span>
+  <h2>One equation, <em>three ways round</em></h2>
+  <div class="body">
+    <div class="cols-3">
+      <div class="worked">
+        <div class="q">20 V and 5 A. Find R.</div>
+        <div class="step"><i>Know</i>V = 20 V, I = 5 A</div>
+        <div class="step"><i>Equation</i>R = V ÷ I</div>
+        <div class="step"><i>Substitute</i>20 ÷ 5</div>
+        <div class="ans">R = 4 Ω</div>
+      </div>
+      <div class="worked">
+        <div class="q">12 V across 50 Ω. Find I.</div>
+        <div class="step"><i>Know</i>V = 12 V, R = 50 Ω</div>
+        <div class="step"><i>Equation</i>I = V ÷ R</div>
+        <div class="step"><i>Substitute</i>12 ÷ 50</div>
+        <div class="ans">I = 0.24 A</div>
+      </div>
+      <div class="worked">
+        <div class="q">3 A through 10 Ω. Find V.</div>
+        <div class="step"><i>Know</i>I = 3 A, R = 10 Ω</div>
+        <div class="step"><i>Equation</i>V = I × R</div>
+        <div class="step"><i>Substitute</i>3 × 10</div>
+        <div class="ans">V = 30 V</div>
+      </div>
+    </div>
+    <div class="tip"><b>Exam tip</b>Show your working: equation → numbers → answer with its unit (Ω, A or V).</div>
+  </div>
+</section>
+
+<section class="divider">
+  <div class="num">2</div>
+  <h2>Resistors <em>in series</em></h2>
+  <p class="lead">Add the resistances, then share out the voltage.</p>
+</section>
+
+<section>
+  <span class="kicker">Resistors in series</span>
+  <h2>In series, just <em>add them up</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 900 540" aria-label="Series circuit: 12 V cell with a 2 ohm and a 4 ohm resistor in series"><path d="M150 130 L750 130 L750 400 L150 400 Z" class="ln"/><rect x="434" y="86" width="32" height="88" class="f-card"/><line x1="439" y1="90" x2="439" y2="170" class="ln"/><line x1="461" y1="110" x2="461" y2="150" class="ln" style="stroke-width:12"/><rect x="245" y="376" width="110" height="48" rx="6" class="ln f-card"/><rect x="545" y="376" width="110" height="48" rx="6" class="ln f-card"/><rect x="390" y="31" width="120" height="54" rx="27" class="pill"/><text x="450" y="67" class="lbl-s" text-anchor="middle">12 V</text><rect x="250" y="453" width="100" height="54" rx="27" class="pill"/><text x="300" y="489" class="lbl-s" text-anchor="middle">2 Ω</text><rect x="550" y="453" width="100" height="54" rx="27" class="pill"/><text x="600" y="489" class="lbl-s" text-anchor="middle">4 Ω</text><rect x="285" y="233" width="330" height="54" rx="27" class="pill"/><text x="450" y="269" class="lbl-c" text-anchor="middle">R total = 2 + 4 = 6 Ω</text></svg></div>
+      <div class="stack">
+        <div class="eq"><div class="words">total resistance = R₁ + R₂</div><div class="sym">R<sub style="font-size:.5em">total</sub> = R₁ + R₂</div><div class="units"><span>all in ohms (Ω)</span></div></div>
+        <div class="remember"><b>Why?</b>The charge has to go through both resistors, one after the other.</div>
+        <div class="tip"><b>Good news</b>You only need the series rule – not a parallel rule.</div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 2.19</b> calculate the currents, voltages and resistances of two resistive components connected in a series circuit</div>
+</section>
+
+<section>
+  <span class="kicker">Worked example</span>
+  <h2>2 Ω + 4 Ω on a <em>12 V</em> supply</h2>
+  <div class="body">
+    <div class="wide-right">
+      <div class="worked">
+        <div class="step"><i>a) Total R</i>R = 2 + 4 = 6 Ω</div>
+        <div class="step"><i>Current</i>I = V ÷ R = 12 ÷ 6 = <strong>2 A</strong></div>
+        <div class="step"><i>b) 2 Ω</i>V = I × R = 2 × 2 = <strong>4 V</strong></div>
+        <div class="step"><i>4 Ω</i>V = I × R = 2 × 4 = <strong>8 V</strong></div>
+        <div class="ans">Check: 4 V + 8 V = 12 V ✓</div>
+      </div>
+      <div class="fig"><svg viewBox="0 0 900 560" aria-label="Series circuit: 12 V cell with a 2 ohm and a 4 ohm resistor in series"><path d="M150 130 L750 130 L750 400 L150 400 Z" class="ln"/><rect x="434" y="86" width="32" height="88" class="f-card"/><line x1="439" y1="90" x2="439" y2="170" class="ln"/><line x1="461" y1="110" x2="461" y2="150" class="ln" style="stroke-width:12"/><rect x="245" y="376" width="110" height="48" rx="6" class="ln f-card"/><rect x="545" y="376" width="110" height="48" rx="6" class="ln f-card"/><rect x="390" y="31" width="120" height="54" rx="27" class="pill"/><text x="450" y="67" class="lbl-s" text-anchor="middle">12 V</text><path d="M150 260 L150 260" class="ln"/><path d="M232 130 l36 0" class="ln-c"/><path d="M256 118 l14 12 l-14 12" class="ln-c"/><rect x="180" y="173" width="140" height="54" rx="27" class="pill"/><text x="250" y="209" class="lbl-c" text-anchor="middle">I = 2 A</text><rect x="250" y="293" width="100" height="54" rx="27" class="pill"/><text x="300" y="329" class="lbl-c" text-anchor="middle">4 V</text><rect x="550" y="293" width="100" height="54" rx="27" class="pill"/><text x="600" y="329" class="lbl-c" text-anchor="middle">8 V</text><rect x="250" y="453" width="100" height="54" rx="27" class="pill"/><text x="300" y="489" class="lbl-s" text-anchor="middle">2 Ω</text><rect x="550" y="453" width="100" height="54" rx="27" class="pill"/><text x="600" y="489" class="lbl-s" text-anchor="middle">4 Ω</text></svg></div>
+    </div>
+    <div class="remember"><b>Same current</b>The 2 A flows through both resistors, because they are in series.</div>
+  </div>
+<div class="spec-tag"><b>Spec 2.19</b> calculate the currents, voltages and resistances of two resistive components connected in a series circuit</div>
+</section>
+
+<section>
+  <span class="kicker">Series rules</span>
+  <h2>The four <em>series rules</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="stack">
+        <ol class="nums">
+          <li>Total resistance = the <strong>sum</strong> of the resistances.</li>
+          <li>The current is the <strong>same</strong> through every component.</li>
+          <li>The supply voltage is <strong>shared</strong>: the voltages add up to the supply.</li>
+          <li>The <strong>bigger</strong> resistor gets the bigger share of the voltage.</li>
+        </ol>
+        <div class="tip"><b>Exam order</b>Total resistance → current → each voltage.</div>
+      </div>
+      <div class="fig"><svg viewBox="0 0 760 520" aria-label="Bar showing the 12 V supply shared as 4 V across 2 ohms and 8 V across 4 ohms"><text x="380" y="60" class="lbl" text-anchor="middle">supply = 12 V</text><rect x="60" y="90" width="640" height="90" rx="22" class="f-c"/><text x="380" y="148" class="lbl-c" text-anchor="middle">12 V</text><path d="M60 220 L700 220" class="dash"/><rect x="60" y="260" width="213" height="90" rx="22" class="f-mint"/><rect x="287" y="260" width="413" height="90" rx="22" class="f-pink"/><text x="166" y="318" class="lbl" text-anchor="middle">4 V</text><text x="493" y="318" class="lbl" text-anchor="middle">8 V</text><rect x="116" y="373" width="100" height="54" rx="27" class="pill"/><text x="166" y="409" class="lbl-s" text-anchor="middle">2 Ω</text><rect x="363" y="373" width="260" height="54" rx="27" class="pill"/><text x="493" y="409" class="lbl-s" text-anchor="middle">4 Ω: bigger share</text><text x="380" y="490" class="lbl-s" text-anchor="middle">4 V + 8 V = 12 V</text></svg></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 2.19</b> calculate the currents, voltages and resistances of two resistive components connected in a series circuit</div>
+</section>
+
+<section>
+  <span class="kicker">What controls the current?</span>
+  <h2>More push, or more <em>pushing back</em>?</h2>
+  <div class="body">
+    <div class="cols-3">
+      <div class="stack"><div class="fig"><svg viewBox="0 0 480 310" aria-label="One cell and one resistor with an ammeter"><path d="M80 80 L400 80 L400 250 L80 250 Z" class="ln"/><circle cx="80" cy="165" r="36" class="ln f-card"/><text x="80" y="176" class="lbl" text-anchor="middle">A</text><rect x="224" y="36" width="32" height="88" class="f-card"/><line x1="229" y1="40" x2="229" y2="120" class="ln"/><line x1="251" y1="60" x2="251" y2="100" class="ln" style="stroke-width:12"/><rect x="185" y="226" width="110" height="48" rx="6" class="ln f-card"/></svg></div><div class="card tint"><h3>Start</h3><p>1 cell, 1 resistor: current I.</p></div></div>
+      <div class="stack"><div class="fig"><svg viewBox="0 0 480 310" aria-label="Two cells and one resistor with an ammeter"><path d="M80 80 L400 80 L400 250 L80 250 Z" class="ln"/><circle cx="80" cy="165" r="36" class="ln f-card"/><text x="80" y="176" class="lbl" text-anchor="middle">A</text><rect x="194" y="36" width="32" height="88" class="f-card"/><line x1="199" y1="40" x2="199" y2="120" class="ln"/><line x1="221" y1="60" x2="221" y2="100" class="ln" style="stroke-width:12"/><rect x="254" y="36" width="32" height="88" class="f-card"/><line x1="259" y1="40" x2="259" y2="120" class="ln"/><line x1="281" y1="60" x2="281" y2="100" class="ln" style="stroke-width:12"/><rect x="226" y="77" width="28" height="6" class="f-card"/><line x1="221" y1="80" x2="259" y2="80" class="ln" style="stroke-dasharray:0"/><rect x="185" y="226" width="110" height="48" rx="6" class="ln f-card"/></svg></div><div class="card mint"><h3>More voltage</h3><p>Double the cells → double the current.</p></div></div>
+      <div class="stack"><div class="fig"><svg viewBox="0 0 480 310" aria-label="One cell and two resistors in series with an ammeter"><path d="M80 80 L400 80 L400 250 L80 250 Z" class="ln"/><circle cx="80" cy="165" r="36" class="ln f-card"/><text x="80" y="176" class="lbl" text-anchor="middle">A</text><rect x="224" y="36" width="32" height="88" class="f-card"/><line x1="229" y1="40" x2="229" y2="120" class="ln"/><line x1="251" y1="60" x2="251" y2="100" class="ln" style="stroke-width:12"/><rect x="125" y="226" width="110" height="48" rx="6" class="ln f-card"/><rect x="265" y="226" width="110" height="48" rx="6" class="ln f-card"/></svg></div><div class="card pink"><h3>More resistance</h3><p>More or bigger resistors → smaller current.</p></div></div>
+    </div>
+    <div class="remember"><b>Remember</b>Less resistance → bigger current. More resistance → smaller current.</div>
+  </div>
+  <aside>The current in a series circuit depends on the voltage of the supply and on the number and type of the other components.</aside>
+<div class="spec-tag"><b>Spec 2.19</b> calculate the currents, voltages and resistances of two resistive components connected in a series circuit</div>
+</section>
+
+<section class="divider">
+  <div class="num">3</div>
+  <h2>Core practical: <em>I–V graphs</em></h2>
+  <p class="lead">Measure how the current changes with voltage for a wire, a resistor, a filament lamp and a diode.</p>
+</section>
+
+<section>
+  <span class="kicker">Core practical</span>
+  <h2>Setting up the <em>circuit</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 900 600" aria-label="Core practical circuit: cell, switch, ammeter and variable resistor in series with the test item; voltmeter in parallel across the test item"><path d="M120 110 L780 110 L780 380 L120 380 Z" class="ln"/><path d="M370 380 L370 500 L530 500 L530 380" class="ln"/><rect x="244" y="66" width="32" height="88" class="f-card"/><line x1="249" y1="70" x2="249" y2="150" class="ln"/><line x1="271" y1="90" x2="271" y2="130" class="ln" style="stroke-width:12"/><rect x="516" y="100" width="88" height="20" class="f-card"/><circle cx="522" cy="110" r="8" class="f-cc" style="fill:var(--ink)"/><circle cx="598" cy="110" r="8" class="f-cc" style="fill:var(--ink)"/><line x1="522" y1="110" x2="592" y2="76" class="ln"/><circle cx="120" cy="245" r="36" class="ln f-card"/><text x="120" y="256" class="lbl" text-anchor="middle">A</text><g transform="rotate(90 780 245)"><rect x="725" y="221" width="110" height="48" rx="6" class="ln f-card"/><line x1="718" y1="289" x2="832" y2="205" class="ln"/><path d="M810 203 L838 201 L830 228" class="ln"/></g><rect x="395" y="356" width="110" height="48" rx="6" class="ln f-card"/><circle cx="450" cy="500" r="36" class="ln f-card"/><text x="450" y="511" class="lbl" text-anchor="middle">V</text><circle cx="370" cy="380" r="9" style="fill:var(--ink)"/><circle cx="530" cy="380" r="9" style="fill:var(--ink)"/><rect x="210" y="15" width="100" height="54" rx="27" class="pill"/><text x="260" y="51" class="lbl-s" text-anchor="middle">cell</text><rect x="500" y="15" width="120" height="54" rx="27" class="pill"/><text x="560" y="51" class="lbl-s" text-anchor="middle">switch</text><rect x="370" y="273" width="160" height="54" rx="27" class="pill"/><text x="450" y="309" class="lbl-s" text-anchor="middle">test item</text><rect x="560" y="473" width="160" height="54" rx="27" class="pill"/><text x="640" y="509" class="lbl-s" text-anchor="middle">voltmeter</text><rect x="165" y="218" width="150" height="54" rx="27" class="pill"/><text x="240" y="254" class="lbl-s" text-anchor="middle">ammeter</text><rect x="495" y="218" width="230" height="54" rx="27" class="pill"/><text x="610" y="254" class="lbl-s" text-anchor="middle">variable resistor</text></svg></div>
+      <div class="stack">
+        <div class="card tint"><h3>Ammeter</h3><p>In <strong>series</strong> – measures the current through the test item.</p></div>
+        <div class="card mint"><h3>Voltmeter</h3><p>In <strong>parallel</strong> across the test item – measures its voltage.</p></div>
+        <div class="card yellow"><h3>Variable resistor</h3><p>Changes the current, so you get different readings.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 2.19</b> calculate the currents, voltages and resistances of two resistive components connected in a series circuit</div>
+</section>
+
+<section>
+  <span class="kicker">Core practical · method</span>
+  <h2>Taking the <em>readings</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <ol class="nums">
+        <li>Set the variable resistor to its <strong>maximum</strong>.</li>
+        <li>Close the switch. Record the <strong>current</strong> and <strong>voltage</strong>.</li>
+        <li>Change the variable resistor. Record a new pair of readings.</li>
+        <li>Repeat to get <strong>at least six</strong> pairs. For a diode, also <strong>reverse the supply</strong> to get negative values.</li>
+        <li>Make a table. Plot <strong>current (I)</strong> against <strong>voltage (V)</strong>.</li>
+      </ol>
+      <div class="fig"><svg viewBox="0 0 640 520" aria-label="Cycle: change the variable resistor, record I and V, repeat at least six times, then plot"><circle cx="320" cy="250" r="160" class="dash"/><path d="M462 175 l8 -26 l18 20" class="ln-c"/><path d="M178 325 l-8 26 l-18 -20" class="ln-c"/><rect x="205" y="63" width="230" height="54" rx="27" class="pill"/><text x="320" y="99" class="lbl-s" text-anchor="middle">record I and V</text><rect x="190" y="383" width="260" height="54" rx="27" class="pill"/><text x="320" y="419" class="lbl-s" text-anchor="middle">change variable R</text><text x="320" y="262" class="lbl-c" text-anchor="middle">× 6 or more</text><rect x="170" y="463" width="300" height="54" rx="27" class="pill"/><text x="320" y="499" class="lbl-s" text-anchor="middle">then plot I against V</text></svg></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 2.9</b> describe how current varies with voltage in wires, resistors, metal filament lamps and diodes, and how to…</div>
+</section>
+
+<section>
+  <span class="kicker">Core practical · safety</span>
+  <h2>Safe and <em>accurate</em></h2>
+  <div class="body">
+    <div class="cols-2">
+      <div class="stack">
+        <div class="warn"><b>Safety</b>The resistance wire can get hot enough to <strong>burn skin</strong> if the current is too large.</div>
+        <div class="card tint"><h3>Keep currents small</h3><p>Then the wire's <strong>temperature stays constant</strong>, so its resistance does not change.</p></div>
+      </div>
+      <div class="stack">
+        <div class="card mint"><h3>Switch off</h3><p>Switch off <strong>between readings</strong> so the wire does not heat up.</p></div>
+        <div class="remember"><b>Remember</b>Ammeter in <strong>series</strong>. Voltmeter in <strong>parallel</strong>.</div>
+      </div>
+    </div>
+    <div class="flow"><div>Set up circuit<small>A in series, V in parallel</small></div><span>→</span><div>Record I and V<small>start at max R</small></div><span>→</span><div>Change R<small>6+ pairs</small></div><span>→</span><div>Plot<small>I against V</small></div></div>
+  </div>
+<div class="spec-tag"><b>Spec 2.10</b> describe the qualitative effect of changing resistance on the current in a circuit</div>
+</section>
+
+<section>
+  <span class="kicker">Core practical · results</span>
+  <h2>Typical results for a <em>wire</em></h2>
+  <div class="body">
+    <div class="wide-right">
+      <div class="stack">
+        <table class="t">
+          <tr><th>V / V</th><td>0.0</td><td>0.4</td><td>0.8</td><td>1.2</td><td>1.6</td><td>2.0</td></tr>
+          <tr><th>I / A</th><td>0.0</td><td>0.1</td><td>0.2</td><td>0.3</td><td>0.4</td><td>0.5</td></tr>
+        </table>
+        <div class="worked">
+          <div class="step"><i>Equation</i>R = V ÷ I</div>
+          <div class="step"><i>Substitute</i>R = 0.4 ÷ 0.1</div>
+          <div class="ans">R = 4 Ω (constant)</div>
+        </div>
+        <p class="small">Every pair gives 4 Ω, so the resistance stays the same.</p>
+      </div>
+      <div class="fig"><svg viewBox="0 0 900 590" aria-label="Graph of current against voltage for a wire: straight line through the origin"><g style="stroke:var(--line);stroke-width:3"><line x1="266" y1="80" x2="266" y2="500"/><line x1="402" y1="80" x2="402" y2="500"/><line x1="538" y1="80" x2="538" y2="500"/><line x1="674" y1="80" x2="674" y2="500"/><line x1="810" y1="80" x2="810" y2="500"/><line x1="130" y1="416" x2="840" y2="416"/><line x1="130" y1="332" x2="840" y2="332"/><line x1="130" y1="248" x2="840" y2="248"/><line x1="130" y1="164" x2="840" y2="164"/><line x1="130" y1="80" x2="840" y2="80"/></g><line x1="130" y1="500" x2="860" y2="500" class="ln"/><line x1="130" y1="500" x2="130" y2="50" class="ln"/><g class="lbl-s" text-anchor="middle"><text x="130" y="534">0.0</text><text x="266" y="534">0.4</text><text x="402" y="534">0.8</text><text x="538" y="534">1.2</text><text x="674" y="534">1.6</text><text x="810" y="534">2.0</text></g><g class="lbl-s" text-anchor="end"><text x="112" y="424">0.1</text><text x="112" y="340">0.2</text><text x="112" y="256">0.3</text><text x="112" y="172">0.4</text><text x="112" y="88">0.5</text></g><text x="485" y="580" class="lbl" text-anchor="middle">voltage / V</text><text x="40" y="290" class="lbl" text-anchor="middle" transform="rotate(-90 40 290)">current / A</text><line x1="130" y1="500" x2="810.0" y2="80.0" class="ln-c"/><g class="f-cc"><circle cx="130" cy="500" r="11"/><circle cx="266" cy="416" r="11"/><circle cx="402" cy="332" r="11"/><circle cx="538" cy="248" r="11"/><circle cx="674" cy="164" r="11"/><circle cx="810" cy="80" r="11"/></g><rect x="450" y="393" width="380" height="54" rx="27" class="pill"/><text x="640" y="429" class="lbl-s" text-anchor="middle">straight line through origin</text></svg></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <span class="kicker">Reading an I–V graph</span>
+  <h2>Steep line = <em>low resistance</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 900 580" aria-label="Two I-V lines: a steep line shows low resistance, a flat line shows high resistance"><line x1="120" y1="490" x2="860" y2="490" class="ln"/><path d="M844 478 L860 490 L844 502" class="ln"/><line x1="120" y1="490" x2="120" y2="50" class="ln"/><path d="M108 66 L120 50 L132 66" class="ln"/><text x="490" y="542" class="lbl" text-anchor="middle">voltage / V</text><text x="90" y="270" class="lbl" text-anchor="middle" transform="rotate(-90 90 270)">current / A</text><line x1="120" y1="490" x2="480" y2="90" class="ln-c"/><line x1="120" y1="490" x2="820" y2="330" class="ln s-pink" style="stroke-width:7"/><rect x="445" y="93" width="230" height="54" rx="27" class="pill"/><text x="560" y="129" class="lbl-s" text-anchor="middle">steep → LOW R</text><rect x="585" y="223" width="230" height="54" rx="27" class="pill"/><text x="700" y="259" class="lbl-s" text-anchor="middle">flat → HIGH R</text></svg></div>
+      <div class="stack">
+        <div class="card mint"><h3>Steeper line</h3><p>Smaller resistance – lots of current for a small voltage.</p></div>
+        <div class="card pink"><h3>Flatter line</h3><p>Higher resistance.</p></div>
+        <div class="card yellow"><h3>Straight or curved?</h3><p>Straight: R is constant. Curve: R is changing.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 2.10</b> describe the qualitative effect of changing resistance on the current in a circuit</div>
+</section>
+
+<section class="divider">
+  <div class="num">4</div>
+  <h2>The three <em>I–V graphs</em></h2>
+  <p class="lead">Wire or resistor, filament lamp and diode – what each looks like and why.</p>
+</section>
+
+<section>
+  <span class="kicker">I–V graph 1</span>
+  <h2>Wire or <em>fixed resistor</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 900 600" aria-label="I-V graph for a wire or fixed resistor: straight line through the origin"><line x1="90" y1="300" x2="820" y2="300" class="ln"/><path d="M804 288 L820 300 L804 312" class="ln"/><line x1="450" y1="560" x2="450" y2="50" class="ln"/><path d="M438 66 L450 50 L462 66" class="ln"/><text x="814" y="348" class="lbl" text-anchor="end">V</text><text x="472" y="72" class="lbl">I</text><line x1="200" y1="520" x2="700" y2="80" class="ln-c" style="stroke-width:9"/><circle cx="450" cy="300" r="12" class="f-cc"/><rect x="500" y="353" width="200" height="54" rx="27" class="pill"/><text x="600" y="389" class="lbl-s" text-anchor="middle">origin (0, 0)</text><rect x="145" y="123" width="210" height="54" rx="27" class="pill"/><text x="250" y="159" class="lbl-s" text-anchor="middle">straight line</text></svg></div>
+      <div class="stack">
+        <div class="card tint"><h3>Shape</h3><p>A <strong>straight line</strong> through the origin.</p></div>
+        <div class="card mint"><h3>Meaning</h3><p>Current is <strong>directly proportional</strong> to voltage. Double V → double I.</p></div>
+        <div class="remember"><b>Resistance</b>Constant slope → R does not change (at constant temperature).</div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 2.10</b> describe the qualitative effect of changing resistance on the current in a circuit</div>
+</section>
+
+<section>
+  <span class="kicker">I–V graph 2</span>
+  <h2>Filament <em>lamp</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 900 600" aria-label="I-V graph for a filament lamp: S-shaped curve that gets flatter at higher voltages"><line x1="90" y1="300" x2="820" y2="300" class="ln"/><path d="M804 288 L820 300 L804 312" class="ln"/><line x1="450" y1="560" x2="450" y2="50" class="ln"/><path d="M438 66 L450 50 L462 66" class="ln"/><text x="814" y="348" class="lbl" text-anchor="end">V</text><text x="472" y="72" class="lbl">I</text><path d="M130 480 C260 470, 380 400, 450 300 C520 200, 640 130, 770 120" class="ln s-peach" style="stroke-width:9"/><rect x="510" y="193" width="260" height="54" rx="27" class="pill"/><text x="640" y="229" class="lbl-s" text-anchor="middle">flatter → higher R</text><rect x="105" y="353" width="290" height="54" rx="27" class="pill"/><text x="250" y="389" class="lbl-s" text-anchor="middle">same shape reversed</text></svg></div>
+      <div class="stack">
+        <div class="card peach"><h3>Shape</h3><p>An <strong>S-shaped curve</strong>. It gets flatter at higher voltages.</p></div>
+        <div class="card tint"><h3>Why?</h3><p>As the current rises, the filament gets <strong>hotter</strong>, so its resistance <strong>increases</strong>.</p></div>
+        <div class="tip"><b>Link</b>Flatter line = higher resistance.</div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 2.9</b> describe how current varies with voltage in wires, resistors, metal filament lamps and diodes, and how to…</div>
+</section>
+
+<section>
+  <span class="kicker">I–V graph 3</span>
+  <h2>Diode: a <em>one-way street</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 900 600" aria-label="I-V graph for a diode: zero current in reverse, current rises steeply after about 0.6 V forwards"><line x1="70" y1="400" x2="840" y2="400" class="ln"/><path d="M824 388 L840 400 L824 412" class="ln"/><line x1="400" y1="560" x2="400" y2="50" class="ln"/><path d="M388 66 L400 50 L412 66" class="ln"/><text x="834" y="448" class="lbl" text-anchor="end">V</text><text x="422" y="72" class="lbl">I</text><path d="M90 400 L400 400 L560 398 C590 396, 610 360, 625 300 L670 90" class="ln s-lilac" style="stroke-width:9"/><line x1="590" y1="400" x2="590" y2="420" class="ln"/><text x="590" y="456" class="lbl" text-anchor="middle">≈ 0.6 V</text><rect x="105" y="313" width="230" height="54" rx="27" class="pill"/><text x="220" y="349" class="lbl-s" text-anchor="middle">reverse: I = 0</text><rect x="670" y="193" width="180" height="54" rx="27" class="pill"/><text x="760" y="229" class="lbl-s" text-anchor="middle">steep rise</text></svg></div>
+      <div class="stack">
+        <div class="card lilac"><h3>Reverse</h3><p><strong>Zero current</strong> – very high resistance.</p></div>
+        <div class="card mint"><h3>Forwards</h3><p>Almost no current until about <strong>0.6 V</strong>. Then the current rises steeply – low resistance.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 2.9</b> describe how current varies with voltage in wires, resistors, metal filament lamps and diodes, and how to…</div>
+</section>
+
+<section>
+  <span class="kicker">Ohm's law · looking ahead</span>
+  <h2>Why does a hot filament have <em>more resistance</em>?</h2>
+  <div class="body">
+    <div class="cols-2">
+      <div class="fig"><svg viewBox="0 0 520 340" aria-label="Cool metal: atoms vibrate a little and electrons flow easily"><circle cx="60" cy="60" r="28" class="f-sky" style="stroke:var(--ink);stroke-width:4"/><circle cx="155" cy="60" r="28" class="f-sky" style="stroke:var(--ink);stroke-width:4"/><circle cx="250" cy="60" r="28" class="f-sky" style="stroke:var(--ink);stroke-width:4"/><circle cx="345" cy="60" r="28" class="f-sky" style="stroke:var(--ink);stroke-width:4"/><circle cx="440" cy="60" r="28" class="f-sky" style="stroke:var(--ink);stroke-width:4"/><circle cx="60" cy="135" r="28" class="f-sky" style="stroke:var(--ink);stroke-width:4"/><circle cx="155" cy="135" r="28" class="f-sky" style="stroke:var(--ink);stroke-width:4"/><circle cx="250" cy="135" r="28" class="f-sky" style="stroke:var(--ink);stroke-width:4"/><circle cx="345" cy="135" r="28" class="f-sky" style="stroke:var(--ink);stroke-width:4"/><circle cx="440" cy="135" r="28" class="f-sky" style="stroke:var(--ink);stroke-width:4"/><circle cx="60" cy="210" r="28" class="f-sky" style="stroke:var(--ink);stroke-width:4"/><circle cx="155" cy="210" r="28" class="f-sky" style="stroke:var(--ink);stroke-width:4"/><circle cx="250" cy="210" r="28" class="f-sky" style="stroke:var(--ink);stroke-width:4"/><circle cx="345" cy="210" r="28" class="f-sky" style="stroke:var(--ink);stroke-width:4"/><circle cx="440" cy="210" r="28" class="f-sky" style="stroke:var(--ink);stroke-width:4"/><path d="M10 135 L470 135" class="ln-c" style="stroke-dasharray:4 14"/><path d="M450 123 l18 12 l-18 12" class="ln-c"/><circle cx="250" cy="135" r="10" class="f-cc"/><text x="250" y="292" class="lbl" text-anchor="middle">Cool: atoms vibrate a little</text><text x="250" y="330" class="lbl-s" text-anchor="middle">→ electrons flow easily</text></svg></div>
+      <div class="fig"><svg viewBox="0 0 520 340" aria-label="Hot metal: atoms vibrate more and electrons find it harder to flow"><circle cx="60" cy="60" r="36" class="f-pink"/><g class="thin" style="stroke:var(--red)"><path d="M14 54 l-12 6 l12 6"/><path d="M106 54 l12 6 l-12 6"/></g><circle cx="60" cy="60" r="28" class="f-red" style="stroke:var(--ink);stroke-width:4"/><circle cx="155" cy="60" r="36" class="f-pink"/><g class="thin" style="stroke:var(--red)"><path d="M109 54 l-12 6 l12 6"/><path d="M201 54 l12 6 l-12 6"/></g><circle cx="155" cy="60" r="28" class="f-red" style="stroke:var(--ink);stroke-width:4"/><circle cx="250" cy="60" r="36" class="f-pink"/><g class="thin" style="stroke:var(--red)"><path d="M204 54 l-12 6 l12 6"/><path d="M296 54 l12 6 l-12 6"/></g><circle cx="250" cy="60" r="28" class="f-red" style="stroke:var(--ink);stroke-width:4"/><circle cx="345" cy="60" r="36" class="f-pink"/><g class="thin" style="stroke:var(--red)"><path d="M299 54 l-12 6 l12 6"/><path d="M391 54 l12 6 l-12 6"/></g><circle cx="345" cy="60" r="28" class="f-red" style="stroke:var(--ink);stroke-width:4"/><circle cx="440" cy="60" r="36" class="f-pink"/><g class="thin" style="stroke:var(--red)"><path d="M394 54 l-12 6 l12 6"/><path d="M486 54 l12 6 l-12 6"/></g><circle cx="440" cy="60" r="28" class="f-red" style="stroke:var(--ink);stroke-width:4"/><circle cx="60" cy="135" r="36" class="f-pink"/><g class="thin" style="stroke:var(--red)"><path d="M14 129 l-12 6 l12 6"/><path d="M106 129 l12 6 l-12 6"/></g><circle cx="60" cy="135" r="28" class="f-red" style="stroke:var(--ink);stroke-width:4"/><circle cx="155" cy="135" r="36" class="f-pink"/><g class="thin" style="stroke:var(--red)"><path d="M109 129 l-12 6 l12 6"/><path d="M201 129 l12 6 l-12 6"/></g><circle cx="155" cy="135" r="28" class="f-red" style="stroke:var(--ink);stroke-width:4"/><circle cx="250" cy="135" r="36" class="f-pink"/><g class="thin" style="stroke:var(--red)"><path d="M204 129 l-12 6 l12 6"/><path d="M296 129 l12 6 l-12 6"/></g><circle cx="250" cy="135" r="28" class="f-red" style="stroke:var(--ink);stroke-width:4"/><circle cx="345" cy="135" r="36" class="f-pink"/><g class="thin" style="stroke:var(--red)"><path d="M299 129 l-12 6 l12 6"/><path d="M391 129 l12 6 l-12 6"/></g><circle cx="345" cy="135" r="28" class="f-red" style="stroke:var(--ink);stroke-width:4"/><circle cx="440" cy="135" r="36" class="f-pink"/><g class="thin" style="stroke:var(--red)"><path d="M394 129 l-12 6 l12 6"/><path d="M486 129 l12 6 l-12 6"/></g><circle cx="440" cy="135" r="28" class="f-red" style="stroke:var(--ink);stroke-width:4"/><circle cx="60" cy="210" r="36" class="f-pink"/><g class="thin" style="stroke:var(--red)"><path d="M14 204 l-12 6 l12 6"/><path d="M106 204 l12 6 l-12 6"/></g><circle cx="60" cy="210" r="28" class="f-red" style="stroke:var(--ink);stroke-width:4"/><circle cx="155" cy="210" r="36" class="f-pink"/><g class="thin" style="stroke:var(--red)"><path d="M109 204 l-12 6 l12 6"/><path d="M201 204 l12 6 l-12 6"/></g><circle cx="155" cy="210" r="28" class="f-red" style="stroke:var(--ink);stroke-width:4"/><circle cx="250" cy="210" r="36" class="f-pink"/><g class="thin" style="stroke:var(--red)"><path d="M204 204 l-12 6 l12 6"/><path d="M296 204 l12 6 l-12 6"/></g><circle cx="250" cy="210" r="28" class="f-red" style="stroke:var(--ink);stroke-width:4"/><circle cx="345" cy="210" r="36" class="f-pink"/><g class="thin" style="stroke:var(--red)"><path d="M299 204 l-12 6 l12 6"/><path d="M391 204 l12 6 l-12 6"/></g><circle cx="345" cy="210" r="28" class="f-red" style="stroke:var(--ink);stroke-width:4"/><circle cx="440" cy="210" r="36" class="f-pink"/><g class="thin" style="stroke:var(--red)"><path d="M394 204 l-12 6 l12 6"/><path d="M486 204 l12 6 l-12 6"/></g><circle cx="440" cy="210" r="28" class="f-red" style="stroke:var(--ink);stroke-width:4"/><path d="M10 135 L60 135 L80 160 L120 120 L150 160 L190 130 L230 160" class="ln-c" style="stroke-dasharray:4 14"/><circle cx="230" cy="160" r="10" class="f-cc"/><text x="250" y="292" class="lbl" text-anchor="middle">Hot: atoms vibrate more vigorously</text><text x="250" y="330" class="lbl-s" text-anchor="middle">→ harder for electrons to flow → higher R</text></svg></div>
+    </div>
+    <div class="tip"><b>So</b>Hot filament → higher resistance. Cooling a wire lowers its resistance.</div>
+    <div class="def"><span class="term">Ohm's law</span><p>The current in a conductor is directly proportional to the voltage across it, provided its temperature remains constant.</p></div>
+  </div>
+  <aside>Cooling a wire lowers its resistance.</aside>
+<div class="spec-tag"><b>Spec 2.9</b> describe how current varies with voltage in wires, resistors, metal filament lamps and diodes, and how to…</div>
+</section>
+
+<section>
+  <span class="kicker">Extension</span>
+  <h2><em>Superconductivity</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 900 560" aria-label="Two thermometers: at 20 degrees C a wire has resistance; near minus 273 degrees C some conductors have zero resistance"><rect x="190" y="60" width="60" height="360" rx="30" class="ln f-card"/><circle cx="220" cy="450" r="48" class="ln f-pink"/><rect x="206" y="200" width="28" height="240" rx="14" style="fill:var(--pink)"/><circle cx="220" cy="450" r="34" style="fill:var(--pink)"/><rect x="115" y="498" width="210" height="54" rx="27" class="pill"/><text x="220" y="534" class="lbl-s" text-anchor="middle">20 °C: R > 0</text><rect x="560" y="60" width="60" height="360" rx="30" class="ln f-card"/><circle cx="590" cy="450" r="48" class="ln f-sky"/><circle cx="590" cy="450" r="34" style="fill:var(--sky)"/><rect x="475" y="498" width="230" height="54" rx="27" class="pill"/><text x="590" y="534" class="lbl-s" text-anchor="middle">−273 °C: R = 0</text><path d="M300 250 C380 200, 470 200, 520 250" class="ln-c"/><path d="M498 238 l24 14 l-6 -26" class="ln-c"/><text x="410" y="180" class="lbl-c" text-anchor="middle">cool down</text><rect x="675" y="133" width="170" height="54" rx="27" class="pill"/><text x="760" y="169" class="lbl-s" text-anchor="middle">atoms still</text></svg></div>
+      <div class="stack">
+        <div class="def"><span class="term">Zero resistance</span><p>Near absolute zero (−273 °C) the vibrations stop. Some conductors then have zero resistance.</p></div>
+        <div class="card mint"><h3>Uses</h3><p>No energy loss, so electricity could be sent without losses. Maglev trains use superconducting magnets to hover.</p></div>
+      </div>
+    </div>
+    <p class="small">Scientists are searching for materials that superconduct at higher temperatures.</p>
+  </div>
+<div class="spec-tag"><b>Spec 2.11</b> describe the qualitative variation of resistance of light-dependent resistors (LDRs) with illumination and…</div>
+</section>
+
+<section>
+  <span class="kicker">Exam answer</span>
+  <h2>Describe and <em>explain</em> a graph</h2>
+  <div class="body">
+    <div class="flow"><div>1 · Shape<small>straight or curved? through the origin?</small></div><span>→</span><div>2 · Resistance<small>constant, increasing or one-way?</small></div><span>→</span><div>3 · Reason<small>temperature constant / filament heats up / diode conducts one way</small></div></div>
+    <div class="cols-3">
+      <div class="card tint"><h3>Wire / resistor</h3><p>“A straight line through the origin. So the resistance is constant, because the temperature stays constant.”</p></div>
+      <div class="card peach"><h3>Filament lamp</h3><p>“An S-shaped curve that gets flatter at higher voltages. So the resistance increases, because the filament gets hotter.”</p></div>
+      <div class="card lilac"><h3>Diode</h3><p>“Zero current in reverse; current rises steeply after about 0.6 V. The diode only conducts one way.”</p></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 2.9</b> describe how current varies with voltage in wires, resistors, metal filament lamps and diodes, and how to…</div>
+</section>
+
+<section class="divider">
+  <div class="num">5</div>
+  <h2>Using <em>resistance</em></h2>
+  <p class="lead">Fixed and variable resistors, thermistors, LDRs and diodes – and what we use them for.</p>
+</section>
+
+<section>
+  <span class="kicker">Fixed resistors</span>
+  <h2>Keeping the current <em>safe</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 820 500" aria-label="A cell, a fixed resistor and a 1.5 V bulb in series"><path d="M130 120 L690 120 L690 360 L130 360 Z" class="ln"/><rect x="364" y="76" width="32" height="88" class="f-card"/><line x1="369" y1="80" x2="369" y2="160" class="ln"/><line x1="391" y1="100" x2="391" y2="140" class="ln" style="stroke-width:12"/><rect x="424" y="76" width="32" height="88" class="f-card"/><line x1="429" y1="80" x2="429" y2="160" class="ln"/><line x1="451" y1="100" x2="451" y2="140" class="ln" style="stroke-width:12"/><rect x="396" y="117" width="28" height="6" class="f-card"/><line x1="391" y1="120" x2="429" y2="120" class="ln" style="stroke-dasharray:0"/><rect x="225" y="336" width="110" height="48" rx="6" class="ln f-card"/><circle cx="560" cy="360" r="52" class="f-yellow"/><g class="ln s-yellow" style="stroke-width:6"><line x1="560" y1="298" x2="560" y2="274"/><line x1="604" y1="316" x2="620" y2="300"/><line x1="516" y1="316" x2="500" y2="300"/></g><circle cx="560" cy="360" r="32" class="ln f-card"/><line x1="538" y1="338" x2="582" y2="382" class="ln"/><line x1="538" y1="382" x2="582" y2="338" class="ln"/><rect x="345" y="19" width="130" height="54" rx="27" class="pill"/><text x="410" y="55" class="lbl-s" text-anchor="middle">supply</text><rect x="175" y="413" width="210" height="54" rx="27" class="pill"/><text x="280" y="449" class="lbl-s" text-anchor="middle">fixed resistor</text><rect x="475" y="423" width="170" height="54" rx="27" class="pill"/><text x="560" y="459" class="lbl-s" text-anchor="middle">1.5 V bulb</text></svg></div>
+      <div class="stack">
+        <div class="card tint"><h3>What they do</h3><p>Fixed resistors control the size of <strong>currents</strong> and <strong>voltages</strong>.</p></div>
+        <div class="card yellow"><h3>Example</h3><p>A resistor in series with a 1.5 V bulb <strong>limits the current</strong>, so the bulb doesn't “blow”.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 2.19</b> calculate the currents, voltages and resistances of two resistive components connected in a series circuit</div>
+</section>
+
+<section>
+  <span class="kicker">Variable resistors</span>
+  <h2>Turn the knob, change the <em>current</em></h2>
+  <div class="body">
+    <div class="cols-2">
+      <div class="stack"><div class="fig"><svg viewBox="0 0 500 340" aria-label="Variable resistor turned down: bigger current, bulb bright"><path d="M80 90 L420 90 L420 270 L80 270 Z" class="ln"/><rect x="234" y="46" width="32" height="88" class="f-card"/><line x1="239" y1="50" x2="239" y2="130" class="ln"/><line x1="261" y1="70" x2="261" y2="110" class="ln" style="stroke-width:12"/><g><rect x="110" y="246" width="110" height="48" rx="6" class="ln f-card"/><line x1="103" y1="314" x2="217" y2="230" class="ln"/><path d="M195 228 L223 226 L215 253" class="ln"/></g><circle cx="340" cy="270" r="52" class="f-yellow"/><g class="ln s-yellow" style="stroke-width:6"><line x1="340" y1="208" x2="340" y2="184"/><line x1="384" y1="226" x2="400" y2="210"/><line x1="296" y1="226" x2="280" y2="210"/></g><circle cx="340" cy="270" r="32" class="ln f-card"/><line x1="318" y1="248" x2="362" y2="292" class="ln"/><line x1="318" y1="292" x2="362" y2="248" class="ln"/><rect x="105" y="303" width="120" height="54" rx="27" class="pill"/><text x="165" y="339" class="lbl-s" text-anchor="middle">R down</text></svg></div><div class="card mint"><h3>Decrease R</h3><p>Bigger current → bulb <strong>brighter</strong>.</p></div></div>
+      <div class="stack"><div class="fig"><svg viewBox="0 0 500 340" aria-label="Variable resistor turned up: smaller current, bulb dim"><path d="M80 90 L420 90 L420 270 L80 270 Z" class="ln"/><rect x="234" y="46" width="32" height="88" class="f-card"/><line x1="239" y1="50" x2="239" y2="130" class="ln"/><line x1="261" y1="70" x2="261" y2="110" class="ln" style="stroke-width:12"/><g><rect x="110" y="246" width="110" height="48" rx="6" class="ln f-card"/><line x1="103" y1="314" x2="217" y2="230" class="ln"/><path d="M195 228 L223 226 L215 253" class="ln"/></g><circle cx="340" cy="270" r="32" class="ln f-card"/><line x1="318" y1="248" x2="362" y2="292" class="ln"/><line x1="318" y1="292" x2="362" y2="248" class="ln"/><rect x="115" y="303" width="100" height="54" rx="27" class="pill"/><text x="165" y="339" class="lbl-s" text-anchor="middle">R up</text></svg></div><div class="card pink"><h3>Increase R</h3><p>Smaller current → bulb <strong>dimmer</strong>.</p></div></div>
+    </div>
+    <div class="tip"><b>Uses</b>Volume knobs, dimmer switches and controlling the speed of motors.</div>
+  </div>
+<div class="spec-tag"><b>Spec 2.10</b> describe the qualitative effect of changing resistance on the current in a circuit</div>
+</section>
+
+<section>
+  <span class="kicker">Thermistor</span>
+  <h2>Thermistor: <em>hot → low R</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 900 580" aria-label="Graph: resistance of a thermistor falls as temperature rises"><line x1="120" y1="490" x2="860" y2="490" class="ln"/><path d="M844 478 L860 490 L844 502" class="ln"/><line x1="120" y1="490" x2="120" y2="50" class="ln"/><path d="M108 66 L120 50 L132 66" class="ln"/><text x="490" y="542" class="lbl" text-anchor="middle">temperature</text><text x="90" y="270" class="lbl" text-anchor="middle" transform="rotate(-90 90 270)">resistance</text><path d="M150 90 C240 330, 420 430, 820 455" class="ln s-red" style="stroke-width:9"/><rect x="435" y="273" width="250" height="54" rx="27" class="pill"/><text x="560" y="309" class="lbl-s" text-anchor="middle">hotter → lower R</text></svg></div>
+      <div class="stack">
+        <div class="fig" style="flex:none;height:190px"><svg viewBox="0 0 420 180" aria-label="Circuit symbol for a thermistor"><line x1="40" y1="90" x2="380" y2="90" class="ln"/><rect x="155" y="66" width="110" height="48" rx="6" class="ln f-card"/><path d="M124 132 L152 132 L268 48" class="ln"/></svg></div>
+        <div class="card tint"><h3>How it behaves</h3><p>Resistance <strong>decreases</strong> as temperature <strong>increases</strong> – a big change for a small temperature change.</p></div>
+        <div class="card mint"><h3>Uses</h3><p>Fire alarms, thermostats, freezers, computers.</p></div>
+      </div>
+    </div>
+  </div>
+  <aside>Some thermistors' resistance increases with temperature, but for the exam you only need the ones whose resistance decreases as temperature increases.</aside>
+<div class="spec-tag"><b>Spec 2.11</b> describe the qualitative variation of resistance of light-dependent resistors (LDRs) with illumination and…</div>
+</section>
+
+<section>
+  <span class="kicker">Light-dependent resistor</span>
+  <h2>LDR: <em>light → low R</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 900 580" aria-label="Graph: resistance of an LDR falls as light intensity rises"><line x1="120" y1="490" x2="860" y2="490" class="ln"/><path d="M844 478 L860 490 L844 502" class="ln"/><line x1="120" y1="490" x2="120" y2="50" class="ln"/><path d="M108 66 L120 50 L132 66" class="ln"/><text x="490" y="542" class="lbl" text-anchor="middle">light intensity</text><text x="90" y="270" class="lbl" text-anchor="middle" transform="rotate(-90 90 270)">resistance</text><path d="M150 90 C240 330, 420 430, 820 455" class="ln s-yellow" style="stroke-width:9"/><rect x="435" y="273" width="270" height="54" rx="27" class="pill"/><text x="570" y="309" class="lbl-s" text-anchor="middle">brighter → lower R</text><rect x="165" y="53" width="190" height="54" rx="27" class="pill"/><text x="260" y="89" class="lbl-s" text-anchor="middle">dark: high R</text></svg></div>
+      <div class="stack">
+        <div class="fig" style="flex:none;height:220px"><svg viewBox="0 0 420 230" aria-label="Circuit symbol for a light-dependent resistor"><line x1="40" y1="140" x2="380" y2="140" class="ln"/><circle cx="210" cy="140" r="78" class="ln f-card"/><rect x="155" y="116" width="110" height="48" rx="6" class="ln f-card"/><line x1="92" y1="22" x2="148" y2="78" class="ln"/><path d="M126 82 L150 80 L148 56" class="ln"/><line x1="142" y1="2" x2="192" y2="52" class="ln"/><path d="M170 56 L194 54 L192 30" class="ln"/></svg></div>
+        <div class="card tint"><h3>How it behaves</h3><p><strong>High</strong> resistance in the dark. Resistance <strong>decreases</strong> as light gets brighter.</p></div>
+        <div class="card yellow"><h3>Uses</h3><p>Street and security lights, burglar alarms, camera exposure meters.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 2.11</b> describe the qualitative variation of resistance of light-dependent resistors (LDRs) with illumination and…</div>
+</section>
+
+<section>
+  <span class="kicker">Diodes</span>
+  <h2>Diodes let charge flow <em>one way</em></h2>
+  <div class="body">
+    <div class="cols-2">
+      <div class="stack"><div class="fig"><svg viewBox="0 0 560 380" aria-label="Diode connected forwards: current flows and the bulb glows"><path d="M90 100 L470 100 L470 290 L90 290 Z" class="ln"/><rect x="264" y="56" width="32" height="88" class="f-card"/><line x1="269" y1="60" x2="269" y2="140" class="ln"/><line x1="291" y1="80" x2="291" y2="120" class="ln" style="stroke-width:12"/><path d="M156 260 L156 320 L204 290 Z" class="ln" style="fill:var(--ink)"/><line x1="204" y1="258" x2="204" y2="322" class="ln"/><circle cx="370" cy="290" r="52" class="f-yellow"/><g class="ln s-yellow" style="stroke-width:6"><line x1="370" y1="228" x2="370" y2="204"/><line x1="414" y1="246" x2="430" y2="230"/><line x1="326" y1="246" x2="310" y2="230"/></g><circle cx="370" cy="290" r="32" class="ln f-card"/><line x1="348" y1="268" x2="392" y2="312" class="ln"/><line x1="348" y1="312" x2="392" y2="268" class="ln"/><rect x="105" y="333" width="150" height="54" rx="27" class="pill"/><text x="180" y="369" class="lbl-s" text-anchor="middle">conducts</text></svg></div><div class="card mint"><h3>Forwards</h3><p>Low resistance → current flows, bulb glows.</p></div></div>
+      <div class="stack"><div class="fig"><svg viewBox="0 0 560 380" aria-label="Diode reversed: almost no current and the bulb stays off"><path d="M90 100 L470 100 L470 290 L90 290 Z" class="ln"/><rect x="264" y="56" width="32" height="88" class="f-card"/><line x1="269" y1="60" x2="269" y2="140" class="ln"/><line x1="291" y1="80" x2="291" y2="120" class="ln" style="stroke-width:12"/><path d="M204 260 L204 320 L156 290 Z" class="ln" style="fill:var(--ink)"/><line x1="156" y1="258" x2="156" y2="322" class="ln"/><circle cx="370" cy="290" r="32" class="ln f-card"/><line x1="348" y1="268" x2="392" y2="312" class="ln"/><line x1="348" y1="312" x2="392" y2="268" class="ln"/><rect x="120" y="333" width="120" height="54" rx="27" class="pill"/><text x="180" y="369" class="lbl-s" text-anchor="middle">blocks</text></svg></div><div class="card pink"><h3>Reversed</h3><p>Very high resistance → current almost zero.</p></div></div>
+    </div>
+    <div class="remember"><b>Picture it</b>Like aeroplane steps – you can only climb them from one side.</div>
+  </div>
+<div class="spec-tag"><b>Spec 2.9</b> describe how current varies with voltage in wires, resistors, metal filament lamps and diodes, and how to…</div>
+</section>
+
+<section>
+  <span class="kicker">Using diodes</span>
+  <h2>Rectifiers and <em>LEDs</em></h2>
+  <div class="body">
+    <div class="fig" style="flex:none;height:360px"><svg viewBox="0 0 900 360" aria-label="A diode turns alternating current into one-way direct current"><path d="M40 150 C80 40, 120 40, 160 150 C200 260, 240 260, 280 150" class="ln s-sky" style="stroke-width:7"/><line x1="40" y1="150" x2="280" y2="150" class="thin"/><line x1="320" y1="150" x2="560" y2="150" class="ln"/><path d="M416 120 L416 180 L464 150 Z" class="ln" style="fill:var(--ink)"/><line x1="464" y1="118" x2="464" y2="182" class="ln"/><line x1="600" y1="150" x2="860" y2="150" class="thin"/><path d="M620 150 C660 40, 700 40, 740 150 L860 150" class="ln s-mint" style="stroke-width:7"/><rect x="95" y="288" width="130" height="54" rx="27" class="pill"/><text x="160" y="324" class="lbl-s" text-anchor="middle">a.c. in</text><rect x="380" y="288" width="120" height="54" rx="27" class="pill"/><text x="440" y="324" class="lbl-s" text-anchor="middle">diode</text><rect x="640" y="288" width="200" height="54" rx="27" class="pill"/><text x="740" y="324" class="lbl-s" text-anchor="middle">one way only</text></svg></div>
+    <div class="cols-2">
+      <div class="card sky"><h3>Rectifier circuits</h3><p>Use diodes to convert <strong>a.c.</strong> into <strong>d.c.</strong></p></div>
+      <div class="card peach" style="flex-direction:row;align-items:center;gap:30px"><div style="flex:none;width:260px;height:150px"><svg viewBox="0 0 420 220" aria-label="Circuit symbol for an LED: a diode with two arrows pointing out"><line x1="60" y1="140" x2="360" y2="140" class="ln"/><path d="M186 110 L186 170 L234 140 Z" class="ln" style="fill:var(--ink)"/><line x1="234" y1="108" x2="234" y2="172" class="ln"/><line x1="214" y1="96" x2="240" y2="70" class="ln s-peach"/><path d="M222 68 L242 68 L242 88" class="ln s-peach"/><line x1="240" y1="104" x2="266" y2="78" class="ln s-peach"/><path d="M248 76 L268 76 L268 96" class="ln s-peach"/></svg></div><div class="stack" style="gap:10px"><h3>LEDs</h3><p>Diodes that <strong>glow</strong> when current flows.</p></div></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 2.9</b> describe how current varies with voltage in wires, resistors, metal filament lamps and diodes, and how to…</div>
+</section>
+
+<section>
+  <span class="kicker">Watch out</span>
+  <h2>Common <em>mistakes</em></h2>
+  <div class="body">
+    <table class="t">
+      <tr><th>Mistake</th><th>Correct idea</th></tr>
+      <tr><td>Writing only the triangle</td><td>Write the equation: V = I × R</td></tr>
+      <tr><td>Using one resistor's R in series</td><td>Find R total = R₁ + R₂ first</td></tr>
+      <tr><td>“Steep line = high resistance”</td><td>Steeper line = <strong>lower</strong> resistance</td></tr>
+      <tr><td>“Lamp gives a straight line”</td><td>S-shaped curve – R rises as it heats up</td></tr>
+      <tr><td>“Hotter thermistor → higher R”</td><td>Hotter → <strong>lower</strong> R</td></tr>
+      <tr><td>“LDR has low R in the dark”</td><td>Dark → <strong>high</strong> R; brighter → lower R</td></tr>
+      <tr><td>Voltmeter in series</td><td>Voltmeter in parallel; ammeter in series</td></tr>
+    </table>
+  </div>
+  <div class="spec-tag"><b>Spec 2.11</b> describe the qualitative variation of resistance of light-dependent resistors (LDRs) with illumination and…</div>
+</section>
+
+<section>
+  <span class="kicker">Summary</span>
+  <h2>Key <em>equations</em></h2>
+  <div class="body">
+    <div class="cols-2" style="grid-auto-rows:1fr">
+      <div class="eq"><div class="words">voltage = current × resistance</div><div class="sym">V = I × R</div><div class="units"><span>12 ÷ 0.1 → R = 120 Ω</span></div></div>
+      <div class="eq"><div class="words">resistance = voltage ÷ current</div><div class="sym">R = V ÷ I</div><div class="units"><span>20 V, 5 A → R = 4 Ω</span></div></div>
+      <div class="eq"><div class="words">current = voltage ÷ resistance</div><div class="sym">I = V ÷ R</div><div class="units"><span>12 V, 6 Ω → I = 2 A</span></div></div>
+      <div class="eq"><div class="words">total resistance in series</div><div class="sym">R<sub style="font-size:.5em">total</sub> = R₁ + R₂</div><div class="units"><span>2 Ω + 4 Ω = 6 Ω</span></div></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 2.19</b> calculate the currents, voltages and resistances of two resistive components connected in a series circuit</div>
+</section>
+
+<section>
+  <span class="kicker">Quick check</span>
+  <h2>Test yourself <em>(1)</em></h2>
+  <div class="body">
+    <div class="qc hide">
+      <div class="qq">1. A lamp has 6 V across it and a current of 0.5 A. What is its resistance?<span class="a">R = V ÷ I = 6 ÷ 0.5 = 12 Ω</span></div>
+      <div class="qq">2. A 3 Ω and a 9 Ω resistor are in series with a 6 V supply. Find the current.<span class="a">R total = 12 Ω, so I = 6 ÷ 12 = 0.5 A</span></div>
+      <div class="qq">3. In question 2, what is the voltage across the 9 Ω resistor?<span class="a">V = 0.5 × 9 = 4.5 V (and 1.5 V across the 3 Ω)</span></div>
+    </div>
+    <p class="hint">Click once to show the answers.</p>
+  </div>
+</section>
+
+<section>
+  <span class="kicker">Quick check</span>
+  <h2>Test yourself <em>(2)</em></h2>
+  <div class="body">
+    <div class="qc hide">
+      <div class="qq">1. Why does the I–V graph for a filament lamp curve?<span class="a">The filament gets hotter as the current rises, so its resistance increases.</span></div>
+      <div class="qq">2. What happens to the resistance of an LDR when a light is switched off?<span class="a">It increases – an LDR has a high resistance in the dark.</span></div>
+      <div class="qq">3. What happens to the current through a diode when the supply is reversed?<span class="a">It is almost zero – the diode has a very high resistance in reverse.</span></div>
+    </div>
+    <p class="hint">Click once to show the answers.</p>
+  </div>
+</section>
+
+<section>
+  <span class="kicker">Recap</span>
+  <h2>Chapter 8 in a <em>nutshell</em></h2>
+  <div class="body">
+    <div class="checks">
+      <div>V = I × R; resistance is in ohms (Ω)</div><div>Series: R total = R₁ + R₂</div>
+      <div>Series: same current; voltages add up to the supply</div><div>More voltage → more current; more R → less current</div>
+      <div>Practical: ammeter in series, voltmeter in parallel</div><div>I–V: steeper line = lower resistance</div>
+      <div>Wire/resistor: straight line through the origin</div><div>Filament lamp: S-curve – R rises as it gets hot</div>
+      <div>Diode: current one way only, after about 0.6 V</div><div>Thermistor: hotter → lower R. LDR: brighter → lower R</div>
+    </div>
+  </div>
+</section>
+
+</div></div>
+<script src="../../assets/deck.js"></script>
+</body>
+</html>

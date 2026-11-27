@@ -1,0 +1,911 @@
+<!doctype html>
+<html lang="en" data-subj="physics">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Physics Ch 3: Forces and Movement</title>
+<link rel="stylesheet" href="../../assets/deck.css">
+</head>
+<body>
+<div id="vp"><div id="stage">
+
+<!-- 1 COVER -->
+<section class="cover">
+  <span class="kicker"><b>1</b> Unit 1 · Forces and motion</span>
+  <h1>Forces and Movement</h1>
+  <p class="lead">How force and mass decide acceleration, what weight really is, how cars stop, and why falling things reach a top speed.</p>
+  <div class="chips"><span>F = m × a</span><span>Investigating F, m and a</span><span>Braking and friction</span><span>Stopping distance</span><span>W = m × g</span><span>Air resistance</span><span>Terminal velocity</span></div>
+  <div class="bignum">3</div>
+  <aside>Chapter 3, Forces and Movement, book pages 28 to 39. Big idea: an object only speeds up, slows down or changes direction when there is an unbalanced force on it.</aside>
+</section>
+
+<!-- 2 DIVIDER -->
+<section class="divider">
+  <div class="num">1</div>
+  <h2>Force, mass and <em>acceleration</em></h2>
+  <p class="lead">An unbalanced force makes an object accelerate. How much depends on the force and the mass.</p>
+</section>
+
+<!-- 3 JET -->
+<section>
+  <span class="kicker">Why it matters</span>
+  <h2>The aircraft carrier <em>jet</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 500" aria-label="Jet on a carrier deck: large thrust forwards, small friction and air resistance backwards">
+          <rect x="30" y="330" width="840" height="40" rx="20" class="f-c"/>
+          <path d="M330 238 L300 170 L350 170 L392 238" class="ln f-sky"/>
+          <path d="M300 268 Q300 236 340 236 L620 236 Q700 240 730 268 Q700 296 620 300 L340 300 Q300 300 300 268 Z" class="ln f-sky"/>
+          <path d="M590 240 Q625 214 660 244" class="ln"/>
+          <line x1="370" y1="300" x2="370" y2="312" class="ln"/><line x1="600" y1="300" x2="600" y2="312" class="ln"/>
+          <circle cx="370" cy="316" r="13" class="ln f-card"/><circle cx="600" cy="316" r="13" class="ln f-card"/>
+          <line x1="748" y1="268" x2="852" y2="268" class="ln-c" style="stroke-width:14"/>
+          <path d="M826 242 L860 268 L826 294" class="ln-c" style="stroke-width:14"/>
+          <line x1="284" y1="268" x2="226" y2="268" class="ln s-red" style="stroke-width:9"/>
+          <path d="M246 252 L222 268 L246 284" class="ln s-red" style="stroke-width:9"/>
+          <rect x="720" y="168" width="150" height="56" rx="28" class="pill"/><text x="795" y="205" class="lbl-s" text-anchor="middle">thrust</text>
+          <rect x="20" y="140" width="250" height="92" rx="30" class="pill"/>
+          <text x="145" y="179" class="lbl-s" text-anchor="middle">friction +</text><text x="145" y="211" class="lbl-s" text-anchor="middle">air resistance</text>
+          <rect x="120" y="412" width="660" height="60" rx="30" class="pill"/>
+          <text x="450" y="451" class="lbl-c" text-anchor="middle" style="font-size:26px">thrust ≫ resistive forces → big acceleration</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card sky"><h3>Take-off</h3><p>Short runway, so thrust ≫ friction + air resistance: a <strong>big unbalanced force</strong>.</p></div>
+        <div class="card peach"><h3>Landing</h3><p>Parachutes and drag wires give a big force backwards → a big <strong>deceleration</strong>.</p></div>
+      </div>
+    </div>
+    <div class="remember"><b>Remember</b>An unbalanced force is also called the <strong>resultant force</strong>. No resultant force → no acceleration (velocity stays the same).</div>
+  </div>
+<div class="spec-tag"><b>Spec 1.17</b> know and use the relationship between unbalanced force, mass and acceleration: force = mass ×…</div>
+</section>
+
+<!-- 4 ONLY UNBALANCED FORCE -->
+<section>
+  <span class="kicker">Force, mass &amp; acceleration</span>
+  <h2>Only an <em>unbalanced force</em> accelerates</h2>
+  <div class="body">
+    <p class="small">A car at constant speed still needs its engine force – but only to balance friction and air resistance. The resultant force is <strong>zero</strong>, so there is no acceleration.</p>
+    <div class="cols-2">
+      <div class="fig">
+        <svg viewBox="0 0 780 430" aria-label="Same force on a big mass gives small acceleration, on a small mass gives large acceleration">
+          <line x1="40" y1="110" x2="166" y2="110" class="ln-c" style="stroke-width:12"/><path d="M146 88 L176 110 L146 132" class="ln-c" style="stroke-width:12"/>
+          <text x="100" y="72" class="lbl-c" text-anchor="middle">F</text>
+          <rect x="186" y="40" width="220" height="140" rx="22" class="ln f-lilac"/><text x="296" y="128" class="lbl" text-anchor="middle" style="font-size:52px">M</text>
+          <line x1="430" y1="110" x2="494" y2="110" class="ln s-mint" style="stroke-width:9"/><path d="M478 96 L500 110 L478 124" class="ln s-mint" style="stroke-width:9"/>
+          <rect x="524" y="82" width="170" height="56" rx="28" class="pill"/><text x="609" y="119" class="lbl-s" text-anchor="middle">small a</text>
+          <line x1="40" y1="320" x2="166" y2="320" class="ln-c" style="stroke-width:12"/><path d="M146 298 L176 320 L146 342" class="ln-c" style="stroke-width:12"/>
+          <text x="100" y="282" class="lbl-c" text-anchor="middle">F</text>
+          <rect x="186" y="270" width="110" height="100" rx="18" class="ln f-lilac"/><text x="241" y="336" class="lbl" text-anchor="middle" style="font-size:44px">m</text>
+          <line x1="320" y1="320" x2="540" y2="320" class="ln s-mint" style="stroke-width:9"/><path d="M524 306 L546 320 L524 334" class="ln s-mint" style="stroke-width:9"/>
+          <rect x="570" y="292" width="180" height="56" rx="28" class="pill"/><text x="660" y="329" class="lbl" text-anchor="middle" style="font-size:26px">LARGE a</text>
+          <text x="390" y="414" class="lbl-c" text-anchor="middle">Same force: smaller mass → greater a</text>
+        </svg>
+      </div>
+      <div class="fig">
+        <svg viewBox="0 0 780 430" aria-label="Same mass: small force gives small acceleration, big force gives large acceleration">
+          <line x1="110" y1="110" x2="168" y2="110" class="ln-c" style="stroke-width:6"/><path d="M156 100 L174 110 L156 120" class="ln-c" style="stroke-width:6"/>
+          <text x="140" y="80" class="lbl-c" text-anchor="middle">small F</text>
+          <rect x="186" y="40" width="220" height="140" rx="22" class="ln f-lilac"/><text x="296" y="128" class="lbl" text-anchor="middle" style="font-size:52px">M</text>
+          <line x1="430" y1="110" x2="494" y2="110" class="ln s-mint" style="stroke-width:9"/><path d="M478 96 L500 110 L478 124" class="ln s-mint" style="stroke-width:9"/>
+          <rect x="524" y="82" width="170" height="56" rx="28" class="pill"/><text x="609" y="119" class="lbl-s" text-anchor="middle">small a</text>
+          <line x1="20" y1="320" x2="160" y2="320" class="ln-c" style="stroke-width:18"/><path d="M132 288 L176 320 L132 352" class="ln-c" style="stroke-width:18"/>
+          <text x="80" y="276" class="lbl-c" text-anchor="middle">big F</text>
+          <rect x="186" y="250" width="220" height="140" rx="22" class="ln f-lilac"/><text x="296" y="338" class="lbl" text-anchor="middle" style="font-size:52px">M</text>
+          <line x1="430" y1="320" x2="580" y2="320" class="ln s-mint" style="stroke-width:9"/><path d="M564 306 L586 320 L564 334" class="ln s-mint" style="stroke-width:9"/>
+          <rect x="596" y="292" width="180" height="56" rx="28" class="pill"/><text x="686" y="329" class="lbl" text-anchor="middle" style="font-size:26px">LARGE a</text>
+          <text x="390" y="424" class="lbl-c" text-anchor="middle">Same mass: bigger force → greater a</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.17</b> know and use the relationship between unbalanced force, mass and acceleration: force = mass ×…</div>
+</section>
+
+<!-- 5 PRACTICAL -->
+<section>
+  <span class="kicker">Practical</span>
+  <h2>Investigating <em>F, m and a</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 1000 560" aria-label="Trolley on a slightly tilted ramp, two light gates, string over a pulley to a hanger with masses">
+          <line x1="20" y1="420" x2="760" y2="420" class="ln"/>
+          <rect x="30" y="276" width="70" height="144" rx="8" class="ln f-yellow"/>
+          <rect x="700" y="364" width="50" height="56" rx="8" class="ln f-yellow"/>
+          <g transform="rotate(6.52 60 250)">
+            <rect x="40" y="250" width="740" height="30" rx="8" class="ln f-c"/>
+            <rect x="180" y="174" width="170" height="54" rx="12" class="ln f-sky"/>
+            <rect x="200" y="140" width="50" height="34" rx="6" class="ln f-lilac"/><rect x="262" y="140" width="50" height="34" rx="6" class="ln f-lilac"/>
+            <circle cx="212" cy="238" r="12" class="ln f-card"/><circle cx="318" cy="238" r="12" class="ln f-card"/>
+            <line x1="350" y1="214" x2="778" y2="214" class="thin"/>
+            <rect x="410" y="96" width="40" height="44" rx="8" class="ln f-yellow"/><line x1="430" y1="146" x2="430" y2="244" class="dash"/>
+            <rect x="620" y="96" width="40" height="44" rx="8" class="ln f-yellow"/><line x1="640" y1="146" x2="640" y2="244" class="dash"/>
+            <circle cx="778" cy="236" r="22" class="ln f-card"/>
+          </g>
+          <line x1="797" y1="320" x2="797" y2="432" class="thin"/>
+          <path d="M776 432 L818 432 L818 440 L776 440" class="ln"/>
+          <rect x="772" y="440" width="50" height="20" rx="4" class="ln f-lilac"/><rect x="772" y="464" width="50" height="20" rx="4" class="ln f-lilac"/>
+          <rect x="300" y="18" width="170" height="54" rx="27" class="pill"/><text x="385" y="54" class="lbl-s" text-anchor="middle">light gate</text>
+          <line x1="410" y1="72" x2="430" y2="118" class="thin"/>
+          <rect x="560" y="18" width="170" height="54" rx="27" class="pill"/><text x="645" y="54" class="lbl-s" text-anchor="middle">light gate</text>
+          <line x1="645" y1="72" x2="645" y2="138" class="thin"/>
+          <rect x="40" y="70" width="230" height="54" rx="27" class="pill"/><text x="155" y="106" class="lbl-s" text-anchor="middle">trolley + masses</text>
+          <line x1="200" y1="124" x2="240" y2="166" class="thin"/>
+          <rect x="840" y="270" width="130" height="54" rx="27" class="pill"/><text x="905" y="306" class="lbl-s" text-anchor="middle">pulley</text>
+          <rect x="840" y="440" width="150" height="54" rx="27" class="pill"/><text x="915" y="476" class="lbl-s" text-anchor="middle">hanger</text>
+          <rect x="120" y="470" width="310" height="54" rx="27" class="pill"/><text x="275" y="506" class="lbl-s" text-anchor="middle">ramp tilted slightly</text>
+          <line x1="140" y1="470" x2="110" y2="422" class="thin"/>
+        </svg>
+      </div>
+      <ol class="nums small">
+        <li>Tilt the ramp slightly so a gently pushed trolley keeps moving – this <strong>compensates for friction</strong>.</li>
+        <li>Masses hanging over a pulley give the <strong>accelerating force</strong>.</li>
+        <li>For more force, move a mass from the trolley to the hanger – the <strong>total mass stays the same</strong>.</li>
+        <li>Find a with <strong>two light gates + data logger</strong> (a = (v − u) ÷ t), or a video camera.</li>
+      </ol>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.17</b> know and use the relationship between unbalanced force, mass and acceleration: force = mass ×…</div>
+</section>
+
+<!-- 6 RESULTS -->
+<section>
+  <span class="kicker">Practical results</span>
+  <h2>What the <em>graphs</em> show</h2>
+  <div class="body">
+    <div class="cols-3">
+      <div class="stack">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 520 420" aria-label="Force against acceleration: straight line through the origin">
+            <line x1="90" y1="340" x2="490" y2="340" class="ln"/><line x1="90" y1="340" x2="90" y2="30" class="ln"/>
+            <line x1="90" y1="340" x2="450" y2="70" class="ln-c"/>
+            <text x="290" y="395" class="lbl-s" text-anchor="middle">acceleration a / m/s²</text>
+            <text x="40" y="185" class="lbl-s" text-anchor="middle" transform="rotate(-90 40 185)">force F / N</text>
+          </svg>
+        </div>
+        <div class="card mint"><p><strong>F ∝ a</strong> (mass constant). Double the force → double a.</p></div>
+      </div>
+      <div class="stack">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 520 420" aria-label="Acceleration against mass: a falling curve">
+            <line x1="90" y1="340" x2="490" y2="340" class="ln"/><line x1="90" y1="340" x2="90" y2="30" class="ln"/>
+            <path d="M120 50 C170 240 280 290 470 308" class="ln s-red" style="stroke-width:7"/>
+            <text x="290" y="395" class="lbl-s" text-anchor="middle">mass m / kg</text>
+            <text x="40" y="185" class="lbl-s" text-anchor="middle" transform="rotate(-90 40 185)">a / m/s²</text>
+          </svg>
+        </div>
+        <div class="card yellow"><p>a against m is a <strong>curve</strong> – hard to see the pattern.</p></div>
+      </div>
+      <div class="stack">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 520 420" aria-label="Acceleration against one over mass: straight line through the origin">
+            <line x1="90" y1="340" x2="490" y2="340" class="ln"/><line x1="90" y1="340" x2="90" y2="30" class="ln"/>
+            <line x1="90" y1="340" x2="450" y2="80" class="ln s-mint" style="stroke-width:7"/>
+            <text x="290" y="395" class="lbl-s" text-anchor="middle">1/m / 1/kg</text>
+            <text x="40" y="185" class="lbl-s" text-anchor="middle" transform="rotate(-90 40 185)">a / m/s²</text>
+          </svg>
+        </div>
+        <div class="card mint"><p><strong>a ∝ 1/m</strong> (force constant). Double the mass → half a.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.17</b> know and use the relationship between unbalanced force, mass and acceleration: force = mass ×…</div>
+</section>
+
+<!-- 7 EQUATION -->
+<section>
+  <span class="kicker">Equation 1</span>
+  <h2>Combining the results: <em>F = m × a</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="stack">
+        <div class="eq"><div class="words">force = mass × acceleration</div><div class="sym">F = m × a</div>
+          <div class="units"><span>F in N</span><span>m in kg</span><span>a in m/s²</span></div></div>
+        <div class="def"><span class="term">Key term · the newton</span><p>One newton is the force needed to make a mass of 1 kg accelerate at 1 m/s².</p></div>
+      </div>
+      <div class="stack">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 420 330" aria-label="Formula triangle with F on top and m times a below">
+            <path d="M210 20 L390 300 L30 300 Z" class="ln f-c"/>
+            <line x1="114" y1="170" x2="306" y2="170" class="ln"/><line x1="210" y1="170" x2="210" y2="300" class="ln"/>
+            <text x="210" y="140" class="lbl-c" text-anchor="middle" style="font-size:52px">F</text>
+            <text x="150" y="262" class="lbl-c" text-anchor="middle" style="font-size:48px">m</text>
+            <text x="270" y="262" class="lbl-c" text-anchor="middle" style="font-size:48px">a</text>
+          </svg>
+          <div class="cap">a = F ÷ m  ·  m = F ÷ a</div>
+        </div>
+        <div class="tip"><b>Exam tip</b>Write the actual equation, not just the triangle. Convert g → kg first: 500 g = 0.5 kg.</div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.17</b> know and use the relationship between unbalanced force, mass and acceleration: force = mass ×…</div>
+</section>
+
+<!-- 8 DIVIDER -->
+<section class="divider">
+  <div class="num">2</div>
+  <h2>Braking and <em>stopping distance</em></h2>
+  <div class="lead">Deceleration, friction, skidding, ABS – and why a fast car needs so much room to stop.</div>
+</section>
+
+<!-- 9 DECELERATION -->
+<section>
+  <span class="kicker">Deceleration</span>
+  <h2>A big stop needs a <em>big force</em></h2>
+  <div class="body">
+    <div class="def"><span class="term">Key term · deceleration</span><p>A negative acceleration is a deceleration.</p></div>
+    <div class="cols-3">
+      <div class="card sky"><h3>Speed up fast</h3><p>F = m × a says a car needs a <strong>low mass</strong> and a <strong>large engine force</strong>.</p></div>
+      <div class="card mint"><h3>Normal braking</h3><p>The deceleration is kept <strong>moderate</strong>.</p></div>
+      <div class="card pink"><h3>Collision</h3><p>The car stops almost at once, so the deceleration – and the force – is <strong>enormous</strong>.</p></div>
+    </div>
+    <div class="remember"><b>Remember</b>A large deceleration needs a large force.</div>
+  </div>
+<div class="spec-tag"><b>Spec 1.17</b> know and use the relationship between unbalanced force, mass and acceleration: force = mass ×…</div>
+</section>
+
+<!-- 10 WORKED EXAMPLE CRASH -->
+<section>
+  <span class="kicker">Worked example</span>
+  <h2>The <em>car crash</em></h2>
+  <div class="body">
+    <div class="cols-2">
+      <div class="worked">
+        <div class="q">a) A car at 20 m/s hits a stationary lorry and stops in 0.02 s. Deceleration?</div>
+        <div class="step"><i>Write down</i>u = 20 m/s, v = 0, t = 0.02 s</div>
+        <div class="step"><i>Equation</i>a = (v − u) ÷ t</div>
+        <div class="step"><i>Substitute</i>a = (0 − 20) ÷ 0.02</div>
+        <div class="ans">a = −1000 m/s²</div>
+      </div>
+      <div class="worked">
+        <div class="q">b) A 50 kg passenger hits the dashboard with the same deceleration. Force?</div>
+        <div class="step"><i>Write down</i>m = 50 kg, a = 1000 m/s²</div>
+        <div class="step"><i>Equation</i>F = m × a</div>
+        <div class="step"><i>Substitute</i>F = 50 × 1000</div>
+        <div class="ans">F = 50 000 N</div>
+      </div>
+    </div>
+    <div class="tip"><b>The minus sign</b>−1000 m/s² means the velocity decreased. A force this big is why car safety features matter (Chapter 4).</div>
+  </div>
+<div class="spec-tag"><b>Spec 1.21</b> describe the forces acting on falling objects (and explain why falling objects reach a terminal velocity)</div>
+</section>
+
+<!-- 11 BRAKES -->
+<section>
+  <span class="kicker">Friction &amp; braking</span>
+  <h2>How <em>brakes</em> work</h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 560" aria-label="Disc brake: a pad in a caliper squeezes the turning disc">
+          <circle cx="280" cy="280" r="210" class="ln f-c"/>
+          <circle cx="280" cy="280" r="62" class="ln f-card"/>
+          <g class="f-cc"><circle cx="280" cy="250" r="9"/><circle cx="306" cy="292" r="9"/><circle cx="254" cy="292" r="9"/></g>
+          <path d="M117 117 A230 230 0 0 1 280 50" class="ln-c"/><path d="M258 36 L284 50 L258 64" class="ln-c"/>
+          <rect x="440" y="196" width="96" height="168" rx="22" class="ln f-yellow"/>
+          <rect x="470" y="226" width="36" height="108" rx="8" class="ln f-peach"/>
+          <rect x="590" y="150" width="290" height="92" rx="30" class="pill"/>
+          <text x="735" y="189" class="lbl-s" text-anchor="middle">brake pad squeezes</text><text x="735" y="221" class="lbl-s" text-anchor="middle">the disc</text>
+          <line x1="590" y1="214" x2="510" y2="240" class="thin"/>
+          <rect x="590" y="290" width="290" height="56" rx="28" class="pill"/><text x="735" y="327" class="lbl-s" text-anchor="middle">friction slows wheel</text>
+          <rect x="590" y="390" width="290" height="56" rx="28" class="pill"/><text x="735" y="427" class="lbl-s" text-anchor="middle">kinetic energy → heat</text>
+          <rect x="110" y="500" width="340" height="54" rx="27" class="pill"/><text x="280" y="536" class="lbl-s" text-anchor="middle">disc turns with wheel</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card tint"><h3>Brakes</h3><p>Brakes on cars and bikes work by <strong>increasing friction</strong> between the turning wheels and the vehicle body, e.g. disc brakes.</p></div>
+        <div class="card sky"><h3>Tyre tread</h3><p>The grooves throw water away, keeping the rubber <strong>in contact with the road</strong>.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.19</b> know that the stopping distance of a vehicle is made up of the sum of the thinking distance and the…</div>
+</section>
+
+<!-- 12 GRIP -->
+<section>
+  <span class="kicker">Friction &amp; braking</span>
+  <h2>Grip between <em>tyres and road</em></h2>
+  <div class="body">
+    <div class="fig" style="flex:1">
+      <svg viewBox="0 0 1600 330" aria-label="Good tread pushes water into grooves; worn tyre rides on a layer of water">
+        <rect x="40" y="250" width="680" height="50" rx="14" class="f-c"/>
+        <rect x="140" y="110" width="480" height="140" rx="30" class="ln f-lilac"/>
+        <g class="f-sky"><rect x="190" y="206" width="36" height="44" rx="6"/><rect x="290" y="206" width="36" height="44" rx="6"/><rect x="390" y="206" width="36" height="44" rx="6"/><rect x="490" y="206" width="36" height="44" rx="6"/></g>
+        <rect x="880" y="250" width="680" height="50" rx="14" class="f-c"/>
+        <rect x="880" y="226" width="680" height="24" rx="10" class="f-sky"/>
+        <rect x="980" y="86" width="480" height="140" rx="30" class="ln f-lilac"/>
+        <rect x="200" y="20" width="360" height="56" rx="28" class="pill"/><text x="380" y="57" class="lbl" text-anchor="middle" style="font-size:26px">good tread</text>
+        <rect x="1040" y="10" width="360" height="56" rx="28" class="pill"/><text x="1220" y="47" class="lbl" text-anchor="middle" style="font-size:26px">worn tyre</text>
+        <text x="380" y="326" class="lbl-s" text-anchor="middle">water goes into the grooves → rubber touches road</text>
+        <text x="1220" y="326" class="lbl-s" text-anchor="middle">layer of water under the tyre → less grip</text>
+      </svg>
+    </div>
+    <div class="cols-2" style="flex:none">
+      <div class="card mint"><h3>Maximum grip when…</h3><ul class="dots small"><li>tyres have a good tread</li><li>tyres are properly inflated</li><li>the road is dry</li></ul></div>
+      <div class="card pink"><h3>Less friction when…</h3><ul class="dots small"><li>the road is wet, icy or oily</li><li>tyres are worn or under-inflated</li><li>brakes are in poor condition</li></ul></div>
+    </div>
+    <p class="small">Friction also depends on the <strong>weight</strong> of the vehicle.</p>
+  </div>
+<div class="spec-tag"><b>Spec 1.20</b> describe the factors affecting vehicle stopping distance, including speed, mass, road condition and…</div>
+</section>
+
+<!-- 13 SKID / ABS -->
+<section>
+  <span class="kicker">Skidding &amp; ABS</span>
+  <h2>Brake too hard → <em>skid</em></h2>
+  <div class="body">
+    <div class="cols-2">
+      <div class="stack">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 760 300" aria-label="Car sliding with locked wheels leaving skid marks">
+            <rect x="20" y="236" width="720" height="34" rx="14" class="f-c"/>
+            <line x1="40" y1="240" x2="380" y2="240" class="ln" style="stroke:#555;stroke-width:9"/>
+            <path d="M440 200 L440 160 Q440 140 460 140 L500 140 L530 96 L630 96 L664 140 L700 144 Q720 148 720 170 L720 200 Z" class="ln f-sky"/>
+            <circle cx="490" cy="214" r="24" class="ln f-card"/><circle cx="670" cy="214" r="24" class="ln f-card"/>
+            <path d="M478 202 L502 226 M502 202 L478 226 M658 202 L682 226 M682 202 L658 226" class="ln s-red" style="stroke-width:5"/>
+            <rect x="90" y="150" width="230" height="54" rx="27" class="pill"/><text x="205" y="186" class="lbl-s" text-anchor="middle">skid marks</text>
+            <rect x="380" y="20" width="230" height="54" rx="27" class="pill"/><text x="495" y="56" class="lbl-s" text-anchor="middle">wheels locked</text>
+          </svg>
+        </div>
+        <div class="card pink"><p>Brakes applied <strong>too hard</strong> → wheels lock → tyres lose grip. The car skids: the driver loses control and it takes <strong>longer to stop</strong>.</p></div>
+      </div>
+      <div class="stack">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 760 300" aria-label="ABS: braking force switches on and off in very short pulses">
+            <line x1="80" y1="250" x2="720" y2="250" class="ln"/><line x1="80" y1="250" x2="80" y2="30" class="ln"/>
+            <path d="M80 250 L110 250 L110 70 L190 70 L190 160 L215 160 L215 70 L295 70 L295 160 L320 160 L320 70 L400 70 L400 160 L425 160 L425 70 L505 70 L505 160 L530 160 L530 70 L610 70 L610 160 L635 160 L635 70 L700 70" class="ln-c"/>
+            <text x="400" y="292" class="lbl-s" text-anchor="middle">time →</text>
+            <text x="40" y="150" class="lbl-s" text-anchor="middle" transform="rotate(-90 40 150)">braking force</text>
+            <rect x="440" y="186" width="250" height="50" rx="25" class="pill"/><text x="565" y="219" class="lbl-s" text-anchor="middle">quick releases</text>
+          </svg>
+        </div>
+        <div class="card mint"><p><strong>ABS</strong> (anti-lock braking system): a computer senses a wheel is about to lock and releases the brakes for a very short time. The driver can brake as hard as possible <strong>without skidding</strong>.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 14 STOPPING DISTANCE -->
+<section>
+  <span class="kicker">Stopping distance</span>
+  <h2>Thinking <em>+</em> braking</h2>
+  <div class="body">
+    <div class="fig" style="flex:1">
+      <svg viewBox="0 0 1640 400" aria-label="Stopping distance is thinking distance plus braking distance">
+        <rect x="20" y="200" width="1600" height="30" rx="15" class="f-c"/>
+        <path d="M40 186 L40 160 Q40 146 56 146 L86 146 L110 112 L176 112 L200 146 L222 148 Q236 150 236 166 L236 186 Z" class="ln f-sky"/>
+        <circle cx="80" cy="190" r="16" class="ln f-card"/><circle cx="196" cy="190" r="16" class="ln f-card"/>
+        <path d="M1560 120 L1606 194 L1514 194 Z" class="ln f-yellow"/><text x="1560" y="184" class="lbl" text-anchor="middle">!</text>
+        <line x1="240" y1="90" x2="240" y2="330" class="dash"/><line x1="760" y1="90" x2="760" y2="330" class="dash"/><line x1="1460" y1="90" x2="1460" y2="330" class="dash"/>
+        <rect x="244" y="252" width="512" height="56" rx="28" class="f-sky"/><text x="500" y="289" class="lbl" text-anchor="middle">thinking distance</text>
+        <rect x="764" y="252" width="692" height="56" rx="28" class="f-peach"/><text x="1110" y="289" class="lbl" text-anchor="middle">braking distance</text>
+        <rect x="100" y="20" width="280" height="56" rx="28" class="pill"/><text x="240" y="57" class="lbl-s" text-anchor="middle">driver sees hazard</text>
+        <rect x="620" y="20" width="280" height="56" rx="28" class="pill"/><text x="760" y="57" class="lbl-s" text-anchor="middle">brakes come on</text>
+        <rect x="1340" y="20" width="240" height="56" rx="28" class="pill"/><text x="1460" y="57" class="lbl-s" text-anchor="middle">car stops</text>
+        <line x1="262" y1="356" x2="1438" y2="356" class="ln-c"/><path d="M266 340 L246 356 L266 372" class="ln-c"/><path d="M1434 340 L1454 356 L1434 372" class="ln-c"/>
+        <rect x="690" y="330" width="320" height="54" rx="27" class="pill"/><text x="850" y="367" class="lbl-c" text-anchor="middle" style="font-size:26px">stopping distance</text>
+      </svg>
+    </div>
+    <div class="eq" style="flex:none;padding:22px 40px"><div class="sym" style="font-size:52px">stopping distance = thinking distance + braking distance</div></div>
+  </div>
+<div class="spec-tag"><b>Spec 1.19</b> know that the stopping distance of a vehicle is made up of the sum of the thinking distance and the…</div>
+</section>
+
+<!-- 15 DEFINITIONS -->
+<section>
+  <span class="kicker">Stopping distance</span>
+  <h2>The three <em>distances</em></h2>
+  <div class="body">
+    <div class="def"><span class="term">Stopping distance</span><p>The distance covered from the moment the driver sees the need to stop until the vehicle stops.</p></div>
+    <div class="cols-2" style="flex:none">
+      <div class="def" style="border-left-color:var(--sky)"><span class="term">Thinking distance</span><p>Distance travelled during the driver's reaction time (before the brakes come on).</p></div>
+      <div class="def" style="border-left-color:var(--peach)"><span class="term">Braking distance</span><p>Distance travelled while the brakes are applied.</p></div>
+    </div>
+    <div class="remember"><b>Remember</b>During the reaction time the car is still going at full speed.</div>
+  </div>
+<div class="spec-tag"><b>Spec 1.20</b> describe the factors affecting vehicle stopping distance, including speed, mass, road condition and…</div>
+</section>
+
+<!-- 16 CHART -->
+<section>
+  <span class="kicker">Stopping distance</span>
+  <h2>Faster = <em>much further</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 1060 600" aria-label="Typical stopping distances from 20 to 70 mph">
+          <rect x="150" y="10" width="34" height="34" rx="8" class="f-sky"/><text x="196" y="38" class="lbl-s">thinking</text>
+          <rect x="340" y="10" width="34" height="34" rx="8" class="f-peach"/><text x="386" y="38" class="lbl-s">braking</text>
+          <g class="lbl" text-anchor="end"><text x="130" y="112">20 mph</text><text x="130" y="197">30 mph</text><text x="130" y="282">40 mph</text><text x="130" y="367">50 mph</text><text x="130" y="452">60 mph</text><text x="130" y="537">70 mph</text></g>
+          <g class="f-sky"><rect x="150" y="74" width="48" height="56" rx="10"/><rect x="150" y="159" width="72" height="56" rx="10"/><rect x="150" y="244" width="96" height="56" rx="10"/><rect x="150" y="329" width="120" height="56" rx="10"/><rect x="150" y="414" width="144" height="56" rx="10"/><rect x="150" y="499" width="168" height="56" rx="10"/></g>
+          <g class="f-peach"><rect x="198" y="74" width="48" height="56" rx="10"/><rect x="222" y="159" width="112" height="56" rx="10"/><rect x="246" y="244" width="192" height="56" rx="10"/><rect x="270" y="329" width="304" height="56" rx="10"/><rect x="294" y="414" width="440" height="56" rx="10"/><rect x="318" y="499" width="600" height="56" rx="10"/></g>
+          <g class="lbl-s" text-anchor="middle"><text x="174" y="111">6</text><text x="222" y="111">6</text><text x="186" y="196">9</text><text x="278" y="196">14</text><text x="198" y="281">12</text><text x="342" y="281">24</text><text x="210" y="366">15</text><text x="422" y="366">38</text><text x="222" y="451">18</text><text x="514" y="451">55</text><text x="234" y="536">21</text><text x="618" y="536">75</text></g>
+          <g class="lbl-c"><text x="262" y="112">= 12 m</text><text x="350" y="197">= 23 m</text><text x="454" y="282">= 36 m</text><text x="590" y="367">= 53 m</text><text x="750" y="452">= 73 m</text><text x="934" y="537">= 96 m</text></g>
+        </svg>
+        <div class="cap">Typical stopping distances in metres (UK Highway Code, ideal conditions)</div>
+      </div>
+      <div class="stack">
+        <div class="card sky"><p><strong>Thinking</strong> distance rises in proportion to speed: 6, 9, 12…</p></div>
+        <div class="card peach"><p><strong>Braking</strong> distance rises much faster: 6, 14, 24, 38…</p></div>
+        <div class="warn"><b>Danger</b>Leave less than the thinking distance to the car in front and a crash is inevitable if it stops suddenly.</div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.19</b> know that the stopping distance of a vehicle is made up of the sum of the thinking distance and the…</div>
+</section>
+
+<!-- 17 THINKING DISTANCE -->
+<section>
+  <span class="kicker">What changes stopping distance</span>
+  <h2>Longer <em>thinking</em> distance</h2>
+  <div class="body">
+    <div class="flow" style="flex:none"><div>See the danger</div><span>→</span><div>Brain decides</div><span>→</span><div>Foot on brake</div></div>
+    <div class="cols-2">
+      <div class="card tint"><h3>Thinking distance increases with…</h3>
+        <ul class="dots small"><li><strong>higher speed</strong></li><li><strong>longer reaction time</strong>, caused by tiredness, alcohol or other drugs, distractions (e.g. a phone), or poor visibility (fog)</li></ul></div>
+      <div class="stack">
+        <div class="eq"><div class="words">thinking distance =</div><div class="sym" style="font-size:52px">speed × reaction time</div></div>
+        <div class="tip"><b>Fog</b>Poor visibility makes it harder to spot the danger, so you react later.</div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.20</b> describe the factors affecting vehicle stopping distance, including speed, mass, road condition and…</div>
+</section>
+
+<!-- 18 BRAKING DISTANCE -->
+<section>
+  <span class="kicker">What changes stopping distance</span>
+  <h2>Longer <em>braking</em> distance</h2>
+  <div class="body">
+    <div class="cols-4" style="flex:none">
+      <div class="card sky"><h3>Speed</h3><p class="small">Higher speed → much longer braking distance.</p></div>
+      <div class="card lilac"><h3>Mass</h3><p class="small">a = F ÷ m: a lorry decelerates less for the same braking force.</p></div>
+      <div class="card peach"><h3>Road</h3><p class="small">Wet, icy or slippery roads give less friction.</p></div>
+      <div class="card pink"><h3>Vehicle</h3><p class="small">Worn tyres or poor brakes give less braking force.</p></div>
+    </div>
+    <div class="cols-2" style="flex:none">
+      <div class="remember"><b>Cannot stop instantly</b>Maximum deceleration depends on how hard you can brake without skidding.</div>
+      <div class="tip"><b>Real life</b>Chart distances are for ideal conditions – real distances are often longer.</div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.20</b> describe the factors affecting vehicle stopping distance, including speed, mass, road condition and…</div>
+</section>
+
+<!-- 19 BRAKING GRAPHS -->
+<section>
+  <span class="kicker">Braking graphs</span>
+  <h2>Braking on a <em>velocity–time</em> graph</h2>
+  <div class="body">
+    <p class="small">Area under the graph = <strong>braking distance</strong>. Gradient = <strong>deceleration</strong>.</p>
+    <div class="cols-2">
+      <div class="stack">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 700 400" aria-label="Two cars from the same speed: A brakes harder and stops sooner">
+            <path d="M90 90 L520 340 L90 340 Z" class="f-peach"/><path d="M90 90 L300 340 L90 340 Z" class="f-sky"/>
+            <line x1="90" y1="340" x2="660" y2="340" class="ln"/><line x1="90" y1="340" x2="90" y2="30" class="ln"/>
+            <line x1="90" y1="90" x2="300" y2="340" class="ln-c"/><line x1="90" y1="90" x2="520" y2="340" class="ln s-peach" style="stroke-width:7"/>
+            <text x="74" y="100" class="lbl" text-anchor="end">v₁</text>
+            <circle cx="232" cy="190" r="24" class="pill"/><text x="232" y="200" class="lbl" text-anchor="middle">A</text>
+            <circle cx="380" cy="215" r="24" class="pill"/><text x="380" y="225" class="lbl" text-anchor="middle">B</text>
+            <text x="375" y="386" class="lbl-s" text-anchor="middle">time / s</text>
+            <text x="34" y="185" class="lbl-s" text-anchor="middle" transform="rotate(-90 34 185)">velocity / m/s</text>
+          </svg>
+        </div>
+        <div class="card sky"><p class="small">Same start speed: A brakes harder (steeper), stops sooner, smaller area.</p></div>
+      </div>
+      <div class="stack">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 700 400" aria-label="Same deceleration, faster car C travels much further than D">
+            <path d="M90 90 L520 340 L90 340 Z" class="f-peach"/><path d="M90 215 L305 340 L90 340 Z" class="f-sky"/>
+            <line x1="90" y1="340" x2="660" y2="340" class="ln"/><line x1="90" y1="340" x2="90" y2="30" class="ln"/>
+            <line x1="90" y1="90" x2="520" y2="340" class="ln s-peach" style="stroke-width:7"/><line x1="90" y1="215" x2="305" y2="340" class="ln-c"/>
+            <text x="74" y="100" class="lbl" text-anchor="end">v₁</text><text x="74" y="225" class="lbl" text-anchor="end">v₂</text>
+            <circle cx="360" cy="160" r="24" class="pill"/><text x="360" y="170" class="lbl" text-anchor="middle">C</text>
+            <circle cx="240" cy="250" r="24" class="pill"/><text x="240" y="260" class="lbl" text-anchor="middle">D</text>
+            <text x="375" y="386" class="lbl-s" text-anchor="middle">time / s</text>
+            <text x="34" y="185" class="lbl-s" text-anchor="middle" transform="rotate(-90 34 185)">velocity / m/s</text>
+          </svg>
+        </div>
+        <div class="card peach"><p class="small">Same gradient = same deceleration. Faster car C takes longer and goes much further.</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.20</b> describe the factors affecting vehicle stopping distance, including speed, mass, road condition and…</div>
+</section>
+
+<!-- 20 DIVIDER -->
+<section class="divider">
+  <div class="num">3</div>
+  <h2>Mass and <em>weight</em></h2>
+  <p class="lead">Weight is a force. It depends on mass and on how strong gravity is.</p>
+</section>
+
+<!-- 21 WEIGHT -->
+<section>
+  <span class="kicker">Weight</span>
+  <h2>Weight is a <em>force</em></h2>
+  <div class="body">
+    <div class="cols-2">
+      <div class="stack">
+        <div class="def"><span class="term">Key term · weight</span><p>The force that acts on an object because of gravity.</p></div>
+        <div class="def"><span class="term">Key term · gravitational field strength (g)</span><p>The force that acts on each kilogram of mass.</p></div>
+      </div>
+      <div class="stack">
+        <div class="eq"><div class="words">weight = mass × gravitational field strength</div><div class="sym">W = m × g</div>
+          <div class="units"><span>W in N</span><span>m in kg</span><span>g in N/kg</span></div></div>
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 760 300" aria-label="g on Earth about 10 N/kg, Mars about a third of Earth's, Moon 1.6 N/kg">
+            <circle cx="130" cy="120" r="95" class="ln f-sky"/><text x="130" y="130" class="lbl" text-anchor="middle">Earth</text>
+            <circle cx="400" cy="140" r="65" class="ln f-peach"/><text x="400" y="150" class="lbl-s" text-anchor="middle">Mars</text>
+            <circle cx="630" cy="150" r="50" class="ln f-c"/><text x="630" y="159" class="lbl-s" text-anchor="middle">Moon</text>
+            <rect x="10" y="236" width="240" height="54" rx="27" class="pill"/><text x="130" y="272" class="lbl-s" text-anchor="middle">9.8 N/kg → use 10</text>
+            <rect x="290" y="236" width="220" height="54" rx="27" class="pill"/><text x="400" y="272" class="lbl-s" text-anchor="middle">≈ ⅓ of Earth's</text>
+            <rect x="550" y="236" width="160" height="54" rx="27" class="pill"/><text x="630" y="272" class="lbl-s" text-anchor="middle">1.6 N/kg</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.18</b> know and use the relationship between weight, mass and gravitational field strength: weight = mass ×…</div>
+</section>
+
+<!-- 22 MASS VS WEIGHT -->
+<section>
+  <span class="kicker">Mass vs weight</span>
+  <h2>Mass is <em>not</em> weight</h2>
+  <div class="body">
+    <div class="wide-left">
+      <table class="t" style="align-self:start">
+        <tr><th></th><th>Mass</th><th>Weight</th></tr>
+        <tr><td>What it is</td><td>amount of matter</td><td>force of gravity on it</td></tr>
+        <tr><td>Unit</td><td>kg</td><td>N</td></tr>
+        <tr><td>On the Moon</td><td>the same</td><td>less (g smaller)</td></tr>
+        <tr><td>Type</td><td>scalar</td><td>vector (acts down)</td></tr>
+      </table>
+      <div class="stack">
+        <div class="warn"><b>Common mistake</b>Never give weight in kg – weight is a force, in newtons.</div>
+        <div class="tip"><b>Rearrange</b>m = W ÷ g and g = W ÷ m. Convert grams first: 100 g = 0.1 kg → W = 0.1 × 10 = 1 N.</div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.18</b> know and use the relationship between weight, mass and gravitational field strength: weight = mass ×…</div>
+</section>
+
+<!-- 23 ASTRONAUT -->
+<section>
+  <span class="kicker">Worked example</span>
+  <h2>The astronaut on <em>Earth and Mars</em></h2>
+  <div class="body">
+    <p class="small">Mass of the astronaut with suit and life support = <strong>140 kg</strong>.</p>
+    <div class="cols-2">
+      <div class="worked">
+        <div class="q">a) Weight on Earth?</div>
+        <div class="step"><i>Write down</i>m = 140 kg, g = 10 N/kg</div>
+        <div class="step"><i>Equation</i>W = m × g</div>
+        <div class="step"><i>Substitute</i>W = 140 × 10</div>
+        <div class="ans">W = 1400 N</div>
+      </div>
+      <div class="worked">
+        <div class="q">b) Weight on Mars?</div>
+        <div class="step"><i>Write down</i>m = 140 kg, g ≈ 10 ÷ 3 = 3.34 N/kg</div>
+        <div class="step"><i>Equation</i>W = m × g</div>
+        <div class="step"><i>Substitute</i>W = 140 × 3.34</div>
+        <div class="ans">W = 468 N</div>
+      </div>
+    </div>
+    <div class="remember"><b>Same mass, less weight</b>The mass is 140 kg on both planets. Only the weight changes.</div>
+  </div>
+<div class="spec-tag"><b>Spec 1.18</b> know and use the relationship between weight, mass and gravitational field strength: weight = mass ×…</div>
+</section>
+
+<!-- 24 DIVIDER -->
+<section class="divider">
+  <div class="num">4</div>
+  <h2>Falling and <em>terminal velocity</em></h2>
+  <p class="lead">Air resistance grows with speed – until it balances the weight.</p>
+</section>
+
+<!-- 25 DRAG -->
+<section>
+  <span class="kicker">Air resistance</span>
+  <h2>Air resistance, or <em>drag</em></h2>
+  <div class="body">
+    <div class="wide-right">
+      <div class="stack">
+        <div class="def"><span class="term">Key term · drag</span><p>The force that opposes motion through air is called air resistance or drag.</p></div>
+        <ul class="dots small"><li>Its size depends on the object's <strong>shape</strong> and its <strong>speed</strong>.</li><li>Drag <strong>increases as speed increases</strong>.</li><li>Cars have a low <strong>drag coefficient</strong>; fast trains are <strong>streamlined</strong>.</li></ul>
+      </div>
+      <div class="fig">
+        <svg viewBox="0 0 860 560" aria-label="Air swirls behind a boxy shape but flows smoothly around a streamlined shape">
+          <g class="thin s-sky" style="stroke-width:5"><line x1="40" y1="90" x2="340" y2="90"/><line x1="40" y1="140" x2="340" y2="140"/><line x1="40" y1="190" x2="340" y2="190"/></g>
+          <rect x="360" y="60" width="240" height="160" rx="16" class="ln f-peach"/>
+          <path d="M620 80 q40 -30 60 10 q15 35 -25 40" class="ln s-red" style="stroke-width:5"/>
+          <path d="M640 170 q45 -25 60 15 q10 35 -30 35" class="ln s-red" style="stroke-width:5"/>
+          <path d="M720 110 q35 -10 40 25" class="ln s-red" style="stroke-width:5"/>
+          <rect x="360" y="232" width="380" height="50" rx="25" class="pill"/><text x="550" y="265" class="lbl-s" text-anchor="middle">boxy → lots of drag</text>
+          <g class="thin s-sky" style="stroke-width:5">
+            <path d="M40 340 C260 340 320 318 460 316 C600 316 700 338 820 340"/>
+            <path d="M40 400 L820 400"/>
+            <path d="M40 460 C260 460 320 482 460 484 C600 484 700 462 820 460"/>
+          </g>
+          <path d="M330 400 Q380 336 520 336 Q650 340 720 400 Q650 460 520 464 Q380 464 330 400 Z" class="ln f-mint"/>
+          <rect x="260" y="500" width="440" height="50" rx="25" class="pill"/><text x="480" y="533" class="lbl-s" text-anchor="middle">streamlined → smooth flow</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.21</b> describe the forces acting on falling objects (and explain why falling objects reach a terminal velocity)</div>
+</section>
+
+<!-- 26 THREE STAGES -->
+<section>
+  <span class="kicker">Falling objects</span>
+  <h2>The three stages of <em>falling</em></h2>
+  <div class="body">
+    <div class="fig" style="flex:1">
+      <svg viewBox="0 0 1600 420" aria-label="Free-body diagrams: A weight only; B weight bigger than drag; C drag equals weight">
+        <g class="ln" style="stroke:var(--line);stroke-width:4"><line x1="533" y1="20" x2="533" y2="400"/><line x1="1066" y1="20" x2="1066" y2="400"/></g>
+        <circle cx="266" cy="210" r="56" class="ln f-sky"/>
+        <line x1="266" y1="270" x2="266" y2="386" class="ln s-red" style="stroke-width:9"/><path d="M248 364 L266 392 L284 364" class="ln s-red" style="stroke-width:9"/>
+        <text x="296" y="360" class="lbl">weight</text>
+        <rect x="40" y="30" width="170" height="54" rx="27" class="pill"/><text x="125" y="66" class="lbl-s" text-anchor="middle">v = 0</text>
+        <circle cx="800" cy="210" r="56" class="ln f-sky"/>
+        <line x1="800" y1="270" x2="800" y2="386" class="ln s-red" style="stroke-width:9"/><path d="M782 364 L800 392 L818 364" class="ln s-red" style="stroke-width:9"/>
+        <text x="830" y="360" class="lbl">weight</text>
+        <line x1="800" y1="150" x2="800" y2="96" class="ln-c" style="stroke-width:9"/><path d="M782 118 L800 90 L818 118" class="ln-c" style="stroke-width:9"/>
+        <text x="830" y="124" class="lbl-c">drag</text>
+        <circle cx="1333" cy="210" r="56" class="ln f-sky"/>
+        <line x1="1333" y1="270" x2="1333" y2="386" class="ln s-red" style="stroke-width:9"/><path d="M1315 364 L1333 392 L1351 364" class="ln s-red" style="stroke-width:9"/>
+        <text x="1363" y="360" class="lbl">weight</text>
+        <line x1="1333" y1="150" x2="1333" y2="34" class="ln-c" style="stroke-width:9"/><path d="M1315 56 L1333 28 L1351 56" class="ln-c" style="stroke-width:9"/>
+        <text x="1363" y="70" class="lbl-c">drag</text>
+      </svg>
+    </div>
+    <div class="cols-3" style="flex:none">
+      <div class="card sky"><h3>A · Just released</h3><p class="small">No drag yet. Only weight acts → accelerates at g.</p></div>
+      <div class="card yellow"><h3>B · Speeding up</h3><p class="small">Drag grows. Resultant = weight − drag, so a decreases.</p></div>
+      <div class="card mint"><h3>C · Terminal</h3><p class="small">Drag = weight. Balanced → constant velocity.</p></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.21</b> describe the forces acting on falling objects (and explain why falling objects reach a terminal velocity)</div>
+</section>
+
+<!-- 27 FIVE STEPS -->
+<section>
+  <span class="kicker">Terminal velocity</span>
+  <h2>Explain terminal velocity in <em>5 steps</em></h2>
+  <div class="body">
+    <div class="card" style="flex:1;justify-content:center">
+      <ol class="nums">
+        <li>At first only weight acts, so the object accelerates downwards.</li>
+        <li>As its speed increases, air resistance (drag) increases.</li>
+        <li>The resultant force (weight − drag) gets smaller, so the acceleration decreases.</li>
+        <li>Eventually drag = weight: the forces are balanced, resultant = 0, acceleration = 0.</li>
+        <li>The object keeps falling at a constant, maximum speed – its <strong>terminal velocity</strong>.</li>
+      </ol>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.21</b> describe the forces acting on falling objects (and explain why falling objects reach a terminal velocity)</div>
+</section>
+
+<!-- 28 V-T GRAPH -->
+<section>
+  <span class="kicker">Terminal velocity</span>
+  <h2>Terminal velocity on a <em>graph</em></h2>
+  <div class="body">
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 580" aria-label="Velocity-time graph: curve levels off at terminal velocity; without air resistance a straight line">
+          <line x1="110" y1="500" x2="860" y2="500" class="ln"/><line x1="110" y1="500" x2="110" y2="40" class="ln"/>
+          <line x1="110" y1="500" x2="420" y2="60" class="dash"/>
+          <line x1="110" y1="200" x2="840" y2="200" class="thin" style="stroke-dasharray:4 12"/>
+          <path d="M110 500 C230 300 360 210 560 202 L840 200" class="ln-c"/>
+          <rect x="430" y="56" width="300" height="54" rx="27" class="pill"/><text x="580" y="92" class="lbl-s" text-anchor="middle">no air resistance</text>
+          <rect x="560" y="228" width="280" height="54" rx="27" class="pill"/><text x="700" y="264" class="lbl-s" text-anchor="middle">terminal velocity</text>
+          <text x="485" y="550" class="lbl" text-anchor="middle">time / s</text>
+          <text x="50" y="270" class="lbl" text-anchor="middle" transform="rotate(-90 50 270)">velocity / m/s</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card sky"><h3>Steep start</h3><p class="small">Acceleration ≈ g.</p></div>
+        <div class="card yellow"><h3>Less steep</h3><p class="small">Drag builds up.</p></div>
+        <div class="card mint"><h3>Flat</h3><p class="small">Terminal velocity: gradient = 0.</p></div>
+        <div class="remember small"><b>No air?</b>A straight line – it keeps accelerating at g.</div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.21</b> describe the forces acting on falling objects (and explain why falling objects reach a terminal velocity)</div>
+</section>
+
+<!-- 29 SKYDIVER GRAPH -->
+<section>
+  <span class="kicker">Parachutes</span>
+  <h2>The skydiver's <em>journey</em></h2>
+  <div class="body">
+    <div class="fig" style="flex:1">
+      <svg viewBox="0 0 1000 560" aria-label="Skydiver velocity-time graph with stages A to F">
+        <line x1="90" y1="480" x2="960" y2="480" class="ln"/><line x1="90" y1="480" x2="90" y2="30" class="ln"/>
+        <line x1="560" y1="110" x2="560" y2="480" class="dash"/>
+        <path d="M90 480 C180 260 260 160 380 152 L560 150 C580 330 640 385 720 388 L940 390" class="ln-c"/>
+        <g class="lbl" text-anchor="middle">
+          <circle cx="210" cy="390" r="26" class="pill"/><text x="210" y="400">A</text>
+          <circle cx="310" cy="252" r="26" class="pill"/><text x="310" y="262">B</text>
+          <circle cx="460" cy="108" r="26" class="pill"/><text x="460" y="118">C</text>
+          <circle cx="646" cy="242" r="26" class="pill"/><text x="646" y="252">D</text>
+          <circle cx="740" cy="326" r="26" class="pill"/><text x="740" y="336">E</text>
+          <circle cx="870" cy="336" r="26" class="pill"/><text x="870" y="346">F</text>
+        </g>
+        <rect x="570" y="40" width="250" height="54" rx="27" class="pill"/><text x="695" y="76" class="lbl-s" text-anchor="middle">parachute opens</text>
+        <rect x="660" y="414" width="300" height="50" rx="25" class="pill"/><text x="810" y="447" class="lbl-s" text-anchor="middle">new, lower terminal v</text>
+        <text x="525" y="530" class="lbl" text-anchor="middle">time / s</text>
+        <text x="40" y="255" class="lbl" text-anchor="middle" transform="rotate(-90 40 255)">velocity / m/s</text>
+      </svg>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.21</b> describe the forces acting on falling objects (and explain why falling objects reach a terminal velocity)</div>
+</section>
+
+<!-- 30 SKYDIVER TABLE -->
+<section>
+  <span class="kicker">Parachutes</span>
+  <h2>Forces at each <em>stage</em></h2>
+  <div class="body">
+    <table class="t">
+      <tr><th>Stage</th><th>Forces</th><th>Motion</th></tr>
+      <tr><td>A</td><td>weight ≫ drag</td><td>accelerates fast</td></tr>
+      <tr><td>B</td><td>drag growing, still &lt; weight</td><td>acceleration falls</td></tr>
+      <tr><td>C</td><td>drag = weight</td><td>terminal velocity (≈150–200 km/h)</td></tr>
+      <tr><td>D</td><td>parachute opens: drag &gt; weight, resultant upwards</td><td>decelerates</td></tr>
+      <tr><td>E</td><td>drag falls as speed falls</td><td>deceleration decreases</td></tr>
+      <tr><td>F</td><td>drag = weight again</td><td>new, slower terminal velocity – safe landing</td></tr>
+    </table>
+    <div class="warn"><b>Common mistake</b>When the parachute opens the skydiver does not go up. The resultant force is up, so they slow down while still falling.</div>
+  </div>
+<div class="spec-tag"><b>Spec 1.21</b> describe the forces acting on falling objects (and explain why falling objects reach a terminal velocity)</div>
+</section>
+
+<!-- 31 PRACTICAL -->
+<section>
+  <span class="kicker">Practical</span>
+  <h2>Modelling <em>terminal velocity</em></h2>
+  <div class="body">
+    <div class="wide-right">
+      <div class="fig">
+        <svg viewBox="0 0 560 640" aria-label="Tall measuring cylinder of liquid with equally spaced marks and a falling ball">
+          <rect x="166" y="90" width="188" height="484" class="f-sky"/>
+          <path d="M160 30 L160 574 L360 574 L360 30" class="ln"/>
+          <rect x="110" y="574" width="300" height="34" rx="10" class="ln f-c"/>
+          <g class="ln-c" style="stroke-width:6"><line x1="160" y1="230" x2="250" y2="230"/><line x1="160" y1="360" x2="250" y2="360"/><line x1="160" y1="490" x2="250" y2="490"/></g>
+          <circle cx="300" cy="150" r="13" class="f-cc"/><circle cx="300" cy="300" r="13" class="f-cc" style="opacity:.45"/>
+          <line x1="300" y1="176" x2="300" y2="260" class="thin"/><path d="M290 248 L300 264 L310 248" class="thin"/>
+          <g class="thin"><line x1="110" y1="230" x2="110" y2="490"/><path d="M100 242 L110 228 L120 242 M100 348 L110 360 L120 348 M100 372 L110 360 L120 372 M100 478 L110 492 L120 478"/></g>
+          <text x="70" y="360" class="lbl-s" text-anchor="middle" transform="rotate(-90 70 360)">equal gaps</text>
+          <rect x="380" y="203" width="120" height="54" rx="27" class="pill"/><text x="440" y="239" class="lbl-s" text-anchor="middle">mark</text>
+          <rect x="380" y="333" width="120" height="54" rx="27" class="pill"/><text x="440" y="369" class="lbl-s" text-anchor="middle">mark</text>
+          <rect x="380" y="463" width="120" height="54" rx="27" class="pill"/><text x="440" y="499" class="lbl-s" text-anchor="middle">mark</text>
+          <rect x="380" y="60" width="160" height="54" rx="27" class="pill"/><text x="460" y="96" class="lbl-s" text-anchor="middle">liquid</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <p class="small">In air, terminal velocity needs high speeds. Drag in a liquid is much bigger, so terminal velocity is low and easy to see.</p>
+        <ol class="nums small">
+          <li>Fill a tall measuring cylinder with water (or a thicker liquid such as oil).</li>
+          <li>Drop small balls (glass balls 1–2 mm across, or ball bearings).</li>
+          <li>Time the ball between equally spaced marks (or use a light gate and data logger).</li>
+          <li>When the time between marks becomes <strong>constant</strong>, the ball has reached terminal velocity.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.21</b> describe the forces acting on falling objects (and explain why falling objects reach a terminal velocity)</div>
+</section>
+
+<!-- 32 FREE-FALL -->
+<section>
+  <span class="kicker">Looking ahead</span>
+  <h2>Free-fall and <em>"weightlessness"</em></h2>
+  <div class="body">
+    <div class="wide-right">
+      <div class="fig">
+        <svg viewBox="0 0 560 560" aria-label="Person in a lift accelerating downwards; weight still acts">
+          <line x1="280" y1="10" x2="280" y2="70" class="thin"/>
+          <rect x="130" y="70" width="300" height="400" rx="20" class="ln f-c"/>
+          <circle cx="280" cy="190" r="34" class="ln f-yellow"/>
+          <path d="M280 224 L280 340 M280 260 L230 300 M280 260 L330 300 M280 340 L245 430 M280 340 L315 430" class="ln"/>
+          <line x1="370" y1="300" x2="370" y2="420" class="ln s-red" style="stroke-width:8"/><path d="M354 400 L370 426 L386 400" class="ln s-red" style="stroke-width:8"/>
+          <rect x="40" y="490" width="480" height="54" rx="27" class="pill"/><text x="280" y="526" class="lbl-s" text-anchor="middle">lift accelerating down → feel lighter</text>
+          <rect x="380" y="200" width="170" height="54" rx="27" class="pill"/><text x="465" y="236" class="lbl-s" text-anchor="middle">W = mg</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card sky"><p>Astronauts in the ISS or in training aircraft <strong>seem weightless</strong>, but gravity still pulls them (W = mg). They are in <strong>free-fall</strong>.</p></div>
+        <div class="card lilac"><p>Newton's laws are over 300 years old but accurate enough to land craft on the Moon, Mars and a comet. They only fail near the speed of light (3 × 10⁸ m/s).</p></div>
+      </div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.18</b> know and use the relationship between weight, mass and gravitational field strength: weight = mass ×…</div>
+</section>
+
+<!-- 33 COMMON MISTAKES -->
+<section>
+  <span class="kicker">Watch out</span>
+  <h2>Common <em>mistakes</em></h2>
+  <div class="body">
+    <div class="cols-3">
+      <div class="card pink"><h3>Weight in kg</h3><p class="small">Weight is a force → newtons (N). Mass is in kg.</p></div>
+      <div class="card pink"><h3>Parachute = going up</h3><p class="small">Resultant force is up, so they slow down – still falling.</p></div>
+      <div class="card pink"><h3>Grams not converted</h3><p class="small">500 g = 0.5 kg before using F = m × a or W = m × g.</p></div>
+      <div class="card yellow"><h3>Only the triangle</h3><p class="small">Write the actual equation, e.g. F = m × a.</p></div>
+      <div class="card yellow"><h3>Lost minus sign</h3><p class="small">a = −1000 m/s²: the minus means deceleration.</p></div>
+      <div class="card yellow"><h3>Braking ∝ speed</h3><p class="small">Only thinking distance is in proportion. Braking rises much faster.</p></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.19</b> know that the stopping distance of a vehicle is made up of the sum of the thinking distance and the…</div>
+</section>
+
+<!-- 34 KEY EQUATIONS -->
+<section>
+  <span class="kicker">Summary</span>
+  <h2>Key <em>equations</em></h2>
+  <div class="body">
+    <div class="cols-2">
+      <div class="eq"><div class="words">force (N) = mass (kg) × acceleration (m/s²)</div><div class="sym">F = m × a</div><div class="units"><span>a = F ÷ m</span><span>m = F ÷ a</span></div></div>
+      <div class="eq"><div class="words">weight (N) = mass (kg) × g (N/kg)</div><div class="sym">W = m × g</div><div class="units"><span>m = W ÷ g</span><span>g ≈ 10 N/kg</span></div></div>
+      <div class="eq"><div class="words">acceleration = change in velocity ÷ time</div><div class="sym">a = (v − u) ÷ t</div><div class="units"><span>negative a = deceleration</span></div></div>
+      <div class="eq"><div class="words">stopping = thinking + braking distance</div><div class="sym" style="font-size:44px">thinking = speed × reaction time</div><div class="units"><span>all distances in m</span></div></div>
+    </div>
+  </div>
+<div class="spec-tag"><b>Spec 1.20</b> describe the factors affecting vehicle stopping distance, including speed, mass, road condition and…</div>
+</section>
+
+<!-- 35 QUICK CHECK 1 -->
+<section>
+  <span class="kicker">Quick check</span>
+  <h2>Test yourself <em>(1)</em></h2>
+  <div class="body">
+    <div class="qc hide" style="gap:18px;flex:1">
+      <div class="qq" style="padding:14px 28px;flex:1;display:flex;flex-direction:column;justify-content:center">1. A 1200 kg car accelerates at 2 m/s². What is the resultant force?<span class="a">F = m × a = 1200 × 2 = 2400 N</span></div>
+      <div class="qq" style="padding:14px 28px;flex:1;display:flex;flex-direction:column;justify-content:center">2. A 0.5 kg trolley is pulled by a 2 N resultant force. What is its acceleration?<span class="a">a = F ÷ m = 2 ÷ 0.5 = 4 m/s²</span></div>
+      <div class="qq" style="padding:14px 28px;flex:1;display:flex;flex-direction:column;justify-content:center">3. In the trolley practical, why move masses from the trolley to the hanger?<span class="a">To increase the force while keeping the total mass the same.</span></div>
+      <div class="qq" style="padding:14px 28px;flex:1;display:flex;flex-direction:column;justify-content:center">4. What is the weight of a 60 kg student on Earth (g = 10 N/kg)?<span class="a">W = m × g = 60 × 10 = 600 N</span></div>
+    </div>
+    <p class="hint">Click once to show the answers.</p>
+  </div>
+</section>
+
+<!-- 36 QUICK CHECK 2 -->
+<section>
+  <span class="kicker">Quick check</span>
+  <h2>Test yourself <em>(2)</em></h2>
+  <div class="body">
+    <div class="qc hide" style="gap:18px;flex:1">
+      <div class="qq" style="padding:14px 28px;flex:1;display:flex;flex-direction:column;justify-content:center">1. Thinking distance 12 m, braking distance 24 m. Stopping distance?<span class="a">12 + 24 = 36 m</span></div>
+      <div class="qq" style="padding:14px 28px;flex:1;display:flex;flex-direction:column;justify-content:center">2. Give two things that make thinking distance longer.<span class="a">Any two: higher speed, tiredness, alcohol or drugs, distractions, poor visibility.</span></div>
+      <div class="qq" style="padding:14px 28px;flex:1;display:flex;flex-direction:column;justify-content:center">3. Why does a heavy lorry need a longer braking distance?<span class="a">Greater mass → smaller deceleration for the same braking force (a = F ÷ m).</span></div>
+      <div class="qq" style="padding:14px 28px;flex:1;display:flex;flex-direction:column;justify-content:center">4. Why does a falling object reach terminal velocity?<span class="a">Drag rises with speed until drag = weight; resultant = 0, so it stops accelerating.</span></div>
+    </div>
+    <p class="hint">Click once to show the answers.</p>
+  </div>
+</section>
+
+<!-- 37 RECAP -->
+<section>
+  <span class="kicker">Recap</span>
+  <h2>Chapter 3 in a <em>nutshell</em></h2>
+  <div class="body">
+    <div class="checks" style="flex:1;grid-auto-rows:1fr">
+      <div style="display:flex;align-items:center">Only a resultant force causes acceleration</div><div style="display:flex;align-items:center">F = m × a (N, kg, m/s²)</div>
+      <div style="display:flex;align-items:center">1 N gives 1 kg an acceleration of 1 m/s²</div><div style="display:flex;align-items:center">W = m × g, g ≈ 10 N/kg on Earth</div>
+      <div style="display:flex;align-items:center">Stopping = thinking + braking distance</div><div style="display:flex;align-items:center">Speed, mass, road and reaction time all matter</div>
+      <div style="display:flex;align-items:center">Locked wheels skid; ABS stops this</div><div style="display:flex;align-items:center">Drag rises with speed</div>
+      <div style="display:flex;align-items:center">Drag = weight → terminal velocity</div><div style="display:flex;align-items:center">Parachute open → drag &gt; weight → slows down</div>
+    </div>
+  </div>
+</section>
+
+</div></div>
+<script src="../../assets/deck.js"></script>
+</body>
+</html>

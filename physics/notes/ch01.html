@@ -1,0 +1,736 @@
+<!doctype html><html lang="en" data-subj="physics"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root {
+  --ink: #1E1B3A; --ink2: #4A4668; --muted: #7A7598; --line: #E6E2F5;
+  --bg: #F4F2FF; --card: #FFFFFF; --soft: #F1EFFB;
+  --pink: #FF8FB1; --pink-l: #FFE3EC; --yellow: #FFC94D; --yellow-l: #FFF3D1;
+  --mint: #3CCB9A; --mint-l: #DDF7EE; --sky: #4DA3FF; --sky-l: #DDEEFF;
+  --lilac: #8B7BFF; --lilac-l: #ECE8FF; --peach: #FF9F6B; --peach-l: #FFE8DA;
+  --red: #F0525A; --red-l: #FFE1E3; --green: #1FAF6B; --green-l: #DCF5E8;
+  --c: #6D5DD3; --c-d: #4B3DB8; --c-l: #ECE8FF; --c-ll: #F6F4FF;
+  --r-xl: 48px; --r-lg: 36px; --r-md: 26px; --r-sm: 18px;
+  --sh: 0 4px 10px rgba(40,30,110,.05), 0 18px 44px rgba(40,30,110,.09);
+  --font: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+html[data-subj="biology"]   { --c: #12A06E; --c-d: #0B7A53; --c-l: #D9F4E9; --c-ll: #F0FBF6; --bg: #F1FAF6; }
+html[data-subj="chemistry"] { --c: #0E8FB0; --c-d: #0A6C86; --c-l: #D7F0F7; --c-ll: #EFF9FC; --bg: #F0F8FB; }
+html[data-subj="physics"]   { --c: #3B5BDB; --c-d: #2A43AE; --c-l: #E0E6FF; --c-ll: #F2F4FF; --bg: #F2F4FF; }
+svg { font-family: var(--font); }
+svg .ln { fill: none; stroke: var(--ink); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+svg .ln-c { fill: none; stroke: var(--c); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+svg .thin { fill: none; stroke: var(--ink2); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+svg .dash { fill: none; stroke: var(--muted); stroke-width: 4; stroke-dasharray: 12 12; stroke-linecap: round; }
+svg .f-c { fill: var(--c-l); } svg .f-cc { fill: var(--c); } svg .f-card { fill: #fff; }
+svg .f-pink { fill: var(--pink-l); } svg .f-yellow { fill: var(--yellow-l); } svg .f-mint { fill: var(--mint-l); }
+svg .f-sky { fill: var(--sky-l); } svg .f-lilac { fill: var(--lilac-l); } svg .f-peach { fill: var(--peach-l); } svg .f-red { fill: var(--red-l); }
+svg .s-pink { stroke: var(--pink); } svg .s-yellow { stroke: var(--yellow); } svg .s-mint { stroke: var(--mint); } svg .s-sky { stroke: var(--sky); }
+svg .s-lilac { stroke: var(--lilac); } svg .s-peach { stroke: var(--peach); } svg .s-red { stroke: var(--red); }
+svg .lbl { font: 800 30px var(--font); fill: var(--ink); }
+svg .lbl-s { font: 700 24px var(--font); fill: var(--ink2); }
+svg .lbl-c { font: 900 30px var(--font); fill: var(--c-d); }
+svg .pill { fill: #fff; stroke: var(--line); stroke-width: 3; }
+@page{size:A4;margin:11mm 9mm 13mm 9mm}
+*{box-sizing:border-box}
+html{font-size:var(--fs,8.6px)}
+body{margin:0;font-family:var(--font);color:var(--ink);background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero{display:flex;align-items:center;gap:3.5mm;background:var(--c);color:#fff;border-radius:4mm;padding:3.2mm 5mm;margin-bottom:3mm}
+.hero .n{flex:none;width:11mm;height:11mm;border-radius:50%;background:#fff;color:var(--c-d);font:900 6.2mm/11mm var(--font);text-align:center}
+.hero h1{margin:0;font:900 6.4mm/1.1 var(--font)}.hero p{margin:.5mm 0 0;font:700 3mm var(--font);opacity:.9}
+.cols{column-count:2;column-gap:4mm}
+.blk{break-inside:avoid;margin:0 0 2mm}
+.sec{break-inside:avoid;break-after:avoid;display:flex;align-items:center;gap:2mm;background:var(--c-l);border-radius:2.5mm;padding:1.2mm 2.5mm;margin:2.5mm 0 1.6mm;font:900 3.7mm/1.15 var(--font);color:var(--c-d)}
+.sec b{flex:none;width:5.2mm;height:5.2mm;border-radius:50%;background:var(--c);color:#fff;font:900 3.2mm/5.2mm var(--font);text-align:center}
+.sub{break-after:avoid;margin:1.4mm 0 .8mm;font:900 3.1mm/1.2 var(--font);color:var(--ink);border-left:1mm solid var(--c);padding-left:1.6mm}
+.sub em{font-style:normal;color:var(--c-d)}
+p,li{margin:0;font:600 1.15rem/1.32 var(--font);color:var(--ink2)}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.mist{break-inside:avoid;border-radius:2mm;margin:0 0 1.5mm;padding:1.3mm 2.2mm}
+.def{background:var(--c-ll);border-left:1mm solid var(--c)}.def .term{display:block;font:900 2.3mm var(--font);text-transform:uppercase;letter-spacing:.2mm;color:var(--c-d)}
+.def p{color:var(--ink);font-weight:700}
+.card{background:var(--bg2,#eef)}.card h3{margin:0 0 .3mm;font:900 1.2rem/1.2 var(--font);color:var(--ink)}
+.card.mint{background:var(--mint-l)}.card.sky{background:var(--sky-l)}.card.pink{background:var(--pink-l)}.card.yellow{background:var(--yellow-l)}.card.peach{background:var(--peach-l)}
+.tip{background:var(--yellow-l);border-left:1mm solid var(--yellow)}.tip b{display:inline;font-weight:900;color:var(--ink);margin-right:1mm;text-transform:uppercase;font-size:2.2mm}
+.warn{background:var(--red-l);border-left:1mm solid var(--red)}
+table.t{width:100%;border-collapse:separate;border-spacing:0;margin:0 0 1.8mm;break-inside:avoid;border-radius:2mm;overflow:hidden;font-size:1.08rem}
+table.t th{background:var(--c);color:#fff;font:900 1.08rem var(--font);text-align:left;padding:.9mm 1.8mm}
+table.t td{font:600 1.08rem/1.28 var(--font);padding:.8mm 1.8mm;border-top:.25mm solid var(--line);vertical-align:top;color:var(--ink2)}
+table.t td:first-child{font-weight:900;color:var(--ink)}
+table.t tr:nth-child(even) td{background:var(--c-ll)}
+.worked{background:#fff;border:.3mm solid var(--c-l)}.worked .q{font:800 1.18rem/1.3 var(--font);color:var(--ink);background:var(--c-ll);border-radius:1.6mm;padding:1mm 1.8mm;margin-bottom:.8mm}
+.worked .step{display:flex;gap:1.6mm;font:700 1.1rem/1.3 var(--font);color:var(--ink2)}.worked .step i{font-style:normal;flex:none;min-width:11mm;font:900 2.2mm var(--font);text-transform:uppercase;color:var(--c)}
+.worked .ans{display:inline-block;margin-top:.8mm;font:900 1.2rem var(--font);color:#fff;background:var(--c);padding:.7mm 2.4mm;border-radius:5mm}
+.nums{margin:0 0 1.6mm;padding:0;list-style:none;counter-reset:n;break-inside:avoid}
+.nums>*{counter-increment:n;position:relative;padding-left:5mm;margin-bottom:.7mm;font:600 1.15rem/1.3 var(--font);color:var(--ink2)}
+.nums>*::before{content:counter(n);position:absolute;left:0;top:.1mm;width:3.6mm;height:3.6mm;border-radius:50%;background:var(--c);color:#fff;font:900 2.3mm/3.6mm var(--font);text-align:center}
+.cols-2,.cols-3,.stack,.wide-left,.body{display:block}
+.fig{break-inside:avoid;margin:0 0 1.6mm;background:#fff;border:.3mm solid var(--line);border-radius:2mm;padding:1mm;text-align:center}
+.fig svg{width:100%;height:auto;max-height:46mm;display:block}
+.fig svg text{font-family:var(--font)}
+.nutshell{background:var(--c);color:#fff}.nutshell h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:#fff}.nutshell li{color:#fff;font-weight:700;margin-left:3.6mm}
+.test{background:var(--lilac-l)}.test h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:var(--ink)}.test .qq{font:700 1.12rem/1.3 var(--font);color:var(--ink);margin-bottom:.6mm}.test .a{color:var(--c-d);font-weight:900;margin-left:1.2mm}
+.say{background:var(--mint-l)}.mist{background:var(--red-l)}.say,.mist{break-inside:avoid;border-radius:2mm;padding:1.3mm 2.2mm;margin:0 0 1.5mm}.say h3,.mist h3{margin:0 0 .4mm;font:900 1.2rem var(--font)}
+.chips,.bignum,.checks{display:none}
+
+@page{margin:0}
+html{font-size:15.5px;background:var(--bg)}
+body{max-width:900px;margin:0 auto;padding:18px 16px 60px;background:var(--bg)}
+.cols{column-count:1}
+.hero{padding:5mm 6mm;border-radius:6mm}.hero .n{width:15mm;height:15mm;font-size:9mm;line-height:15mm}.hero h1{font-size:9mm}.hero p{font-size:3.6mm}
+.sec{font-size:5.4mm;padding:2mm 4mm;border-radius:4mm;margin:6mm 0 3mm;position:sticky;top:0;z-index:2}.sec b{width:7.5mm;height:7.5mm;font-size:4.6mm;line-height:7.5mm}
+.sub{font-size:4.6mm;margin:3mm 0 1.6mm}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.say,.mist{padding:2.6mm 4mm;border-radius:3.4mm;margin-bottom:2.6mm}
+.def .term{font-size:3mm}.card h3{font-size:1.3rem}.tip b{font-size:3mm}
+.worked .step i{font-size:3mm;min-width:16mm}.nutshell h4,.test h4{font-size:5mm}
+.nums>*{padding-left:8mm}.nums>*::before{width:5.6mm;height:5.6mm;font-size:3.4mm;line-height:5.6mm}
+table.t{font-size:1.15rem}table.t th,table.t td{font-size:1.15rem;padding:1.6mm 3mm}
+.fig svg{max-height:60mm}
+.test .qq{font-size:1.2rem;margin-bottom:1.4mm}.say h3,.mist h3{font-size:1.3rem}
+p,li{font-size:1.2rem}
+
+.hero p{color:#fff}
+.eq{break-inside:avoid;background:#fff;border:.3mm solid var(--c-l);border-radius:3.4mm;padding:2.6mm 4mm;margin:0 0 2.6mm;text-align:center}
+.eq .words{font:800 1.2rem/1.3 var(--font);color:var(--ink2)}
+.eq .sym{display:inline-block;margin:1.4mm 0;font:900 2rem/1.15 var(--font);color:var(--c-d);background:var(--c-ll);padding:1.6mm 5mm;border-radius:3mm}
+.eq .units{font:700 1rem var(--font);color:var(--muted)}.eq .units span{background:var(--soft);border-radius:5mm;padding:.4mm 2.4mm;margin:0 1mm;display:inline-block}
+.remember{break-inside:avoid;background:var(--mint-l);border-left:1.2mm solid var(--mint);border-radius:3.4mm;padding:2.6mm 4mm;margin-bottom:2.6mm;font:700 1.2rem/1.35 var(--font);color:var(--ink)}
+.warn b,.tip b{margin-right:1.6mm}
+.remember b:first-child{display:block;font-size:3mm;text-transform:uppercase;letter-spacing:.3mm;margin-bottom:.8mm}
+.flow{display:flex;flex-wrap:wrap;gap:2mm;margin:0 0 2.6mm;break-inside:avoid}
+.flow>div{flex:1 1 40mm;background:#fff;border:.3mm solid var(--c-l);border-radius:3mm;padding:2mm 3mm;text-align:center;font:800 1.15rem/1.3 var(--font);color:var(--ink)}
+.flow>div small{display:block;font:600 1rem var(--font);color:var(--muted)}.flow>span{align-self:center;font:900 1.6rem var(--font);color:var(--c)}
+.cols-4{display:block}.wide-right{display:block}
+[style*="font-size:52px"],[style*="font:900 72px"]{font-size:2.2rem !important}
+.card [style]{line-height:1.1}.card .sym{font-size:1.6rem}
+.tag{display:inline-block;font:900 2.6mm var(--font);text-transform:uppercase;background:var(--c);color:#fff;padding:.5mm 2.2mm;border-radius:5mm;margin-bottom:1mm}
+</style><style>.snav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:6px;background:var(--bg);padding:8px 0 10px;margin:0 0 6px}
+.snav button{font:800 14px var(--font);border:2px solid var(--c-l);background:#fff;color:var(--ink);border-radius:20px;padding:6px 12px;cursor:pointer}
+.snav button.on{background:var(--c);border-color:var(--c);color:#fff}
+.part{display:none}.part.on{display:block}.part .sec{position:static!important}
+.pn{display:flex;justify-content:space-between;gap:10px;margin:18px 0 0}.pn button{font:900 15px var(--font);border:0;background:var(--c);color:#fff;border-radius:22px;padding:10px 20px;cursor:pointer}.pn button[disabled]{opacity:.25}</style><style id="stepfix">.worked{counter-reset:st;border:2px solid var(--c-l)!important;padding:12px 16px!important}
+.worked .q{font-size:1.25rem!important;border-left:5px solid var(--c);margin-bottom:10px!important}
+.worked .q::before{content:"Worked example  ";font:900 .8rem var(--font);text-transform:uppercase;letter-spacing:.5px;color:var(--c-d);display:block}
+.worked .step{counter-increment:st;display:grid!important;grid-template-columns:78px 1fr;gap:10px;align-items:baseline;padding:7px 0;border-top:1px dashed var(--c-l);font-size:1.2rem!important}
+.worked .step i{min-width:0!important;font-size:.85rem!important;color:var(--c-d)!important}
+.worked .step i::before{content:"Step " counter(st) "";display:block;font-weight:900;color:var(--c)}
+.worked .ans{display:block!important;margin-top:10px;padding:8px 14px!important;border-radius:10px!important;font-size:1.25rem!important}
+.worked .ans::before{content:"Answer:  "}</style></head><body>
+<div class="hero"><div class="n">1</div><div><h1>Movement and Position</h1><p>Physics · Unit 1 · Forces and motion · Last-minute notes · Book pages 3–17</p></div></div>
+<div class="snav"><button type="button">Summary</button><button type="button">1.1 Units and average speed</button><button type="button">1.2 Distance–time graphs</button><button type="button">1.3 Speed vs velocity</button><button type="button">1.4 Practical: investigating motion</button><button type="button">1.5 Acceleration</button><button type="button">1.6 Velocity–time graphs</button><button type="button">1.7 The suvat equations</button></div><div class="cols"><div class="part"><div class="nutshell"><h4>Chapter in a nutshell</h4><ul style="margin:0;padding:0"><li>Work in kg, m and s; speed in m/s, acceleration in m/s²</li><li>Average speed = distance moved ÷ time taken</li><li>Gradient of a distance–time graph = speed</li><li>× 3.6 turns m/s into km/h</li><li>Scalars: size only. Vectors: size and direction</li><li>Velocity = speed in a particular direction</li><li>Time repeats and average; light gates are more accurate</li><li>a = (v − u) ÷ t; negative a = deceleration</li><li>Gradient of a velocity–time graph = acceleration</li><li>Area under a velocity–time graph = distance</li><li>v = u + at and v² = u² + 2as (constant a only)</li><li>Show the equation, substitute, give the unit</li></ul></div><div class="pn"><button type="button" data-to="-1" disabled>◀ Back</button><button type="button" data-to="1">Next ▶</button></div></div><div class="part"><div class="sec"><b>1</b><span>Units and <em>average speed</em></span></div><div class="blk"><div class="sub">Always work in <em>kg, m and s</em></div>
+    <p>The three base units are the <strong>kilogram (kg)</strong>, the <strong>metre (m)</strong> and the <strong>second (s)</strong>. Convert before you calculate.</p>
+    <div class="cols-2">
+      <table class="t">
+        <tr><th>You are given…</th><th>Convert to</th></tr>
+        <tr><td>1 km</td><td>1000 m</td></tr>
+        <tr><td>1 cm / 1 mm</td><td>0.01 m / 0.001 m</td></tr>
+        <tr><td>1 g / 1 mg</td><td>0.001 kg / 0.000 001 kg</td></tr>
+        <tr><td>1 min / 1 h</td><td>60 s / 3600 s</td></tr>
+      </table>
+      <table class="t">
+        <tr><th>Quantity</th><th>Derived unit</th></tr>
+        <tr><td>speed, velocity</td><td>metre/second (m/s)</td></tr>
+        <tr><td>acceleration</td><td>metre/second² (m/s²)</td></tr>
+        <tr><td>force (Chapter 2)</td><td>newton (N)</td></tr>
+        <tr><td>gravitational field strength</td><td>newton/kilogram (N/kg)</td></tr>
+        <tr><td>momentum <span class="tag only">Physics only</span></td><td>kg m/s</td></tr>
+        <tr><td>torque <span class="tag only">Physics only</span></td><td>N m</td></tr>
+      </table>
+    </div>
+  </div><div class="blk"><div class="sub">Working out <em>average speed</em></div>
+    <div class="cols-2">
+      <div class="stack">
+        <div class="def"><span class="term">Key term · average speed</span><p>The total distance travelled, divided by the time taken for the journey.</p></div>
+        <div class="card mint"><h3>Example</h3><p>A car travels 100 km in 2 hours.<br>Average speed = 100 ÷ 2 = <strong>50 km/h</strong>.</p></div>
+      </div>
+      <div class="stack">
+        <div class="eq"><div class="words">average speed = distance moved ÷ time taken</div><div class="sym">v = s ÷ t</div>
+          <div class="units"><span>v in m/s</span><span>s in m</span><span>t in s</span></div></div>
+        <div class="tip"><b>Watch the letters</b>The book uses <strong>s</strong> for distance (not d) and <strong>v</strong> for speed.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Rearranging <em>v = s ÷ t</em></div>
+    <div class="wide-right">
+      <div class="fig">
+        <svg viewBox="0 0 640 540" aria-label="Speed triangle with s on top and v times t below">
+          <path d="M320 50 L590 480 L50 480 Z" class="ln f-c" style="fill:var(--c-l)"/>
+          <line x1="135" y1="320" x2="505" y2="320" class="ln"/>
+                    <text x="320" y="260" class="lbl-c" text-anchor="middle" style="font-size:80px">s</text>
+          <text x="220" y="430" class="lbl-c" text-anchor="middle" style="font-size:72px">v</text>
+          <text x="420" y="430" class="lbl-c" text-anchor="middle" style="font-size:72px">t</text>
+          <text x="320" y="425" class="lbl" text-anchor="middle" style="font-size:56px">×</text>
+          <rect x="170" y="492" width="300" height="44" rx="22" class="pill"/><text x="320" y="523" class="lbl-s" text-anchor="middle">cover the one you want</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="cols-3" style="flex:none">
+          <div class="card tint"><h4>Find speed</h4><p><strong>v = s ÷ t</strong></p></div>
+          <div class="card tint"><h4>Find distance</h4><p><strong>s = v × t</strong></p></div>
+          <div class="card tint"><h4>Find time</h4><p><strong>t = s ÷ v</strong></p></div>
+        </div>
+        <div class="warn"><b>Exam warning</b>If a question says “write the equation”, write the real equation, e.g. s = v × t. Drawing only the triangle may not get the mark.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub"><em>Instantaneous</em> speed</div>
+    <div class="wide-left">
+      <div class="stack">
+        <div class="def"><span class="term">Key term · instantaneous speed</span><p>The speed at one particular moment.</p></div>
+        <ul class="dots"><li>It is what a car’s <strong>speedometer</strong> shows.</li><li>It changes from instant to instant as the driver speeds up or brakes.</li></ul>
+        <div class="remember"><b>Remember</b>Average speed = the whole trip. Instantaneous speed = right now.</div>
+      </div>
+      <div class="fig">
+        <svg viewBox="0 0 640 470" aria-label="Speedometer dial reading 50 km/h">
+          <path d="M80 360 A240 240 0 0 1 560 360" class="ln" style="stroke-width:26;stroke:var(--c-l)"/>
+          <path d="M80 360 A240 240 0 0 1 560 360" class="ln"/>
+          <g class="ln" style="stroke-width:5">
+            <line x1="80" y1="360" x2="112" y2="360"/><line x1="125.9" y1="240" x2="153.6" y2="256"/><line x1="200" y1="152.2" x2="216" y2="179.9"/>
+            <line x1="320" y1="120" x2="320" y2="152"/><line x1="440" y1="152.2" x2="424" y2="179.9"/><line x1="514.1" y1="240" x2="486.4" y2="256"/><line x1="560" y1="360" x2="528" y2="360"/>
+          </g>
+          <text x="140" y="370" class="lbl-s" text-anchor="middle">0</text><text x="180" y="275" class="lbl-s" text-anchor="middle">20</text>
+          <text x="240" y="210" class="lbl-s" text-anchor="middle">40</text><text x="320" y="190" class="lbl-s" text-anchor="middle">60</text>
+          <text x="400" y="210" class="lbl-s" text-anchor="middle">80</text><text x="462" y="275" class="lbl-s" text-anchor="middle">100</text><text x="497" y="370" class="lbl-s" text-anchor="middle">120</text>
+          <line x1="320" y1="360" x2="240" y2="222" class="ln-c" style="stroke-width:10"/>
+          <circle cx="320" cy="360" r="22" class="f-cc"/>
+          <rect x="230" y="395" width="180" height="56" rx="28" class="pill"/><text x="320" y="432" class="lbl" text-anchor="middle">50 km/h</text>
+        </svg>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">The <em>× 3.6</em> switch</div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 860 420" aria-label="Multiply by 3.6 to go from m/s to km/h, divide by 3.6 to go back">
+          <rect x="40" y="150" width="240" height="120" rx="40" class="f-c"/><text x="160" y="226" class="lbl-c" text-anchor="middle" style="font-size:44px">m/s</text>
+          <rect x="580" y="150" width="240" height="120" rx="40" class="f-mint"/><text x="700" y="226" class="lbl" text-anchor="middle" style="font-size:44px">km/h</text>
+          <path d="M200 140 Q430 20 650 140" class="ln-c"/><path d="M622 112 L652 142 L612 150" class="ln-c"/>
+          <path d="M650 280 Q430 400 200 280" class="ln s-peach" style="stroke-width:7"/><path d="M228 308 L198 278 L238 270" class="ln s-peach" style="stroke-width:7"/>
+          <rect x="350" y="40" width="160" height="56" rx="28" class="pill"/><text x="430" y="78" class="lbl" text-anchor="middle">× 3.6</text>
+          <rect x="350" y="322" width="160" height="56" rx="28" class="pill"/><text x="430" y="360" class="lbl" text-anchor="middle">÷ 3.6</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <p>Speed is usually in <strong>metres per second (m/s)</strong>. You may also see km/h or cm/s. In exams, <strong>m means metres</strong>, not miles!</p>
+        <div class="card yellow"><h3>Why 3.6?</h3><p>× 3600 (seconds → hours), then ÷ 1000 (metres → km). 3600 ÷ 1000 = 3.6</p></div>
+        <div class="card mint"><p><strong>Example:</strong> 12.8 m/s × 3.6 = 46.1 km/h</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">A <em>speed trap</em></div>
+    <div class="fig">
+      <svg viewBox="0 0 1700 270" aria-label="Speed trap: start and stop markers 50 m apart beside a road">
+        <rect x="20" y="150" width="1660" height="100" rx="20" style="fill:#E6E2F5"/>
+        <line x1="40" y1="200" x2="1660" y2="200" class="dash" style="stroke:#fff;stroke-width:6"/>
+        <line x1="420" y1="40" x2="420" y2="250" class="ln"/><line x1="1280" y1="40" x2="1280" y2="250" class="ln"/>
+        <rect x="320" y="40" width="200" height="54" rx="27" class="f-mint"/><text x="420" y="77" class="lbl" text-anchor="middle">START</text>
+        <rect x="1180" y="40" width="200" height="54" rx="27" class="f-pink"/><text x="1280" y="77" class="lbl" text-anchor="middle">STOP</text>
+        <line x1="440" y1="125" x2="1260" y2="125" class="ln-c"/><path d="M462 107 L440 125 L462 143 M1238 107 L1260 125 L1238 143" class="ln-c"/>
+        <rect x="790" y="100" width="120" height="50" rx="25" class="pill"/><text x="850" y="134" class="lbl" text-anchor="middle">50 m</text>
+        <rect x="150" y="168" width="170" height="64" rx="22" class="f-cc"/><circle cx="185" cy="236" r="14" class="f-card"/><circle cx="285" cy="236" r="14" class="f-card"/>
+        <path d="M70 200 L130 200" class="ln-c"/><path d="M110 184 L132 200 L110 216" class="ln-c"/>
+      </svg>
+    </div>
+    <div class="cols-2">
+      <ol class="nums small">
+        <li>Measure 50 m along a straight road (tape or click wheel).</li>
+        <li>A partner signals: start the stopwatch as the car passes the start.</li>
+        <li>Stop it as the car passes the finish.</li>
+        <li><strong>Safety:</strong> never measure on the road or pavement. Stay inside the school boundary.</li>
+      </ol>
+      <div class="worked">
+        <div class="step"><i>Know</i>s = 50 m, t = 3.9 s</div>
+        <div class="step"><i>Equation</i>v = s ÷ t</div>
+        <div class="step"><i>Substitute</i>v = 50 m ÷ 3.9 s</div>
+        <div class="ans">v = 12.8 m/s (= 46.1 km/h)</div>
+      </div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="0">◀ Back</button><button type="button" data-to="2">Next ▶</button></div></div><div class="part"><div class="sec"><b>2</b><span>Distance–time <em>graphs</em></span></div><div class="blk"><div class="sub">Plotting a <em>distance–time</em> graph</div>
+    <div class="wide-right">
+      <div class="stack">
+        <p class="small">A car is photographed every 0.5 s. Distance goes on the <strong>y-axis</strong>, time on the <strong>x-axis</strong>.</p>
+        <table class="t">
+          <tr><th>Time / s</th><td>0</td><td>0.5</td><td>1.0</td><td>1.5</td><td>2.0</td><td>2.5</td></tr>
+          <tr><th>Distance / m</th><td>0</td><td>6</td><td>12</td><td>18</td><td>24</td><td>30</td></tr>
+        </table>
+        <div class="remember"><b>Key fact</b>Gradient of a distance–time graph = <strong>speed</strong>.<br>30 m ÷ 2.5 s = 12 m/s</div>
+      </div>
+      <div class="fig">
+        <svg viewBox="0 0 900 600" aria-label="Distance-time graph, straight line through origin to 30 m at 2.5 s">
+          <g class="dash" style="stroke:var(--line);stroke-dasharray:none;stroke-width:3">
+            <line x1="260" y1="70" x2="260" y2="520"/><line x1="400" y1="70" x2="400" y2="520"/><line x1="540" y1="70" x2="540" y2="520"/><line x1="680" y1="70" x2="680" y2="520"/><line x1="820" y1="70" x2="820" y2="520"/>
+            <line x1="120" y1="430" x2="840" y2="430"/><line x1="120" y1="340" x2="840" y2="340"/><line x1="120" y1="250" x2="840" y2="250"/><line x1="120" y1="160" x2="840" y2="160"/><line x1="120" y1="70" x2="840" y2="70"/>
+          </g>
+          <line x1="120" y1="520" x2="860" y2="520" class="ln"/><line x1="120" y1="520" x2="120" y2="40" class="ln"/>
+          <g class="lbl-s" text-anchor="middle"><text x="120" y="552">0</text><text x="260" y="552">0.5</text><text x="400" y="552">1.0</text><text x="540" y="552">1.5</text><text x="680" y="552">2.0</text><text x="820" y="552">2.5</text></g>
+          <g class="lbl-s" text-anchor="end"><text x="104" y="438">6</text><text x="104" y="348">12</text><text x="104" y="258">18</text><text x="104" y="168">24</text><text x="104" y="78">30</text></g>
+          <text x="490" y="592" class="lbl" text-anchor="middle">time / s</text>
+          <text x="40" y="295" class="lbl" text-anchor="middle" transform="rotate(-90 40 295)">distance / m</text>
+          <line x1="120" y1="520" x2="820" y2="70" class="ln-c"/>
+          <g class="f-cc"><circle cx="120" cy="520" r="11"/><circle cx="260" cy="430" r="11"/><circle cx="400" cy="340" r="11"/><circle cx="540" cy="250" r="11"/><circle cx="680" cy="160" r="11"/><circle cx="820" cy="70" r="11"/></g>
+          <rect x="560" y="400" width="250" height="56" rx="28" class="pill"/><text x="685" y="437" class="lbl-s" text-anchor="middle">straight line =</text>
+          <rect x="560" y="462" width="250" height="50" rx="25" class="pill"/><text x="685" y="495" class="lbl-s" text-anchor="middle">constant speed</text>
+        </svg>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Reading the <em>shape</em></div>
+    <div class="fig" style="flex:1">
+      <svg viewBox="0 0 1700 660" aria-label="Six distance-time graph shapes">
+        <g>
+          <rect x="0" y="0" width="550" height="320" rx="26" class="f-c" style="fill:var(--c-ll)"/>
+          <path d="M60 20 L60 200 L500 200" class="ln"/>
+          <line x1="60" y1="110" x2="480" y2="110" class="ln-c"/>
+          <text x="275" y="250" class="lbl" text-anchor="middle">Horizontal line</text><text x="275" y="292" class="lbl-s" text-anchor="middle">stationary (speed = 0)</text>
+        </g>
+        <g transform="translate(575 0)">
+          <rect x="0" y="0" width="550" height="320" rx="26" class="f-c" style="fill:var(--c-ll)"/>
+          <path d="M60 20 L60 200 L500 200" class="ln"/>
+          <line x1="60" y1="200" x2="460" y2="30" class="ln-c"/>
+          <text x="275" y="250" class="lbl" text-anchor="middle">Straight sloping line</text><text x="275" y="292" class="lbl-s" text-anchor="middle">constant speed</text>
+        </g>
+        <g transform="translate(1150 0)">
+          <rect x="0" y="0" width="550" height="320" rx="26" class="f-c" style="fill:var(--c-ll)"/>
+          <path d="M60 20 L60 200 L500 200" class="ln"/>
+          <line x1="60" y1="200" x2="300" y2="30" class="ln s-pink" style="stroke-width:7"/><line x1="60" y1="200" x2="470" y2="110" class="ln-c"/>
+          <text x="318" y="45" class="lbl">A</text><text x="482" y="112" class="lbl">B</text>
+          <text x="275" y="250" class="lbl" text-anchor="middle">Steeper = faster</text><text x="275" y="292" class="lbl-s" text-anchor="middle">A is faster than B</text>
+        </g>
+        <g transform="translate(0 340)">
+          <rect x="0" y="0" width="550" height="320" rx="26" class="f-c" style="fill:var(--c-ll)"/>
+          <path d="M60 20 L60 200 L500 200" class="ln"/>
+          <path d="M60 200 Q340 195 460 30" class="ln s-mint" style="stroke-width:7"/>
+          <text x="275" y="250" class="lbl" text-anchor="middle">Getting steeper</text><text x="275" y="292" class="lbl-s" text-anchor="middle">accelerating</text>
+        </g>
+        <g transform="translate(575 340)">
+          <rect x="0" y="0" width="550" height="320" rx="26" class="f-c" style="fill:var(--c-ll)"/>
+          <path d="M60 20 L60 200 L500 200" class="ln"/>
+          <path d="M60 200 Q180 40 470 40" class="ln s-peach" style="stroke-width:7"/>
+          <text x="275" y="250" class="lbl" text-anchor="middle">Getting flatter</text><text x="275" y="292" class="lbl-s" text-anchor="middle">decelerating</text>
+        </g>
+        <g transform="translate(1150 340)">
+          <rect x="0" y="0" width="550" height="320" rx="26" class="f-c" style="fill:var(--c-ll)"/>
+          <path d="M60 20 L60 200 L500 200" class="ln"/>
+          <line x1="60" y1="40" x2="460" y2="200" class="ln s-lilac" style="stroke-width:7"/>
+          <text x="275" y="250" class="lbl" text-anchor="middle">Sloping down</text><text x="275" y="292" class="lbl-s" text-anchor="middle">returning to the start</text>
+        </g>
+      </svg>
+    </div>
+  </div><div class="blk"><div class="sub">Curves and <em>negative</em> gradients</div>
+    <div class="cols-2">
+      <div class="stack">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 700 440" aria-label="Curved distance-time graph with a tangent">
+            <path d="M80 20 L80 400 L670 400" class="ln"/>
+            <text x="375" y="436" class="lbl-s" text-anchor="middle">time</text><text x="40" y="210" class="lbl-s" text-anchor="middle" transform="rotate(-90 40 210)">distance</text>
+            <path d="M80 400 Q400 390 620 40" class="ln-c"/>
+            <line x1="278" y1="389" x2="578" y2="142" class="ln s-pink" style="stroke-width:6"/>
+            <circle cx="428" cy="266" r="12" class="f-cc"/>
+            <rect x="460" y="290" width="150" height="50" rx="25" class="pill"/><text x="535" y="324" class="lbl-s" text-anchor="middle">tangent</text>
+          </svg>
+        </div>
+        <div class="card mint"><p>A <strong>curve</strong> means the speed is changing. For the speed at one instant, draw a <strong>tangent</strong> and find its gradient.</p></div>
+      </div>
+      <div class="stack">
+        <div class="fig" style="flex:1">
+          <svg viewBox="0 0 700 440" aria-label="Displacement-time graph going up, flat, then sloping down to zero">
+            <path d="M80 20 L80 400 L670 400" class="ln"/>
+            <text x="375" y="436" class="lbl-s" text-anchor="middle">time</text><text x="40" y="210" class="lbl-s" text-anchor="middle" transform="rotate(-90 40 210)">displacement</text>
+            <path d="M80 400 L260 120 L420 120 L640 400" class="ln-c"/>
+            <rect x="90" y="160" width="140" height="46" rx="23" class="pill"/><text x="160" y="192" class="lbl-s" text-anchor="middle">going out</text>
+            <rect x="270" y="60" width="140" height="46" rx="23" class="pill"/><text x="340" y="92" class="lbl-s" text-anchor="middle">stopped</text>
+            <rect x="510" y="180" width="160" height="46" rx="23" class="pill"/><text x="590" y="212" class="lbl-s" text-anchor="middle">coming back</text>
+          </svg>
+        </div>
+        <div class="card sky"><p>Sloping <strong>down</strong> to the right = negative gradient. The displacement from the start is decreasing, so the object is <strong>coming back</strong>.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">How to find a <em>gradient</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 580" aria-label="Distance-time graph with a gradient triangle of rise 20 m and run 4 s">
+          <line x1="110" y1="480" x2="850" y2="480" class="ln"/><line x1="110" y1="480" x2="110" y2="50" class="ln"/>
+          <g class="lbl-s" text-anchor="middle"><text x="110" y="514">0</text><text x="250" y="514">1</text><text x="390" y="514">2</text><text x="530" y="514">3</text><text x="670" y="514">4</text><text x="810" y="514">5</text></g>
+          <g class="lbl-s" text-anchor="end"><text x="94" y="408">5</text><text x="94" y="328">10</text><text x="94" y="248">15</text><text x="94" y="168">20</text><text x="94" y="88">25</text></g>
+          <text x="480" y="560" class="lbl" text-anchor="middle">time / s</text>
+          <text x="40" y="265" class="lbl" text-anchor="middle" transform="rotate(-90 40 265)">distance / m</text>
+          <path d="M250 400 L810 400 L810 80 Z" class="f-yellow"/>
+          <path d="M250 400 L810 400 L810 80" class="dash" style="stroke:var(--ink2)"/>
+          <line x1="110" y1="480" x2="830" y2="68" class="ln-c"/>
+          <rect x="430" y="412" width="200" height="50" rx="25" class="pill"/><text x="530" y="446" class="lbl-s" text-anchor="middle">run = 4 s</text>
+          <rect x="590" y="250" width="200" height="50" rx="25" class="pill"/><text x="690" y="284" class="lbl-s" text-anchor="middle">rise = 20 m</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <ol class="nums small">
+          <li>Draw a <strong>big triangle</strong> on the straight part of the line.</li>
+          <li>Choose an <strong>easy number</strong> for the base (e.g. 2 s, 5 s).</li>
+          <li>Gradient = <strong>rise ÷ run</strong> (vertical change ÷ horizontal change).</li>
+          <li>Read values off the <strong>axes, with units</strong> – not the grid squares.</li>
+        </ol>
+        <div class="remember"><b>Here</b>speed = 20 m ÷ 4 s = <strong>5 m/s</strong></div>
+      </div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="1">◀ Back</button><button type="button" data-to="3">Next ▶</button></div></div><div class="part"><div class="sec"><b>3</b><span>Speed vs <em>velocity</em></span></div><div class="blk"><div class="sub">How much – and <em>which way?</em></div>
+    <div class="def"><span class="term">Key term · vector</span><p>A vector is a quantity that has both size and direction.</p></div>
+    <div class="wide-left">
+      <div class="cols-2">
+        <div class="card mint"><h3>Scalar</h3><p>Has <strong>size</strong> (magnitude) only.</p><p class="small">distance · speed · time · mass</p></div>
+        <div class="card sky"><h3>Vector</h3><p>Has <strong>size AND direction</strong>.</p><p class="small">displacement · velocity · acceleration · force</p></div>
+      </div>
+      <div class="fig">
+        <svg viewBox="0 0 640 400" aria-label="5 m/s is a speed; 5 m/s east is a velocity">
+          <rect x="40" y="30" width="250" height="70" rx="35" class="f-mint"/><text x="165" y="76" class="lbl" text-anchor="middle">5 m/s</text>
+          <text x="330" y="76" class="lbl-s">size only (speed)</text>
+          <line x1="60" y1="250" x2="440" y2="250" class="ln-c" style="stroke-width:12"/><path d="M410 220 L446 250 L410 280" class="ln-c" style="stroke-width:12"/>
+          <rect x="120" y="290" width="270" height="56" rx="28" class="pill"/><text x="255" y="327" class="lbl" text-anchor="middle">5 m/s east</text>
+          <text x="255" y="380" class="lbl-s" text-anchor="middle">size + direction (velocity)</text>
+          <line x1="560" y1="300" x2="560" y2="170" class="ln"/><path d="M540 192 L560 168 L580 192" class="ln"/><text x="560" y="155" class="lbl" text-anchor="middle">N</text>
+        </svg>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Distance, displacement, <em>speed, velocity</em></div>
+    <table class="t">
+      <tr><th>Term</th><th>Meaning</th><th>Type</th></tr>
+      <tr><td>Distance</td><td>How far something travels along its path</td><td>Scalar</td></tr>
+      <tr><td>Displacement</td><td>Distance travelled in a particular direction from a specified point</td><td>Vector</td></tr>
+      <tr><td>Speed</td><td>Distance moved per unit time</td><td>Scalar</td></tr>
+      <tr><td>Velocity</td><td>Speed in a particular direction</td><td>Vector</td></tr>
+    </table>
+    <div class="tip"><b>Exam tip</b>For a vector answer (displacement or velocity), always give the <strong>direction</strong> too, e.g. 4 km/h north-west.</div>
+  </div><div class="blk"><div class="sub">Same speed, <em>changing velocity</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 720 560" aria-label="Car on a bend: velocity arrows the same length but pointing in different directions">
+          <path d="M100 540 L100 480 A380 380 0 0 1 480 100 L700 100" style="fill:none;stroke:#E6E2F5;stroke-width:90"/>
+          <path d="M100 540 L100 480 A380 380 0 0 1 480 100 L700 100" class="dash" style="stroke:#fff;stroke-width:5"/>
+          <line x1="100" y1="470" x2="100" y2="320" class="ln-c" style="stroke-width:9"/><path d="M80 344 L100 316 L120 344" class="ln-c" style="stroke-width:9"/>
+          <line x1="211" y1="211" x2="317" y2="105" class="ln-c" style="stroke-width:9"/><path d="M289 105 L320 102 L317 133" class="ln-c" style="stroke-width:9"/>
+          <line x1="480" y1="100" x2="630" y2="100" class="ln-c" style="stroke-width:9"/><path d="M606 80 L634 100 L606 120" class="ln-c" style="stroke-width:9"/>
+          <circle cx="100" cy="480" r="20" class="f-cc"/><circle cx="211" cy="211" r="20" class="f-cc"/><circle cx="480" cy="100" r="20" class="f-cc"/>
+          <rect x="150" y="380" width="160" height="50" rx="25" class="pill"/><text x="230" y="414" class="lbl-s" text-anchor="middle">50 km/h</text>
+          <rect x="250" y="240" width="160" height="50" rx="25" class="pill"/><text x="330" y="274" class="lbl-s" text-anchor="middle">50 km/h</text>
+          <rect x="490" y="160" width="160" height="50" rx="25" class="pill"/><text x="570" y="194" class="lbl-s" text-anchor="middle">50 km/h</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card"><p>Round a bend at a steady 50 km/h: the <strong>speed</strong> is constant, but the <strong>velocity</strong> changes because the direction changes.</p></div>
+        <div class="eq"><div class="words">average velocity = increase in displacement ÷ time taken</div></div>
+        <p class="small">On a displacement–time graph, a line sloping down means the displacement is decreasing – the object is heading back.</p>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">The <em>GPS walker</em></div>
+    <div class="wide-right">
+      <div class="fig">
+        <svg viewBox="0 0 700 600" aria-label="Map: B is 3 km north-west of A; the road route is longer than the straight-line displacement">
+          <path d="M580 500 L580 380 L420 380 L420 260 L300 260 L300 160 L180 160 L180 100" class="ln s-peach" style="stroke-width:10"/>
+          <line x1="580" y1="500" x2="201" y2="121" class="ln-c" style="stroke-width:8"/>
+          <path d="M180 100 L211.6 110.4 L190.4 131.6 Z" class="f-cc" style="stroke:var(--c);stroke-width:6;stroke-linejoin:round"/>
+          <circle cx="580" cy="500" r="30" class="f-cc"/><text x="580" y="511" class="lbl" text-anchor="middle" style="fill:#fff">A</text>
+          <circle cx="150" cy="80" r="30" class="f-cc"/><text x="150" y="91" class="lbl" text-anchor="middle" style="fill:#fff">B</text>
+          <rect x="90" y="330" width="260" height="50" rx="25" class="pill"/><text x="220" y="364" class="lbl-s" text-anchor="middle">displacement 3 km</text>
+          <rect x="460" y="200" width="180" height="50" rx="25" class="pill"/><text x="550" y="234" class="lbl-s" text-anchor="middle">road route</text>
+          <line x1="640" y1="130" x2="640" y2="50" class="ln"/><path d="M622 70 L640 48 L658 70" class="ln"/><text x="640" y="160" class="lbl" text-anchor="middle">N</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="worked">
+          <div class="q">B is 3 km north-west of A. The walk takes 45 min. Find the average velocity.</div>
+          <div class="step"><i>Know</i>s = 3 km NW, t = 45 min = 0.75 h</div>
+          <div class="step"><i>Substitute</i>3 km ÷ 0.75 h</div>
+          <div class="ans">4 km/h north-west</div>
+        </div>
+        <div class="card yellow"><p>The walker follows the roads, so the <strong>distance</strong> walked is more than 3 km. So average speed &gt; average velocity.</p></div>
+      </div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="2">◀ Back</button><button type="button" data-to="4">Next ▶</button></div></div><div class="part"><div class="sec"><b>4</b><span>Practical: investigating <em>motion</em></span></div><div class="blk"><div class="sub">Toy car on a <em>ramp</em></div>
+    <p class="small"><strong>Aim:</strong> how does the average speed of a toy car depend on the height, h, of the raised end of the ramp?</p>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 540" aria-label="Ramp raised at one end by height h, car released from A and timed to B">
+          <line x1="30" y1="480" x2="880" y2="480" class="ln"/>
+          <rect x="40" y="460" width="100" height="20" rx="6" class="f-c"/><line x1="60" y1="460" x2="60" y2="150" class="ln" style="stroke-width:8"/>
+          <rect x="52" y="172" width="70" height="30" rx="10" class="f-cc"/>
+          <path d="M110 190 L820 470" class="ln" style="stroke-width:10"/>
+          <g transform="rotate(21.5 181 218)">
+            <rect x="148" y="176" width="74" height="32" rx="10" class="f-cc"/>
+            <circle cx="162" cy="210" r="10" class="f-card" style="stroke:var(--ink);stroke-width:4"/><circle cx="208" cy="210" r="10" class="f-card" style="stroke:var(--ink);stroke-width:4"/>
+          </g>
+          <line x1="150" y1="210" x2="150" y2="475" class="ln-c"/><path d="M136 232 L150 212 L164 232 M136 454 L150 474 L164 454" class="ln-c"/>
+          <text x="172" y="370" class="lbl-c">h</text>
+          <circle cx="232" cy="238" r="9" class="f-cc"/><text x="244" y="200" class="lbl">A</text>
+          <circle cx="713" cy="428" r="9" class="f-cc"/><text x="712" y="400" class="lbl">B</text>
+          <path d="M262 266 L700 438" class="dash"/>
+          <rect x="300" y="350" width="370" height="50" rx="25" class="pill"/><text x="485" y="384" class="lbl-s" text-anchor="middle">measure AB with a metre rule</text>
+          <circle cx="760" cy="150" r="60" class="f-yellow" style="stroke:var(--ink);stroke-width:5"/><line x1="760" y1="150" x2="760" y2="108" class="ln"/><line x1="760" y1="150" x2="790" y2="160" class="ln"/><rect x="745" y="74" width="30" height="16" rx="5" class="f-cc"/>
+          <text x="760" y="240" class="lbl-s" text-anchor="middle">stop clock</text>
+        </svg>
+      </div>
+      <ol class="nums small">
+        <li>Clamp the track. Measure h with a metre rule held perpendicular to the bench, always to the same mark (a <strong>fiducial mark</strong>).</li>
+        <li>Measure distance AB. Release the car from A each time.</li>
+        <li>Time A → B with a stop clock <strong>at least 3 times</strong>; find the average.</li>
+        <li>Calculate v = AB ÷ average t. Repeat for other heights.</li>
+      </ol>
+    </div>
+  </div><div class="blk"><div class="sub">Results, errors and <em>conclusions</em></div>
+    <table class="t">
+      <tr><th>Height h / m</th><th>t₁ / s</th><th>t₂ / s</th><th>t₃ / s</th><th>Average t / s</th><th>Average v / m/s</th></tr>
+      <tr><td>…</td><td>…</td><td>…</td><td>…</td><td>(t₁ + t₂ + t₃) ÷ 3</td><td>v = AB ÷ t</td></tr>
+    </table>
+    <div class="cols-3">
+      <div class="card pink"><h3>Errors</h3><p class="small">Human <strong>reaction time</strong> causes timing errors → repeat and average. A result very different from the others is <strong>anomalous</strong> – ignore it or repeat it.</p></div>
+      <div class="card yellow"><h3>Safety</h3><p class="small">Stack and move heavy runways carefully and use them at low level. Put a catch box with bubble wrap at the end for heavy trolleys.</p></div>
+      <div class="card mint"><h3>Conclusion</h3><p class="small">Use your graph. If the best-fit line is <strong>straight and passes through (0, 0)</strong>, the two quantities are <strong>directly proportional</strong>.</p></div>
+    </div>
+  </div><div class="blk"><div class="sub">Better ways to <em>time</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 520" aria-label="Trolley with a card strip passing through a light gate connected to a timer">
+          <line x1="30" y1="440" x2="870" y2="440" class="ln"/>
+          <rect x="120" y="330" width="280" height="80" rx="16" class="f-c" style="stroke:var(--ink);stroke-width:5"/>
+          <circle cx="170" cy="418" r="20" class="f-card" style="stroke:var(--ink);stroke-width:5"/><circle cx="350" cy="418" r="20" class="f-card" style="stroke:var(--ink);stroke-width:5"/>
+          <rect x="200" y="200" width="130" height="130" rx="6" class="f-yellow" style="stroke:var(--ink);stroke-width:5"/>
+          <path d="M440 370 L510 370" class="ln-c"/><path d="M490 354 L512 370 L490 386" class="ln-c"/>
+          <rect x="560" y="140" width="50" height="300" rx="10" class="f-sky" style="stroke:var(--ink);stroke-width:5"/>
+          <circle cx="585" cy="260" r="18" class="f-red" style="stroke:var(--red);stroke-width:5"/>
+          <line x1="560" y1="260" x2="440" y2="260" class="dash" style="stroke:var(--red)"/>
+          <path d="M585 140 Q585 90 680 90" class="thin"/>
+          <rect x="680" y="50" width="190" height="90" rx="16" style="fill:var(--ink)"/><text x="775" y="110" class="lbl" text-anchor="middle" style="fill:#7CF5B8;font-size:40px">0.000</text>
+          <rect x="190" y="140" width="150" height="46" rx="23" class="pill"/><text x="265" y="172" class="lbl-s" text-anchor="middle">card strip</text>
+          <rect x="630" y="300" width="160" height="46" rx="23" class="pill"/><text x="710" y="332" class="lbl-s" text-anchor="middle">light gate</text>
+          <rect x="400" y="200" width="150" height="46" rx="23" class="pill"/><text x="475" y="232" class="lbl-s" text-anchor="middle">light beam</text>
+          <text x="775" y="175" class="lbl-s" text-anchor="middle">timer</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="card sky"><h3>Light (timing) gates</h3><p class="small">The clock times while the card blocks the beam. <strong>speed = length of card ÷ time</strong>. No reaction time errors – more accurate. Two gates show how speed changes.</p></div>
+        <div class="card lilac"><h3>Photographs</h3><p class="small"><strong>Stroboscope</strong>: flashes at regular known intervals in a dark room, camera shutter open. <strong>Video</strong>: the frame rate gives the time between frames. Both need a measuring scale in the picture.</p></div>
+      </div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="3">◀ Back</button><button type="button" data-to="5">Next ▶</button></div></div><div class="part"><div class="sec"><b>5</b><span><em>Acceleration</em></span></div><div class="blk"><div class="sub">What is <em>acceleration?</em></div>
+    <div class="cols-2">
+      <div class="stack">
+        <div class="def"><span class="term">Key term · acceleration</span><p>The rate at which objects change their velocity.</p></div>
+        <div class="eq"><div class="words">acceleration = change in velocity ÷ time taken</div><div class="sym">a = (v − u) ÷ t</div>
+          <div class="units"><span>a in m/s²</span><span>v, u in m/s</span><span>t in s</span></div></div>
+        <p class="small">m/s ÷ s = <strong>m/s²</strong> (“metres per second squared”). Acceleration is a <strong>vector</strong>.</p>
+      </div>
+      <div class="fig">
+        <svg viewBox="0 0 760 600" aria-label="Dot patterns at equal time intervals: gaps grow, stay equal, or shrink">
+          <text x="30" y="50" class="lbl">Accelerating – gaps grow</text>
+          <line x1="40" y1="110" x2="720" y2="110" class="thin" style="stroke:var(--line)"/>
+          <g class="f-cc"><circle cx="50" cy="110" r="14"/><circle cx="80" cy="110" r="14"/><circle cx="130" cy="110" r="14"/><circle cx="210" cy="110" r="14"/><circle cx="320" cy="110" r="14"/><circle cx="460" cy="110" r="14"/><circle cx="640" cy="110" r="14"/></g>
+          <text x="30" y="150" class="lbl-s">a plane taking off</text>
+          <text x="30" y="250" class="lbl">Constant speed – equal gaps</text>
+          <line x1="40" y1="310" x2="720" y2="310" class="thin" style="stroke:var(--line)"/>
+          <g style="fill:var(--mint)"><circle cx="50" cy="310" r="14"/><circle cx="148" cy="310" r="14"/><circle cx="246" cy="310" r="14"/><circle cx="344" cy="310" r="14"/><circle cx="442" cy="310" r="14"/><circle cx="540" cy="310" r="14"/><circle cx="638" cy="310" r="14"/></g>
+          <text x="30" y="350" class="lbl-s">a puck sliding on ice</text>
+          <text x="30" y="450" class="lbl">Decelerating – gaps shrink</text>
+          <line x1="40" y1="510" x2="720" y2="510" class="thin" style="stroke:var(--line)"/>
+          <g style="fill:var(--peach)"><circle cx="50" cy="510" r="14"/><circle cx="230" cy="510" r="14"/><circle cx="370" cy="510" r="14"/><circle cx="480" cy="510" r="14"/><circle cx="560" cy="510" r="14"/><circle cx="610" cy="510" r="14"/><circle cx="640" cy="510" r="14"/></g>
+          <text x="30" y="550" class="lbl-s">an egg hitting the ground</text>
+        </svg>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Speeding up and <em>slowing down</em></div>
+    <div class="cols-2">
+      <div class="worked">
+        <div class="q">A car speeds up steadily from 20 m/s to 30 m/s in 5 s.</div>
+        <div class="step"><i>Know</i>u = 20 m/s, v = 30 m/s, t = 5 s</div>
+        <div class="step"><i>Substitute</i>a = (30 − 20) ÷ 5 = 10 ÷ 5</div>
+        <div class="ans">a = 2 m/s²</div>
+      </div>
+      <div class="worked">
+        <div class="q">An object hits the ground at 40 m/s and stops in 0.02 s.</div>
+        <div class="step"><i>Know</i>u = 40 m/s, v = 0, t = 0.02 s</div>
+        <div class="step"><i>Substitute</i>a = (0 − 40) ÷ 0.02</div>
+        <div class="ans">a = −2000 m/s²</div>
+      </div>
+    </div>
+    <div class="remember"><b>Deceleration</b>Slowing down means v is less than u, so the answer has a <strong>negative sign</strong>. A negative acceleration is a deceleration (here 2000 m/s²).</div>
+  </div><div class="blk"><div class="sub">Galileo’s <em>rolling ball</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 430" aria-label="Ball rolling down a slope past five bells whose gaps get bigger">
+          <path d="M40 76 L860 363 L860 410 L40 410 Z" class="f-c"/>
+          <line x1="40" y1="76" x2="860" y2="363" class="ln"/>
+          <circle cx="54" cy="60" r="18" class="f-cc"/>
+          <g class="thin"><line x1="88" y1="100" x2="105" y2="53"/><line x1="173" y1="130" x2="190" y2="83"/><line x1="315" y1="179" x2="332" y2="132"/><line x1="513" y1="249" x2="530" y2="202"/><line x1="768" y1="338" x2="785" y2="291"/></g>
+          <g class="f-yellow" style="stroke:var(--ink);stroke-width:4">
+            <path d="M93 53 Q105 20 117 53 Z"/><path d="M178 83 Q190 50 202 83 Z"/><path d="M320 132 Q332 99 344 132 Z"/><path d="M518 202 Q530 169 542 202 Z"/><path d="M773 291 Q785 258 797 291 Z"/>
+          </g>
+          <g class="lbl-c" text-anchor="middle"><text x="134" y="34">1</text><text x="190" y="40">2</text><text x="332" y="89">3</text><text x="530" y="159">4</text><text x="785" y="248">5</text></g>
+          <rect x="440" y="320" width="300" height="50" rx="25" class="pill"/><text x="590" y="354" class="lbl-s" text-anchor="middle">gaps get bigger</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <p class="small">Galileo (born 1564) timed with his pulse and a water clock. Bells were placed so they rang at <strong>equal time intervals</strong>.</p>
+        <div class="card mint"><p class="small">Distance in each equal time <strong>increased</strong>, so the ball sped up at a steady rate: <strong>uniform acceleration</strong>.</p></div>
+      </div>
+    </div>
+    <table class="t">
+      <tr><th>Bell</th><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr>
+      <tr><th>Time / s</th><td>0.5</td><td>1.0</td><td>1.5</td><td>2.0</td><td>2.5</td></tr>
+      <tr><th>Distance / cm</th><td>3</td><td>12</td><td>27</td><td>48</td><td>75</td></tr>
+    </table>
+  </div><div class="pn"><button type="button" data-to="4">◀ Back</button><button type="button" data-to="6">Next ▶</button></div></div><div class="part"><div class="sec"><b>6</b><span>Velocity–time <em>graphs</em></span></div><div class="blk"><div class="sub">Gradient = <em>acceleration</em></div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 560" aria-label="Velocity-time graph rising from u to v over time t">
+          <line x1="120" y1="480" x2="860" y2="480" class="ln"/><line x1="120" y1="480" x2="120" y2="50" class="ln"/>
+          <text x="490" y="540" class="lbl" text-anchor="middle">time / s</text>
+          <text x="44" y="265" class="lbl" text-anchor="middle" transform="rotate(-90 44 265)">velocity / m/s</text>
+          <path d="M120 380 L760 380 L760 100" class="dash" style="stroke:var(--ink2)"/>
+          <line x1="120" y1="100" x2="760" y2="100" class="dash"/>
+          <line x1="120" y1="380" x2="760" y2="100" class="ln-c"/>
+          <text x="96" y="390" class="lbl-c" text-anchor="end">u</text><text x="96" y="110" class="lbl-c" text-anchor="end">v</text>
+          <rect x="400" y="392" width="80" height="50" rx="25" class="pill"/><text x="440" y="426" class="lbl" text-anchor="middle">t</text>
+          <rect x="780" y="215" width="110" height="50" rx="25" class="pill"/><text x="835" y="249" class="lbl" text-anchor="middle">v − u</text>
+        </svg>
+      </div>
+      <div class="stack">
+        <div class="eq"><div class="words">gradient = (v − u) ÷ t</div><div class="sym">= acceleration</div></div>
+        <p class="small">A <strong>straight line</strong> means <strong>uniform acceleration</strong>.</p>
+        <div class="card sky"><p class="small"><strong>Air track:</strong> a glider on a cushion of air, timed by light gates and a data logger. The steeper the track, the greater the acceleration and the steeper the graph.</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Gradient shapes <em>at a glance</em></div>
+    <div class="fig">
+      <svg viewBox="0 0 1700 340" aria-label="Four velocity-time graph shapes">
+        <g>
+          <rect x="0" y="0" width="410" height="340" rx="26" style="fill:var(--c-ll)"/>
+          <path d="M50 20 L50 210 L390 210" class="ln"/><line x1="50" y1="190" x2="370" y2="130" class="ln-c"/>
+          <text x="205" y="268" class="lbl" text-anchor="middle">Shallow</text><text x="205" y="310" class="lbl-s" text-anchor="middle">low acceleration</text>
+        </g>
+        <g transform="translate(430 0)">
+          <rect x="0" y="0" width="410" height="340" rx="26" style="fill:var(--c-ll)"/>
+          <path d="M50 20 L50 210 L390 210" class="ln"/><line x1="50" y1="200" x2="270" y2="30" class="ln s-pink" style="stroke-width:7"/>
+          <text x="205" y="268" class="lbl" text-anchor="middle">Steep</text><text x="205" y="310" class="lbl-s" text-anchor="middle">high acceleration</text>
+        </g>
+        <g transform="translate(860 0)">
+          <rect x="0" y="0" width="410" height="340" rx="26" style="fill:var(--c-ll)"/>
+          <path d="M50 20 L50 210 L390 210" class="ln"/><line x1="50" y1="100" x2="370" y2="100" class="ln s-mint" style="stroke-width:7"/>
+          <text x="205" y="268" class="lbl" text-anchor="middle">Horizontal</text><text x="205" y="310" class="lbl-s" text-anchor="middle">constant velocity (a = 0)</text>
+        </g>
+        <g transform="translate(1290 0)">
+          <rect x="0" y="0" width="410" height="340" rx="26" style="fill:var(--c-ll)"/>
+          <path d="M50 20 L50 210 L390 210" class="ln"/><line x1="50" y1="40" x2="360" y2="208" class="ln s-peach" style="stroke-width:7"/>
+          <text x="205" y="268" class="lbl" text-anchor="middle">Sloping down</text><text x="205" y="310" class="lbl-s" text-anchor="middle">deceleration</text>
+        </g>
+      </svg>
+    </div>
+    <div class="warn"><b>Don’t mix them up!</b>On a <strong>distance–time</strong> graph a horizontal line means <strong>stopped</strong>. On a <strong>velocity–time</strong> graph a horizontal line means moving at <strong>constant velocity</strong>.</div>
+  </div><div class="blk"><div class="sub">Plotting a <em>velocity–time</em> graph</div>
+    <div class="wide-left">
+      <div class="fig">
+        <svg viewBox="0 0 900 580" aria-label="Velocity-time graph of Galileo's data: straight line through the origin">
+          <g style="stroke:var(--line);stroke-width:3"><line x1="120" y1="80" x2="840" y2="80"/><line x1="120" y1="164" x2="840" y2="164"/><line x1="120" y1="248" x2="840" y2="248"/><line x1="120" y1="332" x2="840" y2="332"/><line x1="120" y1="416" x2="840" y2="416"/></g>
+          <line x1="120" y1="500" x2="860" y2="500" class="ln"/><line x1="120" y1="500" x2="120" y2="50" class="ln"/>
+          <g class="lbl-s" text-anchor="middle"><text x="120" y="532">0</text><text x="260" y="532">0.5</text><text x="400" y="532">1.0</text><text x="540" y="532">1.5</text><text x="680" y="532">2.0</text><text x="820" y="532">2.5</text></g>
+          <g class="lbl-s" text-anchor="end"><text x="104" y="424">12</text><text x="104" y="340">24</text><text x="104" y="256">36</text><text x="104" y="172">48</text><text x="104" y="88">60</text></g>
+          <text x="490" y="572" class="lbl" text-anchor="middle">time / s</text>
+          <text x="40" y="275" class="lbl" text-anchor="middle" transform="rotate(-90 40 275)">velocity / cm/s</text>
+          <line x1="120" y1="500" x2="820" y2="80" class="ln-c"/>
+          <g class="f-cc"><circle cx="190" cy="458" r="11"/><circle cx="330" cy="374" r="11"/><circle cx="470" cy="290" r="11"/><circle cx="610" cy="206" r="11"/><circle cx="750" cy="122" r="11"/></g>
+        </svg>
+      </div>
+      <div class="stack">
+        <table class="t">
+          <tr><th>Interval / s</th><th>Distance / cm</th><th>v / cm/s</th></tr>
+          <tr><td>0–0.5</td><td>3</td><td>6</td></tr>
+          <tr><td>0.5–1.0</td><td>9</td><td>18</td></tr>
+          <tr><td>1.0–1.5</td><td>15</td><td>30</td></tr>
+          <tr><td>1.5–2.0</td><td>21</td><td>42</td></tr>
+          <tr><td>2.0–2.5</td><td>27</td><td>54</td></tr>
+        </table>
+        <div class="tip"><b>Plot at the middle</b>Average velocity over an interval goes at its middle: 3 cm ÷ 0.5 s = 6 cm/s, plotted at 0.25 s.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Area under the graph = <em>distance</em></div>
+    <div class="cols-2">
+      <div class="fig">
+        <svg viewBox="0 0 700 420" aria-label="Rectangle under a constant velocity line: 5 m/s for 10 s gives 50 m">
+          <rect x="90" y="100" width="500" height="250" class="f-mint"/>
+          <line x1="90" y1="350" x2="660" y2="350" class="ln"/><line x1="90" y1="350" x2="90" y2="30" class="ln"/>
+          <line x1="90" y1="100" x2="590" y2="100" class="ln-c"/><line x1="590" y1="100" x2="590" y2="350" class="dash"/>
+          <text x="70" y="110" class="lbl" text-anchor="end">5</text><text x="590" y="392" class="lbl" text-anchor="middle">10</text>
+          <text x="340" y="400" class="lbl-s" text-anchor="middle">time / s</text>
+          <text x="40" y="200" class="lbl-s" text-anchor="middle" transform="rotate(-90 40 200)">velocity / m/s</text>
+          <rect x="190" y="200" width="300" height="56" rx="28" class="pill"/><text x="340" y="237" class="lbl" text-anchor="middle">5 × 10 = 50 m</text>
+        </svg>
+        <div class="cap">Constant velocity: rectangle = base × height</div>
+      </div>
+      <div class="fig">
+        <svg viewBox="0 0 700 420" aria-label="Triangle under a uniform acceleration line: 0 to 10 m/s in 4 s gives 20 m">
+          <path d="M90 350 L590 100 L590 350 Z" class="f-peach"/>
+          <line x1="90" y1="350" x2="660" y2="350" class="ln"/><line x1="90" y1="350" x2="90" y2="30" class="ln"/>
+          <line x1="90" y1="350" x2="590" y2="100" class="ln-c"/><line x1="90" y1="100" x2="590" y2="100" class="dash"/>
+          <text x="70" y="110" class="lbl" text-anchor="end">10</text><text x="590" y="392" class="lbl" text-anchor="middle">4</text>
+          <text x="340" y="400" class="lbl-s" text-anchor="middle">time / s</text>
+          <text x="40" y="200" class="lbl-s" text-anchor="middle" transform="rotate(-90 40 200)">velocity / m/s</text>
+          <rect x="300" y="270" width="280" height="56" rx="28" class="pill"/><text x="440" y="307" class="lbl" text-anchor="middle">½ × 4 × 10 = 20 m</text>
+        </svg>
+        <div class="cap">Uniform acceleration: triangle = ½ × base × height</div>
+      </div>
+    </div>
+    <div class="cols-2" style="flex:none">
+      <div class="remember"><b>Check it</b>average velocity = (u + v) ÷ 2 = (0 + 10) ÷ 2 = 5 m/s; 5 m/s × 4 s = 20 m ✓</div>
+      <div class="tip"><b>Hard shapes?</b>Split into rectangles and triangles, then add. Use the same time unit on both axes.</div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="5">◀ Back</button><button type="button" data-to="7">Next ▶</button></div></div><div class="part"><div class="sec"><b>7</b><span>The <em>suvat</em> equations</span></div><div class="blk"><div class="sub">Final velocity: <em>v = u + at</em></div>
+    <div class="cols-2">
+      <div class="stack">
+        <div class="eq"><div class="words">from a = (v − u) ÷ t we get</div><div class="sym">v = u + at</div></div>
+        <table class="t">
+          <tr><th>Letter</th><th>Meaning</th><th>Unit</th></tr>
+          <tr><td>s</td><td>distance moved</td><td>m</td></tr>
+          <tr><td>u</td><td>initial velocity</td><td>m/s</td></tr>
+          <tr><td>v</td><td>final velocity</td><td>m/s</td></tr>
+          <tr><td>a</td><td>acceleration</td><td>m/s²</td></tr>
+          <tr><td>t</td><td>time taken</td><td>s</td></tr>
+        </table>
+      </div>
+      <div class="stack">
+        <div class="worked">
+          <div class="q">A stone is dropped from rest down a well (a = 10 m/s²). It hits the water after 5 s. How fast?</div>
+          <div class="step"><i>Know</i>u = 0, a = 10 m/s², t = 5 s</div>
+          <div class="step"><i>Substitute</i>v = 0 + (10 × 5)</div>
+          <div class="ans">v = 50 m/s downwards</div>
+        </div>
+        <div class="remember"><b>Only for constant acceleration</b>e.g. short falls with g ≈ 10 m/s², ignoring air resistance.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">No time given? <em>v² = u² + 2as</em></div>
+    <div class="wide-right">
+      <div class="stack">
+        <div class="eq"><div class="sym">v² = u² + 2as</div><div class="words">(final speed)² = (initial speed)² + (2 × acceleration × distance moved)</div></div>
+        <div class="warn"><b>Don’t stop early!</b>v² = 4000 is not the answer. Take the <strong>square root</strong>.</div>
+        <div class="card mint"><p class="small">Use it when the <strong>time is not given</strong>. This equation is given to you in the exam.</p></div>
+      </div>
+      <div class="worked">
+        <div class="q">A vaccine pack is dropped from a helicopter hovering 200 m up (a = 10 m/s²). Find its impact speed.</div>
+        <div class="step"><i>Know</i>u = 0 (hovering), a = 10 m/s², s = 200 m</div>
+        <div class="step"><i>Equation</i>v² = u² + 2as</div>
+        <div class="step"><i>Substitute</i>v² = 0 + (2 × 10 × 200) = 4000</div>
+        <div class="ans">v = √4000 = 63.25 m/s</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Which <em>equation</em> do I use?</div>
+    <div class="wide-left">
+      <table class="t">
+        <tr><th>You know…</th><th>You want…</th><th>Use</th></tr>
+        <tr><td>distance and time</td><td>average speed</td><td>v = s ÷ t</td></tr>
+        <tr><td>u, v and t</td><td>acceleration</td><td>a = (v − u) ÷ t</td></tr>
+        <tr><td>u, a and t</td><td>final velocity</td><td>v = u + at</td></tr>
+        <tr><td>u, a and s</td><td>final velocity</td><td>v² = u² + 2as</td></tr>
+        <tr><td>u, v and a</td><td>distance</td><td>s = (v² − u²) ÷ 2a</td></tr>
+      </table>
+      <div class="card yellow"><h3>Hidden clues</h3>
+        <ul class="dots small"><li>“from rest”, “dropped”, “hovering”, “stationary” → u = 0</li><li>“comes to rest”, “stops” → v = 0</li><li>Thrown up to max height → v = 0 at top, a = −10 m/s²</li><li>Convert km → m, min → s, km/h → m/s first</li></ul>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Common <em>mistakes</em></div>
+    <div class="cols-3">
+      <div class="card pink"><h3>No square root</h3><p class="small">After v² = u² + 2as, find v = √(v²).</p></div>
+      <div class="card pink"><h3>v − u backwards</h3><p class="small">Always final minus start. Slowing down gives a negative answer.</p></div>
+      <div class="card pink"><h3>Wrong units</h3><p class="small">Acceleration is in m/s², not m/s. Convert km, min, km/h first.</p></div>
+      <div class="card yellow"><h3>No direction</h3><p class="small">Velocity and displacement are vectors: say which way.</p></div>
+      <div class="card yellow"><h3>Mixing graphs</h3><p class="small">Flat d–t line = stopped. Flat v–t line = constant velocity.</p></div>
+      <div class="card yellow"><h3>Only a triangle</h3><p class="small">Write the real equation, e.g. s = v × t.</p></div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="6">◀ Back</button><button type="button" data-to="8" disabled>Next ▶</button></div></div></div><script>(function(){var P=[].slice.call(document.querySelectorAll('.part')),B=[].slice.call(document.querySelectorAll('.snav button'));
+function go(i){P.forEach(function(p,k){p.classList.toggle('on',k==i)});B.forEach(function(b,k){b.classList.toggle('on',k==i)});window.scrollTo(0,0);try{history.replaceState(null,'','#s'+i)}catch(e){}}
+B.forEach(function(b,k){b.onclick=function(){go(k)}});
+document.querySelectorAll('.pn button').forEach(function(b){b.onclick=function(){go(+b.dataset.to)}});
+var h=+(location.hash.replace('#s','')||0);go(h>=0&&h<P.length?h:0)})();</script></body></html>

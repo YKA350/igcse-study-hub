@@ -1,0 +1,292 @@
+<!doctype html><html lang="en" data-subj="physics"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>:root {
+  --ink: #1E1B3A; --ink2: #4A4668; --muted: #7A7598; --line: #E6E2F5;
+  --bg: #F4F2FF; --card: #FFFFFF; --soft: #F1EFFB;
+  --pink: #FF8FB1; --pink-l: #FFE3EC; --yellow: #FFC94D; --yellow-l: #FFF3D1;
+  --mint: #3CCB9A; --mint-l: #DDF7EE; --sky: #4DA3FF; --sky-l: #DDEEFF;
+  --lilac: #8B7BFF; --lilac-l: #ECE8FF; --peach: #FF9F6B; --peach-l: #FFE8DA;
+  --red: #F0525A; --red-l: #FFE1E3; --green: #1FAF6B; --green-l: #DCF5E8;
+  --c: #6D5DD3; --c-d: #4B3DB8; --c-l: #ECE8FF; --c-ll: #F6F4FF;
+  --r-xl: 48px; --r-lg: 36px; --r-md: 26px; --r-sm: 18px;
+  --sh: 0 4px 10px rgba(40,30,110,.05), 0 18px 44px rgba(40,30,110,.09);
+  --font: "Nunito", "Segoe UI", system-ui, sans-serif;
+}
+html[data-subj="biology"]   { --c: #12A06E; --c-d: #0B7A53; --c-l: #D9F4E9; --c-ll: #F0FBF6; --bg: #F1FAF6; }
+html[data-subj="chemistry"] { --c: #0E8FB0; --c-d: #0A6C86; --c-l: #D7F0F7; --c-ll: #EFF9FC; --bg: #F0F8FB; }
+html[data-subj="physics"]   { --c: #3B5BDB; --c-d: #2A43AE; --c-l: #E0E6FF; --c-ll: #F2F4FF; --bg: #F2F4FF; }
+svg { font-family: var(--font); }
+svg .ln { fill: none; stroke: var(--ink); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+svg .ln-c { fill: none; stroke: var(--c); stroke-width: 7; stroke-linecap: round; stroke-linejoin: round; }
+svg .thin { fill: none; stroke: var(--ink2); stroke-width: 3.5; stroke-linecap: round; stroke-linejoin: round; }
+svg .dash { fill: none; stroke: var(--muted); stroke-width: 4; stroke-dasharray: 12 12; stroke-linecap: round; }
+svg .f-c { fill: var(--c-l); } svg .f-cc { fill: var(--c); } svg .f-card { fill: #fff; }
+svg .f-pink { fill: var(--pink-l); } svg .f-yellow { fill: var(--yellow-l); } svg .f-mint { fill: var(--mint-l); }
+svg .f-sky { fill: var(--sky-l); } svg .f-lilac { fill: var(--lilac-l); } svg .f-peach { fill: var(--peach-l); } svg .f-red { fill: var(--red-l); }
+svg .s-pink { stroke: var(--pink); } svg .s-yellow { stroke: var(--yellow); } svg .s-mint { stroke: var(--mint); } svg .s-sky { stroke: var(--sky); }
+svg .s-lilac { stroke: var(--lilac); } svg .s-peach { stroke: var(--peach); } svg .s-red { stroke: var(--red); }
+svg .lbl { font: 800 30px var(--font); fill: var(--ink); }
+svg .lbl-s { font: 700 24px var(--font); fill: var(--ink2); }
+svg .lbl-c { font: 900 30px var(--font); fill: var(--c-d); }
+svg .pill { fill: #fff; stroke: var(--line); stroke-width: 3; }
+@page{size:A4;margin:11mm 9mm 13mm 9mm}
+*{box-sizing:border-box}
+html{font-size:var(--fs,8.6px)}
+body{margin:0;font-family:var(--font);color:var(--ink);background:#fff;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.hero{display:flex;align-items:center;gap:3.5mm;background:var(--c);color:#fff;border-radius:4mm;padding:3.2mm 5mm;margin-bottom:3mm}
+.hero .n{flex:none;width:11mm;height:11mm;border-radius:50%;background:#fff;color:var(--c-d);font:900 6.2mm/11mm var(--font);text-align:center}
+.hero h1{margin:0;font:900 6.4mm/1.1 var(--font)}.hero p{margin:.5mm 0 0;font:700 3mm var(--font);opacity:.9}
+.cols{column-count:2;column-gap:4mm}
+.blk{break-inside:avoid;margin:0 0 2mm}
+.sec{break-inside:avoid;break-after:avoid;display:flex;align-items:center;gap:2mm;background:var(--c-l);border-radius:2.5mm;padding:1.2mm 2.5mm;margin:2.5mm 0 1.6mm;font:900 3.7mm/1.15 var(--font);color:var(--c-d)}
+.sec b{flex:none;width:5.2mm;height:5.2mm;border-radius:50%;background:var(--c);color:#fff;font:900 3.2mm/5.2mm var(--font);text-align:center}
+.sub{break-after:avoid;margin:1.4mm 0 .8mm;font:900 3.1mm/1.2 var(--font);color:var(--ink);border-left:1mm solid var(--c);padding-left:1.6mm}
+.sub em{font-style:normal;color:var(--c-d)}
+p,li{margin:0;font:600 1.15rem/1.32 var(--font);color:var(--ink2)}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.mist{break-inside:avoid;border-radius:2mm;margin:0 0 1.5mm;padding:1.3mm 2.2mm}
+.def{background:var(--c-ll);border-left:1mm solid var(--c)}.def .term{display:block;font:900 2.3mm var(--font);text-transform:uppercase;letter-spacing:.2mm;color:var(--c-d)}
+.def p{color:var(--ink);font-weight:700}
+.card{background:var(--bg2,#eef)}.card h3{margin:0 0 .3mm;font:900 1.2rem/1.2 var(--font);color:var(--ink)}
+.card.mint{background:var(--mint-l)}.card.sky{background:var(--sky-l)}.card.pink{background:var(--pink-l)}.card.yellow{background:var(--yellow-l)}.card.peach{background:var(--peach-l)}
+.tip{background:var(--yellow-l);border-left:1mm solid var(--yellow)}.tip b{display:inline;font-weight:900;color:var(--ink);margin-right:1mm;text-transform:uppercase;font-size:2.2mm}
+.warn{background:var(--red-l);border-left:1mm solid var(--red)}
+table.t{width:100%;border-collapse:separate;border-spacing:0;margin:0 0 1.8mm;break-inside:avoid;border-radius:2mm;overflow:hidden;font-size:1.08rem}
+table.t th{background:var(--c);color:#fff;font:900 1.08rem var(--font);text-align:left;padding:.9mm 1.8mm}
+table.t td{font:600 1.08rem/1.28 var(--font);padding:.8mm 1.8mm;border-top:.25mm solid var(--line);vertical-align:top;color:var(--ink2)}
+table.t td:first-child{font-weight:900;color:var(--ink)}
+table.t tr:nth-child(even) td{background:var(--c-ll)}
+.worked{background:#fff;border:.3mm solid var(--c-l)}.worked .q{font:800 1.18rem/1.3 var(--font);color:var(--ink);background:var(--c-ll);border-radius:1.6mm;padding:1mm 1.8mm;margin-bottom:.8mm}
+.worked .step{display:flex;gap:1.6mm;font:700 1.1rem/1.3 var(--font);color:var(--ink2)}.worked .step i{font-style:normal;flex:none;min-width:11mm;font:900 2.2mm var(--font);text-transform:uppercase;color:var(--c)}
+.worked .ans{display:inline-block;margin-top:.8mm;font:900 1.2rem var(--font);color:#fff;background:var(--c);padding:.7mm 2.4mm;border-radius:5mm}
+.nums{margin:0 0 1.6mm;padding:0;list-style:none;counter-reset:n;break-inside:avoid}
+.nums>*{counter-increment:n;position:relative;padding-left:5mm;margin-bottom:.7mm;font:600 1.15rem/1.3 var(--font);color:var(--ink2)}
+.nums>*::before{content:counter(n);position:absolute;left:0;top:.1mm;width:3.6mm;height:3.6mm;border-radius:50%;background:var(--c);color:#fff;font:900 2.3mm/3.6mm var(--font);text-align:center}
+.cols-2,.cols-3,.stack,.wide-left,.body{display:block}
+.fig{break-inside:avoid;margin:0 0 1.6mm;background:#fff;border:.3mm solid var(--line);border-radius:2mm;padding:1mm;text-align:center}
+.fig svg{width:100%;height:auto;max-height:46mm;display:block}
+.fig svg text{font-family:var(--font)}
+.nutshell{background:var(--c);color:#fff}.nutshell h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:#fff}.nutshell li{color:#fff;font-weight:700;margin-left:3.6mm}
+.test{background:var(--lilac-l)}.test h4{margin:0 0 .8mm;font:900 3.3mm var(--font);color:var(--ink)}.test .qq{font:700 1.12rem/1.3 var(--font);color:var(--ink);margin-bottom:.6mm}.test .a{color:var(--c-d);font-weight:900;margin-left:1.2mm}
+.say{background:var(--mint-l)}.mist{background:var(--red-l)}.say,.mist{break-inside:avoid;border-radius:2mm;padding:1.3mm 2.2mm;margin:0 0 1.5mm}.say h3,.mist h3{margin:0 0 .4mm;font:900 1.2rem var(--font)}
+.chips,.bignum,.checks{display:none}
+
+@page{margin:0}
+html{font-size:15.5px;background:var(--bg)}
+body{max-width:900px;margin:0 auto;padding:18px 16px 60px;background:var(--bg)}
+.cols{column-count:1}
+.hero{padding:5mm 6mm;border-radius:6mm}.hero .n{width:15mm;height:15mm;font-size:9mm;line-height:15mm}.hero h1{font-size:9mm}.hero p{font-size:3.6mm}
+.sec{font-size:5.4mm;padding:2mm 4mm;border-radius:4mm;margin:6mm 0 3mm;position:sticky;top:0;z-index:2}.sec b{width:7.5mm;height:7.5mm;font-size:4.6mm;line-height:7.5mm}
+.sub{font-size:4.6mm;margin:3mm 0 1.6mm}
+.def,.card,.tip,.warn,.worked,.nutshell,.test,.say,.mist{padding:2.6mm 4mm;border-radius:3.4mm;margin-bottom:2.6mm}
+.def .term{font-size:3mm}.card h3{font-size:1.3rem}.tip b{font-size:3mm}
+.worked .step i{font-size:3mm;min-width:16mm}.nutshell h4,.test h4{font-size:5mm}
+.nums>*{padding-left:8mm}.nums>*::before{width:5.6mm;height:5.6mm;font-size:3.4mm;line-height:5.6mm}
+table.t{font-size:1.15rem}table.t th,table.t td{font-size:1.15rem;padding:1.6mm 3mm}
+.fig svg{max-height:60mm}
+.test .qq{font-size:1.2rem;margin-bottom:1.4mm}.say h3,.mist h3{font-size:1.3rem}
+p,li{font-size:1.2rem}
+
+.hero p{color:#fff}
+.eq{break-inside:avoid;background:#fff;border:.3mm solid var(--c-l);border-radius:3.4mm;padding:2.6mm 4mm;margin:0 0 2.6mm;text-align:center}
+.eq .words{font:800 1.2rem/1.3 var(--font);color:var(--ink2)}
+.eq .sym{display:inline-block;margin:1.4mm 0;font:900 2rem/1.15 var(--font);color:var(--c-d);background:var(--c-ll);padding:1.6mm 5mm;border-radius:3mm}
+.eq .units{font:700 1rem var(--font);color:var(--muted)}.eq .units span{background:var(--soft);border-radius:5mm;padding:.4mm 2.4mm;margin:0 1mm;display:inline-block}
+.remember{break-inside:avoid;background:var(--mint-l);border-left:1.2mm solid var(--mint);border-radius:3.4mm;padding:2.6mm 4mm;margin-bottom:2.6mm;font:700 1.2rem/1.35 var(--font);color:var(--ink)}
+.warn b,.tip b{margin-right:1.6mm}
+.remember b:first-child{display:block;font-size:3mm;text-transform:uppercase;letter-spacing:.3mm;margin-bottom:.8mm}
+.flow{display:flex;flex-wrap:wrap;gap:2mm;margin:0 0 2.6mm;break-inside:avoid}
+.flow>div{flex:1 1 40mm;background:#fff;border:.3mm solid var(--c-l);border-radius:3mm;padding:2mm 3mm;text-align:center;font:800 1.15rem/1.3 var(--font);color:var(--ink)}
+.flow>div small{display:block;font:600 1rem var(--font);color:var(--muted)}.flow>span{align-self:center;font:900 1.6rem var(--font);color:var(--c)}
+.cols-4{display:block}.wide-right{display:block}
+[style*="font-size:52px"],[style*="font:900 72px"]{font-size:2.2rem !important}
+.card [style]{line-height:1.1}.card .sym{font-size:1.6rem}
+.tag{display:inline-block;font:900 2.6mm var(--font);text-transform:uppercase;background:var(--c);color:#fff;padding:.5mm 2.2mm;border-radius:5mm;margin-bottom:1mm}
+</style><style>.snav{position:sticky;top:0;z-index:5;display:flex;flex-wrap:wrap;gap:6px;background:var(--bg);padding:8px 0 10px;margin:0 0 6px}
+.snav button{font:800 14px var(--font);border:2px solid var(--c-l);background:#fff;color:var(--ink);border-radius:20px;padding:6px 12px;cursor:pointer}
+.snav button.on{background:var(--c);border-color:var(--c);color:#fff}
+.part{display:none}.part.on{display:block}.part .sec{position:static!important}
+.pn{display:flex;justify-content:space-between;gap:10px;margin:18px 0 0}.pn button{font:900 15px var(--font);border:0;background:var(--c);color:#fff;border-radius:22px;padding:10px 20px;cursor:pointer}.pn button[disabled]{opacity:.25}</style><style id="stepfix">.worked{counter-reset:st;border:2px solid var(--c-l)!important;padding:12px 16px!important}
+.worked .q{font-size:1.25rem!important;border-left:5px solid var(--c);margin-bottom:10px!important}
+.worked .q::before{content:"Worked example  ";font:900 .8rem var(--font);text-transform:uppercase;letter-spacing:.5px;color:var(--c-d);display:block}
+.worked .step{counter-increment:st;display:grid!important;grid-template-columns:78px 1fr;gap:10px;align-items:baseline;padding:7px 0;border-top:1px dashed var(--c-l);font-size:1.2rem!important}
+.worked .step i{min-width:0!important;font-size:.85rem!important;color:var(--c-d)!important}
+.worked .step i::before{content:"Step " counter(st) "";display:block;font-weight:900;color:var(--c)}
+.worked .ans{display:block!important;margin-top:10px;padding:8px 14px!important;border-radius:10px!important;font-size:1.25rem!important}
+.worked .ans::before{content:"Answer:  "}</style></head><body>
+<div class="hero"><div class="n">10</div><div><h1>Properties of Waves</h1><p>Physics · Unit 3 · Waves · Last-minute notes · Book pages 97–105</p></div></div>
+<div class="snav"><button type="button">Summary</button><button type="button">10.1 What is a wave?</button><button type="button">10.2 Describing waves and the wave equation</button><button type="button">10.3 Ripple tank, reflection and refraction</button><button type="button">10.4 The Doppler effect</button><button type="button">Test yourself</button></div><div class="cols"><div class="part"><div class="nutshell"><h4>Chapter in a nutshell</h4><ul style="margin:0;padding:0"><li>Waves transfer energy and information, not matter</li><li>Transverse: vibrations at 90° (light, water)</li><li>Longitudinal: vibrations parallel (sound)</li><li>Amplitude = rest position to crest</li><li>v = f × λ for all waves</li><li>f = 1 ÷ T (T in seconds)</li><li>Reflection: angle i = angle r, from the normal</li><li>Refraction: speed change → direction change</li><li>Doppler, approaching: shorter λ, higher f</li><li>Doppler, moving away: longer λ, lower f</li></ul></div><div class="pn"><button type="button" data-to="-1" disabled>◀ Back</button><button type="button" data-to="1">Next ▶</button></div></div><div class="part"><div class="sec"><b>1</b><span>What is a <em>wave?</em></span></div><div class="blk"><div class="sub">Waves carry <em>energy</em>, not matter</div></div><div class="blk"><div class="sub">The units for <em>waves</em></div>
+    <div class="wide-left">
+      <table class="t">
+        <tr><th style="font-size:30px;padding:22px 28px">Quantity</th><th style="font-size:30px;padding:22px 28px">Unit</th><th style="font-size:30px;padding:22px 28px">Symbol</th></tr>
+        <tr><td style="font-size:31px;padding:24px 28px">angle</td><td style="font-size:31px;padding:24px 28px">degree</td><td style="font-size:31px;padding:24px 28px">°</td></tr>
+        <tr><td style="font-size:31px;padding:24px 28px">frequency</td><td style="font-size:31px;padding:24px 28px">hertz</td><td style="font-size:31px;padding:24px 28px">Hz</td></tr>
+        <tr><td style="font-size:31px;padding:24px 28px">length (wavelength, amplitude)</td><td style="font-size:31px;padding:24px 28px">metre</td><td style="font-size:31px;padding:24px 28px">m</td></tr>
+        <tr><td style="font-size:31px;padding:24px 28px">speed</td><td style="font-size:31px;padding:24px 28px">metre per second</td><td style="font-size:31px;padding:24px 28px">m/s</td></tr>
+        <tr><td style="font-size:31px;padding:24px 28px">time (time period)</td><td style="font-size:31px;padding:24px 28px">second</td><td style="font-size:31px;padding:24px 28px">s</td></tr>
+      </table>
+      <div class="stack">
+        <div class="tip"><b>Exam tip</b>Always write the unit after your answer. A number with no unit can lose the mark.</div>
+        <div class="remember"><b>Remember</b>Change ms to s before you calculate: 5 ms = 0.005 s.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Transverse: vibrations at <em>90°</em></div></div><div class="blk"><div class="sub">Longitudinal: vibrations <em>along</em> the wave</div></div><div class="blk"><div class="sub">Transverse vs <em>longitudinal</em></div>
+    <table class="t">
+      <tr><th style="font-size:30px;padding:22px 28px"></th><th style="font-size:30px;padding:22px 28px">Transverse</th><th style="font-size:30px;padding:22px 28px">Longitudinal</th></tr>
+      <tr><td style="font-size:31px;padding:24px 28px">Vibrations</td><td style="font-size:31px;padding:24px 28px">at 90° to the energy transfer</td><td style="font-size:31px;padding:24px 28px">parallel to the energy transfer</td></tr>
+      <tr><td style="font-size:31px;padding:24px 28px">Features</td><td style="font-size:31px;padding:24px 28px">crests (peaks) and troughs</td><td style="font-size:31px;padding:24px 28px">compressions and rarefactions</td></tr>
+      <tr><td style="font-size:31px;padding:24px 28px">Examples</td><td style="font-size:31px;padding:24px 28px">light, all EM waves, water ripples, rope</td><td style="font-size:31px;padding:24px 28px">sound</td></tr>
+      <tr><td style="font-size:31px;padding:24px 28px">Slinky spring</td><td style="font-size:31px;padding:24px 28px">moved side to side</td><td style="font-size:31px;padding:24px 28px">pushed and pulled along its length</td></tr>
+    </table>
+    <div class="tip"><b>In simple words</b>Transverse = up-and-down wiggle. Longitudinal = push-and-pull squash.</div>
+  </div><div class="blk"><div class="sub">Drawing waves as <em>wavefronts</em></div></div><div class="pn"><button type="button" data-to="0">◀ Back</button><button type="button" data-to="2">Next ▶</button></div></div><div class="part"><div class="sec"><b>2</b><span>Describing waves and the <em>wave equation</em></span></div><div class="blk"><div class="sub">The parts of a <em>wave</em></div>
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 1000 590" aria-label="A wave with crest, trough, wavelength, amplitude and rest position labelled"><rect x="0" y="0" width="1000" height="590" rx="28" class="f-card"/><line x1="40" y1="290" x2="800" y2="290" class="dash"/><path d="M60 290 L64 280.4 L68 270.9 L72 261.4 L76 252.1 L80 243 L84 234.2 L88 225.7 L92 217.5 L96 209.8 L100 202.4 L104 195.6 L108 189.2 L112 183.4 L116 178.2 L120 173.6 L124 169.7 L128 166.4 L132 163.7 L136 161.8 L140 160.6 L144 160 L148 160.2 L152 161.1 L156 162.7 L160 165 L164 167.9 L168 171.6 L172 175.8 L176 180.8 L180 186.3 L184 192.3 L188 198.9 L192 206 L196 213.6 L200 221.6 L204 229.9 L208 238.6 L212 247.5 L216 256.7 L220 266.1 L224 275.6 L228 285.2 L232 294.8 L236 304.4 L240 313.9 L244 323.3 L248 332.5 L252 341.4 L256 350.1 L260 358.4 L264 366.4 L268 374 L272 381.1 L276 387.7 L280 393.7 L284 399.2 L288 404.2 L292 408.4 L296 412.1 L300 415 L304 417.3 L308 418.9 L312 419.8 L316 420 L320 419.4 L324 418.2 L328 416.3 L332 413.6 L336 410.3 L340 406.4 L344 401.8 L348 396.6 L352 390.8 L356 384.4 L360 377.6 L364 370.2 L368 362.5 L372 354.3 L376 345.8 L380 337 L384 327.9 L388 318.6 L392 309.1 L396 299.6 L400 290 L404 280.4 L408 270.9 L412 261.4 L416 252.1 L420 243 L424 234.2 L428 225.7 L432 217.5 L436 209.8 L440 202.4 L444 195.6 L448 189.2 L452 183.4 L456 178.2 L460 173.6 L464 169.7 L468 166.4 L472 163.7 L476 161.8 L480 160.6 L484 160 L488 160.2 L492 161.1 L496 162.7 L500 165 L504 167.9 L508 171.6 L512 175.8 L516 180.8 L520 186.3 L524 192.3 L528 198.9 L532 206 L536 213.6 L540 221.6 L544 229.9 L548 238.6 L552 247.5 L556 256.7 L560 266.1 L564 275.6 L568 285.2 L572 294.8 L576 304.4 L580 313.9 L584 323.3 L588 332.5 L592 341.4 L596 350.1 L600 358.4 L604 366.4 L608 374 L612 381.1 L616 387.7 L620 393.7 L624 399.2 L628 404.2 L632 408.4 L636 412.1 L640 415 L644 417.3 L648 418.9 L652 419.8 L656 420 L660 419.4 L664 418.2 L668 416.3 L672 413.6 L676 410.3 L680 406.4 L684 401.8 L688 396.6 L692 390.8 L696 384.4 L700 377.6 L704 370.2 L708 362.5 L712 354.3 L716 345.8 L720 337 L724 327.9 L728 318.6 L732 309.1 L736 299.6 L740 290" class="ln-c"/><line x1="485" y1="160" x2="800" y2="160" class="dash"/><line x1="780" y1="168" x2="780" y2="282" class="ln s-pink" style="stroke-width:6"/><path d="M769.8 267.1 L780 282 L790.2 267.1" class="ln s-pink"/><path d="M790.2 182.9 L780 168 L769.8 182.9" class="ln s-pink"/><rect x="800" y="195" width="190" height="50" rx="25.0" class="pill"/><text x="895" y="228" class="lbl-s" text-anchor="middle">amplitude A</text><rect x="800" y="275" width="190" height="50" rx="25.0" class="pill"/><text x="895" y="308" class="lbl-s" text-anchor="middle">rest position</text><rect x="90" y="90" width="110" height="50" rx="25.0" class="pill"/><text x="145" y="123" class="lbl-s" text-anchor="middle">crest</text><rect x="140" y="445" width="120" height="50" rx="25.0" class="pill"/><text x="200" y="478" class="lbl-s" text-anchor="middle">trough</text><line x1="315" y1="432" x2="315" y2="500" class="dash"/><line x1="655" y1="432" x2="655" y2="500" class="dash"/><line x1="322" y1="490" x2="648" y2="490" class="ln"/><path d="M633.1 500.2 L648 490 L633.1 479.8" class="ln"/><path d="M336.9 479.8 L322 490 L336.9 500.2" class="ln"/><rect x="385" y="520" width="200" height="50" rx="25.0" class="pill"/><text x="485" y="553" class="lbl-s" text-anchor="middle">wavelength λ</text></svg></div>
+      <div class="stack">
+        <div class="card tint"><h3>Wavelength λ</h3><p>From one point on a wave to the same point on the next wave, e.g. crest to crest.</p></div>
+        <div class="card tint"><h3>Amplitude A</h3><p>From the rest position up to a crest.</p></div>
+        <div class="warn"><b>Common mistake</b>Amplitude is <strong>not</strong> crest to trough.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Five words and their <em>units</em></div>
+    <table class="t">
+      <tr><th style="width:300px;font-size:30px;padding:22px 28px">Word</th><th style="font-size:30px;padding:22px 28px">Meaning</th><th style="width:110px;font-size:30px;padding:22px 28px">Unit</th></tr>
+      <tr><td style="font-size:31px;padding:24px 28px">Amplitude (A)</td><td style="font-size:31px;padding:24px 28px">The maximum movement of particles from their resting or equilibrium position.</td><td style="font-size:31px;padding:24px 28px">m</td></tr>
+      <tr><td style="font-size:31px;padding:24px 28px">Wavelength (λ)</td><td style="font-size:31px;padding:24px 28px">The distance between a particular point on a wave and the same point on the next wave.</td><td style="font-size:31px;padding:24px 28px">m</td></tr>
+      <tr><td style="font-size:31px;padding:24px 28px">Frequency (f)</td><td style="font-size:31px;padding:24px 28px">The number of waves produced each second (5 waves per second = 5 Hz).</td><td style="font-size:31px;padding:24px 28px">Hz</td></tr>
+      <tr><td style="font-size:31px;padding:24px 28px">Time period (T)</td><td style="font-size:31px;padding:24px 28px">The time taken for a source to produce one complete wave.</td><td style="font-size:31px;padding:24px 28px">s</td></tr>
+      <tr><td style="font-size:31px;padding:24px 28px">Wavefront</td><td style="font-size:31px;padding:24px 28px">A line joining points vibrating in phase, the same distance from the source.</td><td style="font-size:31px;padding:24px 28px">–</td></tr>
+    </table>
+  </div><div class="blk"><div class="sub">Frequency = 1 ÷ <em>time period</em></div>
+    <div class="cols-2">
+      <div class="stack">
+        <div class="eq"><div class="words">frequency = 1 ÷ time period</div><div class="sym">f = 1 ÷ T</div>
+          <div class="units"><span>f in Hz</span><span>T in s</span></div></div>
+        <div class="card yellow"><h3>Turn it round</h3><p>T = 1 ÷ f. Short time for one wave → lots of waves each second → high frequency.</p></div>
+      </div>
+      <div class="worked">
+        <div class="q">A source has a frequency of 200 Hz. Find the time period.</div>
+        <div class="step"><i>Write down</i>f = 200 Hz, T = ?</div>
+        <div class="step"><i>Equation</i>T = 1 ÷ f</div>
+        <div class="step"><i>Substitute</i>T = 1 ÷ 200</div>
+        <div class="ans">T = 0.005 s (5 ms)</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Finding <em>T</em> from a graph</div>
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 900 590" aria-label="Displacement-time graph: one complete wave takes 5 ms"><rect x="0" y="0" width="900" height="590" rx="28" class="f-card"/><line x1="110" y1="300" x2="840.8" y2="300" class="ln"/><line x1="110" y1="500" x2="110" y2="60" class="ln"/><path d="M121.3 66.5 L110 50 L98.7 66.5" class="ln"/><path d="M841.7 311.3 L858.2 300 L841.7 288.7" class="ln"/><line x1="168" y1="292" x2="168" y2="308" class="thin"/><text x="168" y="500" class="lbl-s" text-anchor="middle">1</text><line x1="226" y1="292" x2="226" y2="308" class="thin"/><text x="226" y="500" class="lbl-s" text-anchor="middle">2</text><line x1="284" y1="292" x2="284" y2="308" class="thin"/><text x="284" y="500" class="lbl-s" text-anchor="middle">3</text><line x1="342" y1="292" x2="342" y2="308" class="thin"/><text x="342" y="500" class="lbl-s" text-anchor="middle">4</text><line x1="400" y1="292" x2="400" y2="308" class="thin"/><text x="400" y="500" class="lbl-s" text-anchor="middle">5</text><line x1="458" y1="292" x2="458" y2="308" class="thin"/><text x="458" y="500" class="lbl-s" text-anchor="middle">6</text><line x1="516" y1="292" x2="516" y2="308" class="thin"/><text x="516" y="500" class="lbl-s" text-anchor="middle">7</text><line x1="574" y1="292" x2="574" y2="308" class="thin"/><text x="574" y="500" class="lbl-s" text-anchor="middle">8</text><line x1="632" y1="292" x2="632" y2="308" class="thin"/><text x="632" y="500" class="lbl-s" text-anchor="middle">9</text><line x1="690" y1="292" x2="690" y2="308" class="thin"/><text x="690" y="500" class="lbl-s" text-anchor="middle">10</text><line x1="748" y1="292" x2="748" y2="308" class="thin"/><text x="748" y="500" class="lbl-s" text-anchor="middle">11</text><line x1="806" y1="292" x2="806" y2="308" class="thin"/><text x="806" y="500" class="lbl-s" text-anchor="middle">12</text><path d="M110 300 L112.9 290.6 L115.8 281.2 L118.7 271.9 L121.6 262.7 L124.5 253.6 L127.4 244.8 L130.3 236.1 L133.2 227.7 L136.1 219.6 L139 211.8 L141.9 204.4 L144.8 197.3 L147.7 190.7 L150.6 184.4 L153.5 178.6 L156.4 173.4 L159.3 168.6 L162.2 164.3 L165.1 160.5 L168 157.3 L170.9 154.7 L173.8 152.7 L176.7 151.2 L179.6 150.3 L182.5 150 L185.4 150.3 L188.3 151.2 L191.2 152.7 L194.1 154.7 L197 157.3 L199.9 160.5 L202.8 164.3 L205.7 168.6 L208.6 173.4 L211.5 178.6 L214.4 184.4 L217.3 190.7 L220.2 197.3 L223.1 204.4 L226 211.8 L228.9 219.6 L231.8 227.7 L234.7 236.1 L237.6 244.8 L240.5 253.6 L243.4 262.7 L246.3 271.9 L249.2 281.2 L252.1 290.6 L255 300 L257.9 309.4 L260.8 318.8 L263.7 328.1 L266.6 337.3 L269.5 346.4 L272.4 355.2 L275.3 363.9 L278.2 372.3 L281.1 380.4 L284 388.2 L286.9 395.6 L289.8 402.7 L292.7 409.3 L295.6 415.6 L298.5 421.4 L301.4 426.6 L304.3 431.4 L307.2 435.7 L310.1 439.5 L313 442.7 L315.9 445.3 L318.8 447.3 L321.7 448.8 L324.6 449.7 L327.5 450 L330.4 449.7 L333.3 448.8 L336.2 447.3 L339.1 445.3 L342 442.7 L344.9 439.5 L347.8 435.7 L350.7 431.4 L353.6 426.6 L356.5 421.4 L359.4 415.6 L362.3 409.3 L365.2 402.7 L368.1 395.6 L371 388.2 L373.9 380.4 L376.8 372.3 L379.7 363.9 L382.6 355.2 L385.5 346.4 L388.4 337.3 L391.3 328.1 L394.2 318.8 L397.1 309.4 L400 300 L402.9 290.6 L405.8 281.2 L408.7 271.9 L411.6 262.7 L414.5 253.6 L417.4 244.8 L420.3 236.1 L423.2 227.7 L426.1 219.6 L429 211.8 L431.9 204.4 L434.8 197.3 L437.7 190.7 L440.6 184.4 L443.5 178.6 L446.4 173.4 L449.3 168.6 L452.2 164.3 L455.1 160.5 L458 157.3 L460.9 154.7 L463.8 152.7 L466.7 151.2 L469.6 150.3 L472.5 150 L475.4 150.3 L478.3 151.2 L481.2 152.7 L484.1 154.7 L487 157.3 L489.9 160.5 L492.8 164.3 L495.7 168.6 L498.6 173.4 L501.5 178.6 L504.4 184.4 L507.3 190.7 L510.2 197.3 L513.1 204.4 L516 211.8 L518.9 219.6 L521.8 227.7 L524.7 236.1 L527.6 244.8 L530.5 253.6 L533.4 262.7 L536.3 271.9 L539.2 281.2 L542.1 290.6 L545 300 L547.9 309.4 L550.8 318.8 L553.7 328.1 L556.6 337.3 L559.5 346.4 L562.4 355.2 L565.3 363.9 L568.2 372.3 L571.1 380.4 L574 388.2 L576.9 395.6 L579.8 402.7 L582.7 409.3 L585.6 415.6 L588.5 421.4 L591.4 426.6 L594.3 431.4 L597.2 435.7 L600.1 439.5 L603 442.7 L605.9 445.3 L608.8 447.3 L611.7 448.8 L614.6 449.7 L617.5 450 L620.4 449.7 L623.3 448.8 L626.2 447.3 L629.1 445.3 L632 442.7 L634.9 439.5 L637.8 435.7 L640.7 431.4 L643.6 426.6 L646.5 421.4 L649.4 415.6 L652.3 409.3 L655.2 402.7 L658.1 395.6 L661 388.2 L663.9 380.4 L666.8 372.3 L669.7 363.9 L672.6 355.2 L675.5 346.4 L678.4 337.3 L681.3 328.1 L684.2 318.8 L687.1 309.4 L690 300 L692.9 290.6 L695.8 281.2 L698.7 271.9 L701.6 262.7 L704.5 253.6 L707.4 244.8 L710.3 236.1 L713.2 227.7 L716.1 219.6 L719 211.8 L721.9 204.4 L724.8 197.3 L727.7 190.7 L730.6 184.4 L733.5 178.6 L736.4 173.4 L739.3 168.6 L742.2 164.3 L745.1 160.5 L748 157.3 L750.9 154.7 L753.8 152.7 L756.7 151.2 L759.6 150.3 L762.5 150 L765.4 150.3 L768.3 151.2 L771.2 152.7 L774.1 154.7 L777 157.3 L779.9 160.5 L782.8 164.3 L785.7 168.6 L788.6 173.4 L791.5 178.6 L794.4 184.4 L797.3 190.7 L800.2 197.3 L803.1 204.4 L806 211.8" class="ln-c"/><line x1="182.5" y1="150" x2="182.5" y2="95" class="dash"/><line x1="472.5" y1="150" x2="472.5" y2="95" class="dash"/><line x1="188.5" y1="100" x2="466.5" y2="100" class="ln s-pink" style="stroke-width:5"/><path d="M453.3 109 L466.5 100 L453.3 91" class="ln s-pink"/><path d="M201.7 91 L188.5 100 L201.7 109" class="ln s-pink"/><rect x="187.5" y="30" width="280" height="50" rx="25.0" class="pill"/><text x="327.5" y="63" class="lbl-s" text-anchor="middle">one wave: T = 5 ms</text><text x="475.4" y="560" class="lbl" text-anchor="middle">time / ms</text><line x1="110" y1="470" x2="823.4000000000001" y2="470" class="thin" style="opacity:.3"/><text x="48" y="300" class="lbl" text-anchor="middle" transform="rotate(-90 48 300)">displacement</text></svg></div>
+      <div class="stack">
+        <ol class="nums small">
+          <li>Find one complete wave (crest to crest).</li>
+          <li>Read its time: that is <strong>T</strong>.</li>
+          <li>Change to seconds, then use f = 1 ÷ T.</li>
+        </ol>
+        <div class="worked">
+          <div class="step"><i>Write down</i>T = 5 ms = 0.005 s</div>
+          <div class="step"><i>Substitute</i>f = 1 ÷ 0.005</div>
+          <div class="ans">f = 200 Hz</div>
+        </div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Wave speed = <em>f × λ</em></div></div><div class="blk"><div class="sub">A <em>tuning fork</em></div></div><div class="blk"><div class="sub">Sound in <em>water</em></div>
+    <div class="wide-left">
+      <div class="worked">
+        <div class="q">Sound travels through water at 1500 m/s. The wavelength is 1.5 m. Find the frequency and the time period.</div>
+        <div class="step"><i>Write down</i>v = 1500 m/s, λ = 1.5 m</div>
+        <div class="step"><i>Equation</i>f = v ÷ λ = 1500 ÷ 1.5</div>
+        <div class="ans">f = 1000 Hz</div>
+      </div>
+      <div class="stack">
+        <div class="card mint"><h3>Step 2: time period</h3><p>T = 1 ÷ f = 1 ÷ 1000</p><p><strong>T = 0.001 s</strong></p></div>
+        <div class="tip"><b>Exam tip</b>Using one answer in the next equation is very common.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Using v = f × λ for <em>light and radio</em></div>
+    <div class="wide-left">
+      <div class="worked">
+        <div class="q">A radio wave has a wavelength of 1500 m. Radio waves travel at 300 000 000 m/s. Find the frequency.</div>
+        <div class="step"><i>Write down</i>v = 300 000 000 m/s, λ = 1500 m</div>
+        <div class="step"><i>Equation</i>f = v ÷ λ</div>
+        <div class="step"><i>Substitute</i>f = 300 000 000 ÷ 1500</div>
+        <div class="ans">f = 200 000 Hz</div>
+      </div>
+      <div class="stack">
+        <div class="card sky"><h3>Same equation</h3><p>Light and radio waves are electromagnetic waves. v = f × λ works for them too.</p></div>
+        <div class="remember"><b>Check</b>Huge speed ÷ wavelength in m → frequency in Hz.</div>
+      </div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="1">◀ Back</button><button type="button" data-to="3">Next ▶</button></div></div><div class="part"><div class="sec"><b>3</b><span>Ripple tank, reflection and <em>refraction</em></span></div><div class="blk"><div class="sub">Watching waves in a <em>ripple tank</em></div>
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 920 600" aria-label="Ripple tank: motor vibrates a bar in water, a lamp above projects the wave pattern onto the floor"><rect x="0" y="0" width="920" height="600" rx="28" class="f-card"/><circle cx="450" cy="80" r="40" class="f-yellow"/><circle cx="450" cy="80" r="40" class="ln"/><line x1="405.0" y1="135" x2="333.0" y2="225" class="ln s-yellow" style="stroke-width:6"/><line x1="450.0" y1="135" x2="450.0" y2="225" class="ln s-yellow" style="stroke-width:6"/><line x1="495.0" y1="135" x2="567.0" y2="225" class="ln s-yellow" style="stroke-width:6"/><rect x="535" y="55" width="110" height="50" rx="25.0" class="pill"/><text x="590" y="88" class="lbl-s" text-anchor="middle">lamp</text><rect x="160" y="250" width="600" height="80" rx="10" class="f-sky"/><path d="M160 262 L164 259.2 L168 256.8 L172 255.3 L176 255 L180 255.9 L184 257.9 L188 260.5 L192 263.5 L196 266.1 L200 268.1 L204 269 L208 268.7 L212 267.2 L216 264.8 L220 262 L224 259.2 L228 256.8 L232 255.3 L236 255 L240 255.9 L244 257.9 L248 260.5 L252 263.5 L256 266.1 L260 268.1 L264 269 L268 268.7 L272 267.2 L276 264.8 L280 262 L284 259.2 L288 256.8 L292 255.3 L296 255 L300 255.9 L304 257.9 L308 260.5 L312 263.5 L316 266.1 L320 268.1 L324 269 L328 268.7 L332 267.2 L336 264.8 L340 262 L344 259.2 L348 256.8 L352 255.3 L356 255 L360 255.9 L364 257.9 L368 260.5 L372 263.5 L376 266.1 L380 268.1 L384 269 L388 268.7 L392 267.2 L396 264.8 L400 262 L404 259.2 L408 256.8 L412 255.3 L416 255 L420 255.9 L424 257.9 L428 260.5 L432 263.5 L436 266.1 L440 268.1 L444 269 L448 268.7 L452 267.2 L456 264.8 L460 262 L464 259.2 L468 256.8 L472 255.3 L476 255 L480 255.9 L484 257.9 L488 260.5 L492 263.5 L496 266.1 L500 268.1 L504 269 L508 268.7 L512 267.2 L516 264.8 L520 262 L524 259.2 L528 256.8 L532 255.3 L536 255 L540 255.9 L544 257.9 L548 260.5 L552 263.5 L556 266.1 L560 268.1 L564 269 L568 268.7 L572 267.2 L576 264.8 L580 262 L584 259.2 L588 256.8 L592 255.3 L596 255 L600 255.9 L604 257.9 L608 260.5 L612 263.5 L616 266.1 L620 268.1 L624 269 L628 268.7 L632 267.2 L636 264.8 L640 262 L644 259.2 L648 256.8 L652 255.3 L656 255 L660 255.9 L664 257.9 L668 260.5 L672 263.5 L676 266.1 L680 268.1 L684 269 L688 268.7 L692 267.2 L696 264.8 L700 262 L704 259.2 L708 256.8 L712 255.3 L716 255 L720 255.9 L724 257.9 L728 260.5 L732 263.5 L736 266.1 L740 268.1 L744 269 L748 268.7 L752 267.2 L756 264.8 L760 262" class="ln s-sky" style="stroke-width:5"/><path d="M150 240 L150 340 L770 340 L770 240" class="ln"/><rect x="800" y="265" width="120" height="50" rx="25.0" class="pill"/><text x="860" y="298" class="lbl-s" text-anchor="middle">water</text><line x1="180" y1="340" x2="180" y2="470" class="ln"/><line x1="740" y1="340" x2="740" y2="470" class="ln"/><rect x="190" y="185" width="80" height="55" rx="12" class="f-pink"/><rect x="190" y="185" width="80" height="55" rx="12" class="ln"/><rect x="215" y="240" width="22" height="40" rx="6" class="f-cc"/><rect x="50" y="140" width="120" height="50" rx="25.0" class="pill"/><text x="110" y="173" class="lbl-s" text-anchor="middle">motor</text><rect x="25" y="370" width="170" height="50" rx="25.0" class="pill"/><text x="110" y="403" class="lbl-s" text-anchor="middle">wooden bar</text><path d="M150 380 C185 360 205 330 220 290" class="thin"/><line x1="60" y1="480" x2="860" y2="480" class="ln"/><rect x="210" y="490" width="26" height="22" rx="6" class="f-cc" style="opacity:.75"/><rect x="266" y="490" width="26" height="22" rx="6" class="f-cc" style="opacity:.75"/><rect x="322" y="490" width="26" height="22" rx="6" class="f-cc" style="opacity:.75"/><rect x="378" y="490" width="26" height="22" rx="6" class="f-cc" style="opacity:.75"/><rect x="434" y="490" width="26" height="22" rx="6" class="f-cc" style="opacity:.75"/><rect x="490" y="490" width="26" height="22" rx="6" class="f-cc" style="opacity:.75"/><rect x="546" y="490" width="26" height="22" rx="6" class="f-cc" style="opacity:.75"/><rect x="602" y="490" width="26" height="22" rx="6" class="f-cc" style="opacity:.75"/><rect x="658" y="490" width="26" height="22" rx="6" class="f-cc" style="opacity:.75"/><rect x="714" y="490" width="26" height="22" rx="6" class="f-cc" style="opacity:.75"/><rect x="280" y="535" width="360" height="50" rx="25.0" class="pill"/><text x="460" y="568" class="lbl-s" text-anchor="middle">wave pattern on the floor</text></svg></div>
+      <div class="stack" style="justify-content:space-between">
+      <ol class="nums">
+        <li>A motor makes a wooden bar vibrate. This makes ripples on the water.</li>
+        <li>A lamp above shines down through the water.</li>
+        <li>The wave pattern shows on the floor, so we can study how waves behave.</li>
+      </ol>
+      <div class="tip"><b>In simple words</b>A mini sea in a tray: the pattern on the floor lets us see the waves clearly.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Change <em>f</em>, change <em>λ</em></div></div><div class="blk"><div class="sub">All waves can be <em>reflected</em></div>
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 900 590" aria-label="Law of reflection: angle of incidence equals angle of reflection, measured from the normal"><rect x="0" y="0" width="900" height="590" rx="28" class="f-card"/><rect x="100" y="450" width="700" height="40" rx="8" class="f-lilac"/><line x1="100" y1="450" x2="800" y2="450" class="ln"/><line x1="450" y1="450" x2="450" y2="170" class="dash"/><line x1="190" y1="190" x2="320" y2="320" class="ln-c"/><path d="M296.4 315.6 L320 320 L315.6 296.4" class="ln-c"/><line x1="300" y1="300" x2="450" y2="450" class="ln-c"/><line x1="450" y1="450" x2="580" y2="320" class="ln-c"/><line x1="560" y1="340" x2="710" y2="190" class="ln-c"/><path d="M705.6 213.6 L710 190 L686.4 194.4" class="ln-c"/><path d="M450 340 A110 110 0 0 0 372.2 372.2" class="ln s-pink" style="stroke-width:5"/><path d="M450 340 A110 110 0 0 1 527.8 372.2" class="ln s-pink" style="stroke-width:5"/><text x="392.6" y="323.4" class="lbl-c" text-anchor="middle">i</text><text x="507.4" y="323.4" class="lbl-c" text-anchor="middle">r</text><rect x="385" y="105" width="130" height="50" rx="25.0" class="pill"/><text x="450" y="138" class="lbl-s" text-anchor="middle">normal</text><rect x="115" y="105" width="150" height="50" rx="25.0" class="pill"/><text x="190" y="138" class="lbl-s" text-anchor="middle">incident</text><rect x="630" y="105" width="160" height="50" rx="25.0" class="pill"/><text x="710" y="138" class="lbl-s" text-anchor="middle">reflected</text><rect x="380" y="515" width="140" height="50" rx="25.0" class="pill"/><text x="450" y="548" class="lbl-s" text-anchor="middle">barrier</text></svg></div>
+      <div class="stack">
+        <div class="eq"><div class="words">law of reflection</div><div class="sym" style="font-size:52px">angle i = angle r</div></div>
+        <div class="def"><span class="term">Normal</span><p>A line drawn at right angles to a surface.</p></div>
+        <div class="warn"><b>Common mistake</b>Measure both angles from the normal, not from the surface.</div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">Curved <em>barriers</em></div>
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 900 540" aria-label="A concave barrier makes waves converge; a convex barrier makes them diverge"><rect x="0" y="0" width="900" height="540" rx="28" class="f-card"/><path d="M292.8 47.9 A330 330 0 0 1 292.8 472.1" class="ln" style="stroke-width:10"/><line x1="40" y1="170" x2="150" y2="170" class="ln-c"/><path d="M136.8 179 L150 170 L136.8 161" class="ln-c"/><line x1="140" y1="170" x2="357.5" y2="170" class="ln-c"/><line x1="357.5" y1="170" x2="229.8" y2="248.7" class="ln s-pink" style="stroke-width:5"/><line x1="40" y1="215" x2="150" y2="215" class="ln-c"/><path d="M136.8 224 L150 215 L136.8 206" class="ln-c"/><line x1="140" y1="215" x2="366.9" y2="215" class="ln-c"/><line x1="366.9" y1="215" x2="222.5" y2="255.5" class="ln s-pink" style="stroke-width:5"/><line x1="40" y1="305" x2="150" y2="305" class="ln-c"/><path d="M136.8 314 L150 305 L136.8 296" class="ln-c"/><line x1="140" y1="305" x2="366.9" y2="305" class="ln-c"/><line x1="366.9" y1="305" x2="222.5" y2="264.5" class="ln s-pink" style="stroke-width:5"/><line x1="40" y1="350" x2="150" y2="350" class="ln-c"/><path d="M136.8 359 L150 350 L136.8 341" class="ln-c"/><line x1="140" y1="350" x2="357.5" y2="350" class="ln-c"/><line x1="357.5" y1="350" x2="229.8" y2="271.3" class="ln s-pink" style="stroke-width:5"/><rect x="60" y="465" width="300" height="50" rx="25.0" class="pill"/><text x="210" y="498" class="lbl-s" text-anchor="middle">concave → converge</text><path d="M670.2 67.2 A300 300 0 0 0 670.2 452.8" class="ln" style="stroke-width:10"/><line x1="470" y1="170" x2="540" y2="170" class="ln-c"/><path d="M526.8 179 L540 170 L526.8 161" class="ln-c"/><line x1="530" y1="170" x2="613.8" y2="170" class="ln-c"/><line x1="613.8" y1="170" x2="507.2" y2="95.6" class="ln s-pink" style="stroke-width:5"/><line x1="470" y1="215" x2="540" y2="215" class="ln-c"/><path d="M526.8 224 L540 215 L526.8 206" class="ln-c"/><line x1="530" y1="215" x2="603.4" y2="215" class="ln-c"/><line x1="603.4" y1="215" x2="479.2" y2="176.4" class="ln s-pink" style="stroke-width:5"/><line x1="470" y1="305" x2="540" y2="305" class="ln-c"/><path d="M526.8 314 L540 305 L526.8 296" class="ln-c"/><line x1="530" y1="305" x2="603.4" y2="305" class="ln-c"/><line x1="603.4" y1="305" x2="479.2" y2="343.6" class="ln s-pink" style="stroke-width:5"/><line x1="470" y1="350" x2="540" y2="350" class="ln-c"/><path d="M526.8 359 L540 350 L526.8 341" class="ln-c"/><line x1="530" y1="350" x2="613.8" y2="350" class="ln-c"/><line x1="613.8" y1="350" x2="507.2" y2="424.4" class="ln s-pink" style="stroke-width:5"/><rect x="545" y="465" width="270" height="50" rx="25.0" class="pill"/><text x="680" y="498" class="lbl-s" text-anchor="middle">convex → diverge</text></svg></div>
+      <div class="stack">
+        <div class="card mint"><h3>Concave</h3><p>Makes waves converge (come together). Used in radio telescope dishes and make-up mirrors.</p></div>
+        <div class="card peach"><h3>Convex</h3><p>Makes waves diverge (spread out).</p></div>
+      </div>
+    </div>
+  </div><div class="blk"><div class="sub">All waves can be <em>refracted</em></div></div><div class="blk"><div class="sub">Refraction tricks your <em>eyes</em></div>
+    <div class="wide-left">
+      <div class="fig"><svg viewBox="0 0 900 580" aria-label="A fish looks shallower than it really is because light refracts at the water surface"><rect x="0" y="0" width="900" height="580" rx="28" class="f-card"/><rect x="40" y="250" width="820" height="310" class="f-sky"/><line x1="40" y1="250" x2="860" y2="250" class="ln"/><path d="M283 470 C313 438 373 438 393 470 C373 502 313 502 283 470 Z" class="f-peach"/><path d="M283 470 C313 438 373 438 393 470 C373 502 313 502 283 470 Z M393 470 L423 448 L423 492 Z" class="ln" style="stroke-width:5"/><path d="M283 393 C313 361 373 361 393 393 C373 425 313 425 283 393 Z" class="f-card"/><path d="M283 393 C313 361 373 361 393 393 C373 425 313 425 283 393 Z M393 393 L423 371 L423 415 Z" class="ln" style="stroke-width:5;stroke-dasharray:12 10"/><line x1="373" y1="418" x2="470" y2="250" class="ln-c"/><path d="M422.5 354.9 L421 335 L403 343.6" class="ln-c"/><line x1="470" y1="250" x2="611" y2="91" class="ln-c"/><path d="M547.3 180.2 L549.8 160.4 L530.4 165.2" class="ln-c"/><line x1="470" y1="250" x2="383" y2="348" class="dash"/><path d="M581 80 Q621 50 661 80 Q621 110 581 80 Z" class="f-card"/><path d="M581 80 Q621 50 661 80 Q621 110 581 80 Z" class="ln" style="stroke-width:5"/><circle cx="621" cy="80" r="10" class="f-cc"/><rect x="715" y="55" width="90" height="50" rx="25.0" class="pill"/><text x="760" y="88" class="lbl-s" text-anchor="middle">eye</text><rect x="75" y="368" width="140" height="50" rx="25.0" class="pill"/><text x="145" y="401" class="lbl-s" text-anchor="middle">appears</text><rect x="95" y="445" width="100" height="50" rx="25.0" class="pill"/><text x="145" y="478" class="lbl-s" text-anchor="middle">real</text><rect x="110" y="175" width="80" height="50" rx="25.0" class="pill"/><text x="150" y="208" class="lbl-s" text-anchor="middle">air</text><rect x="660" y="475" width="120" height="50" rx="25.0" class="pill"/><text x="720" y="508" class="lbl-s" text-anchor="middle">water</text></svg></div>
+      <div class="stack">
+        <div class="card peach"><h3>Shallow-looking fish</h3><p>A fish looks higher than it really is. A hunter must aim below where it appears.</p></div>
+        <div class="card tint"><h3>Bent pencil</h3><p>A pencil in water looks bent at the surface.</p></div>
+        <div class="card yellow"><h3>Extension: lenses</h3><p>Lenses in cameras, microscopes and telescopes refract light to form images.</p></div>
+      </div>
+    </div>
+  </div><div class="pn"><button type="button" data-to="2">◀ Back</button><button type="button" data-to="4">Next ▶</button></div></div><div class="part"><div class="sec"><b>4</b><span>The <em>Doppler effect</em></span></div><div class="blk"><div class="sub">When the source <em>moves</em></div></div><div class="blk"><div class="sub">Approaching vs <em>moving away</em></div>
+    <div class="cols-2">
+      <div class="fig"><svg viewBox="0 0 860 510" aria-label="Source moving towards B: B hears a higher frequency, A hears a lower frequency"><rect x="0" y="0" width="860" height="510" rx="28" class="f-card"/><circle cx="496" cy="230" r="48" class="ln-c" style="stroke-width:5"/><circle cx="472" cy="230" r="96" class="ln-c" style="stroke-width:5"/><circle cx="448" cy="230" r="144" class="ln-c" style="stroke-width:5"/><circle cx="424" cy="230" r="192" class="ln-c" style="stroke-width:5"/><circle cx="520" cy="230" r="16" class="f-cc"/><line x1="512" y1="230" x2="565" y2="230" class="ln" style="stroke-width:5"/><path d="M553.4 237.9 L565 230 L553.4 222.1" class="ln"/><circle cx="60" cy="230" r="26" class="f-peach"/><circle cx="60" cy="230" r="26" class="ln" style="stroke-width:5"/><text x="60" y="241" class="lbl" text-anchor="middle">A</text><circle cx="800" cy="230" r="26" class="f-mint"/><circle cx="800" cy="230" r="26" class="ln" style="stroke-width:5"/><text x="800" y="241" class="lbl" text-anchor="middle">B</text><rect x="55" y="445" width="230" height="50" rx="25.0" class="pill"/><text x="170" y="478" class="lbl-s" text-anchor="middle">A: lower pitch</text><rect x="570" y="445" width="240" height="50" rx="25.0" class="pill"/><text x="690" y="478" class="lbl-s" text-anchor="middle">B: higher pitch</text></svg></div>
+      <table class="t">
+        <tr><th style="font-size:30px;padding:22px 28px"></th><th style="font-size:30px;padding:22px 28px">In front (B)</th><th style="font-size:30px;padding:22px 28px">Behind (A)</th></tr>
+        <tr><td style="font-size:31px;padding:24px 28px">Wavefronts</td><td style="font-size:31px;padding:24px 28px">closer together</td><td style="font-size:31px;padding:24px 28px">further apart</td></tr>
+        <tr><td style="font-size:31px;padding:24px 28px">Wavelength</td><td style="font-size:31px;padding:24px 28px">shorter</td><td style="font-size:31px;padding:24px 28px">longer</td></tr>
+        <tr><td style="font-size:31px;padding:24px 28px">Frequency</td><td style="font-size:31px;padding:24px 28px">higher</td><td style="font-size:31px;padding:24px 28px">lower</td></tr>
+        <tr><td style="font-size:31px;padding:24px 28px">Sound</td><td style="font-size:31px;padding:24px 28px">higher pitch</td><td style="font-size:31px;padding:24px 28px">lower pitch</td></tr>
+      </table>
+    </div>
+  </div><div class="blk"><div class="sub">What the Doppler effect <em>is</em></div>
+    <div class="def"><span class="term">Doppler effect</span><p>The change in the observed frequency and wavelength of a wave when its source is moving relative to the observer.</p></div>
+    <div class="cols-3" style="flex:none">
+      <div class="card mint"><h3>All waves</h3><p>Sound, light, water waves…</p></div>
+      <div class="card yellow"><h3>Faster source</h3><p>Bigger effect: even higher or even lower.</p></div>
+      <div class="card pink"><h3>Police siren</h3><p>Higher as it comes towards you, lower as it goes away.</p></div>
+    </div>
+    <div class="flow"><div>Source comes towards you</div><span>→</span><div>Wavefronts squashed</div><span>→</span><div>Shorter λ</div><span>→</span><div>Higher f</div></div>
+  </div><div class="blk"><div class="sub">Common <em>mistakes</em></div>
+    <div class="cols-2">
+      <div class="warn"><b>"The water moves with the wave"</b>No. Waves transfer energy, not matter. The water moves up and down.</div>
+      <div class="warn"><b>"The source changes its frequency"</b>No. Only the observed frequency changes, because the wavefronts are squashed or stretched.</div>
+      <div class="warn"><b>Amplitude crest to trough</b>No. Measure from the rest position to a crest.</div>
+      <div class="warn"><b>Milliseconds in f = 1 ÷ T</b>Change to seconds first: 5 ms = 0.005 s.</div>
+    </div>
+  </div><div class="blk"><div class="sub">All the <em>equations</em></div>
+    <table class="t">
+      <tr><th style="font-size:30px;padding:22px 28px">Equation</th><th style="font-size:30px;padding:22px 28px">In words</th><th style="font-size:30px;padding:22px 28px">Book example</th></tr>
+      <tr><td style="font-size:31px;padding:24px 28px">v = f × λ</td><td style="font-size:31px;padding:24px 28px">wave speed (m/s) = frequency (Hz) × wavelength (m)</td><td style="font-size:31px;padding:24px 28px">4 × 3 = 12 m/s</td></tr>
+      <tr><td style="font-size:31px;padding:24px 28px">λ = v ÷ f</td><td style="font-size:31px;padding:24px 28px">wavelength = wave speed ÷ frequency</td><td style="font-size:31px;padding:24px 28px">340 ÷ 170 = 2 m</td></tr>
+      <tr><td style="font-size:31px;padding:24px 28px">f = v ÷ λ</td><td style="font-size:31px;padding:24px 28px">frequency = wave speed ÷ wavelength</td><td style="font-size:31px;padding:24px 28px">1500 ÷ 1.5 = 1000 Hz</td></tr>
+      <tr><td style="font-size:31px;padding:24px 28px">f = 1 ÷ T</td><td style="font-size:31px;padding:24px 28px">frequency (Hz) = 1 ÷ time period (s)</td><td style="font-size:31px;padding:24px 28px">1 ÷ 0.005 = 200 Hz</td></tr>
+      <tr><td style="font-size:31px;padding:24px 28px">T = 1 ÷ f</td><td style="font-size:31px;padding:24px 28px">time period (s) = 1 ÷ frequency (Hz)</td><td style="font-size:31px;padding:24px 28px">1 ÷ 1000 = 0.001 s</td></tr>
+    </table>
+  </div><div class="pn"><button type="button" data-to="3">◀ Back</button><button type="button" data-to="5">Next ▶</button></div></div><div class="part"><div class="test"><h4>Test yourself</h4><div class="qq">1. Is sound a transverse or a longitudinal wave?<span class="a">Longitudinal: the vibrations are parallel to the direction of travel.</span></div><div class="qq">2. What is the amplitude of a wave?<span class="a">The maximum movement of particles from their rest position (rest to crest).</span></div><div class="qq">3. A wave has f = 50 Hz and λ = 4 m. Find its speed.<span class="a">v = f × λ = 50 × 4 = 200 m/s</span></div><div class="qq">4. Name two waves that are transverse.<span class="a">Any two of: light (any EM wave), water ripples, waves on a rope.</span></div><div class="qq">5. A wave has a time period of 0.02 s. What is its frequency?<span class="a">f = 1 ÷ T = 1 ÷ 0.02 = 50 Hz</span></div><div class="qq">6. Why does a wave refract when it enters glass?<span class="a">It changes speed (slows down), so it changes direction.</span></div><div class="qq">7. An ambulance drives away from you. What happens to the pitch you hear?<span class="a">Lower pitch: the wavefronts are stretched, so λ is longer and f is lower.</span></div><div class="qq">8. A wave hits a barrier at 30° to the normal. What is the angle of reflection?<span class="a">30°, because angle of incidence = angle of reflection.</span></div></div><div class="pn"><button type="button" data-to="4">◀ Back</button><button type="button" data-to="6" disabled>Next ▶</button></div></div></div><script>(function(){var P=[].slice.call(document.querySelectorAll('.part')),B=[].slice.call(document.querySelectorAll('.snav button'));
+function go(i){P.forEach(function(p,k){p.classList.toggle('on',k==i)});B.forEach(function(b,k){b.classList.toggle('on',k==i)});window.scrollTo(0,0);try{history.replaceState(null,'','#s'+i)}catch(e){}}
+B.forEach(function(b,k){b.onclick=function(){go(k)}});
+document.querySelectorAll('.pn button').forEach(function(b){b.onclick=function(){go(+b.dataset.to)}});
+var h=+(location.hash.replace('#s','')||0);go(h>=0&&h<P.length?h:0)})();</script></body></html>
