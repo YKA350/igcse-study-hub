@@ -342,7 +342,7 @@ function header() {
     h.style.setProperty("--hero-bg", "linear-gradient(135deg, #6D5DD3 0%, #8E63D9 45%, #4A7BE0 100%)");
     h.style.setProperty("--hero-ink", "#4B3DB8"); h.style.setProperty("--on-c", "#fff");
     h.innerHTML = `${blobs}<h1>IGCSE Study Hub</h1>
-      <p>Notes, slides, checklists and quizzes for every subject. More subjects coming soon! 🚀</p>
+      <p>Notes, slides, checklists and quizzes for every subject.</p>
       <div class="row"><label class="search" for="q"><span aria-hidden="true">🔍</span><input id="q" type="search" placeholder="Search all subjects" autocomplete="off"></label></div>`;
   } else {
     const d = DATA[subj];
@@ -434,7 +434,7 @@ function homeCards() {
         ${lc ? `<div class="continue">Last opened: <a href="#${s}-ch-${lc.n}">Ch ${lc.n} ${esc(lc.title)}</a></div>` : ""}
         <div class="actions"><a class="btn primary" href="#${s}">Open ${d.name}</a>${EXAM[s] ? `<a class="btn quiz" href="#${s}-exam">📝 Exam questions</a>` : ""}<a class="btn quiz" href="#${s}-quiz">⚡ Quick quiz</a></div>
       </div></article>`;
-  }).join("")}<article class="scard soon"><div class="soonin"><span class="em" aria-hidden="true">🚀</span><h2>More subjects coming soon</h2><p>New subjects are on the way. Check back soon!</p></div></article></div>`;
+  }).join("")}</div>`;
 }
 
 function pageHTML() {
