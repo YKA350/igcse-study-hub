@@ -434,7 +434,7 @@ function homeCards() {
     return `<article class="scard" style="--c:${sColor(s)}">
       <div class="top"><span class="blob"></span><span class="em" aria-hidden="true">${d.icon}</span><div class="code">${d.code}</div><h2>${d.name}</h2><p>${d.tagline}</p></div>
       <div class="body">
-        <div class="stats"><div><b class="num">${d.ch.length}</b><span>chapters</span></div><div><b class="num">${d.ch.length}</b><span>${d.noslides ? "notes" : "decks + notes"}</span></div><div><b class="num">${tot}</b><span>${d.bychapter ? "sections" : "spec pts"}</span></div><div><b class="num">${nq}</b><span>quiz Qs</span></div></div>
+        <div class="stats"><div><b class="num">${d.ch.length}</b><span>chapters</span></div><div><b class="num">${d.ch.length}</b><span>${d.noslides ? "notes" : "decks + notes"}</span></div><div><b class="num">${tot}</b><span>${d.bychapter ? "sections" : "spec pts"}</span></div><div><b class="num">${nq || "∞"}</b><span>${nq ? "quiz Qs" : "fresh quiz Qs"}</span></div></div>
         <div class="mrow big">${ring(Math.round(d.ch.reduce((a, c) => a + mastery(s, c.n), 0) / d.ch.length), 64, "Subject mastery")}
           <div class="prog" style="flex:1"><span class="bar"><i style="width:${pct}%"></i></span><span>${done}/${tot} ${d.bychapter && !d.realspec ? "sections" : "spec"} ticked</span>
             <span style="flex-basis:100%">${d.ch.filter(c => BEST[`${s}-${c.n}`] != null).length}/${d.ch.length} chapter quizzes tried</span></div></div>
