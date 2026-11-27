@@ -4,7 +4,33 @@ const FIREBASE_KEY = "AIzaSyB_hcixGzbGWYpyf0-QC6sOhQgKe_628u0"; // public web ke
 const MODEL = "claude-haiku-5-5";
 const DAILY_LIMIT = 10;   // AI marks per student per day
 const TOTAL_LIMIT = 900;  // all students together per day (protects the free Gemini quota)
-const hits = new Map();
+const hits = new Map();   // fallback only, if the Firestore counter cannot be reached
+const FS = "https://firestore.googleapis.com/v1/projects/studygcse-29350/databases/(default)/documents";
+const today = () => Math.floor((Date.now() + 4 * 3600000) / 86400000); // Dubai day number (Firestore rules use the same)
+
+// Counter stored in Firestore under the student's own sign-in. The security rules only allow
+// +1 per write, on today's day number, up to the limit, so counts cannot be reset or edited.
+async function readCount(token, path) {
+  const r = await fetch(`${FS}/${path}`, {headers: {Authorization: `Bearer ${token}`}, signal: AbortSignal.timeout(5000)});
+  if (r.status === 404) return {n: 0, pre: "currentDocument.exists=false"};
+  if (!r.ok) throw new Error("fs " + r.status);
+  const j = await r.json(), f = j.fields || {};
+  const n = f.day && +f.day.integerValue === today() ? +(f.n && f.n.integerValue || 0) : 0;
+  return {n, pre: `currentDocument.updateTime=${encodeURIComponent(j.updateTime)}`};
+}
+async function bump(token, path) {
+  for (let k = 0; k < 4; k++) {
+    const c = await readCount(token, path);
+    const r = await fetch(`${FS}/${path}?${c.pre}`, {
+      method: "PATCH", signal: AbortSignal.timeout(5000),
+      headers: {Authorization: `Bearer ${token}`, "content-type": "application/json"},
+      body: JSON.stringify({fields: {day: {integerValue: String(today())}, n: {integerValue: String(c.n + 1)}}})
+    });
+    if (r.ok) return true;
+    if (r.status !== 400 && r.status !== 409) return false; // 403 = over the limit
+  }
+  return false;
+}
 
 async function uidFromToken(token) {
   const r = await fetch(`https://identitytoolkit.googleapis.com/v1/accounts:lookup?key=${FIREBASE_KEY}`, {
@@ -23,9 +49,15 @@ module.exports = async (req, res) => {
     const uid = token ? await uidFromToken(token) : null;
     if (!uid) return res.status(401).json({error: "Please sign in to check your answers."});
     if (typeof question !== "string" || !Array.isArray(scheme) || typeof answer !== "string") return res.status(400).json({error: "Bad request."});
-    const day = new Date(Date.now() + 4 * 3600000).toISOString().slice(0, 10); // Dubai day
-    if (hits.get("day") !== day) { hits.clear(); hits.set("day", day); }
-    const used = hits.get(uid) || 0, total = hits.get("total") || 0;
+    let used = 0, total = 0, useFS = true;
+    try {
+      [used, total] = (await Promise.all([readCount(token, `checks/${uid}`), readCount(token, "totals/all")])).map(c => c.n);
+    } catch (e) {
+      useFS = false;
+      const day = String(today());
+      if (hits.get("day") !== day) { hits.clear(); hits.set("day", day); }
+      used = hits.get(uid) || 0; total = hits.get("total") || 0;
+    }
     if (used >= DAILY_LIMIT) return res.status(429).json({error: `You have used all ${DAILY_LIMIT} checks for today. They reset tomorrow.`, remaining: 0});
     if (total >= TOTAL_LIMIT) return res.status(429).json({error: "Checking has reached its limit for today. Try again tomorrow."});
     const a = answer.slice(0, 3000), q = question.slice(0, 1500), m = Math.max(1, Math.min(6, +marks || 1));
@@ -71,7 +103,8 @@ Reply with only JSON: {"points":[indices of mark scheme points the student earne
       text = (j.content && j.content[0] && j.content[0].text) || "";
     }
     const parsed = JSON.parse(text.slice(text.indexOf("{"), text.lastIndexOf("}") + 1));
-    hits.set(uid, used + 1); hits.set("total", total + 1);
+    if (useFS) { await Promise.all([bump(token, `checks/${uid}`), bump(token, "totals/all")]).catch(() => {}); }
+    else { hits.set(uid, used + 1); hits.set("total", total + 1); }
     const pts = [...new Set((parsed.points || []).filter(i => Number.isInteger(i) && i >= 0 && i < scheme.length))];
     res.status(200).json({points: pts, marks: Math.min(m, pts.length), feedback: String(parsed.feedback || "").slice(0, 600), remaining: DAILY_LIMIT - used - 1});
   } catch (e) {
