@@ -375,15 +375,22 @@ function matches(s, c, q) {
     d.specmap[c.n].some(id => { const l = id.toLowerCase(); return l === q || l.replace(d.only.toLowerCase(), "") === q || (q.length > 3 && d.spectxt[id].toLowerCase().includes(q)); });
 }
 
+function bestOf(s, n) {
+  const b = BEST[`${s}-${n}`];
+  if (b == null) return null;
+  if (typeof b === "object") return b;
+  const t = (QUIZ[s][n] || []).length ? Math.min(10, QUIZ[s][n].length) : 10;
+  return {s: Math.min(b, t), t};
+}
 function bestBadge(s, n) {
-  const b = BEST[`${s}-${n}`], tot = (QUIZ[s][n] || []).length ? Math.min(10, QUIZ[s][n].length) : 10;
-  if (b == null) return `<span class="badge">Quiz: not tried</span>`;
-  return `<span class="badge ${b === tot ? "good" : ""}">Quiz best ${b}/${tot}</span>`;
+  const b = bestOf(s, n);
+  if (!b) return `<span class="badge">Quiz: not tried</span>`;
+  return `<span class="badge ${b.s === b.t ? "good" : ""}">Quiz best ${b.s}/${b.t}</span>`;
 }
 
 function mastery(s, n) {
   const ids = DATA[s].specmap[n], sp = specDone(s, n) / ids.length;
-  const b = BEST[`${s}-${n}`], qz = b == null ? 0 : b / ((QUIZ[s][n] || []).length ? Math.min(10, QUIZ[s][n].length) : 10);
+  const b = bestOf(s, n), qz = b ? b.s / b.t : 0;
   return Math.round((sp + qz) / 2 * 100);
 }
 const ring = (pct, size, label) => `<span class="mring" style="--p:${pct};--sz:${size}px" title="${label}"><span class="num">${pct}%</span></span>`;
@@ -755,7 +762,7 @@ function answer(k) {
 }
 function finish() {
   const tot = QZ.items.length, pct = Math.round(QZ.score / tot * 100);
-  if (QZ.n) { const key = `${QZ.s}-${QZ.n}`; if (BEST[key] == null || QZ.score > BEST[key]) { BEST[key] = QZ.score; save("sciQuizBest", BEST); } }
+  if (QZ.n) { const key = `${QZ.s}-${QZ.n}`; const old = bestOf(QZ.s, QZ.n); if (!old || QZ.score / tot > old.s / old.t) { BEST[key] = {s: QZ.score, t: tot}; save("sciQuizBest", BEST); } }
   const msg = pct === 100 ? "Perfect score! 🎉" : pct >= 80 ? "Great work! 🌟" : pct >= 50 ? "Good effort — nearly there 💪" : "Keep revising — you've got this 📚";
   const again = QZ.n ? `#${QZ.s}-quiz-${QZ.n}` : `#${QZ.s}-quiz`;
   $("#quiz").innerHTML = `<div class="result"><div class="ring" style="--p:${pct}"><div class="num">${QZ.score}/${tot}</div></div><h3>${msg}</h3>
