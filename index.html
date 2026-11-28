@@ -351,7 +351,7 @@ function header() {
     h.innerHTML = `${blobs}<h1>${d.icon} IGCSE ${d.name}</h1>
       <p>Pearson Edexcel International GCSE ${d.name} (${d.code}) · ${d.units.length} units · ${d.ch.length} chapters</p>
       <div class="row"><label class="search" for="q"><span aria-hidden="true">🔍</span><input id="q" type="search" placeholder="Search chapters or spec points" autocomplete="off"></label>
-        ${EXAM[subj] ? `<a class="hbtn" href="#${subj}-exam">📝 Exam questions</a>` : ""}<a class="hbtn" href="#${subj}-quiz">⚡ Mixed quiz</a><a class="hbtn ghost" href="#${subj}-spec">✓ Spec checklist</a></div>`;
+        ${EXAM[subj] ? `<a class="hbtn" href="#${subj}-exam">📝 Exam questions</a>` : ""}${(window.SITE && SITE.videos && SITE.videos[subj]) ? `<a class="hbtn" href="${SITE.videos[subj]}" target="_blank" rel="noopener">▶ Watch videos</a>` : ""}<a class="hbtn" href="#${subj}-quiz">⚡ Mixed quiz</a><a class="hbtn ghost" href="#${subj}-spec">✓ Spec checklist</a></div>`;
   }
   const q = $("#q"); q.value = query;
   q.addEventListener("input", e => { query = e.target.value; renderList(); });
